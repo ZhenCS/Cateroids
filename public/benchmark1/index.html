@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.9.3/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.9.3/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.9.3/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.9.3/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.9.3/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+    <style>
+      #gameName {font-size: 45px;}
+      strong {font-size: 20px;}
+      span {font-size: 18px;}
+    </style>
+  </head>
+  <body>
+    <div id="gdd">
+        <div id = "gddText">
+          <p><strong id = "gameName">Cateroids</strong></p>
+          <p><strong>Game Design Document</strong></p>
+          <p><strong>By Zheng Lu, Alex Espinal, Kyle Simon</strong></p>
+          <p><br /><br /></p>
+
+
+          <p><strong>Introduction</strong></p>
+          <p><span>This document describes a game called &ldquo;Cateroids&rdquo;, which is a 2D run and gun side scroller game. The game will employ sprite-based animations, physics, AI, side scrolling, and multiplayer.</span></p>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Technology</strong></p>
+          <p><span>This game will be developed using Phaser 3, a javascript game engine that uses WebGL to create browser games.</span></p>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Back Story</strong></p>
+          <p><span>It is a period of uncivil war. Feline spaceships, pouncing from a hidden base, have won the first victory against the evil Galactic Pawpire. During the battle, Feline spies managed to steal secret plans to the Pawpire&rsquo;s ultimate weapon, the WOLF STAR, an armored space station with enough power to destroy the entire feline race.</span></p>
+          <p>&nbsp;</p>
+          <p><span>Leonardo DaCatmeow, races to his home LitterBox-380.01 in the Alpha-Catauri Quadrant with the stolen plans in hand that can save his people&hellip;.</span></p>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Objective</strong></p>
+          <p><span>Leonardo DaCatmeow&rsquo;s goal is to find his way back home to deliver the stolen plans. But through his travels, the Galactic Pawpire has sent out troops to stop Leonardo. Leonardo must traverse his way through an asteroid filled space while destroying his enemies.</span></p>
+          <p>&nbsp;</p>
+          <p><span>The Galactic Pawpire has to take back the stolen plans or they face extinction. They will do whatever it takes to get it back. However, resources are limited and the Galactic Pawpire must strategize on how it will send out their limited amount of troops to defeat Leonardo.</span></p>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Gameplay</strong></p>
+          <p><span>The game will work like a side scroller. Leonardo will be able to move freely in space in all directions but the screen will only scroll right. Leonardo will be able to shoot enemies and use his grappling hook to attach to asteroids and avoid enemy attacks. His ship has been damaged after stealing the secret plans </span><span>and his oxygen depletes over time. He must land on oxygen filled asteroids to replenish his oxygen.</span></p>
+          <p><br /><br /><br /></p>
+
+
+          <p><strong>Player 1 Controls</strong></p>
+          <ul>
+            <li><span>Moving the mouse - change the direction of where the cat aims</span></li>
+            <li><span>Left click - shoot gun</span></li>
+            <li><span>WASD - move the cat</span></li>
+            <li><span>1 - 0 &nbsp;- switch to different weapons</span></li>
+            <li><span>Shift - cast and reel grappling hook</span></li>
+          </ul>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Player 2 Controls</strong></p>
+          <ul>
+            <li><span>Mouse Click - choose which enemies to place on the field and choose a position to place them</span></li>
+          </ul>
+
+
+          <p><strong>User Interface</strong></p>
+          <ul>
+            <li><span>Splash Screen - includes the game logo and start button to take the user to the start screen. Hype music will play in the background.</span></li>
+            <li><span>Start Screen Menu- The start screen menu will come after the splash screen. It will have the following options:</span></li>
+          <ul>
+            <li><span>Start new game - takes the user into the multiplayer selection screen</span></li>
+            <li><span>Controls - show controls for both players</span></li>
+            <li><span>About - show information about the game authors</span></li>
+          </ul>
+          <li><span>Multiplayer Selection Screen - this is where the players decide on which player they want to be. After choosing the characters, the game will start after pressing the start game button. The choices will be:</span></li>
+          <ul>
+            <li><span>Cat - the main protagonist of the story</span></li>
+            <li><span>Dog - the main antagonist of the story</span></li>
+            <li><span>Start Game - only works after both players chooses one player</span></li>
+            <li><span>Back - return to the start screen menu</span></li>
+          </ul>
+            <li><span>In Game GUI - the following will be displayed at all times:</span></li>
+          <ul>
+            <li><span>Player 1</span></li>
+          <ul>
+            <li><span>health meter</span></li>
+            <li><span>oxygen meter</span></li>
+            <li><span>ammo counter</span></li>
+            <li><span>different weapons</span></li>
+            <li><span>currency counter</span></li>
+          </ul>
+            <li><span>Player 2</span></li>
+          <ul>
+            <li><span>Troop counter</span></li>
+            <li><span>Attack counter</span></li>
+          </ul>
+          </ul>
+            <li><span>Game over - when the main protagonist loses all its health. The following choices will appear</span></li>
+          <ul>
+            <li><span>Restart - takes both players back to the first level</span></li>
+            <li><span>Exit - exit the game in-progress and takes the user to the splash page</span></li>
+          </ul>
+            <li><span>End screen - when the main protagonist completes the game. A thank you for playing message will show and credits will roll.</span></li>
+            <li><span>Pause screen - when the user presses the ESC key, a pause menu will appear which will freeze all movement in the game. The pause screen will have the following options:</span></li>
+          <ul>
+            <li><span>Resume game - continue playing the game</span></li>
+            <li><span>Controls - show a diagram of the controls</span></li>
+            <li><span>Exit game - exit the game and take the user to the splash screen</span></li>
+          </ul>
+          </ul>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Game Mechanics</strong></p>
+          <ul>
+            <li><span>Player 1</span></li>
+          <ul>
+            <li><span>Asteroids and enemies spawn randomly</span></li>
+            <li><span>Oxygen decreases over time</span></li>
+            <li><span>If oxygen is low - the player must land on a special type of asteroid and defend from waves of enemies while oxygen is being replenished.</span></li>
+            <li><span>If hit by an enemy or asteroid - reduce health</span></li>
+            <li><span>Use grappling hook to increase velocity and to land on asteroids. After a certain amount of time, the player slows down and goes back to normal</span></li>
+          </ul>
+            <li><span>Player 2</span></li>
+          <ul>
+            <li><span>Spawn in troops</span></li>
+            <li><span>Trigger events and attacks</span></li>
+          </ul>
+          </ul>
+          <p>&nbsp;</p>
+
+
+          <p><strong>Assets</strong></p>
+          <ul>
+            <li><span>Art Work: all artwork in the game will be original. </span></li>
+            <li><span>Sprites:</span></li>
+          <ul>
+            <li><span>Main character - cat inside a spaceship. We will need the animations for:</span></li>
+          <ul>
+            <li><span>Moving - flipping and rotating will be used to mimic different movements</span></li>
+            <li><span>Attacking</span></li>
+            <li><span>Taking damage</span></li>
+            <li><span>Dying</span></li>
+          </ul>
+            <li><span>Asteroids - there will be 4 types of asteroids: small, medium, large, and the oxygen asteroid. Each will need the following animations:</span></li>
+          <ul>
+            <li><span>Breaking</span></li>
+          </ul>
+            <li><span>Enemies - dog aliens. Different breeds will have different behaviors/abilities. Each alien will need the following animations:</span></li>
+          <ul>
+            <li><span>Moving</span></li>
+            <li><span>Attacking</span></li>
+            <li><span>Dying</span></li>
+          </ul>
+            <li><span>Boss - the boss at the end of the game. We will need the animations for:</span></li>
+          <ul>
+            <li><span>Attacking</span></li>
+            <li><span>Taking damage</span></li>
+            <li><span>Dying</span></li>
+          </ul>
+            <li><span>Weapons - The following weapons will be used by the main protagonist:</span></li>
+          <ul>
+            <li><span>Gun - shoots a basic ball of energy</span></li>
+          </ul>
+            <li><span>Background - The background artwork that will appear behind all the levels</span></li>
+          </ul>
+            <li><span>Music: all music and sound effects will be original.</span></li>
+            <li><span>Sound Effects:</span></li>
+          <ul>
+            <li><span>Shooting</span></li>
+            <li><span>Enemy attack</span></li>
+            <li><span>Damage taken</span></li>
+            <li><span>Oxygen completely refilled</span></li>
+          </ul>
+          </ul>
+          <p><br /><br /><br /></p>
+          
+      </div>
+
+      <p><strong>User Interface Wireframes</strong></p>
+      <figure>
+          <img src="assets/gdd/SplashScreen.png">
+          <figcaption>The Cateroids splash screen</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/MainMenu.png">
+          <figcaption>The Cateroids main menu</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/LevelSelect.png">
+          <figcaption>The Cateroids level select screen</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/HelpScreen1.png">
+          <figcaption>Help screen 1</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/HelpScreen2.png">
+          <figcaption>Help screen 2</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/HelpScreen3.png">
+          <figcaption>Help screen 3</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/CatControlScreen.png">
+          <figcaption>The controls for the cat, our protagonist</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/CatGameScreen.png">
+          <figcaption>The game screen of the cat</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/DogControlScreen.png">
+          <figcaption>The controls for the dog, our antagonist</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/gdd/DogGameScreen.png">
+          <figcaption>The game screen of the dog</figcaption>
+      </figure>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>
