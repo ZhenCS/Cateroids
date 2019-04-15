@@ -39,6 +39,8 @@ class Dog extends Entity {
             const angle = Math.atan2(dy, dx);
 
             const bullet = new Bullet(this.scene, this.x, this.y, false);
+            bullet.setTint(0x142bff);
+            bullet.setRotation(angle);
             bullet.setData('isFriendly', false);
             this.setScale(0.3, 0.3);
             bullet.body.setVelocity(
@@ -48,9 +50,10 @@ class Dog extends Entity {
             this.scene.bullets.add(bullet);
           } else if (key == 'dogLarge') {
             const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
-
+            
             const bullet = new Bullet(this.scene, this.x, this.y, false);
             bullet.setData('isFriendly', false);
+            bullet.setRotation(angle);
             this.setScale(0.6, 0.6);
             bullet.body.setVelocity(
               100 * Math.cos(angle),
@@ -76,7 +79,7 @@ class Dog extends Entity {
 
 class Bullet extends Entity {
   constructor(scene, x, y, isFriendly) {
-    super(scene, x, y, 'sprBullet');
+    super(scene, x, y, keys.BULLETKEY);
     this.setData('isFriendly', isFriendly);
   }
 }
@@ -115,9 +118,11 @@ class Leo extends Entity {
 
   shoot(pointerX, pointerY) {
     const bullet = new Bullet(this.scene, this.x, this.y, true);
+    bullet.setTint(0xf90018);
     bullet.setOrigin(0.5);
     bullet.setData('isFriendly', true);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
+    bullet.setRotation(angle);
     const speed = 1000;
     bullet.body.setVelocity(
       // TODO: Set this in the direction of mouse click

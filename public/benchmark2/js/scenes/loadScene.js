@@ -8,8 +8,9 @@ class LoadScene extends Phaser.Scene {
     this.load.image(keys.BGKEY, 'assets/bg.jpg');
     this.load.image(keys.NAMEKEY, 'assets/gameName.png');
     this.load.image('sprIconLife', 'content/sprIconLife.png');
+    this.load.image(keys.PIXELKEY, 'assets/pixel.png');
     // this.load.image('sprPlayer', 'assets/cat.png');
-    this.load.image('sprBullet', 'content/sprBullet.png');
+    this.load.image(keys.BULLETKEY, 'assets/bullet.png');
     // this.load.image('dogSmall', 'assets/dog.png');
     // this.load.image('dogLarge', 'assets/dog.png');
 
@@ -27,7 +28,7 @@ class LoadScene extends Phaser.Scene {
       this.load.image('sprAsteroid' + i, 'assets/asteroidBig.png');
     }
 
-    this.load.image('sprPixel', 'content/sprPixel.png');
+    
   }
 
   create() {
