@@ -10,7 +10,7 @@ const config = {
       gravity: { x: 0, y: 0 }
     }
   },
-  scene: [SplashScene, LoadScene, SceneMainMenu, SceneMain],
+  scene: [LoadScene, SplashScene, SceneMainMenu, SceneMain],
   pixelArt: true,
   roundPixels: true
 };
@@ -37,18 +37,18 @@ window.addEventListener(
 );
 
 window.addEventListener('click', function(event) {
-  if (this.Phaser.Game.scene.isActive(keys.SPLASHKEY)) {
-    this.game.scene.switch(keys.SPLASHKEY, keys.STARTKEY);
+  if (game.scene.isActive(keys.SPLASHKEY)) {
+    game.scene.switch(keys.SPLASHKEY, keys.GAMEKEY);
   }
 });
 
 window.addEventListener('keydown', function(event) {
-  if (this.game.scene.isActive(keys.STARTKEY) && event.key == 'Escape') {
-    this.game.scene.switch(keys.STARTKEY, keys.SPLASHKEY);
+  if (game.scene.isActive(keys.STARTKEY) && event.key == 'Escape') {
+    game.scene.switch(keys.STARTKEY, keys.SPLASHKEY);
   }
 
-  if (this.game.scene.isActive(keys.GAMEKEY) && event.key == 'Escape') {
-    this.game.scene.getScene(keys.GAMEKEY).showPauseMenu();
+  if (game.scene.isActive(keys.GAMEKEY) && event.key == 'Escape') {
+    game.scene.getScene(keys.GAMEKEY).showPauseMenu();
   }
 });
 const game = new Phaser.Game(config);

@@ -4,6 +4,8 @@ class LoadScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image(keys.LOGOKEY, 'assets/logo.png');
+    this.load.image(keys.NAMEKEY, 'assets/gameName.png');
     this.load.image('sprIconLife', 'content/sprIconLife.png');
     this.load.image('sprPlayer', 'assets/cat.png');
     this.load.image('sprBullet', 'content/sprBullet.png');
@@ -21,6 +23,6 @@ class LoadScene extends Phaser.Scene {
 
   create() {
     this.scene.stop(this);
-    this.scene.start(keys.GAMEKEY);
+    this.scene.start(keys.SPLASHKEY);
   }
 }
