@@ -8,6 +8,7 @@ class SceneMain extends Phaser.Scene {
   preload() {}
 
   create() {
+    this.initAnimations();
     if (
       Object.getOwnPropertyNames(this.passingData).length == 0 &&
       this.passingData.constructor === Object
@@ -24,7 +25,7 @@ class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
-
+    this.player.play(keys.IDLEKEY);
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.saucers = this.add.group();
@@ -376,6 +377,36 @@ class SceneMain extends Phaser.Scene {
   addScore(amount) {
     this.score += amount;
     this.textScore.setText(this.score);
+  }
+
+  initAnimations(){
+    this.anims.create({
+      key: keys.IDLEKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 1, end: 7, zeroPad: 0 }),
+      frameRate: 2,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: keys.ATTACKKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 8, end: 9, zeroPad: 0 }),
+      frameRate: 4,
+      repeat: 1
+    });
+
+    this.anims.create({
+      key: keys.DAMAGEKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 10, end: 12, zeroPad: 0 }),
+      frameRate: 4,
+      repeat: 1
+    });
+
+    this.anims.create({
+      key: keys.DYINGKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 13, end: 16, zeroPad: 0 }),
+      frameRate: 4,
+      repeat: 1
+    });
   }
 
   update() {
