@@ -2,10 +2,10 @@ const gameScale = {
   scale: window.innerHeight / 1600
 };
 
-const levelsStyle = {
+var levelsStyle = {
   paddingStars: 50 * gameScale.scale,
-  ist: 600 * gameScale.scale,
-  iconSpace: 220 * gameScale.scale
+  iconY: 600 * gameScale.scale,
+  iconSpace: 180 * gameScale.scale
 };
 
 const gameStyles = {
