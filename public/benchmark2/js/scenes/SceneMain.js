@@ -25,7 +25,6 @@ class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
-    this.player.play(keys.IDLEKEY);
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.dogs = this.add.group();
@@ -56,7 +55,7 @@ class SceneMain extends Phaser.Scene {
       this.time.addEvent({
         delay: 3000,
         callback: function() {
-          this.scene.start('SceneMain', {});
+          this.scene.start(keys.GAMEKEY, {});
         },
         callbackScope: this,
         loop: false
@@ -258,158 +257,6 @@ class SceneMain extends Phaser.Scene {
     );
   }
 
-  createLivesIcons() {
-    for (let i = 0; i < this.passingData.lives; i++) {
-      const icon = this.add.sprite(
-        this.textScore.x + i * 16 + 12,
-        this.textScore.y + 42,
-        'sprIconLife'
-      );
-      icon.setOrigin(0.5);
-      this.iconLives.add(icon);
-    }
-  }
-
-  createExplosion(x, y, amount) {
-    const explosion = this.add.particles('sprPixel').createEmitter({
-      x: x,
-      y: y,
-      speed: { min: -500, max: 500 },
-      scale: { start: 1, end: 0 },
-      blendMode: 'SCREEN',
-      lifespan: 600
-    });
-
-    for (let i = 0; i < amount; i++) {
-      explosion.explode();
-    }
-  }
-
-  onLifeDown() {
-    if (this.passingData.lives > 0) {
-      this.passingData.lives--;
-
-      this.time.addEvent({
-        delay: 1000,
-        callback: function() {
-          this.scene.start('SceneMain', this.passingData);
-        },
-        callbackScope: this,
-        loop: false
-      });
-    } else {
-      this.passingData.lives = 0;
-    }
-  }
-
-  getSpawnPosition() {
-    const sides = ['top', 'right', 'bottom', 'left'];
-    const side = sides[Phaser.Math.Between(0, sides.length - 1)];
-
-    let position = new Phaser.Math.Vector2(0, 0);
-    switch (side) {
-      case 'top': {
-        position = new Phaser.Math.Vector2(
-          Phaser.Math.Between(0, this.game.config.width),
-          -128
-        );
-        break;
-      }
-
-      case 'right': {
-        position = new Phaser.Math.Vector2(
-          this.game.config.width + 128,
-          Phaser.Math.Between(0, this.game.config.height)
-        );
-        break;
-      }
-
-      case 'bottom': {
-        position = new Phaser.Math.Vector2(
-          Phaser.Math.Between(0, this.game.config.width),
-          this.game.config.height + 128
-        );
-      }
-
-      case 'left': {
-        position = new Phaser.Math.Vector2(
-          0,
-          Phaser.Math.Between(-120, this.game.config.height)
-        );
-      }
-    }
-
-    return position;
-  }
-
-  spawnAsteroid() {
-    const position = this.getSpawnPosition();
-
-    const asteroid = new Asteroid(
-      this,
-      position.x,
-      position.y,
-      'sprAsteroid' + Phaser.Math.Between(0, 3)
-    );
-
-    if (
-      asteroid.texture.key == 'sprAsteroid0' ||
-      asteroid.texture.key == 'sprAsteroid1'
-    ) {
-      asteroid.setData('level', 1);
-    }
-
-    this.asteroids.add(asteroid);
-  }
-
-  spawnDog() {
-    const position = this.getSpawnPosition();
-
-    let imageKey = '';
-    if (Phaser.Math.Between(0, 10) > 5) {
-      imageKey = keys.DOGKEY;
-    } else {
-      imageKey = keys.DOGKEY;
-    }
-    const dog = new Dog(this, position.x, position.y, imageKey);
-    this.dogs.add(dog);
-  }
-
-  addScore(amount) {
-    this.score += amount;
-    this.textScore.setText(this.score);
-  }
-
-  initAnimations(){
-    this.anims.create({
-      key: keys.IDLEKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 1, end: 7, zeroPad: 0 }),
-      frameRate: 2,
-      repeat: -1
-    });
-
-    this.anims.create({
-      key: keys.ATTACKKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 8, end: 9, zeroPad: 0 }),
-      frameRate: 4,
-      repeat: 1
-    });
-
-    this.anims.create({
-      key: keys.DAMAGEKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 10, end: 12, zeroPad: 0 }),
-      frameRate: 4,
-      repeat: 1
-    });
-
-    this.anims.create({
-      key: keys.DYINGKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 13, end: 16, zeroPad: 0 }),
-      frameRate: 4,
-      repeat: 1
-    });
-  }
-
   update() {
     if (this.player.active) {
       this.player.update();
@@ -510,5 +357,274 @@ class SceneMain extends Phaser.Scene {
         }
       }
     }
+  }
+
+  createLivesIcons() {
+    for (let i = 0; i < this.passingData.lives; i++) {
+      const icon = this.add.sprite(
+        this.textScore.x + i * 16 + 12,
+        this.textScore.y + 42,
+        'sprIconLife'
+      );
+      icon.setOrigin(0.5);
+      this.iconLives.add(icon);
+    }
+  }
+
+  createExplosion(x, y, amount) {
+    const explosion = this.add.particles('sprPixel').createEmitter({
+      x: x,
+      y: y,
+      speed: { min: -500, max: 500 },
+      scale: { start: 1, end: 0 },
+      blendMode: 'SCREEN',
+      lifespan: 600
+    });
+
+    for (let i = 0; i < amount; i++) {
+      explosion.explode();
+    }
+  }
+
+  onLifeDown() {
+    if (this.passingData.lives > 0) {
+      this.passingData.lives--;
+
+      this.time.addEvent({
+        delay: 1000,
+        callback: function() {
+          this.scene.start(keys.GAMEKEY, this.passingData);
+        },
+        callbackScope: this,
+        loop: false
+      });
+    } else {
+      this.passingData.lives = 0;
+    }
+  }
+
+  getSpawnPosition() {
+    const sides = ['top', 'right', 'bottom', 'left'];
+    const side = sides[Phaser.Math.Between(0, sides.length - 1)];
+
+    let position = new Phaser.Math.Vector2(0, 0);
+    switch (side) {
+      case 'top': {
+        position = new Phaser.Math.Vector2(
+          Phaser.Math.Between(0, this.game.config.width),
+          -128
+        );
+        break;
+      }
+
+      case 'right': {
+        position = new Phaser.Math.Vector2(
+          this.game.config.width + 128,
+          Phaser.Math.Between(0, this.game.config.height)
+        );
+        break;
+      }
+
+      case 'bottom': {
+        position = new Phaser.Math.Vector2(
+          Phaser.Math.Between(0, this.game.config.width),
+          this.game.config.height + 128
+        );
+      }
+
+      case 'left': {
+        position = new Phaser.Math.Vector2(
+          0,
+          Phaser.Math.Between(-120, this.game.config.height)
+        );
+      }
+    }
+
+    return position;
+  }
+
+  spawnAsteroid() {
+    const position = this.getSpawnPosition();
+
+    const asteroid = new Asteroid(
+      this,
+      position.x,
+      position.y,
+      'sprAsteroid' + Phaser.Math.Between(0, 3)
+    );
+
+    if (
+      asteroid.texture.key == 'sprAsteroid0' ||
+      asteroid.texture.key == 'sprAsteroid1'
+    ) {
+      asteroid.setData('level', 1);
+    }
+
+    this.asteroids.add(asteroid);
+  }
+
+  spawnDog() {
+    const position = this.getSpawnPosition();
+
+    let imageKey = '';
+    if (Phaser.Math.Between(0, 10) > 5) {
+      imageKey = keys.DOGKEY;
+    } else {
+      imageKey = keys.DOGKEY;
+    }
+    const dog = new Dog(this, position.x, position.y, imageKey);
+    this.dogs.add(dog);
+  }
+
+  addScore(amount) {
+    this.score += amount;
+    this.textScore.setText(this.score);
+  }
+
+  initAnimations() {
+    this.anims.create({
+      key: keys.IDLEKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 1,
+        end: 7,
+        zeroPad: 0
+      }),
+      frameRate: 2,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: keys.ATTACKKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 8,
+        end: 9,
+        zeroPad: 0
+      }),
+      frameRate: 4,
+      repeat: 1
+    });
+
+    this.anims.create({
+      key: keys.DAMAGEKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 10,
+        end: 12,
+        zeroPad: 0
+      }),
+      frameRate: 4,
+      repeat: 1
+    });
+
+    this.anims.create({
+      key: keys.DYINGKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 13,
+        end: 16,
+        zeroPad: 0
+      }),
+      frameRate: 4,
+      repeat: 1
+    });
+  }
+
+  initGameOverMenu() {
+    let gameOverContainer = this.add.container();
+    let gameOverHeader = this.add.text(0, 100 * gameScale.scale, 'Game Over', {
+      font: `${100 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    });
+
+    centerX(this, gameOverHeader);
+    let restartButton = this.createButton(200 * gameScale.scale, 'Resume Game');
+
+    gameOverContainer.depth = gameConsts.menuDepth;
+    gameOverContainer.visible = false;
+    gameOverContainer.add([gameOverHeader, restartButton]);
+
+    return gameOverContainer;
+  }
+
+  createButton(yPosition, text) {
+    let button = this.add
+      .text(0, yPosition, text, {
+        font: `${100 * gameScale.scale}px impact`,
+        fill: '#ffffff',
+        stroke: 'black',
+        strokeThickness: 5
+      })
+      .setInteractive({ cursor: 'pointer' });
+
+    centerX(this, button);
+    button.depth = gameConsts.uiDepth;
+
+    button.on('pointerover', function() {
+      this.alpha = 0.5;
+    });
+
+    button.on('pointerout', function() {
+      this.alpha = 1;
+    });
+
+    return button;
+  }
+
+  gameScene() {
+    this.pauseContainer.visible = false;
+    this.pauseButton.setInteractive().visible = true;
+    //resume game
+  }
+
+  initPauseMenu() {
+    let pauseContainer = this.add.container();
+    let pauseHeader = this.add.text(0, 100 * gameScale.scale, 'Paused', {
+      font: `${100 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    });
+    centerX(this, pauseHeader);
+    let resumeButton = this.createButton(
+      500 * gameScale.scale,
+      'Resume Game'
+    ).on('pointerdown', function() {
+      this.scene.hidePauseMenu();
+    });
+    let controlButton = this.createButton(700 * gameScale.scale, 'Controls').on(
+      'pointerdown',
+      function() {
+        this.scene.showControls();
+      }
+    );
+    let exitGameButton = this.createButton(
+      900 * gameScale.scale,
+      'Exit Game'
+    ).on('pointerdown', function() {
+      this.scene.game.scene.switch(keys.GAMEKEY, keys.STARTKEY);
+      this.scene.game.scene.stop(keys.GAMEKEY);
+    });
+
+    pauseContainer.depth = gameConsts.menuDepth;
+    pauseContainer.visible = false;
+    pauseContainer.add([
+      pauseHeader,
+      resumeButton,
+      controlButton,
+      exitGameButton
+    ]);
+    pauseContainer.gameButtons = [resumeButton, controlButton, exitGameButton];
+    return pauseContainer;
+  }
+
+  showPauseMenu() {
+    this.pauseContainer.visible = true;
+    this.pauseButton.removeInteractive().visible = false;
+
+    //pause game
   }
 }
