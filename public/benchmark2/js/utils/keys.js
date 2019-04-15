@@ -8,7 +8,7 @@ const keys = {
   BGKEY: 'bg',
   CONTROLS1KEY: 'controls1',
   HELPKEY: 'HelpScene',
-  LEVELSKEY: 'levels',
+  LEVELSKEY: 'LevelSelectScene',
   ASTEROIDKEY: 'asteroid',
   LEVELICON: 'levelIcon',
   BACKKEY: 'back',
