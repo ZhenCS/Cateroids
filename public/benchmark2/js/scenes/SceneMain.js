@@ -289,7 +289,7 @@ class SceneMain extends Phaser.Scene {
       }
 
       if (moved) {
-        const gas = this.add.particles('sprPixel').createEmitter({
+        const gas = this.add.particles(keys.PIXELKEY).createEmitter({
           x: this.player.x + Phaser.Math.Between(-2, 2),
           y: this.player.y + Phaser.Math.Between(-2, 2),
           speed: { min: -200, max: 200 },
