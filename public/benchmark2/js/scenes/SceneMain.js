@@ -73,7 +73,7 @@ class SceneMain extends Phaser.Scene {
       'pointerdown',
       function(pointer) {
         if (this.player.active) {
-          this.player.shoot();
+          this.player.shoot(pointer.x, pointer.y);
         }
       },
       this

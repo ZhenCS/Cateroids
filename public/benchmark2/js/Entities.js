@@ -113,16 +113,16 @@ class Leo extends Entity {
     this.body.velocity.y -= 2 - boost;
   }
 
-  shoot() {
+  shoot(pointerX, pointerY) {
     const bullet = new Bullet(this.scene, this.x, this.y, true);
     bullet.setOrigin(0.5);
     bullet.setData('isFriendly', true);
-
+    let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
     const speed = 1000;
     bullet.body.setVelocity(
       // TODO: Set this in the direction of mouse click
-      speed * Math.cos(this.rotation) + Phaser.Math.Between(-50, 50),
-      speed * Math.sin(this.rotation) + Phaser.Math.Between(-50, 50)
+      speed * Math.cos(angle) + Phaser.Math.Between(-50, 50),
+      speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
     );
     this.scene.bullets.add(bullet);
   }
