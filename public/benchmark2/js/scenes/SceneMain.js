@@ -9,6 +9,9 @@ class SceneMain extends Phaser.Scene {
 
   create() {
     this.initAnimations();
+    this.pauseContainer = this.initPauseMenu();
+    this.gameOverContainer = this.initGameOverMenu();
+    this.controlContainer = this.initControls();
     if (
       Object.getOwnPropertyNames(this.passingData).length == 0 &&
       this.passingData.constructor === Object
@@ -25,7 +28,6 @@ class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
-    this.player.play(keys.IDLEKEY);
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.dogs = this.add.group();
@@ -56,7 +58,7 @@ class SceneMain extends Phaser.Scene {
       this.time.addEvent({
         delay: 3000,
         callback: function() {
-          this.scene.start('SceneMain', {});
+          this.scene.start(keys.GAMEKEY, {});
         },
         callbackScope: this,
         loop: false
@@ -258,6 +260,108 @@ class SceneMain extends Phaser.Scene {
     );
   }
 
+  update() {
+    if (this.player.active) {
+      this.player.update();
+      let moved = false;
+      let boost = 0;
+      // Check for boost
+      if (this.keySpace.isDown) {
+        boost = 5000;
+      }
+
+      // Check for vertical movement
+      if (this.keyW.isDown) {
+        this.player.moveUp(boost);
+        moved = true;
+      } else if (this.keyS.isDown) {
+        this.player.moveDown(boost);
+        moved = true;
+      }
+
+      // Check for horizontal movement
+      if (this.keyA.isDown) {
+        this.player.moveLeft(boost);
+        moved = true;
+      } else if (this.keyD.isDown) {
+        this.player.moveRight(boost);
+        moved = true;
+      }
+
+      if (moved) {
+        const gas = this.add.particles('sprPixel').createEmitter({
+          x: this.player.x + Phaser.Math.Between(-2, 2),
+          y: this.player.y + Phaser.Math.Between(-2, 2),
+          speed: { min: -200, max: 200 },
+          scale: { start: 1, end: 0 },
+          angle: {
+            min: this.player.angle + (180 - 5),
+            max: this.player.angle + (180 + 5)
+          },
+          blendMode: 'SCREEN',
+          lifespan: { min: 60, max: 320 }
+        });
+
+        for (let i = 0; i < 5; i++) {
+          gas.explode();
+        }
+
+        // Frustum culling for bullets to prevent offscreen rendering
+        for (let i = 0; i < this.bullets.getChildren().length; i++) {
+          const bullet = this.bullets.getChildren(i);
+
+          if (
+            Phaser.Math.Distance.Between(
+              bullet.x,
+              bullet.y,
+              this.game.config.width * 0.5,
+              this.game.config.height * 0.5
+            ) > 500
+          ) {
+            if (bullet) {
+              bullet.destroy();
+            }
+          }
+        }
+        // Frustum culling for asteroids to prevent offscreen rendering
+        for (let i = 0; i < this.asteroids.getChildren().length; i++) {
+          const asteroid = this.asteroids.getChildren(i);
+
+          if (
+            Phaser.Math.Distance.Between(
+              asteroid.x,
+              asteroid.y,
+              this.game.config.width * 0.5,
+              this.game.config.height * 0.5
+            ) > 500
+          ) {
+            if (asteroid) {
+              asteroid.destroy();
+            }
+          }
+        }
+        // Frustum culling for dogs to prevent offscreen rendering
+        for (let i = 0; i < this.dogs.getChildren().length; i++) {
+          const dog = this.dogs.getChildren(i);
+
+          if (
+            Phaser.Math.Distance.Between(
+              dog.x,
+              dog.y,
+              this.game.config.width * 0.5,
+              this.game.config.height * 0.5
+            ) > 500
+          ) {
+            if (dog) {
+              dog.onDestroy();
+              dog.destroy();
+            }
+          }
+        }
+      }
+    }
+  }
+
   createLivesIcons() {
     for (let i = 0; i < this.passingData.lives; i++) {
       const icon = this.add.sprite(
@@ -292,7 +396,7 @@ class SceneMain extends Phaser.Scene {
       this.time.addEvent({
         delay: 1000,
         callback: function() {
-          this.scene.start('SceneMain', this.passingData);
+          this.scene.start(keys.GAMEKEY, this.passingData);
         },
         callbackScope: this,
         loop: false
@@ -380,135 +484,218 @@ class SceneMain extends Phaser.Scene {
     this.textScore.setText(this.score);
   }
 
-  initAnimations(){
+  initAnimations() {
     this.anims.create({
       key: keys.IDLEKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 1, end: 7, zeroPad: 0 }),
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 1,
+        end: 7,
+        zeroPad: 0
+      }),
       frameRate: 2,
       repeat: -1
     });
 
     this.anims.create({
       key: keys.ATTACKKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 8, end: 9, zeroPad: 0 }),
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 8,
+        end: 9,
+        zeroPad: 0
+      }),
       frameRate: 4,
       repeat: 1
     });
 
     this.anims.create({
       key: keys.DAMAGEKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 10, end: 12, zeroPad: 0 }),
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 10,
+        end: 12,
+        zeroPad: 0
+      }),
       frameRate: 4,
       repeat: 1
     });
 
     this.anims.create({
       key: keys.DYINGKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, { prefix: keys.SPRITEPREFIXKEY, start: 13, end: 16, zeroPad: 0 }),
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 13,
+        end: 16,
+        zeroPad: 0
+      }),
       frameRate: 4,
       repeat: 1
     });
   }
 
-  update() {
-    if (this.player.active) {
-      this.player.update();
-      let moved = false;
-      let boost = 0;
-      // Check for boost
-      if (this.keySpace.isDown) {
-        boost = 5000;
-      }
+  initGameOverMenu() {
+    let gameOverContainer = this.add.container();
+    let gameOverHeader = this.add.text(0, 100 * gameScale.scale, 'Game Over', {
+      font: `${100 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    });
 
-      // Check for vertical movement
-      if (this.keyW.isDown) {
-        this.player.moveUp(boost);
-        moved = true;
-      } else if (this.keyS.isDown) {
-        this.player.moveDown(boost);
-        moved = true;
-      }
+    centerX(this, gameOverHeader);
+    let restartButton = this.createButton(200 * gameScale.scale, 'Resume Game');
 
-      // Check for horizontal movement
-      if (this.keyA.isDown) {
-        this.player.moveLeft(boost);
-        moved = true;
-      } else if (this.keyD.isDown) {
-        this.player.moveRight(boost);
-        moved = true;
-      }
+    gameOverContainer.depth = gameDepths.menuDepth;
+    gameOverContainer.visible = false;
+    gameOverContainer.add([gameOverHeader, restartButton]);
 
-      if (moved) {
-        const gas = this.add.particles(keys.PIXELKEY).createEmitter({
-          x: this.player.x + Phaser.Math.Between(-2, 2),
-          y: this.player.y + Phaser.Math.Between(-2, 2),
-          speed: { min: -200, max: 200 },
-          scale: { start: 1, end: 0 },
-          angle: {
-            min: this.player.angle + (180 - 5),
-            max: this.player.angle + (180 + 5)
-          },
-          blendMode: 'SCREEN',
-          lifespan: { min: 60, max: 320 }
-        });
-
-        for (let i = 0; i < 5; i++) {
-          gas.explode();
-        }
-
-        // Frustum culling for bullets to prevent offscreen rendering
-        for (let i = 0; i < this.bullets.getChildren().length; i++) {
-          const bullet = this.bullets.getChildren(i);
-
-          if (
-            Phaser.Math.Distance.Between(
-              bullet.x,
-              bullet.y,
-              this.game.config.width * 0.5,
-              this.game.config.height * 0.5
-            ) > 500
-          ) {
-            if (bullet) {
-              bullet.destroy();
-            }
-          }
-        }
-        // Frustum culling for asteroids to prevent offscreen rendering
-        for (let i = 0; i < this.asteroids.getChildren().length; i++) {
-          const asteroid = this.asteroids.getChildren(i);
-
-          if (
-            Phaser.Math.Distance.Between(
-              asteroid.x,
-              asteroid.y,
-              this.game.config.width * 0.5,
-              this.game.config.height * 0.5
-            ) > 500
-          ) {
-            if (asteroid) {
-              asteroid.destroy();
-            }
-          }
-        }
-        // Frustum culling for dogs to prevent offscreen rendering
-        for (let i = 0; i < this.dogs.getChildren().length; i++) {
-          const dog = this.dogs.getChildren(i);
-
-          if (
-            Phaser.Math.Distance.Between(
-              dog.x,
-              dog.y,
-              this.game.config.width * 0.5,
-              this.game.config.height * 0.5
-            ) > 500
-          ) {
-            if (dog) {
-              dog.onDestroy();
-              dog.destroy();
-            }
-          }
-        }
-      }
-    }
+    return gameOverContainer;
   }
+
+  createButton(yPosition, text) {
+    let button = this.add
+      .text(0, yPosition, text, {
+        font: `${100 * gameScale.scale}px impact`,
+        fill: '#ffffff',
+        stroke: 'black',
+        strokeThickness: 5
+      })
+      .setInteractive({ cursor: 'pointer' });
+
+    centerX(this, button);
+    button.depth = gameDepths.uiDepth;
+
+    button.on('pointerover', function() {
+      this.alpha = 0.5;
+    });
+
+    button.on('pointerout', function() {
+      this.alpha = 1;
+    });
+
+    return button;
+  }
+
+  initPauseMenu() {
+
+    let gameHeight = this.sys.game.config.height;
+    this.pauseButton = this.add
+    .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
+      font: `${80 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    })
+    .setInteractive({ cursor: 'pointer' })
+    .on('pointerdown', function() {
+      this.scene.showPauseMenu();
+    });
+
+    let pauseContainer = this.add.container();
+    let pauseHeader = this.add.text(0, 100 * gameScale.scale, 'Paused', {
+      font: `${100 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    });
+    centerX(this, pauseHeader);
+    let resumeButton = this.createButton(
+      500 * gameScale.scale,
+      'Resume Game'
+    ).on('pointerdown', function() {
+      this.scene.hidePauseMenu();
+    });
+    let controlButton = this.createButton(700 * gameScale.scale, 'Controls').on(
+      'pointerdown',
+      function() {
+        this.scene.showControls();
+      }
+    );
+    let exitGameButton = this.createButton(
+      900 * gameScale.scale,
+      'Exit Game'
+    ).on('pointerdown', function() {
+      this.scene.game.scene.switch(keys.GAMEKEY, keys.STARTMENUKEY);
+      this.scene.game.scene.stop(keys.GAMEKEY);
+    });
+
+    pauseContainer.depth = gameDepths.menuDepth;
+    pauseContainer.visible = false;
+    pauseContainer.add([
+      pauseHeader,
+      resumeButton,
+      controlButton,
+      exitGameButton
+    ]);
+    pauseContainer.gameButtons = [resumeButton, controlButton, exitGameButton];
+    return pauseContainer;
+  }
+
+  initControls() {
+    let gameWidth = this.sys.game.config.width;
+    let gameHeight = this.sys.game.config.height;
+  
+    setBackButton(this);
+    this.backButton.visible = false;
+  
+    this.backButton.on('pointerdown', function() {
+      this.scene.hideControls();
+    });
+  
+    const shiftKey = this.input.keyboard.addKey('SHIFT');
+    shiftKey.on('down', function(event) {
+      console.log('x', game.input.mousePointer.x);
+      console.log('y', game.input.mousePointer.y);
+    });
+  
+    let controlContainer = this.add.sprite(
+      gameWidth / 2,
+      gameHeight / 2,
+      keys.CONTROLS1KEY
+    );
+    controlContainer.depth = gameDepths.menuDepth + 1;
+    controlContainer.visible = false;
+    controlContainer.setScale(gameScale.scale);
+    return controlContainer;
+  };
+
+  showPauseMenu() {
+    this.pauseContainer.visible = true;
+    this.pauseButton.removeInteractive().visible = false;
+
+    //pause game
+  }
+  
+  hidePauseMenu() {
+    this.pauseContainer.visible = false;
+    this.pauseButton.setInteractive().visible = true;
+    //resume game
+  };
+  
+  showGameOverMenu() {
+    this.gameOverContainer.visible = true;
+  
+    //stop game
+  };
+  
+  hideGameOverMenu() {
+    this.gameOverContainer.visible = false;
+  };
+  
+  showControls() {
+    this.controlContainer.visible = true;
+    this.backButton.visible = true;
+    this.pauseContainer.gameButtons.forEach(button => {
+      button.removeInteractive();
+    });
+  };
+  
+  hideControls() {
+    this.controlContainer.visible = false;
+    this.backButton.visible = false;
+    this.pauseContainer.gameButtons.forEach(button => {
+      button.setInteractive();
+    });
+  };
 }

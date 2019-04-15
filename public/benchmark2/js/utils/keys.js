@@ -7,7 +7,7 @@ const keys = {
   NAMEKEY: 'name',
   BGKEY: 'bg',
   CONTROLS1KEY: 'controls1',
-  HELPKEY: 'help',
+  HELPKEY: 'HelpScene',
   LEVELSKEY: 'levels',
   ASTEROIDKEY: 'asteroid',
   LEVELICON: 'levelIcon',
