@@ -42,7 +42,7 @@ class StartMenuScene extends Phaser.Scene {
     });
   }
 
-  createButton = function(yPosition, text) {
+  createButton(yPosition, text) {
     let button = this.add
       .text(0, yPosition, text, {
         font: `${100 * gameScale.scale}px impact`,

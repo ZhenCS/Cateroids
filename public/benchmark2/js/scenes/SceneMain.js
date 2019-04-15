@@ -75,6 +75,7 @@ class SceneMain extends Phaser.Scene {
       function(pointer) {
         if (this.player.active) {
           this.player.shoot(pointer.x, pointer.y);
+          //this.player.play(keys.ATTACKKEY);
         }
       },
       this

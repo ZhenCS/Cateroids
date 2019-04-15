@@ -15,7 +15,7 @@ const keys = {
   STARKEY: 'star',
   CATKEY: 'cat',
   DOGKEY: 'dog',
-  
+
   CATATLASKEY: 'catAtlas',
   SPRITEPREFIXKEY: 'sprite',
   IDLEKEY: 'idle',
