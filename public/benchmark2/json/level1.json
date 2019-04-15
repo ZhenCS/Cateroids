@@ -95,6 +95,12 @@
                  "height":64,
                  "id":7,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"scale",
+                         "type":"float",
+                         "value":2
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -3377,6 +3383,18 @@
                  "width":64,
                  "x":11219.3171759747,
                  "y":134.739726027397
+                }, 
+                {
+                 "gid":2,
+                 "height":64,
+                 "id":285,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":302.562697576396,
+                 "y":213.770284510011
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3385,7 +3403,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":285,
+ "nextobjectid":286,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",
@@ -3394,7 +3412,7 @@
         {
          "columns":5,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/OneDrive\/Desktop\/Cateroids Tiled Work\/Tileset\/CateroidsTileSet.png",
+         "image":"..\/assets\/CateroidsTileSet.png",
          "imageheight":64,
          "imagewidth":320,
          "margin":0,
@@ -3402,6 +3420,25 @@
          "spacing":0,
          "tilecount":5,
          "tileheight":64,
+         "tiles":[
+                {
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":""
+                        }]
+                }, 
+                {
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"scale",
+                         "type":"float",
+                         "value":1
+                        }]
+                }],
          "tilewidth":64
         }],
  "tilewidth":64,
