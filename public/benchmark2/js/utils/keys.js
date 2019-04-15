@@ -1,7 +1,7 @@
 const keys = {
   LOADKEY: 'LoadScene',
   SPLASHKEY: 'SplashScene',
-  STARTKEY: 'start',
+  STARTMENUKEY: 'StartMenuScene',
   GAMEKEY: 'SceneMain',
   LOGOKEY: 'logo',
   NAMEKEY: 'name',

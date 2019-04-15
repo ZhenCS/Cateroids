@@ -27,7 +27,7 @@ class SceneMain extends Phaser.Scene {
 
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
-    this.saucers = this.add.group();
+    this.dogs = this.add.group();
     this.iconLives = this.add.group();
 
     this.maxLives = 3;
@@ -86,7 +86,7 @@ class SceneMain extends Phaser.Scene {
         this.spawnAsteroid();
 
         if (Phaser.Math.Between(0, 100) > 75) {
-          this.spawnSaucer();
+          this.spawnDog();
         }
       },
       callbackScope: this,
@@ -112,8 +112,8 @@ class SceneMain extends Phaser.Scene {
     // Check for collisions between player and enemies
     this.physics.add.collider(
       this.player,
-      this.saucers,
-      function(player, saucer) {
+      this.dogs,
+      function(player, dog) {
         this.createExplosion(player.x, player.y, player.displayWidth);
 
         if (player) {
@@ -227,17 +227,17 @@ class SceneMain extends Phaser.Scene {
     // Check for collision between bullets and enemies
     this.physics.add.overlap(
       this.bullets,
-      this.saucers,
-      function(bullet, saucer) {
+      this.dogs,
+      function(bullet, dog) {
         if (bullet.getData('isFriendly')) {
-          this.createExplosion(bullet.x, bullet.y, saucer.displayWidth);
+          this.createExplosion(bullet.x, bullet.y, dog.displayWidth);
 
           // Add to score for destroying enemy
-          if (saucer.texture.key == 'dogSmall') {
+          if (dog.texture.key == keys.DOGKEY) {
             this.addScore(1000);
           }
 
-          if (saucer.texture.key == 'dogLarge') {
+          if (dog.texture.key == keys.DOGKEY) {
             this.addScore(200);
           }
 
@@ -245,9 +245,9 @@ class SceneMain extends Phaser.Scene {
             bullet.destroy();
           }
 
-          if (saucer) {
-            saucer.onDestroy();
-            saucer.destroy();
+          if (dog) {
+            dog.onDestroy();
+            dog.destroy();
           }
         }
       },
@@ -360,17 +360,17 @@ class SceneMain extends Phaser.Scene {
     this.asteroids.add(asteroid);
   }
 
-  spawnSaucer() {
+  spawnDog() {
     const position = this.getSpawnPosition();
 
     let imageKey = '';
     if (Phaser.Math.Between(0, 10) > 5) {
-      imageKey = 'dogLarge';
+      imageKey = keys.DOGKEY;
     } else {
-      imageKey = 'dogSmall';
+      imageKey = keys.DOGKEY;
     }
-    const saucer = new Dog(this, position.x, position.y, imageKey);
-    this.saucers.add(saucer);
+    const dog = new Dog(this, position.x, position.y, imageKey);
+    this.dogs.add(dog);
   }
 
   addScore(amount) {
@@ -458,21 +458,21 @@ class SceneMain extends Phaser.Scene {
             }
           }
         }
-        // Frustum culling for saucers to prevent offscreen rendering
-        for (let i = 0; i < this.saucers.getChildren().length; i++) {
-          const saucer = this.saucers.getChildren(i);
+        // Frustum culling for dogs to prevent offscreen rendering
+        for (let i = 0; i < this.dogs.getChildren().length; i++) {
+          const dog = this.dogs.getChildren(i);
 
           if (
             Phaser.Math.Distance.Between(
-              saucer.x,
-              saucer.y,
+              dog.x,
+              dog.y,
               this.game.config.width * 0.5,
               this.game.config.height * 0.5
             ) > 500
           ) {
-            if (saucer) {
-              saucer.onDestroy();
-              saucer.destroy();
+            if (dog) {
+              dog.onDestroy();
+              dog.destroy();
             }
           }
         }
