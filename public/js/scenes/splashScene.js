@@ -16,7 +16,7 @@ splashScene.create = function() {
         duration: 102400,
         angle: 360,
         loop: -1,
-        puase: false,
+        pause: false,
         callbackScope: this
     });
 

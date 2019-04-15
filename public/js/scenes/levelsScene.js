@@ -23,7 +23,7 @@ levelsScene.create = function(){
         duration: 51200,
         angle: 360,
         loop: -1,
-        puase: false,
+        pause: false,
         callbackScope: this
     });
 };

@@ -48,7 +48,7 @@ helpScene.addTween = function(text){
         targets: text,
         duration: 10000,
         y: -1 * text.displayHeight,
-        puase: false,
+        pause: false,
         ease: 'linear',
         callbackScope: this,
         onComplete: function() {
