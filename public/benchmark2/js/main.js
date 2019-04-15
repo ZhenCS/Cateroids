@@ -1,14 +1,20 @@
 var config = {
-    type: Phaser.AUTO,
-    title: 'Cateroids Scenes',
-    width: 1275,
-    height: 600,
-    scene: [loadScene, splashScene, startScene, helpScene, levelsScene, gameScene]
-  };
+  type: Phaser.AUTO,
+  title: 'Cateroids Scenes',
+  width: 1275,
+  height: 600,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 0 }
+    }
+  },
+  scene: [loadScene, splashScene, startScene, helpScene, levelsScene, gameScene]
+};
 
 var gameScale = {
-  scale: config.height/1600
-}
+  scale: config.height / 1600
+};
 
 var levelsStyle = {
   paddingStars: 50 * gameScale.scale,
@@ -24,24 +30,22 @@ var gameStyles = {
   healthColor: 0xff4d4d,
   oxygenColor: 0x3399ff,
   barColor: 0xf2f2f2
-
 };
-
 
 var game = new Phaser.Game(config);
 
 window.addEventListener('click', function(event) {
-  if(this.game.scene.isActive(keys.SPLASHKEY)){
+  if (this.game.scene.isActive(keys.SPLASHKEY)) {
     this.game.scene.switch(keys.SPLASHKEY, keys.STARTKEY);
   }
 });
 
-window.addEventListener('keydown', function(event){
-  if(this.game.scene.isActive(keys.STARTKEY) && event.key == "Escape"){
+window.addEventListener('keydown', function(event) {
+  if (this.game.scene.isActive(keys.STARTKEY) && event.key == 'Escape') {
     this.game.scene.switch(keys.STARTKEY, keys.SPLASHKEY);
   }
 
-  if(this.game.scene.isActive(keys.GAMEKEY) && event.key == "Escape"){
+  if (this.game.scene.isActive(keys.GAMEKEY) && event.key == 'Escape') {
     this.game.scene.getScene(keys.GAMEKEY).showPauseMenu();
   }
 });
