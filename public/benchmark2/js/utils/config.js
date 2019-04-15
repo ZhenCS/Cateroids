@@ -17,3 +17,8 @@ const gameStyles = {
   oxygenColor: 0x3399ff,
   barColor: 0xf2f2f2
 };
+
+const gameDepths = {
+  menuDepth: 10,
+  uiDepth: 5
+}
