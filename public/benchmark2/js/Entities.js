@@ -33,7 +33,7 @@ class Dog extends Entity {
       delay: 1000,
       callback: function() {
         if (this.scene !== undefined) {
-          if (key == 'dogSmall') {
+          if (key == keys.DOGKEY) {
             const dx = this.scene.player.x - this.x;
             const dy = this.scene.player.y - this.y;
             const angle = Math.atan2(dy, dx);
@@ -83,7 +83,7 @@ class Bullet extends Entity {
 
 class Leo extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, 'sprPlayer');
+    super(scene, x, y, keys.CATKEY);
     this.body.setCollideWorldBounds(true);
     this.setData('isMoving', false);
     this.setScale(0.5, 0.5);

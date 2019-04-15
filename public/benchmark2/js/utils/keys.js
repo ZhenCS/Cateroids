@@ -1,7 +1,7 @@
 const keys = {
   LOADKEY: 'LoadScene',
   SPLASHKEY: 'SplashScene',
-  STARTKEY: 'start',
+  STARTMENUKEY: 'StartMenuScene',
   GAMEKEY: 'SceneMain',
   LOGOKEY: 'logo',
   NAMEKEY: 'name',
@@ -14,5 +14,13 @@ const keys = {
   BACKKEY: 'back',
   STARKEY: 'star',
   CATKEY: 'cat',
-  DOGKEY: 'dog'
+  DOGKEY: 'dog',
+  
+  CATATLASKEY: 'catAtlas',
+  SPRITEPREFIXKEY: 'sprite',
+  IDLEKEY: 'idle',
+  ATTACKKEY: 'attack',
+  DAMAGEKEY: 'damage',
+  DYINGKEY: 'dying',
+  DEADKEY: 'dead'
 };
