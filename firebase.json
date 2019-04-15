@@ -21,7 +21,11 @@
 	  {
 		"source": "/benchmark1{, /**}",
 		"destination": "/benchmark1/index.html"
-	  }
+    },
+    {
+      "source": "/benchmark2{, /**}",
+      "destination": "/benchmark2/index.html"
+    }
     ]
   }
 }
