@@ -9,7 +9,15 @@ const config = {
       gravity: { x: 0, y: 0 }
     }
   },
-  scene: [LoadScene, SplashScene, StartMenuScene, SceneMainMenu, SceneMain],
+  scene: [
+    LoadScene,
+    SplashScene,
+    StartMenuScene,
+    SceneMainMenu,
+    LevelSelectScene,
+    HelpScene,
+    SceneMain
+  ],
   pixelArt: true,
   roundPixels: true
 };
