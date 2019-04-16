@@ -17,7 +17,7 @@ class SceneMain extends Phaser.Scene {
     this.initAnimations();
     this.initUI();
     this.gameOverContainer = this.initGameOverMenu();
-    
+
     if (
       Object.getOwnPropertyNames(this.passingData).length == 0 &&
       this.passingData.constructor === Object
@@ -205,10 +205,7 @@ class SceneMain extends Phaser.Scene {
               ) {
                 scale = 0.5;
                 key = 'sprAsteroid' + Phaser.Math.Between(0, 1);
-              } else if (
-                oldAsteroidKey == 'sprAsteroid2' ||
-                oldAsteroidKey == 'sprAsteroid3'
-              ) {
+              } else if (oldAsteroidKey == 'sprAsteroid2') {
                 key = 'sprAsteroid' + Phaser.Math.Between(0, 1);
               }
 
@@ -216,7 +213,7 @@ class SceneMain extends Phaser.Scene {
                 this,
                 oldAsteroidPos.x,
                 oldAsteroidPos.y,
-                'sprAsteroid' + Phaser.Math.Between(0, 3)
+                'sprAsteroid' + Phaser.Math.Between(0, 2)
               );
               newAsteroid.setScale(scale);
               newAsteroid.setTexture(key);
@@ -467,7 +464,7 @@ class SceneMain extends Phaser.Scene {
       this,
       position.x,
       position.y,
-      'sprAsteroid' + Phaser.Math.Between(0, 3)
+      'sprAsteroid' + Phaser.Math.Between(0, 2)
     );
 
     if (
@@ -596,7 +593,10 @@ class SceneMain extends Phaser.Scene {
     });
 
     centerX(this, gameOverHeader);
-    let restartButton = this.createButton(200 * gameScale.scale, 'Restart Game');
+    let restartButton = this.createButton(
+      200 * gameScale.scale,
+      'Restart Game'
+    );
 
     gameOverContainer.depth = gameDepths.menuDepth;
     gameOverContainer.visible = false;
@@ -605,20 +605,20 @@ class SceneMain extends Phaser.Scene {
     return gameOverContainer;
   }
 
-  initUI(){
+  initUI() {
     let gameHeight = this.sys.game.config.height;
     this.pauseButton = this.add
-    .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
-      font: `${80 * gameScale.scale}px impact`,
-      fill: '#ffffff',
-      stroke: 'black',
-      strokeThickness: 5
-    })
-    .setInteractive({ cursor: 'pointer' })
-    .on('pointerdown', function() {
-      this.scene.game.scene.pause(keys.GAMEKEY);
-      this.scene.game.scene.start(keys.PAUSEKEY);
-    });
+      .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
+        font: `${80 * gameScale.scale}px impact`,
+        fill: '#ffffff',
+        stroke: 'black',
+        strokeThickness: 5
+      })
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', function() {
+        this.scene.game.scene.pause(keys.GAMEKEY);
+        this.scene.game.scene.start(keys.PAUSEKEY);
+      });
   }
 
   createButton(yPosition, text) {
@@ -645,7 +645,6 @@ class SceneMain extends Phaser.Scene {
     return button;
   }
 
-  
   showGameOverMenu() {
     this.gameOverContainer.visible = true;
 
@@ -654,5 +653,5 @@ class SceneMain extends Phaser.Scene {
 
   hideGameOverMenu() {
     this.gameOverContainer.visible = false;
-  };
+  }
 }
