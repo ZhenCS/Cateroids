@@ -46,8 +46,11 @@ class LoadScene extends Phaser.Scene {
     );
     // Load asteroids
     // TODO: Create 4 different asteroids then just swap them in
+    this.load.image(keys.ASTEROIDKEY, 'assets/asteroid0.png');
+    this.load.image(keys.ASTEROID1KEY, 'assets/asteroid1.png');
+    this.load.image(keys.ASTEROID2KEY, 'assets/asteroid2.png');
     for (let i = 0; i < 3; i++) {
-      this.load.image('sprAsteroid' + i, 'assets/asteroid' + i + '.png');
+      this.load.image('sprAsteroid' + i, 'assets/asteroid0.png');
     }
   }
 

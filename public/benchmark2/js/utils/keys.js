@@ -13,6 +13,9 @@ const keys = {
   CONTROLS1KEY: 'controls1',
 
   ASTEROIDKEY: 'asteroid',
+  ASTEROID1KEY: 'asteroid1',
+  ASTEROID2KEY: 'asteroid2',
+  
   LEVELICON: 'levelIcon',
   LIFEICON: 'lifeIcon',
   BACKKEY: 'back',
