@@ -28,6 +28,8 @@ class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
+    this.player.play(keys.IDLEKEY);
+
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.dogs = this.add.group();
@@ -69,7 +71,7 @@ class SceneMain extends Phaser.Scene {
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.SPACE);
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
     // Shoot on click
     this.input.on(
@@ -89,7 +91,7 @@ class SceneMain extends Phaser.Scene {
       callback: function() {
         this.spawnAsteroid();
 
-        if (Phaser.Math.Between(0, 100) > 75) {
+        if (Phaser.Math.Between(0, 100) > 50) {
           this.spawnDog();
         }
       },
@@ -267,7 +269,7 @@ class SceneMain extends Phaser.Scene {
       let boost = 0;
       // Check for boost
       if (this.keySpace.isDown) {
-        boost = 5000;
+        boost = 20;
       }
 
       // Check for vertical movement
@@ -305,57 +307,56 @@ class SceneMain extends Phaser.Scene {
         for (let i = 0; i < 5; i++) {
           gas.explode();
         }
-
+      }
         // Frustum culling for bullets to prevent offscreen rendering
-        for (let i = 0; i < this.bullets.getChildren().length; i++) {
-          const bullet = this.bullets.getChildren(i);
+      for (let i = 0; i < this.bullets.getChildren().length; i++) {
+        const bullet = this.bullets.getChildren(i);
 
-          if (
-            Phaser.Math.Distance.Between(
-              bullet.x,
-              bullet.y,
-              this.game.config.width * 0.5,
-              this.game.config.height * 0.5
-            ) > 500
-          ) {
-            if (bullet) {
-              bullet.destroy();
-            }
+        if (
+          Phaser.Math.Distance.Between(
+            bullet.x,
+            bullet.y,
+            this.game.config.width * 0.5,
+            this.game.config.height * 0.5
+          ) > 500
+        ) {
+          if (bullet) {
+            bullet.destroy();
           }
         }
+      }
         // Frustum culling for asteroids to prevent offscreen rendering
-        for (let i = 0; i < this.asteroids.getChildren().length; i++) {
-          const asteroid = this.asteroids.getChildren(i);
+      for (let i = 0; i < this.asteroids.getChildren().length; i++) {
+        const asteroid = this.asteroids.getChildren(i);
 
-          if (
-            Phaser.Math.Distance.Between(
-              asteroid.x,
-              asteroid.y,
-              this.game.config.width * 0.5,
-              this.game.config.height * 0.5
-            ) > 500
-          ) {
-            if (asteroid) {
-              asteroid.destroy();
-            }
+        if (
+          Phaser.Math.Distance.Between(
+            asteroid.x,
+            asteroid.y,
+            this.game.config.width * 0.5,
+            this.game.config.height * 0.5
+          ) > 500
+        ) {
+          if (asteroid) {
+            asteroid.destroy();
           }
         }
+      }
         // Frustum culling for dogs to prevent offscreen rendering
-        for (let i = 0; i < this.dogs.getChildren().length; i++) {
-          const dog = this.dogs.getChildren(i);
+      for (let i = 0; i < this.dogs.getChildren().length; i++) {
+        const dog = this.dogs.getChildren(i);
 
-          if (
-            Phaser.Math.Distance.Between(
-              dog.x,
-              dog.y,
-              this.game.config.width * 0.5,
-              this.game.config.height * 0.5
-            ) > 500
-          ) {
-            if (dog) {
-              dog.onDestroy();
-              dog.destroy();
-            }
+        if (
+          Phaser.Math.Distance.Between(
+            dog.x,
+            dog.y,
+            this.game.config.width * 0.5,
+            this.game.config.height * 0.5
+          ) > 500
+        ) {
+          if (dog) {
+            dog.onDestroy();
+            dog.destroy();
           }
         }
       }
@@ -470,10 +471,13 @@ class SceneMain extends Phaser.Scene {
     const position = this.getSpawnPosition();
 
     let imageKey = '';
-    if (Phaser.Math.Between(0, 10) > 5) {
+    let rand = Phaser.Math.Between(0, 50);
+    if (rand < 25) {
       imageKey = keys.DOGKEY;
-    } else {
-      imageKey = keys.DOGKEY;
+    } else if( rand < 40){
+      imageKey = keys.DOG2KEY;
+    }else{
+      imageKey = keys.DOG3KEY;
     }
     const dog = new Dog(this, position.x, position.y, imageKey);
     this.dogs.add(dog);
@@ -532,6 +536,23 @@ class SceneMain extends Phaser.Scene {
       frameRate: 4,
       repeat: 1
     });
+
+    /*keys.dogKeys.forEach(function(dogStr){
+      keys.animationKeys.forEach(function(anim){
+        this.anims.create({
+          key: keys[`${dogStr}${anim.toUpperCase()}KEY`],
+          frames: this.anims.generateFrameNames(keys[`${dogStr}ATLASKEY`], {
+            prefix: keys.SPRITEPREFIXKEY,
+            start: 13,
+            end: 16,
+            zeroPad: 0
+          }),
+          frameRate: 4,
+          repeat: 1
+        });
+      });
+    });*/
+
   }
 
   initGameOverMenu() {

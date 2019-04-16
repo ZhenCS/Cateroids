@@ -25,42 +25,56 @@ class Dog extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key);
 
+    this.setScale(0.4, 0.4);
+    if(key == keys.DOG2KEY){
+      this.setScale(0.6, 0.6);
+    }else if(key == keys.DOG3KEY){
+      this.setScale(0.8, 0.8);
+    }
+    
     this.body.setVelocity(
       Phaser.Math.Between(-100, 100),
       Phaser.Math.Between(-100, 100)
     );
     this.shootTimer = this.scene.time.addEvent({
-      delay: 1000,
+      delay: Phaser.Math.Between(1000, 5000),
       callback: function() {
         if (this.scene !== undefined) {
+
+          const bullet = new Bullet(this.scene, this.x, this.y, false);
+          bullet.setData('isFriendly', false);
+
           if (key == keys.DOGKEY) {
+            const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
+            bullet.setTint(0x142bff);
+            bullet.setRotation(angle);
+            bullet.body.setVelocity(
+              100 * Math.cos(angle),
+              100 * Math.sin(angle)
+            );
+          } else if (key == keys.DOG2KEY) {
             const dx = this.scene.player.x - this.x;
             const dy = this.scene.player.y - this.y;
             const angle = Math.atan2(dy, dx);
-
-            const bullet = new Bullet(this.scene, this.x, this.y, false);
-            bullet.setTint(0x142bff);
+            bullet.setTint(0x3dff23);
             bullet.setRotation(angle);
-            bullet.setData('isFriendly', false);
-            this.setScale(0.3, 0.3);
             bullet.body.setVelocity(
-              100 * Math.cos(angle),
-              100 * Math.sin(angle)
+              150 * Math.cos(angle),
+              150 * Math.sin(angle)
             );
-            this.scene.bullets.add(bullet);
-          } else if (key == 'dogLarge') {
-            const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
-            
-            const bullet = new Bullet(this.scene, this.x, this.y, false);
-            bullet.setData('isFriendly', false);
+          }else if(key == keys.DOG3KEY){
+            const dx = this.scene.player.x - this.x;
+            const dy = this.scene.player.y - this.y;
+            const angle = Math.atan2(dy, dx);
+            bullet.setTint(0xd71fef);
             bullet.setRotation(angle);
-            this.setScale(0.6, 0.6);
             bullet.body.setVelocity(
-              100 * Math.cos(angle),
-              100 * Math.sin(angle)
+              200 * Math.cos(angle),
+              200 * Math.sin(angle)
             );
-            this.scene.bullets.add(bullet);
           }
+
+          this.scene.bullets.add(bullet);
         }
       },
       callbackScope: this,
@@ -94,26 +108,30 @@ class Leo extends Entity {
 
   moveLeft(boost) {
     this.setData('isMoving', true);
-
-    this.body.velocity.x -= 2 - boost;
+    if(this.body.velocity.x > 0)
+      this.body.velocity.x = 0;
+    this.body.velocity.x -= (10 + boost);
   }
 
   moveRight(boost) {
     this.setData('isMoving', true);
-
-    this.body.velocity.x += 2 + boost;
+    if(this.body.velocity.x < 0)
+      this.body.velocity.x = 0;
+    this.body.velocity.x += 10 + boost;
   }
 
   moveDown(boost) {
     this.setData('isMoving', true);
-
-    this.body.velocity.y += 2 + boost;
+    if(this.body.velocity.y < 0)
+      this.body.velocity.y = 0;
+    this.body.velocity.y += 10 + boost;
   }
 
   moveUp(boost) {
     this.setData('isMoving', true);
-
-    this.body.velocity.y -= 2 - boost;
+    if(this.body.velocity.y > 0)
+      this.body.velocity.y = 0;
+    this.body.velocity.y -= (10 + boost);
   }
 
   shoot(pointerX, pointerY) {
