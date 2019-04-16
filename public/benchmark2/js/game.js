@@ -13,7 +13,6 @@ const config = {
     LoadScene,
     SplashScene,
     StartMenuScene,
-    SceneMainMenu,
     LevelSelectScene,
     HelpScene,
     SceneMain,

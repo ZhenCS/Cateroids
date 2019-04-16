@@ -64,7 +64,7 @@ class StartMenuScene extends Phaser.Scene {
     });
 
     return button;
-  };
+  }
 
   initControls() {
     let gameWidth = this.sys.game.config.width;
