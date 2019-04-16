@@ -3,13 +3,13 @@ class SceneMain extends Phaser.Scene {
     super({ key: 'SceneMain' });
   }
   init(data) {
-    this.passingData = data;
+    this.dataFromLevelSelect = data;
   }
   preload() {}
 
   create() {
     const map = this.make.tilemap({
-      key: 'map'
+      key: this.dataFromLevelSelect.levelKey
     });
 
     const tileset = map.addTilesetImage('cateroidsTileset', 'tiles');
@@ -18,22 +18,23 @@ class SceneMain extends Phaser.Scene {
     this.pauseContainer = this.initPauseMenu();
     this.gameOverContainer = this.initGameOverMenu();
     this.controlContainer = this.initControls();
-    if (
-      Object.getOwnPropertyNames(this.passingData).length == 0 &&
-      this.passingData.constructor === Object
-    ) {
-      this.passingData = {
-        maxLives: 3,
-        lives: 3,
-        score: 0
-      };
-    }
+
+    const spawnTile = map.findObject('objectLayer', obj => obj.gid === 4);
 
     this.player = new Leo(
       this,
-      this.game.config.width * 0.5,
-      this.game.config.height * 0.5
+      spawnTile.x,
+      spawnTile.y
     );
+
+    map.filterTiles(obj => obj.gid === 2).forEach((ast) => {
+      this.spawnAsteroid(ast.x, ast.y);
+    }, this);
+
+    map.filterTile(obj => obj.gid === 1).forEach((dog) => {
+      this.spawnDog(dog.x, dog.y);
+    }, this);
+    
     this.player.play(keys.IDLEKEY);
 
     this.bullets = this.add.group();
@@ -50,7 +51,7 @@ class SceneMain extends Phaser.Scene {
       align: 'left'
     });
 
-    if (this.passingData.lives === 0) {
+    if (this.dataFromLevelSelect.lives === 0) {
       this.textGameOver = this.add.text(
         this.game.config.width * 0.5,
         64,
@@ -92,20 +93,6 @@ class SceneMain extends Phaser.Scene {
       },
       this
     );
-
-    // Asteroid Spawner
-    this.time.addEvent({
-      delay: 500,
-      callback: function() {
-        this.spawnAsteroid();
-
-        if (Phaser.Math.Between(0, 100) > 50) {
-          this.spawnDog();
-        }
-      },
-      callbackScope: this,
-      loop: true
-    });
 
     // Check for collisions between player and asteroids
     this.physics.add.collider(
@@ -338,46 +325,46 @@ class SceneMain extends Phaser.Scene {
           }
         }
       }
-      // Frustum culling for asteroids to prevent offscreen rendering
-      for (let i = 0; i < this.asteroids.getChildren().length; i++) {
-        const asteroid = this.asteroids.getChildren(i);
+      // // Frustum culling for asteroids to prevent offscreen rendering
+      // for (let i = 0; i < this.asteroids.getChildren().length; i++) {
+      //   const asteroid = this.asteroids.getChildren(i);
 
-        if (
-          Phaser.Math.Distance.Between(
-            asteroid.x,
-            asteroid.y,
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5
-          ) > 500
-        ) {
-          if (asteroid) {
-            asteroid.destroy();
-          }
-        }
-      }
-      // Frustum culling for dogs to prevent offscreen rendering
-      for (let i = 0; i < this.dogs.getChildren().length; i++) {
-        const dog = this.dogs.getChildren(i);
+      //   if (
+      //     Phaser.Math.Distance.Between(
+      //       asteroid.x,
+      //       asteroid.y,
+      //       this.game.config.width * 0.5,
+      //       this.game.config.height * 0.5
+      //     ) > 500
+      //   ) {
+      //     if (asteroid) {
+      //       asteroid.destroy();
+      //     }
+      //   }
+      // }
+      // // Frustum culling for dogs to prevent offscreen rendering
+      // for (let i = 0; i < this.dogs.getChildren().length; i++) {
+      //   const dog = this.dogs.getChildren(i);
 
-        if (
-          Phaser.Math.Distance.Between(
-            dog.x,
-            dog.y,
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5
-          ) > 500
-        ) {
-          if (dog) {
-            dog.onDestroy();
-            dog.destroy();
-          }
-        }
-      }
+      //   if (
+      //     Phaser.Math.Distance.Between(
+      //       dog.x,
+      //       dog.y,
+      //       this.game.config.width * 0.5,
+      //       this.game.config.height * 0.5
+      //     ) > 500
+      //   ) {
+      //     if (dog) {
+      //       dog.onDestroy();
+      //       dog.destroy();
+      //     }
+      //   }
+      // }
     }
   }
 
   createLivesIcons() {
-    for (let i = 0; i < this.passingData.lives; i++) {
+    for (let i = 0; i < this.dataFromLevelSelect.lives; i++) {
       const icon = this.add.sprite(
         this.textScore.x + i * 16 + 12,
         this.textScore.y + 42,
@@ -404,19 +391,19 @@ class SceneMain extends Phaser.Scene {
   }
 
   onLifeDown() {
-    if (this.passingData.lives > 0) {
-      this.passingData.lives--;
+    if (this.dataFromLevelSelect.lives > 0) {
+      this.dataFromLevelSelect.lives--;
 
       this.time.addEvent({
         delay: 1000,
         callback: function() {
-          this.scene.start(keys.GAMEKEY, this.passingData);
+          this.scene.start(keys.GAMEKEY, this.dataFromLevelSelect);
         },
         callbackScope: this,
         loop: false
       });
     } else {
-      this.passingData.lives = 0;
+      this.dataFromLevelSelect.lives = 0;
     }
   }
 
@@ -460,13 +447,11 @@ class SceneMain extends Phaser.Scene {
     return position;
   }
 
-  spawnAsteroid() {
-    const position = this.getSpawnPosition();
-
+  spawnAsteroid(x, y) {
     const asteroid = new Asteroid(
       this,
-      position.x,
-      position.y,
+      x,
+      y,
       'sprAsteroid' + Phaser.Math.Between(0, 3)
     );
 
@@ -480,7 +465,7 @@ class SceneMain extends Phaser.Scene {
     this.asteroids.add(asteroid);
   }
 
-  spawnDog() {
+  spawnDog(x, y) {
     const position = this.getSpawnPosition();
 
     let imageKey = '';
@@ -492,7 +477,7 @@ class SceneMain extends Phaser.Scene {
     } else {
       imageKey = keys.DOG3KEY;
     }
-    const dog = new Dog(this, position.x, position.y, imageKey);
+    const dog = new Dog(this, x, y, imageKey);
     this.dogs.add(dog);
   }
 
