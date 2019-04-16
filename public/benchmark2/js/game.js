@@ -15,6 +15,7 @@ const config = {
     StartMenuScene,
     SceneMainMenu,
     LevelSelectScene,
+    HelpScene,
     SceneMain
   ],
   pixelArt: true,

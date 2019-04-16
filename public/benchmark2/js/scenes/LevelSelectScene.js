@@ -6,7 +6,7 @@ class LevelSelectScene extends Phaser.Scene {
   create() {
     setBG(this);
     setGameName(this);
-    setBackButton(this, keys.LEVELSKEY, keys.STARTKEY);
+    setBackButton(this, keys.LEVELSKEY, keys.STARTMENUKEY);
 
     let { iconY, iconSpace } = levelsStyle;
     this.iconList = [];
@@ -50,20 +50,20 @@ class LevelSelectScene extends Phaser.Scene {
     iconBG.on('pointerdown', function() {
       console.log(`Level ${id} Selected`);
     });
-    iconBG.setScale(gameScale.scale);
+    iconBG.setScale(0.8 * gameScale.scale);
     let iconMiddle = this.add.sprite(x, y, keys.ASTEROIDKEY);
     iconMiddle.depth = 1;
-    iconMiddle.setScale(0.45 * gameScale.scale);
+    iconMiddle.setScale(3.5 * gameScale.scale);
     iconContainer.add([iconBG, iconMiddle, iconText]);
     let { paddingStars } = levelsStyle;
     for (var i = 0; i < 3; i++) {
       let star = this.add.sprite(
-        x - iconBG.displayWidth / 2 + paddingStars + 100 * gameScale.scale * i,
+        x - iconBG.displayWidth / 2 + paddingStars + 80 * gameScale.scale * i,
         y + paddingStars + iconBG.displayHeight / 2,
         keys.STARKEY
       );
       star.depth = 2;
-      star.setScale(gameScale.scale);
+      star.setScale(0.8 * gameScale.scale);
       //star.tint = 0xf2ff00;
       iconContainer.add(star);
     }
