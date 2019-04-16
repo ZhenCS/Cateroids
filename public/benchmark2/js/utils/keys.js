@@ -36,12 +36,12 @@ const keys = {
   DYINGKEY: 'dying',
   DEADKEY: 'dead',
 
-  dogKeys: ["DOG1", "DOG2", "DOG3"],
-  animationKeys: ["idle", "attack", "damage", "dying", "dead"]
+  dogKeys: ['DOG1', 'DOG2', 'DOG3'],
+  animationKeys: ['idle', 'attack', 'damage', 'dying', 'dead']
 };
 
-keys.dogKeys.forEach(function(dogStr){
-  keys.animationKeys.forEach(function(anim){
+keys.dogKeys.forEach(function(dogStr) {
+  keys.animationKeys.forEach(function(anim) {
     keys[`${dogStr}${anim.toUpperCase()}KEY`] = `${anim}${dogStr}`;
   });
 });
