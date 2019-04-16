@@ -15,6 +15,8 @@ const keys = {
   STARKEY: 'star',
   CATKEY: 'cat',
   DOGKEY: 'dog',
+  DOG2KEY: 'dog2',
+  DOG3KEY: 'dog3',
   BULLETKEY: 'bullet',
   PIXELKEY: 'pixels',
   CATATLASKEY: 'catAtlas',
