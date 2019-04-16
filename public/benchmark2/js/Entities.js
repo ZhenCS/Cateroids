@@ -26,10 +26,13 @@ class Dog extends Entity {
     super(scene, x, y, key);
 
     this.setScale(0.4, 0.4);
+    this.play(keys.DOG1IDLEKEY);
     if(key == keys.DOG2KEY){
       this.setScale(0.6, 0.6);
+      this.play(keys.DOG2IDLEKEY);
     }else if(key == keys.DOG3KEY){
       this.setScale(0.8, 0.8);
+      this.play(keys.DOG2IDLEKEY);
     }
     
     this.body.setVelocity(
