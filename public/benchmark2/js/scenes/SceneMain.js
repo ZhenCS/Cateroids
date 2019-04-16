@@ -266,10 +266,10 @@ class SceneMain extends Phaser.Scene {
       this
     );
 
-    const camera = this.cameras.main;
+    /*const camera = this.cameras.main;
     camera.startFollow(this.player);
 
-    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);*/
   }
 
   update() {
