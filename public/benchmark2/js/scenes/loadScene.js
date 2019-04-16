@@ -11,7 +11,7 @@ class LoadScene extends Phaser.Scene {
     this.load.image(keys.LOGOKEY, 'assets/logo.png');
     this.load.image(keys.BGKEY, 'assets/bg.jpg');
     this.load.image(keys.NAMEKEY, 'assets/gameName.png');
-    this.load.image('sprIconLife', 'content/sprIconLife.png');
+    this.load.image('sprIconLife', 'assets/iconLife.png');
     this.load.image(keys.PIXELKEY, 'assets/pixel.png');
     this.load.image(keys.BULLETKEY, 'assets/bullet.png');
 
