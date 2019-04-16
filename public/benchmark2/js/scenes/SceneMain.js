@@ -381,7 +381,7 @@ class SceneMain extends Phaser.Scene {
       const icon = this.add.sprite(
         this.textScore.x + i * 16 + 12,
         this.textScore.y + 42,
-        'sprIconLife'
+        keys.LIFEICON
       );
       icon.setOrigin(0.5);
       this.iconLives.add(icon);

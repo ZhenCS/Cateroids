@@ -13,6 +13,7 @@ const keys = {
 
   ASTEROIDKEY: 'asteroid',
   LEVELICON: 'levelIcon',
+  LIFEICON: 'lifeIcon',
   BACKKEY: 'back',
   STARKEY: 'star',
 
