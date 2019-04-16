@@ -49,28 +49,6 @@ class SceneMain extends Phaser.Scene {
       align: 'left'
     });
 
-    if (this.player.getData('health') <= 0) {
-      this.textGameOver = this.add.text(
-        this.game.config.width * 0.5,
-        64,
-        'GAME OVER',
-        {
-          fontFamily: 'monospace',
-          fontSize: 72,
-          align: 'left'
-        }
-      );
-      this.textGameOver.setOrigin(0.5);
-
-      this.time.addEvent({
-        delay: 3000,
-        callback: function() {
-          this.scene.start(keys.GAMEKEY, {});
-        },
-        callbackScope: this,
-        loop: false
-      });
-    }
     this.createLivesIcons();
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -410,23 +388,13 @@ class SceneMain extends Phaser.Scene {
 
   onLifeDown() {
     if(this.player.getData('health') > 0){
-      this.player.setData('health', this.player.getData('health') - 10);
+      this.player.setData('health', this.player.getData('health') - 20);
+      this.updateUI();
+    }else{
+      this.player.play(keys.DEADKEY);
+      this.scene.pause(keys.GAMEKEY);
+      this.scene.start(keys.GAMEOVERKEY);
     }
-    this.updateUI();
-    /*if (this.passingData.lives > 0) {
-      this.passingData.lives--;
-
-      this.time.addEvent({
-        delay: 1000,
-        callback: function() {
-          this.scene.start(keys.GAMEKEY, this.passingData);
-        },
-        callbackScope: this,
-        loop: false
-      });
-    } else {
-      this.passingData.lives = 0;
-    }*/
   }
 
   getSpawnPosition() {

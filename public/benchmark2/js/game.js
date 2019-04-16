@@ -16,7 +16,8 @@ const config = {
     LevelSelectScene,
     HelpScene,
     SceneMain,
-    PauseScene
+    PauseScene,
+    GameOverScene
   ],
   pixelArt: true,
   roundPixels: true

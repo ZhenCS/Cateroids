@@ -20,13 +20,23 @@ class GameOverScene extends Phaser.Scene {
 
         centerX(this, gameOverHeader);
         let restartButton = this.createButton(
-            200 * gameScale.scale,
+            500 * gameScale.scale,
             'Restart Game'
-        );
+        ).on('pointerdown', function() {
+            this.scene.game.scene.switch(keys.GAMEOVERKEY, keys.GAMEKEY);
+        });
+
+        let exitGameButton = this.createButton(
+            700 * gameScale.scale,
+            'Exit Game'
+        ).on('pointerdown', function() {
+            this.scene.game.scene.switch(keys.GAMEOVERKEY, keys.STARTMENUKEY);
+            this.scene.game.scene.stop(keys.GAMEKEY);
+        });
 
         gameOverContainer.depth = gameDepths.menuDepth;
         gameOverContainer.visible = false;
-        gameOverContainer.add([gameOverHeader, restartButton]);
+        gameOverContainer.add([gameOverHeader, restartButton, exitGameButton]);
 
         return gameOverContainer;
     }
@@ -44,20 +54,26 @@ class GameOverScene extends Phaser.Scene {
 
     createButton(yPosition, text) {
         let button = this.add
-        .text(0, yPosition, text, {
+          .text(0, yPosition, text, {
             font: `${100 * gameScale.scale}px impact`,
             fill: '#ffffff',
             stroke: 'black',
             strokeThickness: 5
-        })
-        .setInteractive({ cursor: 'pointer' });
-
+          })
+          .setInteractive({ cursor: 'pointer' });
+    
         centerX(this, button);
         button.depth = gameDepths.uiDepth;
-
+    
         button.on('pointerover', function() {
-        this.alpha = 0.5;
+          this.alpha = 0.5;
         });
-    }
+    
+        button.on('pointerout', function() {
+          this.alpha = 1;
+        });
+    
+        return button;
+    };
   }
   
