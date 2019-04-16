@@ -645,105 +645,7 @@ class SceneMain extends Phaser.Scene {
     return button;
   }
 
-<<<<<<< HEAD
   
-=======
-  initPauseMenu() {
-    let gameHeight = this.sys.game.config.height;
-    this.pauseButton = this.add
-      .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
-        font: `${80 * gameScale.scale}px impact`,
-        fill: '#ffffff',
-        stroke: 'black',
-        strokeThickness: 5
-      })
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointerdown', function() {
-        this.scene.showPauseMenu();
-      });
-
-    let pauseContainer = this.add.container();
-    let pauseHeader = this.add.text(0, 100 * gameScale.scale, 'Paused', {
-      font: `${100 * gameScale.scale}px impact`,
-      fill: '#ffffff',
-      stroke: 'black',
-      strokeThickness: 5
-    });
-    centerX(this, pauseHeader);
-    let resumeButton = this.createButton(
-      500 * gameScale.scale,
-      'Resume Game'
-    ).on('pointerdown', function() {
-      this.scene.hidePauseMenu();
-    });
-    let controlButton = this.createButton(700 * gameScale.scale, 'Controls').on(
-      'pointerdown',
-      function() {
-        this.scene.showControls();
-      }
-    );
-    let exitGameButton = this.createButton(
-      900 * gameScale.scale,
-      'Exit Game'
-    ).on('pointerdown', function() {
-      this.scene.game.scene.switch(keys.GAMEKEY, keys.STARTMENUKEY);
-      this.scene.game.scene.stop(keys.GAMEKEY);
-    });
-
-    pauseContainer.depth = gameDepths.menuDepth;
-    pauseContainer.visible = false;
-    pauseContainer.add([
-      pauseHeader,
-      resumeButton,
-      controlButton,
-      exitGameButton
-    ]);
-    pauseContainer.gameButtons = [resumeButton, controlButton, exitGameButton];
-    return pauseContainer;
-  }
-
-  initControls() {
-    let gameWidth = this.sys.game.config.width;
-    let gameHeight = this.sys.game.config.height;
-
-    setBackButton(this);
-    this.backButton.visible = false;
-
-    this.backButton.on('pointerdown', function() {
-      this.scene.hideControls();
-    });
-
-    const shiftKey = this.input.keyboard.addKey('SHIFT');
-    shiftKey.on('down', function(event) {
-      console.log('x', game.input.mousePointer.x);
-      console.log('y', game.input.mousePointer.y);
-    });
-
-    let controlContainer = this.add.sprite(
-      gameWidth / 2,
-      gameHeight / 2,
-      keys.CONTROLS1KEY
-    );
-    controlContainer.depth = gameDepths.menuDepth + 1;
-    controlContainer.visible = false;
-    controlContainer.setScale(gameScale.scale);
-    return controlContainer;
-  }
-
-  showPauseMenu() {
-    this.pauseContainer.visible = true;
-    this.pauseButton.removeInteractive().visible = false;
-
-    //pause game
-  }
-
-  hidePauseMenu() {
-    this.pauseContainer.visible = false;
-    this.pauseButton.setInteractive().visible = true;
-    //resume game
-  }
-
->>>>>>> 5c0d23fb3c5771dfdbfcee1177c21d6161484bdd
   showGameOverMenu() {
     this.gameOverContainer.visible = true;
 
@@ -752,25 +654,5 @@ class SceneMain extends Phaser.Scene {
 
   hideGameOverMenu() {
     this.gameOverContainer.visible = false;
-<<<<<<< HEAD
   };
-=======
-  }
-
-  showControls() {
-    this.controlContainer.visible = true;
-    this.backButton.visible = true;
-    this.pauseContainer.gameButtons.forEach(button => {
-      button.removeInteractive();
-    });
-  }
-
-  hideControls() {
-    this.controlContainer.visible = false;
-    this.backButton.visible = false;
-    this.pauseContainer.gameButtons.forEach(button => {
-      button.setInteractive();
-    });
-  }
->>>>>>> 5c0d23fb3c5771dfdbfcee1177c21d6161484bdd
 }
