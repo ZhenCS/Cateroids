@@ -17,23 +17,9 @@ class SceneMain extends Phaser.Scene {
     this.initAnimations();
     this.initUI();
     this.gameOverContainer = this.initGameOverMenu();
-<<<<<<< HEAD
     this.controlContainer = this.initControls();
 
     const spawnTile = map.findObject('objectLayer', obj => obj.gid === 4);
-=======
-
-    if (
-      Object.getOwnPropertyNames(this.passingData).length == 0 &&
-      this.passingData.constructor === Object
-    ) {
-      this.passingData = {
-        maxLives: 3,
-        lives: 3,
-        score: 0
-      };
-    }
->>>>>>> 898e5e118f7729ba576499658cf28730be3f0aaa
 
     this.player = new Leo(
       this,
@@ -461,15 +447,9 @@ class SceneMain extends Phaser.Scene {
   spawnAsteroid(x, y) {
     const asteroid = new Asteroid(
       this,
-<<<<<<< HEAD
       x,
       y,
       'sprAsteroid' + Phaser.Math.Between(0, 3)
-=======
-      position.x,
-      position.y,
-      'sprAsteroid' + Phaser.Math.Between(0, 2)
->>>>>>> 898e5e118f7729ba576499658cf28730be3f0aaa
     );
 
     if (
