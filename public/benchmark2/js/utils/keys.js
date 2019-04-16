@@ -5,6 +5,7 @@ const keys = {
   GAMEKEY: 'SceneMain',
   LEVELSKEY: 'LevelSelectScene',
   HELPKEY: 'HelpScene',
+  PAUSEKEY: 'PauseScene',
 
   LOGOKEY: 'logo',
   NAMEKEY: 'name',
@@ -13,6 +14,7 @@ const keys = {
 
   ASTEROIDKEY: 'asteroid',
   LEVELICON: 'levelIcon',
+  LIFEICON: 'lifeIcon',
   BACKKEY: 'back',
   STARKEY: 'star',
 

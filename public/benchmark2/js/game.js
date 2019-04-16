@@ -13,10 +13,10 @@ const config = {
     LoadScene,
     SplashScene,
     StartMenuScene,
-    SceneMainMenu,
     LevelSelectScene,
     HelpScene,
-    SceneMain
+    SceneMain,
+    PauseScene
   ],
   pixelArt: true,
   roundPixels: true
@@ -57,7 +57,9 @@ window.addEventListener('keydown', function(event) {
   }
 
   if (game.scene.isActive(keys.GAMEKEY) && event.key == 'Escape') {
-    game.scene.getScene(keys.GAMEKEY).showPauseMenu();
+    game.scene.start(keys.PAUSEKEY);
+    game.scene.pause(keys.GAMEKEY);
+    
   }
 });
 
