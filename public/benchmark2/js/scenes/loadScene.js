@@ -4,15 +4,16 @@ class LoadScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image('tiles', 'assets/CateroidsTileSet.png');
+
+    this.load.tilemapTiledJSON('map', 'json/level1.json');
+
     this.load.image(keys.LOGOKEY, 'assets/logo.png');
     this.load.image(keys.BGKEY, 'assets/bg.jpg');
     this.load.image(keys.NAMEKEY, 'assets/gameName.png');
     this.load.image('sprIconLife', 'content/sprIconLife.png');
     this.load.image(keys.PIXELKEY, 'assets/pixel.png');
-    // this.load.image('sprPlayer', 'assets/cat.png');
     this.load.image(keys.BULLETKEY, 'assets/bullet.png');
-    // this.load.image('dogSmall', 'assets/dog.png');
-    // this.load.image('dogLarge', 'assets/dog.png');
 
     this.load.image(keys.CONTROLS1KEY, 'assets/controls1.png');
     this.load.image(keys.ASTEROIDKEY, 'assets/asteroidBig.png');
@@ -48,8 +49,6 @@ class LoadScene extends Phaser.Scene {
     for (let i = 0; i < 4; i++) {
       this.load.image('sprAsteroid' + i, 'assets/asteroidBig.png');
     }
-
-    
   }
 
   create() {

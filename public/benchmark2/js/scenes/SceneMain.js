@@ -8,6 +8,12 @@ class SceneMain extends Phaser.Scene {
   preload() {}
 
   create() {
+    const map = this.make.tilemap({
+      key: 'map'
+    });
+
+    const tileset = map.addTilesetImage('cateroidsTileset', 'tiles');
+
     this.initAnimations();
     this.pauseContainer = this.initPauseMenu();
     this.gameOverContainer = this.initGameOverMenu();
@@ -71,7 +77,9 @@ class SceneMain extends Phaser.Scene {
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.keySpace = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.SPACE
+    );
 
     // Shoot on click
     this.input.on(
@@ -260,6 +268,11 @@ class SceneMain extends Phaser.Scene {
       null,
       this
     );
+
+    const camera = this.cameras.main;
+    camera.startFollow(this.player);
+
+    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
   }
 
   update() {
@@ -308,7 +321,7 @@ class SceneMain extends Phaser.Scene {
           gas.explode();
         }
       }
-        // Frustum culling for bullets to prevent offscreen rendering
+      // Frustum culling for bullets to prevent offscreen rendering
       for (let i = 0; i < this.bullets.getChildren().length; i++) {
         const bullet = this.bullets.getChildren(i);
 
@@ -325,7 +338,7 @@ class SceneMain extends Phaser.Scene {
           }
         }
       }
-        // Frustum culling for asteroids to prevent offscreen rendering
+      // Frustum culling for asteroids to prevent offscreen rendering
       for (let i = 0; i < this.asteroids.getChildren().length; i++) {
         const asteroid = this.asteroids.getChildren(i);
 
@@ -342,7 +355,7 @@ class SceneMain extends Phaser.Scene {
           }
         }
       }
-        // Frustum culling for dogs to prevent offscreen rendering
+      // Frustum culling for dogs to prevent offscreen rendering
       for (let i = 0; i < this.dogs.getChildren().length; i++) {
         const dog = this.dogs.getChildren(i);
 
@@ -474,9 +487,9 @@ class SceneMain extends Phaser.Scene {
     let rand = Phaser.Math.Between(0, 50);
     if (rand < 25) {
       imageKey = keys.DOGKEY;
-    } else if( rand < 40){
+    } else if (rand < 40) {
       imageKey = keys.DOG2KEY;
-    }else{
+    } else {
       imageKey = keys.DOG3KEY;
     }
     const dog = new Dog(this, position.x, position.y, imageKey);
@@ -552,7 +565,6 @@ class SceneMain extends Phaser.Scene {
         });
       });
     });*/
-
   }
 
   initGameOverMenu() {
@@ -599,19 +611,18 @@ class SceneMain extends Phaser.Scene {
   }
 
   initPauseMenu() {
-
     let gameHeight = this.sys.game.config.height;
     this.pauseButton = this.add
-    .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
-      font: `${80 * gameScale.scale}px impact`,
-      fill: '#ffffff',
-      stroke: 'black',
-      strokeThickness: 5
-    })
-    .setInteractive({ cursor: 'pointer' })
-    .on('pointerdown', function() {
-      this.scene.showPauseMenu();
-    });
+      .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
+        font: `${80 * gameScale.scale}px impact`,
+        fill: '#ffffff',
+        stroke: 'black',
+        strokeThickness: 5
+      })
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', function() {
+        this.scene.showPauseMenu();
+      });
 
     let pauseContainer = this.add.container();
     let pauseHeader = this.add.text(0, 100 * gameScale.scale, 'Paused', {
@@ -656,20 +667,20 @@ class SceneMain extends Phaser.Scene {
   initControls() {
     let gameWidth = this.sys.game.config.width;
     let gameHeight = this.sys.game.config.height;
-  
+
     setBackButton(this);
     this.backButton.visible = false;
-  
+
     this.backButton.on('pointerdown', function() {
       this.scene.hideControls();
     });
-  
+
     const shiftKey = this.input.keyboard.addKey('SHIFT');
     shiftKey.on('down', function(event) {
       console.log('x', game.input.mousePointer.x);
       console.log('y', game.input.mousePointer.y);
     });
-  
+
     let controlContainer = this.add.sprite(
       gameWidth / 2,
       gameHeight / 2,
@@ -679,7 +690,7 @@ class SceneMain extends Phaser.Scene {
     controlContainer.visible = false;
     controlContainer.setScale(gameScale.scale);
     return controlContainer;
-  };
+  }
 
   showPauseMenu() {
     this.pauseContainer.visible = true;
@@ -687,36 +698,36 @@ class SceneMain extends Phaser.Scene {
 
     //pause game
   }
-  
+
   hidePauseMenu() {
     this.pauseContainer.visible = false;
     this.pauseButton.setInteractive().visible = true;
     //resume game
-  };
-  
+  }
+
   showGameOverMenu() {
     this.gameOverContainer.visible = true;
-  
+
     //stop game
-  };
-  
+  }
+
   hideGameOverMenu() {
     this.gameOverContainer.visible = false;
-  };
-  
+  }
+
   showControls() {
     this.controlContainer.visible = true;
     this.backButton.visible = true;
     this.pauseContainer.gameButtons.forEach(button => {
       button.removeInteractive();
     });
-  };
-  
+  }
+
   hideControls() {
     this.controlContainer.visible = false;
     this.backButton.visible = false;
     this.pauseContainer.gameButtons.forEach(button => {
       button.setInteractive();
     });
-  };
+  }
 }
