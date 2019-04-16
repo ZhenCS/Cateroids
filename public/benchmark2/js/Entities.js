@@ -13,11 +13,27 @@ class Asteroid extends Entity {
     super(scene, x, y, key);
 
     this.body.setCircle(this.displayWidth * 0.5);
+    let velocity = this.getInitVelocity(scene,x,y);
     this.body.setVelocity(
-      Phaser.Math.Between(-100, 100),
-      Phaser.Math.Between(-100, 100)
+      velocity[0],
+      velocity[1]
     );
     this.setData('level', 0);
+  }
+
+  getInitVelocity(scene, x, y){
+    let width = scene.game.config.width;
+    let height = scene.game.config.height;
+    let buffer = 128;
+    let velocityX = Phaser.Math.Between(-100, 100);
+    if(x < buffer) velocityX = Phaser.Math.Between(1, 100);
+    else if(x > width - buffer) velocityX = Phaser.Math.Between(-100, -1);
+
+    let velocityY = Phaser.Math.Between(-100, 100);
+    if(y < buffer) velocityY = Phaser.Math.Between(1, 100);
+    else if(y > height - buffer) velocityY = Phaser.Math.Between(-100, -1);
+
+    return [velocityX, velocityY];
   }
 }
 
@@ -32,12 +48,12 @@ class Dog extends Entity {
       this.play(keys.DOG2IDLEKEY);
     }else if(key == keys.DOG3KEY){
       this.setScale(0.8, 0.8);
-      this.play(keys.DOG2IDLEKEY);
+      this.play(keys.DOG3IDLEKEY);
     }
-    
+    let velocity = this.getInitVelocity(scene,x,y);
     this.body.setVelocity(
-      Phaser.Math.Between(-100, 100),
-      Phaser.Math.Between(-100, 100)
+      velocity[0],
+      velocity[1]
     );
     this.shootTimer = this.scene.time.addEvent({
       delay: Phaser.Math.Between(1000, 5000),
@@ -85,6 +101,21 @@ class Dog extends Entity {
     });
   }
 
+  getInitVelocity(scene, x, y){
+    let width = scene.game.config.width;
+    let height = scene.game.config.height;
+    let buffer = 128;
+    let velocityX = Phaser.Math.Between(-100, 100);
+    if(x < buffer) velocityX = Phaser.Math.Between(1, 100);
+    else if(x > width - buffer) velocityX = Phaser.Math.Between(-100, -1);
+
+    let velocityY = Phaser.Math.Between(-100, 100);
+    if(y < buffer) velocityY = Phaser.Math.Between(1, 100);
+    else if(y > height - buffer) velocityY = Phaser.Math.Between(-100, -1);
+
+    return [velocityX, velocityY];
+  }
+
   onDestroy() {
     if (this.shootTimer !== undefined) {
       if (this.shootTimer) {
@@ -106,6 +137,8 @@ class Leo extends Entity {
     super(scene, x, y, keys.CATKEY);
     this.body.setCollideWorldBounds(true);
     this.setData('isMoving', false);
+    this.setData('health', playerData.maxHealth);
+    this.setData('oxygen', playerData.maxOxygen);
     this.setScale(0.5, 0.5);
   }
 

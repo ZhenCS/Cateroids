@@ -51,7 +51,7 @@ class LevelSelectScene extends Phaser.Scene {
       console.log(`Level ${id} Selected`);
     });
     iconBG.setScale(0.8 * gameScale.scale);
-    let iconMiddle = this.add.sprite(x, y, keys.ASTEROIDKEY);
+    let iconMiddle = this.add.sprite(x, y, keys.ASTEROID0KEY);
     iconMiddle.depth = 1;
     iconMiddle.setScale(3.5 * gameScale.scale);
     iconContainer.add([iconBG, iconMiddle, iconText]);

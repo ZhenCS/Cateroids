@@ -22,3 +22,8 @@ const gameDepths = {
   menuDepth: 10,
   uiDepth: 5
 }
+
+const playerData = {
+  maxHealth: 100,
+  maxOxygen: 100
+}

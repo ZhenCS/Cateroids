@@ -15,16 +15,15 @@ class SceneMain extends Phaser.Scene {
     const tileset = map.addTilesetImage('cateroidsTileset', 'tiles');
 
     this.initAnimations();
-    this.initUI();
-    this.gameOverContainer = this.initGameOverMenu();
+    this.uiContainer = this.initUI();
 
     if (
       Object.getOwnPropertyNames(this.passingData).length == 0 &&
       this.passingData.constructor === Object
     ) {
       this.passingData = {
-        maxLives: 3,
-        lives: 3,
+        maxLives: 5,
+        lives: 5,
         score: 0
       };
     }
@@ -50,7 +49,7 @@ class SceneMain extends Phaser.Scene {
       align: 'left'
     });
 
-    if (this.passingData.lives === 0) {
+    if (this.player.getData('health') <= 0) {
       this.textGameOver = this.add.text(
         this.game.config.width * 0.5,
         64,
@@ -93,13 +92,24 @@ class SceneMain extends Phaser.Scene {
       this
     );
 
+    this.time.addEvent({
+      delay: 5000,
+      callback: function() {
+        let oxygen = this.player.getData('oxygen');
+        if(oxygen > 0)
+          this.player.setData('oxygen', this.player.getData('oxygen') - 1);
+      },
+      callbackScope: this,
+      loop: true,
+    });
+
     // Asteroid Spawner
     this.time.addEvent({
-      delay: 500,
+      delay: 1000,
       callback: function() {
         this.spawnAsteroid();
 
-        if (Phaser.Math.Between(0, 100) > 50) {
+        if (Phaser.Math.Between(0, 100) > 70) {
           this.spawnDog();
         }
       },
@@ -116,7 +126,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.player) {
           this.onLifeDown();
-          this.player.destroy();
+          //this.player.destroy();
         }
       },
       null,
@@ -132,7 +142,7 @@ class SceneMain extends Phaser.Scene {
 
         if (player) {
           this.onLifeDown();
-          player.destroy();
+          //player.destroy();
         }
       },
       null,
@@ -149,8 +159,8 @@ class SceneMain extends Phaser.Scene {
 
           if (player) {
             this.onLifeDown();
-
-            player.destroy();
+            bullet.destroy();
+            //player.destroy();
           }
         }
       },
@@ -197,27 +207,23 @@ class SceneMain extends Phaser.Scene {
           // Break apart large asteroid
           if (oldAsteroidLevel < 2) {
             for (let i = 0; i < 2; i++) {
-              let scale = 1;
               let key = '';
-              if (
-                oldAsteroidKey == 'sprAsteroid0' ||
-                oldAsteroidKey == 'sprAsteroid1'
-              ) {
-                scale = 0.5;
-                key = 'sprAsteroid' + Phaser.Math.Between(0, 1);
-              } else if (oldAsteroidKey == 'sprAsteroid2') {
-                key = 'sprAsteroid' + Phaser.Math.Between(0, 1);
-              }
+              let newLevel = Phaser.Math.Between(1, 2);
+              if ( oldAsteroidKey == keys.ASTEROID0KEY) {
+                key = keys[`ASTEROID${newLevel}KEY`];
 
+              }else if(oldAsteroidKey == keys.ASTEROID1KEY){
+                key = keys.ASTEROID2KEY;
+                newLevel = 2;
+              }
+              
               const newAsteroid = new Asteroid(
                 this,
                 oldAsteroidPos.x,
                 oldAsteroidPos.y,
-                'sprAsteroid' + Phaser.Math.Between(0, 2)
+                key
               );
-              newAsteroid.setScale(scale);
-              newAsteroid.setTexture(key);
-              newAsteroid.setData('level', oldAsteroidLevel + 1);
+              newAsteroid.setData('level', newLevel);
               newAsteroid.body.setVelocity(
                 Phaser.Math.Between(-200, 200),
                 Phaser.Math.Between(-200, 200)
@@ -275,6 +281,7 @@ class SceneMain extends Phaser.Scene {
   update() {
     if (this.player.active) {
       this.player.update();
+      this.updateUI();
       let moved = false;
       let boost = 0;
       // Check for boost
@@ -318,9 +325,11 @@ class SceneMain extends Phaser.Scene {
           gas.explode();
         }
       }
+
+      let maxLength = (Math.sqrt(Math.pow(this.game.config.width * 0.5, 2) + Math.pow(this.game.config.height * 0.5, 2)));
       // Frustum culling for bullets to prevent offscreen rendering
       for (let i = 0; i < this.bullets.getChildren().length; i++) {
-        const bullet = this.bullets.getChildren(i);
+        const bullet = this.bullets.getChildren()[i];
 
         if (
           Phaser.Math.Distance.Between(
@@ -328,7 +337,7 @@ class SceneMain extends Phaser.Scene {
             bullet.y,
             this.game.config.width * 0.5,
             this.game.config.height * 0.5
-          ) > 500
+          ) > maxLength
         ) {
           if (bullet) {
             bullet.destroy();
@@ -337,7 +346,7 @@ class SceneMain extends Phaser.Scene {
       }
       // Frustum culling for asteroids to prevent offscreen rendering
       for (let i = 0; i < this.asteroids.getChildren().length; i++) {
-        const asteroid = this.asteroids.getChildren(i);
+        const asteroid = this.asteroids.getChildren()[i];
 
         if (
           Phaser.Math.Distance.Between(
@@ -345,7 +354,7 @@ class SceneMain extends Phaser.Scene {
             asteroid.y,
             this.game.config.width * 0.5,
             this.game.config.height * 0.5
-          ) > 500
+          ) > maxLength
         ) {
           if (asteroid) {
             asteroid.destroy();
@@ -354,15 +363,14 @@ class SceneMain extends Phaser.Scene {
       }
       // Frustum culling for dogs to prevent offscreen rendering
       for (let i = 0; i < this.dogs.getChildren().length; i++) {
-        const dog = this.dogs.getChildren(i);
-
+        const dog = this.dogs.getChildren()[i];
         if (
           Phaser.Math.Distance.Between(
             dog.x,
             dog.y,
             this.game.config.width * 0.5,
             this.game.config.height * 0.5
-          ) > 500
+          ) > maxLength
         ) {
           if (dog) {
             dog.onDestroy();
@@ -401,7 +409,11 @@ class SceneMain extends Phaser.Scene {
   }
 
   onLifeDown() {
-    if (this.passingData.lives > 0) {
+    if(this.player.getData('health') > 0){
+      this.player.setData('health', this.player.getData('health') - 10);
+    }
+    this.updateUI();
+    /*if (this.passingData.lives > 0) {
       this.passingData.lives--;
 
       this.time.addEvent({
@@ -414,10 +426,11 @@ class SceneMain extends Phaser.Scene {
       });
     } else {
       this.passingData.lives = 0;
-    }
+    }*/
   }
 
   getSpawnPosition() {
+    let buffer = 16;
     const sides = ['top', 'right', 'bottom', 'left'];
     const side = sides[Phaser.Math.Between(0, sides.length - 1)];
 
@@ -426,14 +439,14 @@ class SceneMain extends Phaser.Scene {
       case 'top': {
         position = new Phaser.Math.Vector2(
           Phaser.Math.Between(0, this.game.config.width),
-          -128
+          -1 * buffer
         );
         break;
       }
 
       case 'right': {
         position = new Phaser.Math.Vector2(
-          this.game.config.width + 128,
+          this.game.config.width + buffer,
           Phaser.Math.Between(0, this.game.config.height)
         );
         break;
@@ -442,13 +455,13 @@ class SceneMain extends Phaser.Scene {
       case 'bottom': {
         position = new Phaser.Math.Vector2(
           Phaser.Math.Between(0, this.game.config.width),
-          this.game.config.height + 128
+          this.game.config.height + buffer
         );
       }
 
       case 'left': {
         position = new Phaser.Math.Vector2(
-          0,
+          -1 * buffer,
           Phaser.Math.Between(-120, this.game.config.height)
         );
       }
@@ -459,20 +472,14 @@ class SceneMain extends Phaser.Scene {
 
   spawnAsteroid() {
     const position = this.getSpawnPosition();
-
+    const level = Phaser.Math.Between(0, 2);
     const asteroid = new Asteroid(
       this,
       position.x,
       position.y,
-      'sprAsteroid' + Phaser.Math.Between(0, 2)
+      keys[`ASTEROID${level}KEY`]
     );
-
-    if (
-      asteroid.texture.key == 'sprAsteroid0' ||
-      asteroid.texture.key == 'sprAsteroid1'
-    ) {
-      asteroid.setData('level', 1);
-    }
+    asteroid.setData('level', level);
 
     this.asteroids.add(asteroid);
   }
@@ -499,114 +506,85 @@ class SceneMain extends Phaser.Scene {
   }
 
   initAnimations() {
-    this.anims.create({
-      key: keys.IDLEKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
-        prefix: keys.SPRITEPREFIXKEY,
-        start: 1,
-        end: 7,
-        zeroPad: 0
-      }),
-      frameRate: 2,
-      repeat: -1
-    });
-
-    this.anims.create({
-      key: keys.ATTACKKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
-        prefix: keys.SPRITEPREFIXKEY,
-        start: 8,
-        end: 9,
-        zeroPad: 0
-      }),
-      frameRate: 4,
-      repeat: 1
-    });
-
-    this.anims.create({
-      key: keys.DAMAGEKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
-        prefix: keys.SPRITEPREFIXKEY,
-        start: 10,
-        end: 12,
-        zeroPad: 0
-      }),
-      frameRate: 4,
-      repeat: 1
-    });
-
-    this.anims.create({
-      key: keys.DYINGKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
-        prefix: keys.SPRITEPREFIXKEY,
-        start: 13,
-        end: 16,
-        zeroPad: 0
-      }),
-      frameRate: 4,
-      repeat: 1
-    });
-
-    this.anims.create({
-      key: keys.DEADKEY,
-      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
-        prefix: keys.SPRITEPREFIXKEY,
-        start: 16,
-        end: 16,
-        zeroPad: 0
-      }),
-      frameRate: 4,
-      repeat: -1
-    });
-
     var self = this;
-    var dogCounter = 0;
+    var animCounter = 0;
+    var catIndices = [[1, 7], [8, 9], [10, 12], [13, 16], [16, 16]];
     var dogIndices = [[1, 7], [8, 8], [9, 11], [12, 15], [15, 15]];
     var animData = [[2, -1], [4, 1], [4, 1], [4, 1], [4, 1]];
+
+
+    keys.animationKeys.forEach(function(anim) {
+      self.anims.create({
+        key: keys[`${anim.toUpperCase()}KEY`],
+        frames: self.anims.generateFrameNames(keys.CATATLASKEY, {
+          prefix: keys.SPRITEPREFIXKEY,
+          start: catIndices[animCounter][0],
+          end: catIndices[animCounter][1],
+          zeroPad: 0
+        }),
+        frameRate: animData[animCounter][0],
+        repeat: animData[animCounter][1]
+      });
+      animCounter++;
+    });
+    
+
     keys.dogKeys.forEach(function(dogStr) {
-      dogCounter = 0;
+      animCounter = 0;
       keys.animationKeys.forEach(function(anim) {
         self.anims.create({
           key: keys[`${dogStr}${anim.toUpperCase()}KEY`],
           frames: self.anims.generateFrameNames(keys[`${dogStr}ATLASKEY`], {
             prefix: keys.SPRITEPREFIXKEY,
-            start: dogIndices[dogCounter][0],
-            end: dogIndices[dogCounter][1],
+            start: dogIndices[animCounter][0],
+            end: dogIndices[animCounter][1],
             zeroPad: 0
           }),
-          frameRate: animData[dogCounter][0],
-          repeat: animData[dogCounter][1]
+          frameRate: animData[animCounter][0],
+          repeat: animData[animCounter][1]
         });
-
-        dogCounter++;
+        animCounter++;
       });
     });
-  }
 
-  initGameOverMenu() {
-    let gameOverContainer = this.add.container();
-    let gameOverHeader = this.add.text(0, 100 * gameScale.scale, 'Game Over', {
-      font: `${100 * gameScale.scale}px impact`,
-      fill: '#ffffff',
-      stroke: 'black',
-      strokeThickness: 5
-    });
-
-    centerX(this, gameOverHeader);
-    let restartButton = this.createButton(
-      200 * gameScale.scale,
-      'Restart Game'
-    );
-
-    gameOverContainer.depth = gameDepths.menuDepth;
-    gameOverContainer.visible = false;
-    gameOverContainer.add([gameOverHeader, restartButton]);
-
-    return gameOverContainer;
   }
 
   initUI() {
+    let uiContainer = this.add.container();
     let gameHeight = this.sys.game.config.height;
+
+    let hpBG = this.add.graphics().fillStyle(gameStyles.barColor).setDepth(gameDepths.uiDepth);
+    this.hpBar = this.add.graphics().fillStyle(gameStyles.healthColor).setDepth(gameDepths.uiDepth);
+
+    hpBG.fillRect(
+      gameStyles.padding, 
+      gameStyles.padding, 
+      gameStyles.healthWidth, 
+      gameStyles.barHeight);
+
+    this.hpBar.fillRect(
+      gameStyles.padding, 
+      gameStyles.padding, 
+      gameStyles.healthWidth, 
+      gameStyles.barHeight);
+
+    let oxygenBG = this.add.graphics().fillStyle(gameStyles.barColor).setDepth(gameDepths.uiDepth);
+    this.oxygenBar = this.add.graphics().fillStyle(gameStyles.oxygenColor).setDepth(gameDepths.uiDepth);
+
+    oxygenBG.fillRect(
+      gameStyles.padding, 
+      gameStyles.padding * 2 + gameStyles.barHeight,
+      gameStyles.oxygenWidth, 
+      gameStyles.barHeight);
+      
+    this.oxygenBar.fillRect(
+      gameStyles.padding, 
+      gameStyles.padding * 2 + gameStyles.barHeight,
+      gameStyles.oxygenWidth, 
+      gameStyles.barHeight);
+
+
+
     this.pauseButton = this.add
       .text(0, gameHeight - 100 * gameScale.scale, 'ESC', {
         font: `${80 * gameScale.scale}px impact`,
@@ -619,39 +597,24 @@ class SceneMain extends Phaser.Scene {
         this.scene.game.scene.pause(keys.GAMEKEY);
         this.scene.game.scene.start(keys.PAUSEKEY);
       });
-  }
 
-  createButton(yPosition, text) {
-    let button = this.add
-      .text(0, yPosition, text, {
-        font: `${100 * gameScale.scale}px impact`,
-        fill: '#ffffff',
-        stroke: 'black',
-        strokeThickness: 5
-      })
-      .setInteractive({ cursor: 'pointer' });
+    uiContainer.add([hpBG, this.hpBar, oxygenBG, this.oxygenBar, this.pauseButton]);
+    return uiContainer;
+  } 
 
-    centerX(this, button);
-    button.depth = gameDepths.uiDepth;
+  updateUI(){
+    this.hpBar.clear().fillStyle(gameStyles.healthColor).setDepth(gameDepths.uiDepth);
+    this.hpBar.fillRect(
+      gameStyles.padding, 
+      gameStyles.padding, 
+      gameStyles.healthWidth * (this.player.getData('health')/100), 
+      gameStyles.barHeight);
 
-    button.on('pointerover', function() {
-      this.alpha = 0.5;
-    });
-
-    button.on('pointerout', function() {
-      this.alpha = 1;
-    });
-
-    return button;
-  }
-
-  showGameOverMenu() {
-    this.gameOverContainer.visible = true;
-
-    //stop game
-  }
-
-  hideGameOverMenu() {
-    this.gameOverContainer.visible = false;
+    this.oxygenBar.clear().fillStyle(gameStyles.oxygenColor).setDepth(gameDepths.uiDepth);
+    this.oxygenBar.fillRect(
+      gameStyles.padding, 
+      gameStyles.padding * 2 + gameStyles.barHeight,
+      gameStyles.oxygenWidth * (this.player.getData('oxygen')/100), 
+      gameStyles.barHeight);
   }
 }

@@ -6,13 +6,14 @@ const keys = {
   LEVELSKEY: 'LevelSelectScene',
   HELPKEY: 'HelpScene',
   PAUSEKEY: 'PauseScene',
+  GAMEOVERKEY: 'GameOverScene',
 
   LOGOKEY: 'logo',
   NAMEKEY: 'name',
   BGKEY: 'bg',
   CONTROLS1KEY: 'controls1',
 
-  ASTEROIDKEY: 'asteroid',
+  ASTEROID0KEY: 'asteroid0',
   ASTEROID1KEY: 'asteroid1',
   ASTEROID2KEY: 'asteroid2',
   
