@@ -537,21 +537,40 @@ class SceneMain extends Phaser.Scene {
       repeat: 1
     });
 
-    /*keys.dogKeys.forEach(function(dogStr){
+    this.anims.create({
+      key: keys.DEADKEY,
+      frames: this.anims.generateFrameNames(keys.CATATLASKEY, {
+        prefix: keys.SPRITEPREFIXKEY,
+        start: 16,
+        end: 16,
+        zeroPad: 0
+      }),
+      frameRate: 4,
+      repeat: -1
+    });
+
+    var self = this;
+    var dogCounter = 0;
+    var dogIndices = [[1,7], [8, 8], [9,11], [12,15], [15,15]];
+    var animData = [[2,-1], [4,1], [4,1], [4,1], [4,1]];
+    keys.dogKeys.forEach(function(dogStr){
+      dogCounter = 0;
       keys.animationKeys.forEach(function(anim){
-        this.anims.create({
+        self.anims.create({
           key: keys[`${dogStr}${anim.toUpperCase()}KEY`],
-          frames: this.anims.generateFrameNames(keys[`${dogStr}ATLASKEY`], {
+          frames: self.anims.generateFrameNames(keys[`${dogStr}ATLASKEY`], {
             prefix: keys.SPRITEPREFIXKEY,
-            start: 13,
-            end: 16,
+            start: dogIndices[dogCounter][0],
+            end: dogIndices[dogCounter][1],
             zeroPad: 0
           }),
-          frameRate: 4,
-          repeat: 1
+          frameRate: animData[dogCounter][0],
+          repeat: animData[dogCounter][1]
         });
+
+        dogCounter++;
       });
-    });*/
+    });
 
   }
 
