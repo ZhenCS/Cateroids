@@ -10,7 +10,7 @@ var levelsStyle = {
 
 const gameStyles = {
   padding: 20 * gameScale.scale,
-  barHeight: 50 * gameScale.scale,
+  barHeight: 30 * gameScale.scale,
   healthWidth: 1000 * gameScale.scale,
   oxygenWidth: 600 * gameScale.scale,
   healthColor: 0xff4d4d,
@@ -24,6 +24,13 @@ const gameDepths = {
 }
 
 const playerData = {
-  maxHealth: 100,
+  maxHealth: 500,
   maxOxygen: 100
+}
+
+const entityData = {
+  maxVelocityX: 100,
+  maxVelocityY: 100,
+  minVelocityX: 10,
+  minVelocityY: 25
 }

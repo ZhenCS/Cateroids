@@ -8,6 +8,7 @@ class SceneMain extends Phaser.Scene {
   preload() {}
 
   create() {
+    
     const map = this.make.tilemap({
       key: 'map'
     });
@@ -16,6 +17,7 @@ class SceneMain extends Phaser.Scene {
 
     this.initAnimations();
     this.uiContainer = this.initUI();
+    this.uiContainer.setScrollFactor(0);
 
     if (
       Object.getOwnPropertyNames(this.passingData).length == 0 &&
@@ -34,7 +36,7 @@ class SceneMain extends Phaser.Scene {
       this.game.config.height * 0.5
     );
     this.player.play(keys.IDLEKEY);
-
+    this.physics.world.setBounds(0, 0, 10000, this.game.config.height);
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.dogs = this.add.group();
@@ -63,7 +65,7 @@ class SceneMain extends Phaser.Scene {
       'pointerdown',
       function(pointer) {
         if (this.player.active) {
-          this.player.shoot(pointer.x, pointer.y);
+          this.player.shoot(pointer.worldX, pointer.worldY);
           //this.player.play(keys.ATTACKKEY);
         }
       },
@@ -83,7 +85,7 @@ class SceneMain extends Phaser.Scene {
 
     // Asteroid Spawner
     this.time.addEvent({
-      delay: 1000,
+      delay: 2000,
       callback: function() {
         this.spawnAsteroid();
 
@@ -104,6 +106,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.player) {
           this.onLifeDown();
+          asteroids.destroy();
           //this.player.destroy();
         }
       },
@@ -120,6 +123,8 @@ class SceneMain extends Phaser.Scene {
 
         if (player) {
           this.onLifeDown();
+          dog.onDestroy();
+          dog.destroy();
           //player.destroy();
         }
       },
@@ -254,7 +259,15 @@ class SceneMain extends Phaser.Scene {
     camera.startFollow(this.player);
 
     camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);*/
+
+    //this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player); 
   }
+
+
+
+
+
 
   update() {
     if (this.player.active) {
@@ -304,7 +317,7 @@ class SceneMain extends Phaser.Scene {
         }
       }
 
-      let maxLength = (Math.sqrt(Math.pow(this.game.config.width * 0.5, 2) + Math.pow(this.game.config.height * 0.5, 2)));
+      let maxLength = 2 * (Math.sqrt(Math.pow(this.game.config.width * 0.5, 2) + Math.pow(this.game.config.height * 0.5, 2)));
       // Frustum culling for bullets to prevent offscreen rendering
       for (let i = 0; i < this.bullets.getChildren().length; i++) {
         const bullet = this.bullets.getChildren()[i];
@@ -313,8 +326,8 @@ class SceneMain extends Phaser.Scene {
           Phaser.Math.Distance.Between(
             bullet.x,
             bullet.y,
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5
+            this.player.x,
+            this.player.y
           ) > maxLength
         ) {
           if (bullet) {
@@ -330,8 +343,8 @@ class SceneMain extends Phaser.Scene {
           Phaser.Math.Distance.Between(
             asteroid.x,
             asteroid.y,
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5
+            this.player.x,
+            this.player.y
           ) > maxLength
         ) {
           if (asteroid) {
@@ -346,8 +359,8 @@ class SceneMain extends Phaser.Scene {
           Phaser.Math.Distance.Between(
             dog.x,
             dog.y,
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5
+            this.player.x,
+            this.player.y
           ) > maxLength
         ) {
           if (dog) {
@@ -399,14 +412,15 @@ class SceneMain extends Phaser.Scene {
 
   getSpawnPosition() {
     let buffer = 16;
-    const sides = ['top', 'right', 'bottom', 'left'];
+    const sides = ['top', 'right', 'bottom', 'left', 'right', 'right', 'right'];
     const side = sides[Phaser.Math.Between(0, sides.length - 1)];
-
+    let width = this.game.config.width;
+    let height = this.game.config.height;
     let position = new Phaser.Math.Vector2(0, 0);
     switch (side) {
       case 'top': {
         position = new Phaser.Math.Vector2(
-          Phaser.Math.Between(0, this.game.config.width),
+          Phaser.Math.Between(this.player.x - width/2, this.player.x + width/2),
           -1 * buffer
         );
         break;
@@ -414,23 +428,23 @@ class SceneMain extends Phaser.Scene {
 
       case 'right': {
         position = new Phaser.Math.Vector2(
-          this.game.config.width + buffer,
-          Phaser.Math.Between(0, this.game.config.height)
+          this.player.x + this.game.config.width/2 + buffer,
+          Phaser.Math.Between(this.player.y - height/2, this.player.y + height/2),
         );
         break;
       }
 
       case 'bottom': {
         position = new Phaser.Math.Vector2(
-          Phaser.Math.Between(0, this.game.config.width),
+          Phaser.Math.Between(this.player.x - width/2, this.player.x + width/2),
           this.game.config.height + buffer
         );
       }
 
       case 'left': {
         position = new Phaser.Math.Vector2(
-          -1 * buffer,
-          Phaser.Math.Between(-120, this.game.config.height)
+          this.player.x - this.game.config.width/2 - buffer,
+          Phaser.Math.Between(this.player.y - height/2, this.player.y + height/2),
         );
       }
     }
@@ -575,14 +589,14 @@ class SceneMain extends Phaser.Scene {
     this.hpBar.fillRect(
       gameStyles.padding, 
       gameStyles.padding, 
-      gameStyles.healthWidth * (this.player.getData('health')/100), 
+      gameStyles.healthWidth * (this.player.getData('health')/playerData.maxHealth), 
       gameStyles.barHeight);
 
     this.oxygenBar.clear().fillStyle(gameStyles.oxygenColor).setDepth(gameDepths.uiDepth);
     this.oxygenBar.fillRect(
       gameStyles.padding, 
       gameStyles.padding * 2 + gameStyles.barHeight,
-      gameStyles.oxygenWidth * (this.player.getData('oxygen')/100), 
+      gameStyles.oxygenWidth * (this.player.getData('oxygen')/playerData.maxOxygen), 
       gameStyles.barHeight);
   }
 }

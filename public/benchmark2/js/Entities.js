@@ -24,14 +24,25 @@ class Asteroid extends Entity {
   getInitVelocity(scene, x, y){
     let width = scene.game.config.width;
     let height = scene.game.config.height;
+    let player = scene.player;
     let buffer = 128;
-    let velocityX = Phaser.Math.Between(-100, 100);
-    if(x < buffer) velocityX = Phaser.Math.Between(1, 100);
-    else if(x > width - buffer) velocityX = Phaser.Math.Between(-100, -1);
+    let velocityX = Phaser.Math.Between(
+      -1 * entityData.maxVelocityX, 
+      entityData.maxVelocityX);
 
-    let velocityY = Phaser.Math.Between(-100, 100);
-    if(y < buffer) velocityY = Phaser.Math.Between(1, 100);
-    else if(y > height - buffer) velocityY = Phaser.Math.Between(-100, -1);
+    if(x < player.x - width/2 + buffer) 
+      velocityX = Phaser.Math.Between(entityData.minVelocityX, entityData.maxVelocityX);
+    else if(x > player.x + width/2 - buffer) 
+      velocityX = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
+
+    let velocityY = Phaser.Math.Between(
+      -1 * entityData.maxVelocityY, 
+      entityData.maxVelocityY);
+
+    if(y < 0 + buffer) 
+      velocityY = Phaser.Math.Between(entityData.minVelocityY, entityData.maxVelocityY);
+    else if(y > height - buffer) 
+      velocityY = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
 
     return [velocityX, velocityY];
   }
@@ -104,14 +115,26 @@ class Dog extends Entity {
   getInitVelocity(scene, x, y){
     let width = scene.game.config.width;
     let height = scene.game.config.height;
+    let player = scene.player;
     let buffer = 128;
-    let velocityX = Phaser.Math.Between(-100, 100);
-    if(x < buffer) velocityX = Phaser.Math.Between(1, 100);
-    else if(x > width - buffer) velocityX = Phaser.Math.Between(-100, -1);
 
-    let velocityY = Phaser.Math.Between(-100, 100);
-    if(y < buffer) velocityY = Phaser.Math.Between(1, 100);
-    else if(y > height - buffer) velocityY = Phaser.Math.Between(-100, -1);
+    let velocityX = Phaser.Math.Between(
+      -1 * entityData.maxVelocityX, 
+      entityData.maxVelocityX);
+
+    if(x < player.x - width/2 + buffer) 
+      velocityX = Phaser.Math.Between(entityData.minVelocityX, entityData.maxVelocityX);
+    else if(x > player.x + width/2 - buffer) 
+      velocityX = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
+
+    let velocityY = Phaser.Math.Between(
+      -1 * entityData.maxVelocityY, 
+      entityData.maxVelocityY);
+
+    if(y < 0 + buffer) 
+      velocityY = Phaser.Math.Between(entityData.minVelocityY, entityData.maxVelocityY);
+    else if(y > height - buffer) 
+      velocityY = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
 
     return [velocityX, velocityY];
   }
