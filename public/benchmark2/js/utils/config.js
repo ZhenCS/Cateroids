@@ -23,7 +23,19 @@ const gameDepths = {
   uiDepth: 5
 }
 
-const entityData = {
+const gameConfig = {
+
+  //soft cap for just arrow keys. can be exceeded with boost
+  softMaxPlayerVelocityX: 300,
+  softMaxPlayerVelocityY: 300,
+  //hard cap with boost. will never exceed
+  hardMaxPlayerVelocityX: 500,
+  hardMaxPlayerVelocityY: 500,
+  playerSpeedX: 10,
+  playerSpeedY: 10,
+  boost: 20,
+
+  //for asteroids and dogs
   maxVelocityX: 100,
   maxVelocityY: 100,
   minVelocityX: 10,
@@ -36,10 +48,12 @@ const entityData = {
   asteroid0Health: 40,
   asteroid1Health: 20,
   asteroid2Health: 10,
+  asteroid3Health: 100,
 
   asteroid0Damage: 20,
   asteroid1Damage: 15,
   asteroid2Damage: 10,
+  asteroid3Damage: 500,
 
   dog1Health: 30,
   dog2Health: 60,
@@ -49,7 +63,23 @@ const entityData = {
   dog2Damage: 10,
   dog3Damage: 15,
 
+  //ms
   dog1FireRate: 800,
   dog2FireRate: 1000,
-  dog3FireRate: 1500
+  dog3FireRate: 1500,
+
+  // out of 100
+  dogSpawnRate: 50,
+  dog1SpawnRate: 40,
+  dog2SpawnRate: 35,
+  dog3SpawnRate: 25,
+
+  oxygenAsteroidSpawnRate: 15,
+  //when oxygen is 0, damage to health
+  oxygenDamage: 2,
+  oxygenDepletionDelay: 5000,
+  oxygenDepletionRate: 5,
+
+  oxygenReplenishDelay: 4000,
+  oxygenReplenishRate: 5
 }

@@ -16,6 +16,7 @@ const keys = {
   ASTEROID0KEY: 'asteroid0',
   ASTEROID1KEY: 'asteroid1',
   ASTEROID2KEY: 'asteroid2',
+  ASTEROID3KEY: 'asteroid3',
   
   LEVELICON: 'levelIcon',
   LIFEICON: 'lifeIcon',

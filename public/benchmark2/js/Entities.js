@@ -13,22 +13,22 @@ class Entity extends Phaser.GameObjects.Sprite {
     let player = scene.player;
     let buffer = 128;
     let velocityX = Phaser.Math.Between(
-      -1 * entityData.maxVelocityX, 
-      entityData.maxVelocityX);
+      -1 * gameConfig.maxVelocityX, 
+      gameConfig.maxVelocityX);
 
     if(x < player.x - width/2 + buffer) 
-      velocityX = Phaser.Math.Between(entityData.minVelocityX, entityData.maxVelocityX);
+      velocityX = Phaser.Math.Between(gameConfig.minVelocityX, gameConfig.maxVelocityX);
     else if(x > player.x + width/2 - buffer) 
-      velocityX = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
+      velocityX = Phaser.Math.Between(-1 * gameConfig.maxVelocityX, -1 * gameConfig.minVelocityX);
 
     let velocityY = Phaser.Math.Between(
-      -1 * entityData.maxVelocityY, 
-      entityData.maxVelocityY);
+      -1 * gameConfig.maxVelocityY, 
+      gameConfig.maxVelocityY);
 
     if(y < 0 + buffer) 
-      velocityY = Phaser.Math.Between(entityData.minVelocityY, entityData.maxVelocityY);
+      velocityY = Phaser.Math.Between(gameConfig.minVelocityY, gameConfig.maxVelocityY);
     else if(y > height - buffer) 
-      velocityY = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
+      velocityY = Phaser.Math.Between(-1 * gameConfig.maxVelocityX, -1 * gameConfig.minVelocityX);
 
     return [velocityX, velocityY];
   }
@@ -37,18 +37,16 @@ class Entity extends Phaser.GameObjects.Sprite {
 class Asteroid extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key);
-
-    if(key == keys.ASTEROID0KEY){
-      this.setData('health', entityData.asteroid0Health);
-      this.setData('damage', entityData.asteroid0Damage);
+    let asteroids = [keys.ASTEROID0KEY, keys.ASTEROID1KEY, keys.ASTEROID2KEY, keys.ASTEROID3KEY];
+    let level = asteroids.indexOf(key);
+    
+    if(level >= 0){
+      this.setData('health', gameConfig[`asteroid${level}Health`]);
+      this.setData('damage', gameConfig[`asteroid${level}Damage`]);
     }
-    if(key == keys.ASTEROID1KEY){
-      this.setData('health', entityData.asteroid1Health);
-      this.setData('damage', entityData.asteroid1Damage);
-    }
-    if(key == keys.ASTEROID2KEY){
-      this.setData('health', entityData.asteroid2Health);
-      this.setData('damage', entityData.asteroid2Damage);
+    
+    if(level == 3){
+      this.body.setMass(100);
     }
     this.body.setCircle(this.displayWidth * 0.5);
     let velocity = this.getInitVelocity(scene,x,y);
@@ -56,7 +54,7 @@ class Asteroid extends Entity {
       velocity[0],
       velocity[1]
     );
-    this.setData('level', 0);
+    this.setData('level', level);
   }
 
   damage(damage){
@@ -78,28 +76,28 @@ class Dog extends Entity {
       this.setScale(0.4, 0.4);
       this.play(keys.DOG1IDLEKEY);
       this.setData('dogId', 1);
-      this.setData('health', entityData.dog1Health);
-      this.setData('damage', entityData.dog1Damage);
+      this.setData('health', gameConfig.dog1Health);
+      this.setData('damage', gameConfig.dog1Damage);
 
-      fireRate = entityData.dog1FireRate;
+      fireRate = gameConfig.dog1FireRate;
     }
     if(key == keys.DOG2KEY){
       this.setScale(0.6, 0.6);
       this.play(keys.DOG2IDLEKEY);
       this.setData('dogId', 2);
-      this.setData('health', entityData.dog2Health);
-      this.setData('damage', entityData.dog2Damage);
+      this.setData('health', gameConfig.dog2Health);
+      this.setData('damage', gameConfig.dog2Damage);
 
-      fireRate = entityData.dog2FireRate;
+      fireRate = gameConfig.dog2FireRate;
     }
     if(key == keys.DOG3KEY){
       this.setScale(0.8, 0.8);
       this.play(keys.DOG3IDLEKEY);
       this.setData('dogId', 3);
-      this.setData('health', entityData.dog3Health);
-      this.setData('damage', entityData.dog3Damage);
+      this.setData('health', gameConfig.dog3Health);
+      this.setData('damage', gameConfig.dog3Damage);
 
-      fireRate = entityData.dog3FireRate;
+      fireRate = gameConfig.dog3FireRate;
     }
 
     let velocity = this.getInitVelocity(scene,x,y);
@@ -111,16 +109,19 @@ class Dog extends Entity {
         if (this.scene !== undefined) {
           const bullet = new Bullet(this.scene, this.x, this.y, false);
           bullet.setData('isFriendly', false);
-          this.play(keys[`DOG${this.getData('dogId')}ATTACKKEY`]);
-          this.once('animationcomplete', function(){
-            this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
-          });
-          
+          let animKey = keys[`DOG${this.getData('dogId')}ATTACKKEY`];
+
+          if(animKey){
+            this.play(animKey);
+            this.once('animationcomplete', function(){
+              this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
+            });
+          }
           if (key == keys.DOG1KEY) {
             const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
             bullet.setTint(0x142bff);
             bullet.setRotation(angle);
-            bullet.setData('damage', entityData.dog1Damage);
+            bullet.setData('damage', gameConfig.dog1Damage);
             bullet.body.setVelocity(
               100 * Math.cos(angle),
               100 * Math.sin(angle)
@@ -131,7 +132,7 @@ class Dog extends Entity {
             const angle = Math.atan2(dy, dx);
             bullet.setTint(0x3dff23);
             bullet.setRotation(angle);
-            bullet.setData('damage', entityData.dog2Damage);
+            bullet.setData('damage', gameConfig.dog2Damage);
             bullet.body.setVelocity(
               150 * Math.cos(angle),
               150 * Math.sin(angle)
@@ -142,7 +143,7 @@ class Dog extends Entity {
             const angle = Math.atan2(dy, dx);
             bullet.setTint(0xd71fef);
             bullet.setRotation(angle);
-            bullet.setData('damage', entityData.dog3Damage);
+            bullet.setData('damage', gameConfig.dog3Damage);
             bullet.body.setVelocity(
               200 * Math.cos(angle),
               200 * Math.sin(angle)
@@ -165,7 +166,10 @@ class Dog extends Entity {
         this.onDestroy();
         this.destroy();
     }else{
-      this.play(keys[`DOG${this.getData('dogId')}DAMAGEKEY`]);
+      let animKey = keys[`DOG${this.getData('dogId')}DAMAGEKEY`];
+
+      if(animKey)
+        this.play(animKey);
       this.once('animationcomplete', function(){
         this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
       });
@@ -193,45 +197,69 @@ class Leo extends Entity {
     super(scene, x, y, keys.CATKEY);
     this.body.setCollideWorldBounds(true);
     this.setData('isMoving', false);
-    this.setData('health', entityData.maxPlayerHealth);
-    this.setData('oxygen', entityData.maxPlayerOxygen);
+    this.setData('health', gameConfig.maxPlayerHealth);
+    this.setData('oxygen', gameConfig.maxPlayerOxygen);
+    this.setData('oxygenAsteroid', null);
     this.setScale(0.5, 0.5);
+    this.setDepth(gameDepths.uiDepth - 1);
   }
 
   moveLeft(boost) {
     this.setData('isMoving', true);
     if(this.body.velocity.x > 0)
       this.body.velocity.x = 0;
-    this.body.velocity.x -= (10 + boost);
+    
+    if(this.body.velocity.x > -1 * gameConfig.softMaxPlayerVelocityX)
+      this.body.velocity.x -= gameConfig.playerSpeedX;
+
+    if(this.body.velocity.x > -1 * gameConfig.hardMaxPlayerVelocityX)
+      this.body.velocity.x -= boost;
+    else this.body.velocity.x = -1 * gameConfig.hardMaxPlayerVelocityX;
   }
 
   moveRight(boost) {
     this.setData('isMoving', true);
     if(this.body.velocity.x < 0)
       this.body.velocity.x = 0;
-    this.body.velocity.x += 10 + boost;
+
+    if(this.body.velocity.x < gameConfig.softMaxPlayerVelocityX)
+      this.body.velocity.x += gameConfig.playerSpeedX;
+    
+    if(this.body.velocity.x < gameConfig.hardMaxPlayerVelocityX)
+      this.body.velocity.x += boost;
+    else this.body.velocity.x = gameConfig.hardMaxPlayerVelocityX;
   }
 
   moveDown(boost) {
     this.setData('isMoving', true);
     if(this.body.velocity.y < 0)
       this.body.velocity.y = 0;
-    this.body.velocity.y += 10 + boost;
+
+    if(this.body.velocity.y < gameConfig.softMaxPlayerVelocityY)
+      this.body.velocity.y += gameConfig.playerSpeedY;
+
+    if(this.body.velocity.y < gameConfig.hardMaxPlayerVelocityY)
+      this.body.velocity.y += boost;
+    else this.body.velocity.y = gameConfig.hardMaxPlayerVelocityY;
   }
 
   moveUp(boost) {
     this.setData('isMoving', true);
     if(this.body.velocity.y > 0)
       this.body.velocity.y = 0;
-    this.body.velocity.y -= (10 + boost);
+
+    if(this.body.velocity.y > -1 * gameConfig.softMaxPlayerVelocityY) 
+      this.body.velocity.y -= gameConfig.playerSpeedY;
+    if(this.body.velocity.y > -1 * gameConfig.hardMaxPlayerVelocityY)
+      this.body.velocity.y -= boost;
+    else this.body.velocity.y = -1 * gameConfig.hardMaxPlayerVelocityY;
   }
 
   shoot(pointerX, pointerY) {
     const bullet = new Bullet(this.scene, this.x, this.y, true);
     bullet.setTint(0xf90018);
     bullet.setOrigin(0.5);
-    bullet.setData('isFriendly', true);
-    bullet.setData('damage', entityData.playerDamage);
+    bullet.setData('damage', gameConfig.playerDamage);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
     bullet.setRotation(angle);
     const speed = 1000;
@@ -243,6 +271,28 @@ class Leo extends Entity {
   }
   damage(damage){
     this.setData('health', this.getData('health') - damage);
+    if(this.getData('health') < 0){
+      this.setData('health', 0);
+    }else if(this.getData('health') > gameConfig.maxPlayerHealth){
+      this.setData('health', gameConfig.maxPlayerHealth);
+    }
+  }
+
+  oxygenDamage(damage){
+    this.setData('oxygen', this.getData('oxygen') - damage);
+    if(this.getData('oxygen') < 0){
+      this.setData('oxygen', 0);
+      this.damage(gameConfig.oxygenDamage);
+    }else if(this.getData('oxygen') > gameConfig.maxPlayerOxygen){
+      this.setData('oxygen', gameConfig.maxPlayerOxygen);
+      //play oxygen replenished sound
+    }
+  }
+
+  followAsteroid(){
+    let asteroid = this.getData('oxygenAsteroid');
+    this.x = asteroid.x;
+    this.y = asteroid.y;
   }
 
   update() {

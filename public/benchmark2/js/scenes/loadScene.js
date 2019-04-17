@@ -46,7 +46,7 @@ class LoadScene extends Phaser.Scene {
     // Load asteroids
     // TODO: Create 4 different asteroids then just swap them in
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       this.load.image(keys[`ASTEROID${i}KEY`], `assets/asteroid${i}.png`);
     }
   }
