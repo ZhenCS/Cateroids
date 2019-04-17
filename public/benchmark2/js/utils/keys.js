@@ -23,7 +23,7 @@ const keys = {
   STARKEY: 'star',
 
   CATKEY: 'cat',
-  DOGKEY: 'dog',
+  DOG1KEY: 'dog',
   DOG2KEY: 'dog2',
   DOG3KEY: 'dog3',
 
@@ -44,6 +44,7 @@ const keys = {
 
   dogKeys: ['DOG1', 'DOG2', 'DOG3'],
   animationKeys: ['idle', 'attack', 'damage', 'dying', 'dead']
+  //ex: DOG1IDLEKEY
 };
 
 keys.dogKeys.forEach(function(dogStr) {

@@ -23,14 +23,33 @@ const gameDepths = {
   uiDepth: 5
 }
 
-const playerData = {
-  maxHealth: 500,
-  maxOxygen: 100
-}
-
 const entityData = {
   maxVelocityX: 100,
   maxVelocityY: 100,
   minVelocityX: 10,
-  minVelocityY: 25
+  minVelocityY: 25,
+
+  maxPlayerHealth: 100,
+  maxPlayerOxygen: 100,
+  playerDamage: 10,
+
+  asteroid0Health: 40,
+  asteroid1Health: 20,
+  asteroid2Health: 10,
+
+  asteroid0Damage: 20,
+  asteroid1Damage: 15,
+  asteroid2Damage: 10,
+
+  dog1Health: 30,
+  dog2Health: 60,
+  dog3Health: 80,
+
+  dog1Damage: 5,
+  dog2Damage: 10,
+  dog3Damage: 15,
+
+  dog1FireRate: 800,
+  dog2FireRate: 1000,
+  dog3FireRate: 1500
 }

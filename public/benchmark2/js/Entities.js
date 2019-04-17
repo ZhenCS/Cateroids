@@ -6,20 +6,6 @@ class Entity extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.world.enableBody(this, 0);
   }
-}
-
-class Asteroid extends Entity {
-  constructor(scene, x, y, key) {
-    super(scene, x, y, key);
-
-    this.body.setCircle(this.displayWidth * 0.5);
-    let velocity = this.getInitVelocity(scene,x,y);
-    this.body.setVelocity(
-      velocity[0],
-      velocity[1]
-    );
-    this.setData('level', 0);
-  }
 
   getInitVelocity(scene, x, y){
     let width = scene.game.config.width;
@@ -48,36 +34,93 @@ class Asteroid extends Entity {
   }
 }
 
-class Dog extends Entity {
+class Asteroid extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key);
 
-    this.setScale(0.4, 0.4);
-    this.play(keys.DOG1IDLEKEY);
-    if(key == keys.DOG2KEY){
-      this.setScale(0.6, 0.6);
-      this.play(keys.DOG2IDLEKEY);
-    }else if(key == keys.DOG3KEY){
-      this.setScale(0.8, 0.8);
-      this.play(keys.DOG3IDLEKEY);
+    if(key == keys.ASTEROID0KEY){
+      this.setData('health', entityData.asteroid0Health);
+      this.setData('damage', entityData.asteroid0Damage);
     }
+    if(key == keys.ASTEROID1KEY){
+      this.setData('health', entityData.asteroid1Health);
+      this.setData('damage', entityData.asteroid1Damage);
+    }
+    if(key == keys.ASTEROID2KEY){
+      this.setData('health', entityData.asteroid2Health);
+      this.setData('damage', entityData.asteroid2Damage);
+    }
+    this.body.setCircle(this.displayWidth * 0.5);
     let velocity = this.getInitVelocity(scene,x,y);
     this.body.setVelocity(
       velocity[0],
       velocity[1]
     );
+    this.setData('level', 0);
+  }
+
+  damage(damage){
+    let health = this.getData('health');
+
+    this.setData('health', health - damage);
+    if(health - damage <= 0){
+      this.destroy();
+    }
+  }
+  
+}
+
+class Dog extends Entity {
+  constructor(scene, x, y, key) {
+    super(scene, x, y, key);
+    let fireRate = '';
+    if(key == keys.DOG1KEY){
+      this.setScale(0.4, 0.4);
+      this.play(keys.DOG1IDLEKEY);
+      this.setData('dogId', 1);
+      this.setData('health', entityData.dog1Health);
+      this.setData('damage', entityData.dog1Damage);
+
+      fireRate = entityData.dog1FireRate;
+    }
+    if(key == keys.DOG2KEY){
+      this.setScale(0.6, 0.6);
+      this.play(keys.DOG2IDLEKEY);
+      this.setData('dogId', 2);
+      this.setData('health', entityData.dog2Health);
+      this.setData('damage', entityData.dog2Damage);
+
+      fireRate = entityData.dog2FireRate;
+    }
+    if(key == keys.DOG3KEY){
+      this.setScale(0.8, 0.8);
+      this.play(keys.DOG3IDLEKEY);
+      this.setData('dogId', 3);
+      this.setData('health', entityData.dog3Health);
+      this.setData('damage', entityData.dog3Damage);
+
+      fireRate = entityData.dog3FireRate;
+    }
+
+    let velocity = this.getInitVelocity(scene,x,y);
+    this.body.setVelocity(velocity[0], velocity[1]);
+
     this.shootTimer = this.scene.time.addEvent({
-      delay: Phaser.Math.Between(1000, 5000),
+      delay: fireRate,
       callback: function() {
         if (this.scene !== undefined) {
-
           const bullet = new Bullet(this.scene, this.x, this.y, false);
           bullet.setData('isFriendly', false);
-
-          if (key == keys.DOGKEY) {
+          this.play(keys[`DOG${this.getData('dogId')}ATTACKKEY`]);
+          this.once('animationcomplete', function(){
+            this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
+          });
+          
+          if (key == keys.DOG1KEY) {
             const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
             bullet.setTint(0x142bff);
             bullet.setRotation(angle);
+            bullet.setData('damage', entityData.dog1Damage);
             bullet.body.setVelocity(
               100 * Math.cos(angle),
               100 * Math.sin(angle)
@@ -88,6 +131,7 @@ class Dog extends Entity {
             const angle = Math.atan2(dy, dx);
             bullet.setTint(0x3dff23);
             bullet.setRotation(angle);
+            bullet.setData('damage', entityData.dog2Damage);
             bullet.body.setVelocity(
               150 * Math.cos(angle),
               150 * Math.sin(angle)
@@ -98,6 +142,7 @@ class Dog extends Entity {
             const angle = Math.atan2(dy, dx);
             bullet.setTint(0xd71fef);
             bullet.setRotation(angle);
+            bullet.setData('damage', entityData.dog3Damage);
             bullet.body.setVelocity(
               200 * Math.cos(angle),
               200 * Math.sin(angle)
@@ -111,32 +156,20 @@ class Dog extends Entity {
       loop: true
     });
   }
-
-  getInitVelocity(scene, x, y){
-    let width = scene.game.config.width;
-    let height = scene.game.config.height;
-    let player = scene.player;
-    let buffer = 128;
-
-    let velocityX = Phaser.Math.Between(
-      -1 * entityData.maxVelocityX, 
-      entityData.maxVelocityX);
-
-    if(x < player.x - width/2 + buffer) 
-      velocityX = Phaser.Math.Between(entityData.minVelocityX, entityData.maxVelocityX);
-    else if(x > player.x + width/2 - buffer) 
-      velocityX = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
-
-    let velocityY = Phaser.Math.Between(
-      -1 * entityData.maxVelocityY, 
-      entityData.maxVelocityY);
-
-    if(y < 0 + buffer) 
-      velocityY = Phaser.Math.Between(entityData.minVelocityY, entityData.maxVelocityY);
-    else if(y > height - buffer) 
-      velocityY = Phaser.Math.Between(-1 * entityData.maxVelocityX, -1 * entityData.minVelocityX);
-
-    return [velocityX, velocityY];
+  
+  damage(damage){
+    let health = this.getData('health');
+    
+    this.setData('health', health - damage);
+    if(health - damage <= 0){
+        this.onDestroy();
+        this.destroy();
+    }else{
+      this.play(keys[`DOG${this.getData('dogId')}DAMAGEKEY`]);
+      this.once('animationcomplete', function(){
+        this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
+      });
+    }
   }
 
   onDestroy() {
@@ -160,8 +193,8 @@ class Leo extends Entity {
     super(scene, x, y, keys.CATKEY);
     this.body.setCollideWorldBounds(true);
     this.setData('isMoving', false);
-    this.setData('health', playerData.maxHealth);
-    this.setData('oxygen', playerData.maxOxygen);
+    this.setData('health', entityData.maxPlayerHealth);
+    this.setData('oxygen', entityData.maxPlayerOxygen);
     this.setScale(0.5, 0.5);
   }
 
@@ -198,15 +231,18 @@ class Leo extends Entity {
     bullet.setTint(0xf90018);
     bullet.setOrigin(0.5);
     bullet.setData('isFriendly', true);
+    bullet.setData('damage', entityData.playerDamage);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
     bullet.setRotation(angle);
     const speed = 1000;
     bullet.body.setVelocity(
-      // TODO: Set this in the direction of mouse click
       speed * Math.cos(angle) + Phaser.Math.Between(-50, 50),
       speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
     );
     this.scene.bullets.add(bullet);
+  }
+  damage(damage){
+    this.setData('health', this.getData('health') - damage);
   }
 
   update() {
