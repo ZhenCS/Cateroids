@@ -14,7 +14,7 @@ class SceneMain extends Phaser.Scene {
     });
 
     const tileset = map.addTilesetImage('cateroidsTileset', 'tiles');
-
+    this.debug = this.add.graphics();
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.oxygenAsteroids = this.add.group();
@@ -25,14 +25,13 @@ class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
-    
     //init player before calling these functions
     this.initAnimations();
     this.initUI();
     this.initControls();
     this.initEvents();
     this.initCollisions();
-
+    
     this.cameras.main.startFollow(this.player); 
     this.physics.world.setBounds(0, 0, 10000, this.game.config.height);
     this.cameras.main.setBounds(0, 0, 10000, this.game.config.height);
@@ -44,6 +43,8 @@ class SceneMain extends Phaser.Scene {
       this.updateUI();
       this.movementCheck();
       this.frustumCulling();
+      //this.debug.clear()
+      //this.player.body.drawDebug(this.debug);
     }
   }
 
@@ -89,7 +90,7 @@ class SceneMain extends Phaser.Scene {
 
   getSpawnPosition() {
     let buffer = 16;
-    const sides = ['top', 'right', 'bottom', 'left', 'right', 'right', 'right'];
+    const sides = ['top', 'right', 'bottom', 'left', 'left', 'left', 'left'];
     const side = sides[Phaser.Math.Between(0, sides.length - 1)];
     let width = this.game.config.width;
     let height = this.game.config.height;
@@ -581,30 +582,42 @@ class SceneMain extends Phaser.Scene {
     }
 
     if(this.player.getData('oxygenAsteroid') != null){
-      this.player.followAsteroid();
       this.oxygenDepletionTimer.paused = true;
       this.oxygenReplenishTimer.paused = false;
-      return;
+    }else{
+      this.oxygenDepletionTimer.paused = false;
+      this.oxygenReplenishTimer.paused = true;
     }
-
-    this.oxygenDepletionTimer.paused = false;
-    this.oxygenReplenishTimer.paused = true;
+    
 
     // Check for vertical movement
     if (this.keyW.isDown) {
-      this.player.moveUp(boost);
-      moved = true;
+      if(this.player.getData('oxygenAsteroid') == null){
+        this.player.moveUp(boost);
+        moved = true;
+      }
     } else if (this.keyS.isDown) {
-      this.player.moveDown(boost);
-      moved = true;
+      if(this.player.getData('oxygenAsteroid') == null){
+        this.player.moveDown(boost);
+        moved = true;
+      }
     }
 
     // Check for horizontal movement
     if (this.keyA.isDown) {
-      this.player.moveLeft(boost);
+      if(this.player.getData('oxygenAsteroid') != null){
+        this.player.followAsteroid(-1 * gameConfig.playerWalkVelocityX);
+      }else{
+        this.player.moveLeft(boost);
+        
+      }
       moved = true;
     } else if (this.keyD.isDown) {
-      this.player.moveRight(boost);
+      if(this.player.getData('oxygenAsteroid') != null){
+        this.player.followAsteroid(gameConfig.playerWalkVelocityX);
+      }else{
+        this.player.moveRight(boost);
+      }
       moved = true;
     }
 
@@ -624,6 +637,10 @@ class SceneMain extends Phaser.Scene {
 
       for (let i = 0; i < 5; i++) {
         gas.explode();
+      }
+    }else{
+      if(this.player.getData('oxygenAsteroid') != null){
+        this.player.followAsteroid(0);
       }
     }
   }

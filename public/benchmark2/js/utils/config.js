@@ -28,6 +28,10 @@ const gameConfig = {
   //soft cap for just arrow keys. can be exceeded with boost
   softMaxPlayerVelocityX: 300,
   softMaxPlayerVelocityY: 300,
+
+  //radians 
+  playerWalkVelocityX: Math.PI/45,
+  playerWalkVelocityY: Math.PI/45,
   //hard cap with boost. will never exceed
   hardMaxPlayerVelocityX: 500,
   hardMaxPlayerVelocityY: 500,
@@ -74,7 +78,7 @@ const gameConfig = {
   dog2SpawnRate: 35,
   dog3SpawnRate: 25,
 
-  oxygenAsteroidSpawnRate: 15,
+  oxygenAsteroidSpawnRate: 35,
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
   oxygenDepletionDelay: 5000,

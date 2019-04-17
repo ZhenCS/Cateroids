@@ -270,12 +270,12 @@ class Leo extends Entity {
     this.scene.bullets.add(bullet);
   }
   damage(damage){
-    this.setData('health', this.getData('health') - damage);
-    if(this.getData('health') < 0){
-      this.setData('health', 0);
-    }else if(this.getData('health') > gameConfig.maxPlayerHealth){
-      this.setData('health', gameConfig.maxPlayerHealth);
-    }
+      this.setData('health', this.getData('health') - damage);
+      if(this.getData('health') < 0){
+        this.setData('health', 0);
+      }else if(this.getData('health') > gameConfig.maxPlayerHealth){
+        this.setData('health', gameConfig.maxPlayerHealth);
+      }
   }
 
   oxygenDamage(damage){
@@ -289,10 +289,36 @@ class Leo extends Entity {
     }
   }
 
-  followAsteroid(){
+  followAsteroid(rad){
     let asteroid = this.getData('oxygenAsteroid');
-    this.x = asteroid.x;
-    this.y = asteroid.y;
+    let radius = asteroid.displayWidth/2;
+    let angle = Phaser.Math.Angle.Between(
+      asteroid.x - asteroid.body.deltaX(), 
+      asteroid.y - asteroid.body.deltaY(), 
+      this.x, 
+      this.y) + rad;
+    this.setRotation(angle + Math.PI/2);
+    this.x = asteroid.x + radius * Math.cos(angle) ;
+    this.y = asteroid.y + radius * Math.sin(angle);
+
+    if(this.y < 0 + this.displayHeight/2){
+      this.y = this.displayHeight/2;
+      this.setData('oxygenAsteroid', null);
+    }else if(this.y > this.scene.game.config.height - this.displayHeight/2){
+      this.y = this.scene.game.config.height - this.displayHeight/2;
+      this.setData('oxygenAsteroid', null);
+    }
+
+    if(this.x < 0 + this.displayWidth/2){
+      this.x = this.displayWidth/2;
+      this.setData('oxygenAsteroid', null);
+    }else if(this.x > this.scene.physics.world.bounds.width - this.displayWidth/2){
+      this.x = this.scene.physics.world.bounds.width - this.displayWidth/2;
+      this.setData('oxygenAsteroid', null);
+    }
+
+
+
   }
 
   update() {
@@ -301,5 +327,8 @@ class Leo extends Entity {
       this.body.velocity.y *= 0.95;
     }
     this.setData('isMoving', false);
+    
+    if(!this.getData('oxygenAsteroid'))
+      this.setRotation(this.rotation * 0.80);
   }
 }
