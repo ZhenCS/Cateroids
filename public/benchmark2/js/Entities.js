@@ -192,6 +192,20 @@ class Bullet extends Entity {
   }
 }
 
+class Laser extends Entity {
+  constructor(scene, x, y, isFriendly){
+    super(scene, x, y, keys.BULLETKEY);
+    this.setData('isFriendly', isFriendly);
+    this.setData('angle', this.randomAngle());
+    //use paths instead for interesting laser patterns
+  }
+
+  randomAngle(){
+    return Phaser.Math.DegToRad(Phaser.Math.Between(0, 360));
+  }
+}
+
+//use paths for grappling
 class Leo extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, keys.CATKEY);
@@ -200,6 +214,13 @@ class Leo extends Entity {
     this.setData('health', gameConfig.maxPlayerHealth);
     this.setData('oxygen', gameConfig.maxPlayerOxygen);
     this.setData('oxygenAsteroid', null);
+    this.setData('grapplePoint', null);
+    this.grappleLine = this.scene.add.graphics({
+      lineStyle: {
+        width: 1,
+        color: 0xffffff,
+      }
+    });
     this.setScale(0.5, 0.5);
     this.setDepth(gameDepths.uiDepth - 1);
   }
@@ -255,6 +276,16 @@ class Leo extends Entity {
     else this.body.velocity.y = -1 * gameConfig.hardMaxPlayerVelocityY;
   }
 
+  moveTo(x, y, speed){
+    if(speed > gameConfig.hardMaxPlayerVelocityX)
+      speed = gameConfig.hardMaxPlayerVelocityX;
+    this.scene.physics.velocityFromAngle(
+      Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(this.x, this.y, x, y)),
+      speed,
+      this.scene.player.body.velocity
+    );
+  }
+
   shoot(pointerX, pointerY) {
     const bullet = new Bullet(this.scene, this.x, this.y, true);
     bullet.setTint(0xf90018);
@@ -287,6 +318,33 @@ class Leo extends Entity {
       this.setData('oxygen', gameConfig.maxPlayerOxygen);
       //play oxygen replenished sound
     }
+  }
+
+  grapple(){
+    if(!this.getData('oxygenAsteroid')){
+      let point = this.getData('grapplePoint');
+      this.deployGrapple(point);
+      let distance = Math.sqrt(Math.pow((point.x - this.x),2) + Math.pow((point.y - this.y),2));
+      let speed = gameConfig.grappleSpeed * distance/200;
+      this.moveTo(point.x, point.y, speed);
+    }else{
+      this.setData('grapplePoint', null);
+    }
+  }
+  reelGrapple(){
+    this.grappleLine.clear();
+  }
+
+  deployGrapple(point){
+    //create a line from player to point
+    this.grappleLine.clear().lineStyle(1, 0xffffff);
+
+    this.grappleLine.strokeLineShape({
+      x1: this.x,
+      y1: this.y,
+      x2: point.x,
+      y2: point.y
+    });
   }
 
   followAsteroid(rad){

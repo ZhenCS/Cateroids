@@ -33,11 +33,12 @@ const gameConfig = {
   playerWalkVelocityX: Math.PI/45,
   playerWalkVelocityY: Math.PI/45,
   //hard cap with boost. will never exceed
-  hardMaxPlayerVelocityX: 500,
-  hardMaxPlayerVelocityY: 500,
+  hardMaxPlayerVelocityX: 1000,
+  hardMaxPlayerVelocityY: 1000,
   playerSpeedX: 10,
   playerSpeedY: 10,
   boost: 20,
+  grappleSpeed: 800,
 
   //for asteroids and dogs
   maxVelocityX: 100,
@@ -45,7 +46,7 @@ const gameConfig = {
   minVelocityX: 10,
   minVelocityY: 25,
 
-  maxPlayerHealth: 100,
+  maxPlayerHealth: 1000,
   maxPlayerOxygen: 100,
   playerDamage: 10,
 
@@ -81,9 +82,12 @@ const gameConfig = {
   oxygenAsteroidSpawnRate: 35,
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
-  oxygenDepletionDelay: 5000,
-  oxygenDepletionRate: 5,
+  oxygenDepletionDelay: 50,
+  oxygenDepletionRate: 10/100,
 
-  oxygenReplenishDelay: 4000,
-  oxygenReplenishRate: 5
+  oxygenReplenishDelay: 50,
+  oxygenReplenishRate: 15/100,
+
+  laserDamage: 100,
+  laserDuration: 2000
 }

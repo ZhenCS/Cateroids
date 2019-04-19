@@ -5,7 +5,6 @@ class PauseScene extends Phaser.Scene {
     preload() {}
 
     create() {
-      console.log("INIT");
       this.controlContainer = this.initControls();
       this.pauseContainer = this.initPauseMenu();
 

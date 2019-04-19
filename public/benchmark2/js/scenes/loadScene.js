@@ -23,6 +23,7 @@ class LoadScene extends Phaser.Scene {
     this.load.image(keys.DOG1KEY, 'assets/dog.png');
     this.load.image(keys.DOG2KEY, 'assets/dog2.png');
     this.load.image(keys.DOG3KEY, 'assets/dog3.png');
+    this.load.image(keys.DOGLASERKEY, 'assets/bossBeam.png');
     this.load.atlas(
       keys.CATATLASKEY,
       'assets/cat_spritesheet.png',

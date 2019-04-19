@@ -88,9 +88,19 @@ class SceneMain extends Phaser.Scene {
     
   }
 
+  getLaserPosition() {
+    let width = this.game.config.width;
+    let height = this.game.config.height;
+
+    return new Phaser.Math.Vector2(
+      Phaser.Math.Between(0, width),
+      Phaser.Math.Between(0, height)
+    );
+  }
+
   getSpawnPosition() {
     let buffer = 16;
-    const sides = ['top', 'right', 'bottom', 'left', 'left', 'left', 'left'];
+    const sides = ['top', 'right', 'bottom', 'left', 'right', 'right', 'right'];
     const side = sides[Phaser.Math.Between(0, sides.length - 1)];
     let width = this.game.config.width;
     let height = this.game.config.height;
@@ -315,6 +325,25 @@ class SceneMain extends Phaser.Scene {
     this.keySpace = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
+    this.keyShift = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
+    
+    this.input.keyboard.on('keydown-SHIFT', function(){
+      let mouseX = this.scene.input.mousePointer.worldX;
+      let mouseY = this.scene.input.mousePointer.worldY;
+      let self = this;
+      this.scene.oxygenAsteroids.getChildren().forEach(function(asteroid){
+        let distance = Math.sqrt(Math.pow((asteroid.x - mouseX),2) + Math.pow((asteroid.y - mouseY),2));
+        if(distance <= asteroid.displayWidth/2){
+          self.scene.player.setData("grapplePoint", asteroid);
+          self.scene.player.setData('oxygenAsteroid', null);
+        }
+      });
+    });
+
+    this.input.keyboard.on('keyup-SHIFT', function(){
+      this.scene.player.setData("grapplePoint", null);
+    });
+
 
     // Shoot on click
     this.input.on(
@@ -562,11 +591,14 @@ class SceneMain extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.oxygenAsteroids,
           function(player, asteroid) {
 
-            if(player.getData('oxygenAsteroid') == null){
-              player.setData('oxygenAsteroid', asteroid);
+            if(!player.getData('oxygenAsteroid') && player.getData('grapplePoint')){
+              let point = player.getData('grapplePoint');
+              let distance = Math.sqrt(Math.pow((asteroid.x - point.x),2) + Math.pow((asteroid.y - point.y),2));
+              if(distance <= asteroid.displayWidth/2){
+                player.setData('oxygenAsteroid', asteroid);
+              }
             }
           }, null, this);
-      
   }
 
   movementCheck(){
@@ -588,37 +620,41 @@ class SceneMain extends Phaser.Scene {
       this.oxygenDepletionTimer.paused = false;
       this.oxygenReplenishTimer.paused = true;
     }
-    
 
-    // Check for vertical movement
-    if (this.keyW.isDown) {
-      if(this.player.getData('oxygenAsteroid') == null){
-        this.player.moveUp(boost);
+    if(this.keyShift.isDown && this.player.getData('grapplePoint')){
+      this.player.grapple();
+    }else{
+      this.player.reelGrapple();
+      // Check for vertical movement
+      if (this.keyW.isDown) {
+        if(this.player.getData('oxygenAsteroid') == null){
+          this.player.moveUp(boost);
+          moved = true;
+        }
+      } else if (this.keyS.isDown) {
+        if(this.player.getData('oxygenAsteroid') == null){
+          this.player.moveDown(boost);
+          moved = true;
+        }
+      }
+
+      // Check for horizontal movement
+      if (this.keyA.isDown) {
+        if(this.player.getData('oxygenAsteroid') != null){
+          this.player.followAsteroid(-1 * gameConfig.playerWalkVelocityX);
+        }else{
+          this.player.moveLeft(boost);
+          
+        }
+        moved = true;
+      } else if (this.keyD.isDown) {
+        if(this.player.getData('oxygenAsteroid') != null){
+          this.player.followAsteroid(gameConfig.playerWalkVelocityX);
+        }else{
+          this.player.moveRight(boost);
+        }
         moved = true;
       }
-    } else if (this.keyS.isDown) {
-      if(this.player.getData('oxygenAsteroid') == null){
-        this.player.moveDown(boost);
-        moved = true;
-      }
-    }
-
-    // Check for horizontal movement
-    if (this.keyA.isDown) {
-      if(this.player.getData('oxygenAsteroid') != null){
-        this.player.followAsteroid(-1 * gameConfig.playerWalkVelocityX);
-      }else{
-        this.player.moveLeft(boost);
-        
-      }
-      moved = true;
-    } else if (this.keyD.isDown) {
-      if(this.player.getData('oxygenAsteroid') != null){
-        this.player.followAsteroid(gameConfig.playerWalkVelocityX);
-      }else{
-        this.player.moveRight(boost);
-      }
-      moved = true;
     }
 
     if (moved) {

@@ -30,6 +30,7 @@ const keys = {
 
   BULLETKEY: 'bullet',
   PIXELKEY: 'pixels',
+  DOGLASERKEY: 'dogLaser',
 
   CATATLASKEY: 'catAtlas',
   DOG1ATLASKEY: 'dogAtlas',
