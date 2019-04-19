@@ -366,12 +366,12 @@ class Leo extends Entity {
       this.y = this.scene.game.config.height - this.displayHeight/2;
       this.setData('oxygenAsteroid', null);
     }
-
-    if(this.x < 0 + this.displayWidth/2){
-      this.x = this.displayWidth/2;
+    let camera = this.scene.cameras.main;
+    if(this.x < camera.scrollX + this.displayWidth/2){
+      this.x = camera.scrollX + this.displayWidth/2;
       this.setData('oxygenAsteroid', null);
-    }else if(this.x > this.scene.physics.world.bounds.width - this.displayWidth/2){
-      this.x = this.scene.physics.world.bounds.width - this.displayWidth/2;
+    }else if(this.x > camera.scrollX + this.scene.game.config.width - this.displayWidth/2){
+      this.x = camera.scrollX + this.scene.game.config.width  - this.displayWidth/2;
       this.setData('oxygenAsteroid', null);
     }
 

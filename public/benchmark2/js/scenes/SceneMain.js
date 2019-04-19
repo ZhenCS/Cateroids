@@ -32,11 +32,11 @@ class SceneMain extends Phaser.Scene {
     this.initEvents();
     this.initCollisions();
     
-    this.cameras.main.startFollow(this.player); 
-    this.physics.world.setBounds(0, 0, 10000, this.game.config.height);
-    this.cameras.main.setBounds(0, 0, 10000, this.game.config.height);
+    this.cameras.main.startFollow(this.player);
+    this.physics.world.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
+    this.cameras.main.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
   }
-
+  
   update() {
     if (this.player.active) {
       this.player.update();
@@ -100,7 +100,7 @@ class SceneMain extends Phaser.Scene {
 
   getSpawnPosition() {
     let buffer = 16;
-    const sides = ['top', 'right', 'bottom', 'left', 'right', 'right', 'right'];
+    const sides = ['top', 'right', 'bottom', 'left', 'right', 'right', 'right', 'right', 'right'];
     const side = sides[Phaser.Math.Between(0, sides.length - 1)];
     let width = this.game.config.width;
     let height = this.game.config.height;
@@ -673,6 +673,13 @@ class SceneMain extends Phaser.Scene {
 
       for (let i = 0; i < 5; i++) {
         gas.explode();
+      }
+
+      //camera does not move left
+      let scroll = this.cameras.main.scrollX;
+      if(scroll < gameConfig.worldWidth - this.game.config.width){
+        this.physics.world.setBounds(scroll, 0, gameConfig.worldWidth - scroll, this.game.config.height);
+        this.cameras.main.setBounds(scroll, 0, gameConfig.worldWidth - scroll, this.game.config.height);
       }
     }else{
       if(this.player.getData('oxygenAsteroid') != null){
