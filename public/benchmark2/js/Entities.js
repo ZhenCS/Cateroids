@@ -194,18 +194,35 @@ class Bullet extends Entity {
 
 class Laser extends Entity {
   constructor(scene, x, y, isFriendly){
-    super(scene, x, y, keys.BULLETKEY);
+    super(scene, x, y, keys.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
+    this.setData('damage', gameConfig.laserDamage);
     this.setData('angle', this.randomAngle());
-    //use paths instead for interesting laser patterns
+
+    let pointx = this.scene.game.config.width * Math.cos(this.getData('angle'));
+    let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
+
+    this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
+    this.path.lineTo(x + pointx, y + pointy);
   }
 
   randomAngle(){
     return Phaser.Math.DegToRad(Phaser.Math.Between(0, 360));
   }
+
+  fire(){
+    this.scene.time.addEvent({
+      delay: 20,
+      callback: function() {
+        let ball = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, keys.DOGLASERKEY);
+        ball.startFollow();
+      },
+      callbackScope: this,
+      repeat: 50,
+    });
+  }
 }
 
-//use paths for grappling
 class Leo extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, keys.CATKEY);
@@ -336,7 +353,6 @@ class Leo extends Entity {
   }
 
   deployGrapple(point){
-    //create a line from player to point
     this.grappleLine.clear().lineStyle(1, 0xffffff);
 
     this.grappleLine.strokeLineShape({
@@ -374,9 +390,6 @@ class Leo extends Entity {
       this.x = camera.scrollX + this.scene.game.config.width  - this.displayWidth/2;
       this.setData('oxygenAsteroid', null);
     }
-
-
-
   }
 
   update() {

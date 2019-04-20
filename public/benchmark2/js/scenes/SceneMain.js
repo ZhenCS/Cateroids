@@ -35,6 +35,9 @@ class SceneMain extends Phaser.Scene {
     this.cameras.main.startFollow(this.player);
     this.physics.world.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
     this.cameras.main.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
+
+    //this.las = new Laser(this, this.game.config.width/2, this.game.config.height/2, false);
+    //this.las.fire();
   }
   
   update() {

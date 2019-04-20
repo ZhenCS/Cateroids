@@ -67,6 +67,7 @@ const gameConfig = {
   dog1Damage: 5,
   dog2Damage: 10,
   dog3Damage: 15,
+  laserDamage: 30,
 
   //ms
   dog1FireRate: 800,
