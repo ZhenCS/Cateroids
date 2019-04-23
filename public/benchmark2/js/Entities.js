@@ -193,17 +193,67 @@ class Bullet extends Entity {
 }
 
 class Laser extends Entity {
-  constructor(scene, x, y, isFriendly){
+  constructor(scene, x, y, isFriendly, scale){
     super(scene, x, y, keys.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
     this.setData('damage', gameConfig.laserDamage);
     this.setData('angle', this.randomAngle());
+    this.setData('fired', false);
+    this.visible = false;
+    this.balls = new Array(gameConfig.laserSprites);
+    
 
     let pointx = this.scene.game.config.width * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
     this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
     this.path.lineTo(x + pointx, y + pointy);
+
+    for(var i = 0; i < this.balls.length; i++){
+      this.balls[i] = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, keys.DOGLASERKEY);
+      this.balls[i].setTint(0xed687b);
+      this.balls[i].setScale(scale);
+    }
+
+    this.alertLine = this.scene.add.graphics();
+    this.alertLine.lineStyle(1, 0xffffff, 1);
+    
+    this.alert = this.scene.tweens.add({
+      targets: this.alertLine,
+      duration: 100,
+      alpha: 0,
+      yoyo: true,
+      loop: -1,
+      pause: true,
+      callbackScope: this
+    });
+    this.shootCounter = 0;
+    this.shoot = this.scene.time.addEvent({
+      delay: gameConfig.laserDelay,
+      callback: function() {
+        this.balls[this.shootCounter].startFollow({
+          duration: 1000
+        });
+        this.shootCounter ++;
+
+        if(this.shootCounter >= gameConfig.laserSprites)
+          this.shootCounter = 0;
+      },
+      callbackScope: this,
+      loop: true,
+      paused: true
+    });
+
+    this.destroyTimer = this.scene.time.addEvent({
+      delay: gameConfig.laserDuration,
+      callback: function() {
+        this.onDestroy();
+        this.destroy();
+      },
+      callbackScope: this,
+      loop: false,
+      paused: true
+    });
   }
 
   randomAngle(){
@@ -211,14 +261,27 @@ class Laser extends Entity {
   }
 
   fire(){
+    this.path.draw(this.alertLine);
+    this.alert.paused = false;
+
     this.scene.time.addEvent({
-      delay: 20,
+      delay: 1000,
       callback: function() {
-        let ball = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, keys.DOGLASERKEY);
-        ball.startFollow();
+        this.alertLine.clear();
+        this.alert.pause();
+        this.shoot.paused = false;
+        this.destroyTimer.paused = false;
       },
       callbackScope: this,
-      repeat: 50,
+      loop: false
+    });
+  }
+
+  onDestroy(){
+    this.shoot.paused = true;
+    this.balls.forEach(function(ball){
+      ball.destroy();
+      console.log("destroygin bLALS");
     });
   }
 }

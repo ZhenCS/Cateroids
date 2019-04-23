@@ -19,6 +19,7 @@ class SceneMain extends Phaser.Scene {
     this.asteroids = this.add.group();
     this.oxygenAsteroids = this.add.group();
     this.dogs = this.add.group();
+    this.lasers = this.add.group();
     this.gameOver = false;
     this.player = new Leo(
       this,
@@ -35,9 +36,6 @@ class SceneMain extends Phaser.Scene {
     this.cameras.main.startFollow(this.player);
     this.physics.world.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
     this.cameras.main.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
-
-    //this.las = new Laser(this, this.game.config.width/2, this.game.config.height/2, false);
-    //this.las.fire();
   }
   
   update() {
@@ -386,6 +384,18 @@ class SceneMain extends Phaser.Scene {
     });
 
     this.oxygenReplenishTimer.paused = true;
+
+    // Laser timer
+    // this.laserTimer = this.time.addEvent({
+    //   delay: 4000,
+    //   callback: function() {
+    //     let laser = new Laser(this, this.player.x, this.player.y, false, Phaser.Math.Between(3,5));
+    //     laser.fire();
+    //     this.lasers.add(laser);
+    //   },
+    //   callbackScope: this,
+    //   loop: true,
+    // });
 
     // Asteroid Spawner
     this.spawnTimer = this.time.addEvent({
