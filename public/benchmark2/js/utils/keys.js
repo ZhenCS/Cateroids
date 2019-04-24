@@ -6,15 +6,17 @@ const keys = {
   LEVELSKEY: 'LevelSelectScene',
   HELPKEY: 'HelpScene',
   PAUSEKEY: 'PauseScene',
+  GAMEOVERKEY: 'GameOverScene',
 
   LOGOKEY: 'logo',
   NAMEKEY: 'name',
   BGKEY: 'bg',
   CONTROLS1KEY: 'controls1',
 
-  ASTEROIDKEY: 'asteroid',
+  ASTEROID0KEY: 'asteroid0',
   ASTEROID1KEY: 'asteroid1',
   ASTEROID2KEY: 'asteroid2',
+  ASTEROID3KEY: 'asteroid3',
   
   LEVELICON: 'levelIcon',
   LIFEICON: 'lifeIcon',
@@ -22,12 +24,13 @@ const keys = {
   STARKEY: 'star',
 
   CATKEY: 'cat',
-  DOGKEY: 'dog',
+  DOG1KEY: 'dog',
   DOG2KEY: 'dog2',
   DOG3KEY: 'dog3',
 
   BULLETKEY: 'bullet',
   PIXELKEY: 'pixels',
+  DOGLASERKEY: 'dogLaser',
 
   CATATLASKEY: 'catAtlas',
   DOG1ATLASKEY: 'dogAtlas',
@@ -43,6 +46,7 @@ const keys = {
 
   dogKeys: ['DOG1', 'DOG2', 'DOG3'],
   animationKeys: ['idle', 'attack', 'damage', 'dying', 'dead']
+  //ex: DOG1IDLEKEY
 };
 
 keys.dogKeys.forEach(function(dogStr) {

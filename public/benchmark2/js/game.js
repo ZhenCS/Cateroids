@@ -16,7 +16,8 @@ const config = {
     LevelSelectScene,
     HelpScene,
     SceneMain,
-    PauseScene
+    PauseScene,
+    GameOverScene
   ],
   pixelArt: true,
   roundPixels: true
@@ -29,16 +30,12 @@ function resize(width, height) {
     height = this.sys.game.config.height;
   }
 
-  this.cameras.resize(width, height);
-
-  this.bg.setSize(width, height);
-  this.logo.setPosition(width / 2, height / 2);
 }
 
 window.addEventListener(
   'resize',
   function(event) {
-    this.resize(window.innerWidth, window.innerHeight);
+    //this.resize(window.innerWidth, window.innerHeight);
   },
   false
 );
