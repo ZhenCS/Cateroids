@@ -193,14 +193,18 @@ class Bullet extends Entity {
 }
 
 class Laser extends Entity {
-  constructor(scene, x, y, isFriendly, scale){
+  constructor(scene, x, y, isFriendly, scale, angle){
     super(scene, x, y, keys.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
     this.setData('damage', gameConfig.laserDamage);
-    this.setData('angle', this.randomAngle());
+
+    if(!angle)
+      this.setData('angle', this.randomAngle());
+    else
+      this.setData('angle', angle);
     this.setData('fired', false);
     this.visible = false;
-    this.balls = new Array(gameConfig.laserSprites);
+    this.segments = new Array(gameConfig.laserSprites);
     
 
     let pointx = this.scene.game.config.width * Math.cos(this.getData('angle'));
@@ -209,12 +213,15 @@ class Laser extends Entity {
     this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
     this.path.lineTo(x + pointx, y + pointy);
 
-    for(var i = 0; i < this.balls.length; i++){
-      this.balls[i] = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, keys.DOGLASERKEY);
-      this.balls[i].setTint(0xed687b);
-      this.balls[i].setScale(scale);
+    for(var i = 0; i < this.segments.length; i++){
+      let segment = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, keys.DOGLASERKEY);
+      this.scene.physics.world.enableBody(segment, 0);
+      segment.setTint(0xed687b);
+      segment.setScale(scale);
+      segment.setData('damage', this.getData('damage'));
+      this.segments[i] = segment;
     }
-
+    this.scene.laserSegments.addMultiple(this.segments);
     this.alertLine = this.scene.add.graphics();
     this.alertLine.lineStyle(1, 0xffffff, 1);
     
@@ -231,7 +238,7 @@ class Laser extends Entity {
     this.shoot = this.scene.time.addEvent({
       delay: gameConfig.laserDelay,
       callback: function() {
-        this.balls[this.shootCounter].startFollow({
+        this.segments[this.shootCounter].startFollow({
           duration: 1000
         });
         this.shootCounter ++;
@@ -279,9 +286,10 @@ class Laser extends Entity {
 
   onDestroy(){
     this.shoot.paused = true;
-    this.balls.forEach(function(ball){
-      ball.destroy();
-      console.log("destroygin bLALS");
+    let scene = this.scene;
+    this.segments.forEach(function(segment){
+      //segment.destroy();
+      scene.laserSegments.remove(segment, true, true);
     });
   }
 }

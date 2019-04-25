@@ -20,6 +20,7 @@ class SceneMain extends Phaser.Scene {
     this.oxygenAsteroids = this.add.group();
     this.dogs = this.add.group();
     this.lasers = this.add.group();
+    this.laserSegments = this.add.group();
     this.gameOver = false;
     this.player = new Leo(
       this,
@@ -386,16 +387,16 @@ class SceneMain extends Phaser.Scene {
     this.oxygenReplenishTimer.paused = true;
 
     // Laser timer
-    // this.laserTimer = this.time.addEvent({
-    //   delay: 4000,
-    //   callback: function() {
-    //     let laser = new Laser(this, this.player.x, this.player.y, false, Phaser.Math.Between(3,5));
-    //     laser.fire();
-    //     this.lasers.add(laser);
-    //   },
-    //   callbackScope: this,
-    //   loop: true,
-    // });
+    this.laserTimer = this.time.addEvent({
+      delay: gameConfig.laserSpawnRate,
+      callback: function() {
+        let laser = new Laser(this, this.player.x + Phaser.Math.Between(0, 400), this.player.y, false, Phaser.Math.Between(3,5), -Math.PI/2);
+        laser.fire();
+        this.lasers.add(laser);
+      },
+      callbackScope: this,
+      loop: true,
+    });
 
     // Asteroid Spawner
     this.spawnTimer = this.time.addEvent({
@@ -448,6 +449,16 @@ class SceneMain extends Phaser.Scene {
             bullet.destroy();
           }
         }
+      }, null, this);
+
+    this.physics.add.overlap(this.player, this.laserSegments,
+      function(player, segment) {
+        this.createExplosion(player.x, player.y, player.displayWidth);
+
+        if (segment) {
+          this.onLifeDown(segment.getData('damage'));
+        }
+        
       }, null, this);
 
     // Check for collision between bullets and enemies

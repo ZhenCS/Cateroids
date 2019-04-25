@@ -89,8 +89,9 @@ const gameConfig = {
   oxygenReplenishDelay: 50,
   oxygenReplenishRate: 15/100,
 
-  laserDamage: 50,
-  laserDuration: 2000,
+  laserDamage: 1,
+  laserDuration: 2500,
   laserSprites: 50,
   laserDelay: 50,
+  laserSpawnRate: 8000
 }
