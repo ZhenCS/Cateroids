@@ -53,14 +53,15 @@ export class SceneMain extends Phaser.Scene {
     const map = this.make.tilemap(currentLevel);
     this.gameMap = map;
     this.mapObjects = map.getObjectLayer('Objects').objects;
-    this.sortMapObjects();
-    this.setPlayerSpawn();
-    this.loadMapObjects();
-    
     gameConfig.worldWidth = map.width * map.tileWidth;
     gameConfig.worldHeight = (map.height + 1) * map.tileHeight;
     gameConfig.worldOffset = (this.game.config.height - gameConfig.worldHeight)/2;
     gameConfig.spawnBuffer = this.game.config.width;
+
+    this.sortMapObjects();
+    this.setPlayerSpawn();
+    this.loadMapObjects();
+    
     this.physics.world.setBounds(0, 0, gameConfig.worldWidth, gameConfig.worldHeight);
     this.cameras.main.setBounds(0, -1 * gameConfig.worldOffset, gameConfig.worldWidth, gameConfig.worldHeight * gameConfig.worldOffset);
   }
@@ -88,7 +89,7 @@ export class SceneMain extends Phaser.Scene {
         this.mapObjects.push(obj);
         break;
       }
-
+      
       if (obj.type == 'asteroid') {
         let velX = getPropertyValue(obj, 'velocityX');
         let velY = getPropertyValue(obj, 'velocityY');
