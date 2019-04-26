@@ -38,7 +38,10 @@ export class CheatMenuScene extends Phaser.Scene {
       cheats.invulnerable = !cheats.invulnerable;
     });
 
-    // this.changeLevel.on('pointerdown', function() {});
+    this.changeLevel.on('pointerdown', function() {
+      this.scene.game.scene.switch(constants.CHEATKEY, constants.LEVELSKEY);
+      this.scene.game.scene.stop(constants.CHEATKEY);
+    });
 
     this.back.on('pointerdown', function() {
       this.scene.game.scene.resume(constants.GAMEKEY);

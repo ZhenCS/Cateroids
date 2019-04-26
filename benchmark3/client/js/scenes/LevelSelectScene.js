@@ -7,15 +7,19 @@ export class LevelSelectScene extends Phaser.Scene {
   }
 
   create() {
+    let prevScene = constants.STARTMENUKEY;
     setBG(this);
     setGameName(this);
     setBackButton(this, constants.LEVELSKEY, constants.STARTMENUKEY);
 
     let { iconY, iconSpace } = levelsStyle;
     this.iconList = [];
+
     for (var i = 1; i <= 6; i++) {
-      this.iconList.push(this.createLevelIcon(i, iconSpace * (i - 1), 0));
+      const icon = this.createLevelIcon(i, iconSpace * (i - 1), 0);
+      this.iconList.push(icon);
     }
+
     this.levelsContainer = this.add.container(0, iconY, this.iconList);
     let rect = this.levelsContainer.getBounds();
     this.levelsContainer.setSize(
@@ -46,12 +50,16 @@ export class LevelSelectScene extends Phaser.Scene {
         fill: '#000000'
       }
     );
+
     iconText.depth = 2;
     let iconBG = this.add
       .sprite(x, y, constants.LEVELICON)
       .setInteractive({ cursor: 'pointer' });
     iconBG.on('pointerdown', function() {
-      console.log(`Level ${id} Selected`);
+      currentLevel = { key: `level${id}` };
+      console.log(`${currentLevel.key} Selected`);
+      this.scene.game.scene.switch(constants.LEVELSKEY, constants.GAMEKEY);
+      this.scene.game.scene.stop(constants.LEVELSKEY);
     });
     iconBG.setScale(0.8 * gameScale.scale);
     let iconMiddle = this.add.sprite(x, y, constants.ASTEROID0KEY);

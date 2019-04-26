@@ -23,6 +23,7 @@ export class PauseScene extends Phaser.Scene {
       strokeThickness: 5
     });
     centerX(this, pauseHeader);
+    
     let resumeButton = this.createButton(
       500 * gameScale.scale,
       'Resume Game'
