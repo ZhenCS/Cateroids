@@ -1,12 +1,15 @@
-class LevelSelectScene extends Phaser.Scene {
+import * as constants from '../../../shared/constants.js';
+import {setBG, setGameName, centerX, setBackButton} from '../utils/utils.js';
+
+export class LevelSelectScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'LevelSelectScene' });
+    super({ key: constants.LEVELSKEY});
   }
 
   create() {
     setBG(this);
     setGameName(this);
-    setBackButton(this, keys.LEVELSKEY, keys.STARTMENUKEY);
+    setBackButton(this, constants.LEVELSKEY, constants.STARTMENUKEY);
 
     let { iconY, iconSpace } = levelsStyle;
     this.iconList = [];
@@ -45,13 +48,13 @@ class LevelSelectScene extends Phaser.Scene {
     );
     iconText.depth = 2;
     let iconBG = this.add
-      .sprite(x, y, keys.LEVELICON)
+      .sprite(x, y, constants.LEVELICON)
       .setInteractive({ cursor: 'pointer' });
     iconBG.on('pointerdown', function() {
       console.log(`Level ${id} Selected`);
     });
     iconBG.setScale(0.8 * gameScale.scale);
-    let iconMiddle = this.add.sprite(x, y, keys.ASTEROID0KEY);
+    let iconMiddle = this.add.sprite(x, y, constants.ASTEROID0KEY);
     iconMiddle.depth = 1;
     iconMiddle.setScale(3.5 * gameScale.scale);
     iconContainer.add([iconBG, iconMiddle, iconText]);
@@ -60,7 +63,7 @@ class LevelSelectScene extends Phaser.Scene {
       let star = this.add.sprite(
         x - iconBG.displayWidth / 2 + paddingStars + 80 * gameScale.scale * i,
         y + paddingStars + iconBG.displayHeight / 2,
-        keys.STARKEY
+        constants.STARKEY
       );
       star.depth = 2;
       star.setScale(0.8 * gameScale.scale);

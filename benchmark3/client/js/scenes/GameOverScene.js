@@ -1,6 +1,9 @@
-class GameOverScene extends Phaser.Scene {
+import * as constants from '../../../shared/constants.js';
+import {centerX} from '../utils/utils.js';
+
+export class GameOverScene extends Phaser.Scene {
     constructor() {
-      super({ key: 'GameOverScene' });
+      super({ key: constants.GAMEOVERKEY});
     }  
     preload() {}
 
@@ -23,15 +26,15 @@ class GameOverScene extends Phaser.Scene {
             500 * gameScale.scale,
             'Restart Game'
         ).on('pointerdown', function() {
-            this.scene.game.scene.switch(keys.GAMEOVERKEY, keys.GAMEKEY);
+            this.scene.game.scene.switch(constants.GAMEOVERKEY, constants.GAMEKEY);
         });
 
         let exitGameButton = this.createButton(
             700 * gameScale.scale,
             'Exit Game'
         ).on('pointerdown', function() {
-            this.scene.game.scene.switch(keys.GAMEOVERKEY, keys.STARTMENUKEY);
-            this.scene.game.scene.stop(keys.GAMEKEY);
+            this.scene.game.scene.switch(constants.GAMEOVERKEY, constants.STARTMENUKEY);
+            this.scene.game.scene.stop(constants.GAMEKEY);
         });
 
         gameOverContainer.depth = gameDepths.menuDepth;

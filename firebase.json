@@ -18,18 +18,18 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-	  {
-		"source": "/benchmark1{, /**}",
-		"destination": "/benchmark1/index.html"
-    },
-    {
-      "source": "/benchmark2{, /**}",
-      "destination": "/benchmark2/index.html"
-    },
-	{
-		"source": "/serverTest{, /**}",
-		"destination": "/serverTest/server/public/index.html"
-	}
+      {
+      "source": "/benchmark1{, /**}",
+      "destination": "/benchmark1/index.html"
+      },
+      {
+        "source": "/benchmark2{, /**}",
+        "destination": "/benchmark2/index.html"
+      },
+      {
+        "source": "/serverTest{, /**}",
+        "destination": "/serverTest/server/public/index.html"
+      }
     ]
   }
 }

@@ -1,3 +1,5 @@
+import * as constants from '../../shared/constants.js'
+
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
     super(scene, x, y, key);
@@ -34,10 +36,10 @@ class Entity extends Phaser.GameObjects.Sprite {
   }
 }
 
-class Asteroid extends Entity {
+export class Asteroid extends Entity {
   constructor(scene, x, y, key, velocityX, velocityY) {
     super(scene, x, y, key);
-    let asteroids = [keys.ASTEROID0KEY, keys.ASTEROID1KEY, keys.ASTEROID2KEY, keys.ASTEROID3KEY];
+    let asteroids = [constants.ASTEROID0KEY, constants.ASTEROID1KEY, constants.ASTEROID2KEY, constants.ASTEROID3KEY];
     let level = asteroids.indexOf(key);
     
     if(level >= 0){
@@ -72,31 +74,31 @@ class Asteroid extends Entity {
   
 }
 
-class Dog extends Entity {
+export class Dog extends Entity {
   constructor(scene, x, y, key, velocityX, velocityY) {
     super(scene, x, y, key);
     let fireRate = '';
-    if(key == keys.DOG1KEY){
+    if(key == constants.DOG1KEY){
       this.setScale(0.4, 0.4);
-      this.play(keys.DOG1IDLEKEY);
+      this.play(constants.dogAnimationKeys.DOG1IDLEKEY);
       this.setData('dogId', 1);
       this.setData('health', gameConfig.dog1Health);
       this.setData('damage', gameConfig.dog1Damage);
 
       fireRate = gameConfig.dog1FireRate;
     }
-    if(key == keys.DOG2KEY){
+    if(key == constants.DOG2KEY){
       this.setScale(0.6, 0.6);
-      this.play(keys.DOG2IDLEKEY);
+      this.play(constants.dogAnimationKeys.DOG2IDLEKEY);
       this.setData('dogId', 2);
       this.setData('health', gameConfig.dog2Health);
       this.setData('damage', gameConfig.dog2Damage);
 
       fireRate = gameConfig.dog2FireRate;
     }
-    if(key == keys.DOG3KEY){
+    if(key == constants.DOG3KEY){
       this.setScale(0.8, 0.8);
-      this.play(keys.DOG3IDLEKEY);
+      this.play(constants.dogAnimationKeys.DOG3IDLEKEY);
       this.setData('dogId', 3);
       this.setData('health', gameConfig.dog3Health);
       this.setData('damage', gameConfig.dog3Damage);
@@ -115,15 +117,15 @@ class Dog extends Entity {
         if (this.scene !== undefined) {
           const bullet = new Bullet(this.scene, this.x, this.y, false);
           bullet.setData('isFriendly', false);
-          let animKey = keys[`DOG${this.getData('dogId')}ATTACKKEY`];
+          let animKey = constants.dogAnimationKeys[`DOG${this.getData('dogId')}ATTACKKEY`];
 
           if(animKey){
             this.play(animKey);
             this.once('animationcomplete', function(){
-              this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
+              this.play(constants.dogAnimationKeys[`DOG${this.getData('dogId')}IDLEKEY`]);
             });
           }
-          if (key == keys.DOG1KEY) {
+          if (key == constants.DOG1KEY) {
             const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
             bullet.setTint(0x142bff);
             bullet.setRotation(angle);
@@ -132,7 +134,7 @@ class Dog extends Entity {
               100 * Math.cos(angle),
               100 * Math.sin(angle)
             );
-          } else if (key == keys.DOG2KEY) {
+          } else if (key == constants.DOG2KEY) {
             const dx = this.scene.player.x - this.x;
             const dy = this.scene.player.y - this.y;
             const angle = Math.atan2(dy, dx);
@@ -143,7 +145,7 @@ class Dog extends Entity {
               150 * Math.cos(angle),
               150 * Math.sin(angle)
             );
-          }else if(key == keys.DOG3KEY){
+          }else if(key == constants.DOG3KEY){
             const dx = this.scene.player.x - this.x;
             const dy = this.scene.player.y - this.y;
             const angle = Math.atan2(dy, dx);
@@ -172,12 +174,12 @@ class Dog extends Entity {
         this.onDestroy();
         this.destroy();
     }else{
-      let animKey = keys[`DOG${this.getData('dogId')}DAMAGEKEY`];
+      let animKey = constants.dogAnimationKeys[`DOG${this.getData('dogId')}DAMAGEKEY`];
 
       if(animKey)
         this.play(animKey);
       this.once('animationcomplete', function(){
-        this.play(keys[`DOG${this.getData('dogId')}IDLEKEY`]);
+        this.play(constants.dogAnimationKeys[`DOG${this.getData('dogId')}IDLEKEY`]);
       });
     }
   }
@@ -191,16 +193,16 @@ class Dog extends Entity {
   }
 }
 
-class Bullet extends Entity {
+export class Bullet extends Entity {
   constructor(scene, x, y, isFriendly) {
-    super(scene, x, y, keys.BULLETKEY);
+    super(scene, x, y, constants.BULLETKEY);
     this.setData('isFriendly', isFriendly);
   }
 }
 
-class Laser extends Entity {
+export class Laser extends Entity {
   constructor(scene, x, y, isFriendly, scale, angle, damage, delay, duration, sprites, deltaX){
-    super(scene, x, y, keys.DOGLASERKEY);
+    super(scene, x, y, constants.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
     let laserDelay = gameConfig.laserDelay;
     let laserDuration = gameConfig.laserDuration;
@@ -233,7 +235,7 @@ class Laser extends Entity {
     this.path.lineTo(x + pointx, y + pointy);
 
     for(var i = 0; i < this.segments.length; i++){
-      let segment = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, keys.DOGLASERKEY);
+      let segment = this.scene.add.follower(this.path, this.path.getStartPoint().x, this.path.getStartPoint().y, constants.DOGLASERKEY);
       this.scene.physics.world.enableBody(segment, 0);
       segment.setTint(0xed687b);
       segment.setScale(scale);
@@ -314,9 +316,9 @@ class Laser extends Entity {
   }
 }
 
-class Leo extends Entity {
+export class Leo extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, keys.CATKEY);
+    super(scene, x, y, constants.CATKEY);
     this.body.setCollideWorldBounds(true);
     this.setData('isMoving', false);
     this.setData('health', gameConfig.maxPlayerHealth);

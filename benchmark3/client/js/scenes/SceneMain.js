@@ -1,6 +1,10 @@
-class SceneMain extends Phaser.Scene {
+import * as constants from '../../../shared/constants.js';
+import {Asteroid, Dog, Laser, Leo} from '../Entities.js';
+import {getPropertyValue} from '../utils/utils.js';
+
+export class SceneMain extends Phaser.Scene {
   constructor() {
-    super({ key: 'SceneMain' });
+    super({ key: constants.GAMEKEY});
   }
   init(data) {
     this.dataFromLevelSelect = data;
@@ -8,7 +12,6 @@ class SceneMain extends Phaser.Scene {
   preload() {}
 
   create() {
- 
     this.debug = this.add.graphics();
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
@@ -87,7 +90,7 @@ class SceneMain extends Phaser.Scene {
   }
 
   createExplosion(x, y, amount) {
-    const explosion = this.add.particles(keys.PIXELKEY).createEmitter({
+    const explosion = this.add.particles(constants.PIXELKEY).createEmitter({
       x: x,
       y: y,
       speed: { min: -500, max: 500 },
@@ -103,21 +106,21 @@ class SceneMain extends Phaser.Scene {
 
   onLifeDown(damage) {
     this.player.damage(damage);
-    this.player.play(keys.DAMAGEKEY);
+    this.player.play(constants.DAMAGEKEY);
     this.player.once('animationcomplete', function(){
-      this.play(keys.IDLEKEY);
+      this.play(constants.IDLEKEY);
     });
     this.updateUI();
 
     if(this.player.getData('health') <= 0){
       this.gameOver = true;
-      this.player.play(keys.DYINGKEY);
+      this.player.play(constants.DYINGKEY);
       
       this.time.addEvent({
       delay: 2000,
       callback: function() {
-        this.scene.pause(keys.GAMEKEY);
-        this.scene.start(keys.GAMEOVERKEY);
+        this.scene.pause(constants.GAMEKEY);
+        this.scene.start(constants.GAMEOVERKEY);
       },
       callbackScope: this,
       loop: false
@@ -179,7 +182,7 @@ class SceneMain extends Phaser.Scene {
   }
 
   setAsteroid(x, y, vX, vY, level) {    
-    let asteroid = new Asteroid( this, x, y, keys[`ASTEROID${level}KEY`], vX, vY);
+    let asteroid = new Asteroid( this, x, y, constants[`ASTEROID${level}KEY`], vX, vY);
 
     if(level == 3)
       this.oxygenAsteroids.add(asteroid);
@@ -188,9 +191,9 @@ class SceneMain extends Phaser.Scene {
   }
 
   setDog(x, y, vX, vY, level){
-    let imageKey = keys[`DOG${level}KEY`];
-      let dog = new Dog(this, x, y, imageKey, vX, vY);
-      this.dogs.add(dog);
+    let imageKey = constants[`DOG${level}KEY`];
+    let dog = new Dog(this, x, y, imageKey, vX, vY);
+    this.dogs.add(dog);
   }
 
   setLasers(x, y, scale, type, damage, delay, duration, sprites, deltaX){
@@ -207,7 +210,7 @@ class SceneMain extends Phaser.Scene {
       this,
       position.x,
       position.y,
-      keys[`ASTEROID${level}KEY`]
+      constants[`ASTEROID${level}KEY`]
     );
 
     this.asteroids.add(asteroid);
@@ -219,7 +222,7 @@ class SceneMain extends Phaser.Scene {
       this,
       position.x,
       position.y,
-      keys.ASTEROID3KEY
+      constants.ASTEROID3KEY
     );
     asteroid.setTint(0xfff572);
     asteroid.setScale(1.5);
@@ -235,11 +238,11 @@ class SceneMain extends Phaser.Scene {
     let rand = Phaser.Math.Between(0, 100);
     let {dog1SpawnRate, dog2SpawnRate, dog3SpawnRate} = gameConfig;
     if (rand < dog1SpawnRate) {
-      imageKey = keys.DOG1KEY;
+      imageKey = constants.DOG1KEY;
     } else if (rand < dog1SpawnRate + dog2SpawnRate) {
-      imageKey = keys.DOG2KEY;
+      imageKey = constants.DOG2KEY;
     } else if(rand < dog1SpawnRate + dog2SpawnRate + dog3SpawnRate){
-      imageKey = keys.DOG3KEY;
+      imageKey = constants.DOG3KEY;
     }
 
     if(imageKey != ''){
@@ -262,11 +265,11 @@ class SceneMain extends Phaser.Scene {
     var animData =    [[2, -1], [4, 0], [4, 0], [4, 0], [4, 0]];
 
 
-    keys.animationKeys.forEach(function(anim) {
+    constants.animationKeys.forEach(function(anim) {
       self.anims.create({
-        key: keys[`${anim.toUpperCase()}KEY`],
-        frames: self.anims.generateFrameNames(keys.CATATLASKEY, {
-          prefix: keys.SPRITEPREFIXKEY,
+        key: constants[`${anim.toUpperCase()}KEY`],
+        frames: self.anims.generateFrameNames(constants.CATATLASKEY, {
+          prefix: constants.SPRITEPREFIXKEY,
           start: catIndices[animCounter][0],
           end: catIndices[animCounter][1],
           zeroPad: 0
@@ -278,13 +281,13 @@ class SceneMain extends Phaser.Scene {
     });
     
 
-    keys.dogKeys.forEach(function(dogStr) {
+    constants.dogKeys.forEach(function(dogStr) {
       animCounter = 0;
-      keys.animationKeys.forEach(function(anim) {
+      constants.animationKeys.forEach(function(anim) {
         self.anims.create({
-          key: keys[`${dogStr}${anim.toUpperCase()}KEY`],
-          frames: self.anims.generateFrameNames(keys[`${dogStr}ATLASKEY`], {
-            prefix: keys.SPRITEPREFIXKEY,
+          key: constants.dogAnimationKeys[`${dogStr}${anim.toUpperCase()}KEY`],
+          frames: self.anims.generateFrameNames(constants[`${dogStr}ATLASKEY`], {
+            prefix: constants.SPRITEPREFIXKEY,
             start: dogIndices[animCounter][0],
             end: dogIndices[animCounter][1],
             zeroPad: 0
@@ -296,7 +299,7 @@ class SceneMain extends Phaser.Scene {
       });
     });
 
-    this.player.play(keys.IDLEKEY);
+    this.player.play(constants.IDLEKEY);
   }
 
   initUI() {
@@ -350,8 +353,8 @@ class SceneMain extends Phaser.Scene {
       })
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
-        this.scene.game.scene.pause(keys.GAMEKEY);
-        this.scene.game.scene.start(keys.PAUSEKEY);
+        this.scene.game.scene.pause(constants.GAMEKEY);
+        this.scene.game.scene.start(constants.PAUSEKEY);
       });
 
     uiContainer.add([hpBG, this.hpBar, oxygenBG, this.oxygenBar, this.pauseButton, this.textScore]);
@@ -414,9 +417,9 @@ class SceneMain extends Phaser.Scene {
       function(pointer) {
         if (this.player.active && !this.gameOver) {
           this.player.shoot(pointer.worldX, pointer.worldY);
-          this.player.play(keys.ATTACKKEY);
+          this.player.play(constants.ATTACKKEY);
           this.player.once('animationcomplete', function(){
-            this.play(keys.IDLEKEY);
+            this.play(constants.IDLEKEY);
           });
         }
       },
@@ -534,13 +537,13 @@ class SceneMain extends Phaser.Scene {
           if (dog) {
             if(dog.getData('health') - bullet.getData('damage') <= 0){
               // Add to score for destroying enemy
-              if (key == keys.DOG3ATLASKEY) {
+              if (key == constants.DOG3ATLASKEY) {
                 this.addScore(1000);
               }
-              if (key == keys.DOG2ATLASKEY) {
+              if (key == constants.DOG2ATLASKEY) {
                 this.addScore(500);
               }
-              if (key == keys.DOG1ATLASKEY) {
+              if (key == constants.DOG1ATLASKEY) {
                 this.addScore(200);
               }
             }
@@ -592,11 +595,11 @@ class SceneMain extends Phaser.Scene {
             for (let i = 0; i < 2; i++) {
               let key = '';
               let newLevel = Phaser.Math.Between(1, 2);
-              if ( oldAsteroidKey == keys.ASTEROID0KEY) {
-                key = keys[`ASTEROID${newLevel}KEY`];
+              if ( oldAsteroidKey == constants.ASTEROID0KEY) {
+                key = constants[`ASTEROID${newLevel}KEY`];
 
-              }else if(oldAsteroidKey == keys.ASTEROID1KEY){
-                key = keys.ASTEROID2KEY;
+              }else if(oldAsteroidKey == constants.ASTEROID1KEY){
+                key = constants.ASTEROID2KEY;
                 newLevel = 2;
               }
               
@@ -748,7 +751,7 @@ class SceneMain extends Phaser.Scene {
 
     if (moved) {
       this.player.reelGrapple();
-      const gas = this.add.particles(keys.PIXELKEY).createEmitter({
+      const gas = this.add.particles(constants.PIXELKEY).createEmitter({
         x: this.player.x + Phaser.Math.Between(-2, 2),
         y: this.player.y + Phaser.Math.Between(-2, 2),
         speed: { min: -200, max: 200 },

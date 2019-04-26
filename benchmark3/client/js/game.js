@@ -1,3 +1,13 @@
+import * as constants from '../../shared/constants.js';
+import {LoadScene} from './scenes/LoadScene.js';
+import {SplashScene} from './scenes/SplashScene.js';
+import {StartMenuScene} from './scenes/StartMenuScene.js';
+import {LevelSelectScene} from './scenes/LevelSelectScene.js';
+import {HelpScene} from './scenes/HelpScene.js';
+import {SceneMain} from './scenes/SceneMain.js';
+import {PauseScene} from './scenes/PauseScene.js';
+import {GameOverScene} from './scenes/GameOverScene.js';
+
 const config = {
   type: Phaser.WEBGL,
   width: window.innerWidth,
@@ -42,20 +52,20 @@ window.addEventListener(
 
 // SplashScene to Start Menu
 window.addEventListener('click', function(event) {
-  if (game.scene.isActive(keys.SPLASHKEY)) {
-    game.scene.switch(keys.SPLASHKEY, keys.STARTMENUKEY);
+  if (game.scene.isActive(constants.SPLASHKEY)) {
+    game.scene.switch(constants.SPLASHKEY, constants.STARTMENUKEY);
   }
 });
 
 // StartMenu to Game
 window.addEventListener('keydown', function(event) {
-  if (game.scene.isActive(keys.STARTMENUKEY) && event.key == 'Escape') {
-    game.scene.switch(keys.STARTMENUKEY, keys.GAMEKEY);
+  if (game.scene.isActive(constants.STARTMENUKEY) && event.key == 'Escape') {
+    game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
   }
 
-  if (game.scene.isActive(keys.GAMEKEY) && event.key == 'Escape') {
-    game.scene.start(keys.PAUSEKEY);
-    game.scene.pause(keys.GAMEKEY);
+  if (game.scene.isActive(constants.GAMEKEY) && event.key == 'Escape') {
+    game.scene.start(constants.PAUSEKEY);
+    game.scene.pause(constants.GAMEKEY);
     
   }
 });
