@@ -48,3 +48,7 @@ function centerX(scene, object) {
   let gameWidth = scene.sys.game.config.width;
   object.x = gameWidth / 2 - object.displayWidth / 2;
 }
+
+function getPropertyValue(object, name){
+  return object.properties.find(x => x.name == name).value;
+}

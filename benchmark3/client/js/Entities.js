@@ -35,7 +35,7 @@ class Entity extends Phaser.GameObjects.Sprite {
 }
 
 class Asteroid extends Entity {
-  constructor(scene, x, y, key) {
+  constructor(scene, x, y, key, velocityX, velocityY) {
     super(scene, x, y, key);
     let asteroids = [keys.ASTEROID0KEY, keys.ASTEROID1KEY, keys.ASTEROID2KEY, keys.ASTEROID3KEY];
     let level = asteroids.indexOf(key);
@@ -47,13 +47,17 @@ class Asteroid extends Entity {
     
     if(level == 3){
       this.body.setMass(100);
+      this.setTint(0xfff572);
+      this.setScale(1.5);
     }
     this.body.setCircle(this.displayWidth * 0.5);
-    let velocity = this.getInitVelocity(scene,x,y);
-    this.body.setVelocity(
-      velocity[0],
-      velocity[1]
-    );
+    
+    if(typeof velocityX != 'undefined' && typeof velocityY != 'undefined'){
+      this.body.setVelocity(velocityX, velocityY);
+    }else{
+      let velocity = this.getInitVelocity(scene,x,y);
+      this.body.setVelocity(velocity[0],velocity[1]);
+    }
     this.setData('level', level);
   }
 
@@ -69,7 +73,7 @@ class Asteroid extends Entity {
 }
 
 class Dog extends Entity {
-  constructor(scene, x, y, key) {
+  constructor(scene, x, y, key, velocityX, velocityY) {
     super(scene, x, y, key);
     let fireRate = '';
     if(key == keys.DOG1KEY){
@@ -99,10 +103,12 @@ class Dog extends Entity {
 
       fireRate = gameConfig.dog3FireRate;
     }
-
-    let velocity = this.getInitVelocity(scene,x,y);
-    this.body.setVelocity(velocity[0], velocity[1]);
-
+    if(typeof velocityX != 'undefined' && typeof velocityY != 'undefined')
+      this.body.setVelocity(velocityX, velocityY);
+    else{
+      let velocity = this.getInitVelocity(scene,x,y);
+      this.body.setVelocity(velocity[0], velocity[1]);
+    }
     this.shootTimer = this.scene.time.addEvent({
       delay: fireRate,
       callback: function() {
@@ -193,20 +199,33 @@ class Bullet extends Entity {
 }
 
 class Laser extends Entity {
-  constructor(scene, x, y, isFriendly, scale, angle){
+  constructor(scene, x, y, isFriendly, scale, angle, damage, delay, duration, sprites, deltaX){
     super(scene, x, y, keys.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
-    this.setData('damage', gameConfig.laserDamage);
+    let laserDelay = gameConfig.laserDelay;
+    let laserDuration = gameConfig.laserDuration;
+    let laserSprites = gameConfig.laserSprites;
+    let laserDamage = gameConfig.laserDamage;
+    let laserDeltaX = 0;
+    
+    if(typeof damage != 'undefined') laserDamage = damage;
+    if(typeof delay != 'undefined') laserDelay = delay;
+    if(typeof duration != 'undefined') laserDuration = duration;
+    if(typeof sprites != 'undefined') laserSprites = sprites;
+    if(typeof deltaX != 'undefined') laserDeltaX = deltaX;
+
+    this.setData('damage', laserDamage);
+    this.setData('deltaX', laserDeltaX);
+    this.setData('fired', false);
 
     if(!angle)
       this.setData('angle', this.randomAngle());
     else
       this.setData('angle', angle);
-    this.setData('fired', false);
+      
     this.visible = false;
-    this.segments = new Array(gameConfig.laserSprites);
+    this.segments = new Array(laserSprites);
     
-
     let pointx = this.scene.game.config.width * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
@@ -236,14 +255,14 @@ class Laser extends Entity {
     });
     this.shootCounter = 0;
     this.shoot = this.scene.time.addEvent({
-      delay: gameConfig.laserDelay,
+      delay: laserDelay,
       callback: function() {
         this.segments[this.shootCounter].startFollow({
           duration: 1000
         });
         this.shootCounter ++;
 
-        if(this.shootCounter >= gameConfig.laserSprites)
+        if(this.shootCounter >= laserSprites)
           this.shootCounter = 0;
       },
       callbackScope: this,
@@ -252,7 +271,7 @@ class Laser extends Entity {
     });
 
     this.destroyTimer = this.scene.time.addEvent({
-      delay: gameConfig.laserDuration,
+      delay: laserDuration,
       callback: function() {
         this.onDestroy();
         this.destroy();
@@ -268,6 +287,7 @@ class Laser extends Entity {
   }
 
   fire(){
+    this.setData('fired', true);
     this.path.draw(this.alertLine);
     this.alert.paused = false;
 
@@ -425,7 +445,6 @@ class Leo extends Entity {
 
   deployGrapple(point){
     this.grappleLine.clear().lineStyle(1, 0xffffff);
-
     this.grappleLine.strokeLineShape({
       x1: this.x,
       y1: this.y,

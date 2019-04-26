@@ -8,12 +8,7 @@ class SceneMain extends Phaser.Scene {
   preload() {}
 
   create() {
-    
-    const map = this.make.tilemap({
-      key: this.dataFromLevelSelect.levelKey
-    });
-
-    const tileset = map.addTilesetImage('cateroidsTileset', 'tiles');
+ 
     this.debug = this.add.graphics();
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
@@ -34,9 +29,8 @@ class SceneMain extends Phaser.Scene {
     this.initEvents();
     this.initCollisions();
     
+    this.loadMap();
     this.cameras.main.startFollow(this.player);
-    this.physics.world.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
-    this.cameras.main.setBounds(0, 0, gameConfig.worldWidth, this.game.config.height);
   }
   
   update() {
@@ -48,6 +42,48 @@ class SceneMain extends Phaser.Scene {
       //this.debug.clear()
       //this.player.body.drawDebug(this.debug);
     }
+  }
+
+  loadMap(level){
+    /*const map = this.make.tilemap({
+      key: this.dataFromLevelSelect.levelKey
+    });*/
+    const map = this.make.tilemap({key: 'level0'});
+    this.gameMap = map;
+    let objects = map.getObjectLayer('Objects').objects;
+
+    let self = this;
+    objects.forEach(function(obj){
+      if(obj.type == 'spawnPoint'){
+        self.player.x = obj.x;
+        self.player.y = obj.y;
+      }
+      if(obj.type == 'asteroid'){
+        let velX = getPropertyValue(obj, 'velocityX');
+        let velY = getPropertyValue(obj, 'velocityY');
+        let level = getPropertyValue(obj, 'level');
+        self.setAsteroid(obj.x, obj.y, velX, velY, level);
+      }
+      if(obj.type == 'dog'){
+        let velX = getPropertyValue(obj, 'velocityX');
+        let velY = getPropertyValue(obj, 'velocityY');
+        let level = getPropertyValue(obj, 'level');
+        self.setDog(obj.x, obj.y, velX, velY, level);
+      }
+      if(obj.type == 'laser'){
+        let damage = getPropertyValue(obj, 'laserDamage');
+        let delay= getPropertyValue(obj, 'laserDelay');
+        let duration = getPropertyValue(obj, 'laserDuration');
+        let sprites = getPropertyValue(obj, 'laserSprites');
+        let deltaX = getPropertyValue(obj, 'playerDeltaX');
+        let scale = getPropertyValue(obj, 'scale');
+        let type = getPropertyValue(obj, 'type');
+        self.setLasers(obj.x, obj.y, scale, type, damage, delay, duration, sprites, deltaX);
+      }
+    });
+
+    this.physics.world.setBounds(0, 0, map.width * map.tileWidth, map.height * map.tileHeight);
+    this.cameras.main.setBounds(0, 0, map.width * map.tileWidth, map.height * map.tileHeight);
   }
 
   createExplosion(x, y, amount) {
@@ -140,6 +176,28 @@ class SceneMain extends Phaser.Scene {
     }
 
     return position;
+  }
+
+  setAsteroid(x, y, vX, vY, level) {    
+    let asteroid = new Asteroid( this, x, y, keys[`ASTEROID${level}KEY`], vX, vY);
+
+    if(level == 3)
+      this.oxygenAsteroids.add(asteroid);
+    else
+      this.asteroids.add(asteroid);
+  }
+
+  setDog(x, y, vX, vY, level){
+    let imageKey = keys[`DOG${level}KEY`];
+      let dog = new Dog(this, x, y, imageKey, vX, vY);
+      this.dogs.add(dog);
+  }
+
+  setLasers(x, y, scale, type, damage, delay, duration, sprites, deltaX){
+    if(type == 'VERTICAL'){
+      let laser = new Laser(this, x, y, false, scale, -Math.PI/2, damage, delay, duration, sprites, deltaX);
+      this.lasers.add(laser);
+    }
   }
 
   spawnAsteroid() {
@@ -333,6 +391,8 @@ class SceneMain extends Phaser.Scene {
       let mouseX = this.scene.input.mousePointer.worldX;
       let mouseY = this.scene.input.mousePointer.worldY;
       let self = this;
+      let point = new Phaser.Math.Vector2(mouseX, mouseY);
+      this.scene.player.deployGrapple(point);
       this.scene.oxygenAsteroids.getChildren().forEach(function(asteroid){
         let distance = Math.sqrt(Math.pow((asteroid.x - mouseX),2) + Math.pow((asteroid.y - mouseY),2));
         if(distance <= asteroid.displayWidth/2){
@@ -344,6 +404,7 @@ class SceneMain extends Phaser.Scene {
 
     this.input.keyboard.on('keyup-SHIFT', function(){
       this.scene.player.setData("grapplePoint", null);
+      this.scene.player.reelGrapple();
     });
 
 
@@ -384,8 +445,6 @@ class SceneMain extends Phaser.Scene {
       loop: true,
     });
 
-    this.oxygenReplenishTimer.paused = true;
-
     // Laser timer
     this.laserTimer = this.time.addEvent({
       delay: gameConfig.laserSpawnRate,
@@ -414,6 +473,11 @@ class SceneMain extends Phaser.Scene {
       callbackScope: this,
       loop: true
     });
+
+    this.oxygenDepletionTimer.paused = true;
+    this.oxygenReplenishTimer.paused = true;
+    this.laserTimer.paused = true;
+    this.spawnTimer.paused = true;
   }
 
   initCollisions(){
@@ -620,6 +684,7 @@ class SceneMain extends Phaser.Scene {
               let distance = Math.sqrt(Math.pow((asteroid.x - point.x),2) + Math.pow((asteroid.y - point.y),2));
               if(distance <= asteroid.displayWidth/2){
                 player.setData('oxygenAsteroid', asteroid);
+                player.reelGrapple();
               }
             }
           }, null, this);
@@ -648,7 +713,7 @@ class SceneMain extends Phaser.Scene {
     if(this.keyShift.isDown && this.player.getData('grapplePoint')){
       this.player.grapple();
     }else{
-      this.player.reelGrapple();
+      
       // Check for vertical movement
       if (this.keyW.isDown) {
         if(this.player.getData('oxygenAsteroid') == null){
@@ -682,6 +747,7 @@ class SceneMain extends Phaser.Scene {
     }
 
     if (moved) {
+      this.player.reelGrapple();
       const gas = this.add.particles(keys.PIXELKEY).createEmitter({
         x: this.player.x + Phaser.Math.Between(-2, 2),
         y: this.player.y + Phaser.Math.Between(-2, 2),
@@ -698,6 +764,12 @@ class SceneMain extends Phaser.Scene {
       for (let i = 0; i < 5; i++) {
         gas.explode();
       }
+      let self = this;
+      this.lasers.getChildren().forEach(function(laser){
+        if(laser.x - self.player.x <= laser.getData('deltaX') && !laser.getData('fired')){
+          laser.fire();
+        }
+      });
 
       //camera does not move left
       let scroll = this.cameras.main.scrollX;
@@ -741,7 +813,7 @@ class SceneMain extends Phaser.Scene {
             asteroid.y,
             this.player.x,
             this.player.y
-          ) > maxLength
+          ) > maxLength && asteroid.x < this.player.x
         ) {
           if (asteroid) {
             asteroid.destroy();
@@ -757,7 +829,7 @@ class SceneMain extends Phaser.Scene {
             asteroid.y,
             this.player.x,
             this.player.y
-          ) > maxLength
+          ) > maxLength && asteroid.x < this.player.x
         ) {
           if (asteroid) {
             asteroid.destroy();
@@ -774,7 +846,7 @@ class SceneMain extends Phaser.Scene {
             dog.y,
             this.player.x,
             this.player.y
-          ) > maxLength
+          ) > maxLength && dog.x < this.player.x
         ) {
           if (dog) {
             dog.onDestroy();

@@ -5,7 +5,8 @@ class LoadScene extends Phaser.Scene {
 
   preload() {
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
-
+    this.load.image('tiles2', 'assets/CateroidsTileset2.png');
+    this.load.tilemapTiledJSON('level0', 'json/LevelTemplate.json');
     this.load.tilemapTiledJSON('level1', 'json/level1.json');
 
     this.load.image(keys.LOGOKEY, 'assets/logo.png');
