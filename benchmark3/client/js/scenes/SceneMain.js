@@ -53,10 +53,19 @@ export class SceneMain extends Phaser.Scene {
     });*/
     const map = this.make.tilemap({key: 'level0'});
     this.gameMap = map;
-    let objects = map.getObjectLayer('Objects').objects;
+    this.mapObjects = map.getObjectLayer('Objects').objects;
+    this.loadMapObjects();
+    
+    gameConfig.worldWidth = map.width * map.tileWidth;
+    gameConfig.worldHeight = (map.height + 1) * map.tileHeight;
+    gameConfig.worldOffset = (this.game.config.height - gameConfig.worldHeight)/2;
+    this.physics.world.setBounds(0, 0, gameConfig.worldWidth, gameConfig.worldHeight);
+    this.cameras.main.setBounds(0, -1 * gameConfig.worldOffset, gameConfig.worldWidth, gameConfig.worldHeight * gameConfig.worldOffset);
+  }
 
+  loadMapObjects(){
     let self = this;
-    objects.forEach(function(obj){
+    this.mapObjects.forEach(function(obj){
       if(obj.type == 'spawnPoint'){
         self.player.x = obj.x;
         self.player.y = obj.y;
@@ -84,9 +93,6 @@ export class SceneMain extends Phaser.Scene {
         self.setLasers(obj.x, obj.y, scale, type, damage, delay, duration, sprites, deltaX);
       }
     });
-
-    this.physics.world.setBounds(0, 0, map.width * map.tileWidth, map.height * map.tileHeight);
-    this.cameras.main.setBounds(0, 0, map.width * map.tileWidth, map.height * map.tileHeight);
   }
 
   createExplosion(x, y, amount) {
@@ -777,8 +783,8 @@ export class SceneMain extends Phaser.Scene {
       //camera does not move left
       let scroll = this.cameras.main.scrollX;
       if(scroll < gameConfig.worldWidth - this.game.config.width){
-        this.physics.world.setBounds(scroll, 0, gameConfig.worldWidth - scroll, this.game.config.height);
-        this.cameras.main.setBounds(scroll, 0, gameConfig.worldWidth - scroll, this.game.config.height);
+        this.physics.world.setBounds(scroll, 0, gameConfig.worldWidth - scroll, gameConfig.worldHeight);
+        this.cameras.main.setBounds(scroll, -1 * gameConfig.worldOffset, gameConfig.worldWidth - scroll, gameConfig.worldHeight + gameConfig.worldOffset);
       }
     }else{
       if(this.player.getData('oxygenAsteroid') != null){
