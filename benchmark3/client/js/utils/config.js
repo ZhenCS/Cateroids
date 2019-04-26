@@ -21,9 +21,14 @@ const gameStyles = {
 const gameDepths = {
   menuDepth: 10,
   uiDepth: 5
-}
+};
+
+const cheats = {
+  invulnerable: false
+};
 
 const gameConfig = {
+  spawnBuffer: 0,
   worldOffset: 200,
   worldWidth: 0,
   worldHeight: 0,
@@ -31,9 +36,9 @@ const gameConfig = {
   softMaxPlayerVelocityX: 300,
   softMaxPlayerVelocityY: 300,
 
-  //radians 
-  playerWalkVelocityX: Math.PI/45,
-  playerWalkVelocityY: Math.PI/45,
+  //radians
+  playerWalkVelocityX: Math.PI / 45,
+  playerWalkVelocityY: Math.PI / 45,
   //hard cap with boost. will never exceed
   hardMaxPlayerVelocityX: 1000,
   hardMaxPlayerVelocityY: 1000,
@@ -85,14 +90,14 @@ const gameConfig = {
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
   oxygenDepletionDelay: 50,
-  oxygenDepletionRate: 10/100,
+  oxygenDepletionRate: 10 / 100,
 
   oxygenReplenishDelay: 50,
-  oxygenReplenishRate: 15/100,
+  oxygenReplenishRate: 15 / 100,
 
   laserDamage: 1,
   laserDuration: 2500,
   laserSprites: 50,
   laserDelay: 50,
   laserSpawnRate: 8000
-}
+};
