@@ -453,6 +453,21 @@ export class Leo extends Entity {
         this.setData('health', gameConfig.maxPlayerHealth);
       }
     }
+
+    if (this.getData('health') <= 0) {
+      this.scene.gameOver = true;
+      this.play(constants.DYINGKEY);
+
+      this.scene.time.addEvent({
+        delay: 2000,
+        callback: function() {
+          this.scene.scene.pause(constants.GAMEKEY);
+          this.scene.scene.start(constants.GAMEOVERKEY);
+        },
+        callbackScope: this,
+        loop: false
+      });
+    }
   }
 
   oxygenDamage(damage) {

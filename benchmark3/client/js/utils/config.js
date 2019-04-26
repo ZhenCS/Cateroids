@@ -30,7 +30,10 @@ const cheats = {
 };
 
 const gameConfig = {
-  worldWidth: 10000,
+  spawnBuffer: 0,
+  worldOffset: 200,
+  worldWidth: 0,
+  worldHeight: 0,
   //soft cap for just arrow keys. can be exceeded with boost
   softMaxPlayerVelocityX: 300,
   softMaxPlayerVelocityY: 300,
