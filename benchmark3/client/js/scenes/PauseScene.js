@@ -1,3 +1,5 @@
+import * as constants from '../../../shared/constants';
+
 class PauseScene extends Phaser.Scene {
     constructor() {
       super({ key: 'PauseScene' });
@@ -37,8 +39,8 @@ class PauseScene extends Phaser.Scene {
         900 * gameScale.scale,
         'Exit Game'
       ).on('pointerdown', function() {
-        this.scene.game.scene.switch(keys.PAUSEKEY, keys.STARTMENUKEY);
-        this.scene.game.scene.stop(keys.GAMEKEY);
+        this.scene.game.scene.switch(constants.PAUSEKEY, constants.STARTMENUKEY);
+        this.scene.game.scene.stop(constants.GAMEKEY);
       });
 
       pauseContainer.depth = gameDepths.menuDepth;
@@ -73,7 +75,7 @@ class PauseScene extends Phaser.Scene {
       let controlContainer = this.add.sprite(
         gameWidth / 2,
         gameHeight / 2,
-        keys.CONTROLS1KEY
+        constants.CONTROLS1KEY
       );
       controlContainer.depth = gameDepths.menuDepth + 1;
       controlContainer.visible = false;
@@ -113,8 +115,8 @@ class PauseScene extends Phaser.Scene {
     
     hidePauseMenu() {
       this.pauseContainer.visible = false;
-      this.scene.pause(keys.PAUSEKEY);
-      this.scene.resume(keys.GAMEKEY);
+      this.scene.pause(constants.PAUSEKEY);
+      this.scene.resume(constants.GAMEKEY);
       //resume game
     };
 

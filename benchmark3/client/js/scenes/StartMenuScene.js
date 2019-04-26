@@ -1,3 +1,5 @@
+import * as constants from '../../../shared/constants';
+
 class StartMenuScene extends Phaser.Scene {
   constructor() {
     super({ key: 'StartMenuScene' });
@@ -29,16 +31,16 @@ class StartMenuScene extends Phaser.Scene {
     this.initControls();
 
     this.gameStart.on('pointerdown', function() {
-      this.scene.game.scene.switch(keys.STARTMENUKEY, keys.GAMEKEY);
+      this.scene.game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
     });
     this.levelSelect.on('pointerdown', function() {
-      this.scene.game.scene.switch(keys.STARTMENUKEY, keys.LEVELSKEY);
+      this.scene.game.scene.switch(constants.STARTMENUKEY, constants.LEVELSKEY);
     });
     this.controls.on('pointerdown', function() {
       this.scene.showControls();
     });
     this.help.on('pointerdown', function() {
-      this.scene.game.scene.start(keys.HELPKEY);
+      this.scene.game.scene.start(constants.HELPKEY);
     });
   }
 
@@ -73,7 +75,7 @@ class StartMenuScene extends Phaser.Scene {
     this.controlContainer = this.add.sprite(
       gameWidth / 2,
       gameHeight / 2,
-      keys.CONTROLS1KEY
+      constants.CONTROLS1KEY
     );
     this.controlContainer.depth = 2;
     this.controlContainer.visible = false;

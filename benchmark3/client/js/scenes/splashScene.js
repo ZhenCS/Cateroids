@@ -1,3 +1,5 @@
+import * as constants from '../../../shared/constants';
+
 class SplashScene extends Phaser.Scene {
   constructor() {
     super({ key: 'SplashScene' });
@@ -11,7 +13,7 @@ class SplashScene extends Phaser.Scene {
 
     setBG(this);
     setGameName(this);
-    this.logo = this.add.sprite(gameWidth / 2, gameHeight / 2, keys.LOGOKEY);
+    this.logo = this.add.sprite(gameWidth / 2, gameHeight / 2, constants.LOGOKEY);
     this.logo.setScale(1.5 * gameScale.scale);
 
     this.initText(gameWidth, gameHeight);

@@ -1,3 +1,5 @@
+import * as constants from '../../../shared/constants';
+
 class HelpScene extends Phaser.Scene {
   constructor() {
     super({ key: 'HelpScene' });
@@ -7,8 +9,8 @@ class HelpScene extends Phaser.Scene {
     setBG(this);
     setBackButton(this);
     this.backButton.on('pointerdown', function() {
-      this.scene.game.scene.switch(keys.HELPKEY, keys.STARTMENUKEY);
-      this.scene.game.scene.stop(keys.HELPKEY);
+      this.scene.game.scene.switch(constants.HELPKEY, constants.STARTMENUKEY);
+      this.scene.game.scene.stop(constants.HELPKEY);
     });
 
     let helpText1 = ["It is a period of uncivil war.", "Feline spaceships, pouncing from a hidden base,", "have won the first victory","against the evil Galactic Pawpire.", "During the battle, Feline spies managed to ", "steal secret plans to the Pawpire’s ultimate weapon, ", "the WOLF STAR, an armored space station", "with enough power to destroy the entire feline race."];
@@ -70,8 +72,8 @@ class HelpScene extends Phaser.Scene {
           this.helps[this.helpCounter].visible = true;
           this.helpTweens[this.helpCounter].restart();
         } else {
-          this.game.scene.switch(keys.HELPKEY, keys.STARTMENUKEY);
-          this.game.scene.stop(keys.HELPKEY);
+          this.game.scene.switch(constants.HELPKEY, constants.STARTMENUKEY);
+          this.game.scene.stop(constants.HELPKEY);
         }
       }
     });

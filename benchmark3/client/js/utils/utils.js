@@ -1,8 +1,10 @@
+import * as constants from '../../../shared/constants';
+
 const setBG = scene => {
   let gameWidth = scene.sys.game.config.width;
   let gameHeight = scene.sys.game.config.height;
 
-  scene.bg = scene.add.sprite(gameWidth / 2, gameHeight / 2, keys.BGKEY);
+  scene.bg = scene.add.sprite(gameWidth / 2, gameHeight / 2, constants.BGKEY);
   scene.bg.setScale(5.5 * gameScale.scale);
 };
 
@@ -12,7 +14,7 @@ function setGameName(scene) {
   scene.gameName = scene.add.sprite(
     gameWidth / 2,
     160 * gameScale.scale,
-    keys.NAMEKEY
+    constants.NAMEKEY
   );
   scene.gameName.setScale(1.7 * gameScale.scale);
 }
@@ -25,7 +27,7 @@ function setBackButton(fromScene, fromSceneString, toSceneString) {
     .sprite(
       200 * gameScale.scale,
       gameHeight - 80 * gameScale.scale,
-      keys.BACKKEY
+      constants.BACKKEY
     )
     .setInteractive({ cursor: 'pointer' });
 
