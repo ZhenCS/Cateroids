@@ -1,9 +1,9 @@
 import * as constants from '../../../shared/constants.js';
-import {setBG, setGameName, centerX, setBackButton} from '../utils/utils.js';
+import { setBG, setGameName, centerX, setBackButton } from '../utils/utils.js';
 
 export class LevelSelectScene extends Phaser.Scene {
   constructor() {
-    super({ key: constants.LEVELSKEY});
+    super({ key: constants.LEVELSKEY });
   }
 
   create() {

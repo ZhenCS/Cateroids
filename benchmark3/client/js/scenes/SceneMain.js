@@ -26,6 +26,7 @@ export class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
+
     //init player before calling these functions
     this.initAnimations();
     this.initUI();
@@ -49,7 +50,7 @@ export class SceneMain extends Phaser.Scene {
   }
 
   loadMap(level) {
-    const map = this.make.tilemap({ key: 'level0' });
+    const map = this.make.tilemap(currentLevel);
     this.gameMap = map;
     let objects = map.getObjectLayer('Objects').objects;
 
@@ -587,6 +588,7 @@ export class SceneMain extends Phaser.Scene {
     this.laserTimer.paused = true;
     this.spawnTimer.paused = true;
   }
+
   initCollisions() {
     // Check for collisions between player and asteroids
     collisions.checkPlayerToAsteroidCollision(this);

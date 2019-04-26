@@ -23,6 +23,8 @@ const gameDepths = {
   uiDepth: 5
 };
 
+let currentLevel = { key: 'level0' };
+
 const cheats = {
   invulnerable: false
 };
