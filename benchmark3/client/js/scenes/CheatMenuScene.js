@@ -17,12 +17,15 @@ export class CheatMenuScene extends Phaser.Scene {
       'Enable Invulnerability'
     );
 
-    this.back = this.createButton(
+    this.changeLevel = this.createButton(
       gameHeight / 2 + 150 * gameScale.scale,
-      'Back'
+      'Change Level'
     );
 
-    this.initControls();
+    this.back = this.createButton(
+      gameHeight / 2 + 300 * gameScale.scale,
+      'Back'
+    );
 
     this.invulnerability.on('pointerdown', function() {
       const isInvulernable = cheats.invulnerable;
@@ -34,10 +37,15 @@ export class CheatMenuScene extends Phaser.Scene {
 
       cheats.invulnerable = !cheats.invulnerable;
     });
+
+    // this.changeLevel.on('pointerdown', function() {});
+
     this.back.on('pointerdown', function() {
       this.scene.game.scene.resume(constants.GAMEKEY);
       this.scene.game.scene.stop(constants.CHEATKEY);
     });
+
+    this.initControls();
   }
 
   createButton(yPosition, text) {
