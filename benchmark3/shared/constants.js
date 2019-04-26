@@ -1,13 +1,12 @@
-// TODO: heavily refactor this, too many keys and constants possibly?
-
 export const LOADKEY = 'ls';
 export const SPLASHKEY = 'ss';
 export const STARTMENUKEY = 'sms';
-export const GAMEKEY = 'sm'
+export const GAMEKEY = 'sm';
 export const LEVELSKEY = 'lss';
 export const HELPKEY = 'hs';
 export const PAUSEKEY = 'ps';
 export const GAMEOVERKEY = 'gos';
+export const CHEATKEY = 'cm';
 
 export const LOGOKEY = 'logo';
 export const NAMEKEY = 'name';
@@ -56,17 +55,19 @@ export const LEVEL4KEY = 'lvl4';
 export const LEVEL5KEY = 'lvl5';
 export const LEVEL6KEY = 'lvl6';
 
-export const COLLISION_CAT = Math.pow(2,0);
-export const COLLISION_ANTI_CAT = Math.pow(2,1);
-export const COLLISION_GROUP_GROUND = Math.pow(2,2);
+export const COLLISION_CAT = Math.pow(2, 0);
+export const COLLISION_ANTI_CAT = Math.pow(2, 1);
+export const COLLISION_GROUP_GROUND = Math.pow(2, 2);
 
-function generateDogAnimationKeys(){
-    let dogAnimationKeys = new Array();
-    dogKeys.forEach(function(dogStr) {
-        animationKeys.forEach(function(anim) {
-            dogAnimationKeys[`${dogStr}${anim.toUpperCase()}KEY`] = `${anim}${dogStr}`;
-        });
+function generateDogAnimationKeys() {
+  let dogAnimationKeys = new Array();
+  dogKeys.forEach(function(dogStr) {
+    animationKeys.forEach(function(anim) {
+      dogAnimationKeys[
+        `${dogStr}${anim.toUpperCase()}KEY`
+      ] = `${anim}${dogStr}`;
     });
+  });
 
-    return dogAnimationKeys;
+  return dogAnimationKeys;
 }

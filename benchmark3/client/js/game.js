@@ -1,12 +1,13 @@
 import * as constants from '../../shared/constants.js';
-import {LoadScene} from './scenes/LoadScene.js';
-import {SplashScene} from './scenes/SplashScene.js';
-import {StartMenuScene} from './scenes/StartMenuScene.js';
-import {LevelSelectScene} from './scenes/LevelSelectScene.js';
-import {HelpScene} from './scenes/HelpScene.js';
-import {SceneMain} from './scenes/SceneMain.js';
-import {PauseScene} from './scenes/PauseScene.js';
-import {GameOverScene} from './scenes/GameOverScene.js';
+import { LoadScene } from './scenes/LoadScene.js';
+import { SplashScene } from './scenes/SplashScene.js';
+import { StartMenuScene } from './scenes/StartMenuScene.js';
+import { LevelSelectScene } from './scenes/LevelSelectScene.js';
+import { HelpScene } from './scenes/HelpScene.js';
+import { SceneMain } from './scenes/SceneMain.js';
+import { PauseScene } from './scenes/PauseScene.js';
+import { GameOverScene } from './scenes/GameOverScene.js';
+import { CheatMenuScene } from './scenes/CheatMenuScene.js';
 
 const config = {
   type: Phaser.WEBGL,
@@ -27,6 +28,7 @@ const config = {
     HelpScene,
     SceneMain,
     PauseScene,
+    CheatMenuScene,
     GameOverScene
   ],
   pixelArt: true,
@@ -39,7 +41,6 @@ function resize(width, height) {
   if (height === undefined) {
     height = this.sys.game.config.height;
   }
-
 }
 
 window.addEventListener(
@@ -66,7 +67,6 @@ window.addEventListener('keydown', function(event) {
   if (game.scene.isActive(constants.GAMEKEY) && event.key == 'Escape') {
     game.scene.start(constants.PAUSEKEY);
     game.scene.pause(constants.GAMEKEY);
-    
   }
 });
 
