@@ -590,9 +590,7 @@ export class SceneMain extends Phaser.Scene {
     this.spawnTimer.paused = true;
   }
 
-  initCollisions() {
-    // Check for collisions between player and asteroids
-
+  checkPlayerToAsteroidCollision() {
     this.physics.add.collider(
       this.player,
       this.asteroids,
@@ -607,8 +605,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between player and enemies
+  checkPlayerToEnemyCollision() {
     this.physics.add.collider(
       this.player,
       this.dogs,
@@ -623,8 +622,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between player and bullets
+  checkPlayerToBulletCollision() {
     this.physics.add.overlap(
       this.player,
       this.bullets,
@@ -655,8 +655,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collision between bullets and enemies
+  checkEnemyToBulletCollision() {
     this.physics.add.overlap(
       this.bullets,
       this.dogs,
@@ -689,8 +690,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between bullets and astroids
+  checkAsteroidToBulletCollision() {
     this.physics.add.overlap(
       this.bullets,
       this.asteroids,
@@ -763,8 +765,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between bullets and oxygenAsteroids
+  checkOxygenAsteroidToBulletCollision() {
     this.physics.add.overlap(
       this.bullets,
       this.oxygenAsteroids,
@@ -790,8 +793,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between asteroids and oxygenAsteroids
+  checkAsteroidToOxygenAsteroidCollision() {
     this.physics.add.overlap(
       this.asteroids,
       this.oxygenAsteroids,
@@ -815,8 +819,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between dogs and oxygenAsteroids
+  checkEnemyToOxygenAsteriodCollision() {
     this.physics.add.overlap(
       this.dogs,
       this.oxygenAsteroids,
@@ -837,8 +842,9 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
 
-    // Check for collisions between player and oxygenAsteroids
+  checkPlayerToOxygenAsteroidCollision() {
     this.physics.add.overlap(
       this.player,
       this.oxygenAsteroids,
@@ -861,6 +867,35 @@ export class SceneMain extends Phaser.Scene {
       null,
       this
     );
+  }
+
+  initCollisions() {
+    // Check for collisions between player and asteroids
+    this.checkPlayerToAsteroidCollision();
+
+    // Check for collisions between player and enemies
+    this.checkPlayerToEnemyCollision();
+
+    // Check for collisions between player and bullets
+    this.checkPlayerToBulletCollision();
+
+    // Check for collision between bullets and enemies
+    this.checkEnemyToBulletCollision();
+
+    // Check for collisions between bullets and astroids
+    this.checkAsteroidToBulletCollision();
+
+    // Check for collisions between bullets and oxygenAsteroids
+    this.checkOxygenAsteroidToBulletCollision();
+
+    // Check for collisions between asteroids and oxygenAsteroids
+    this.checkAsteroidToOxygenAsteroidCollision();
+
+    // Check for collisions between dogs and oxygenAsteroids
+    this.checkEnemyToOxygenAsteriodCollision();
+
+    // Check for collisions between player and oxygenAsteroids
+    this.checkPlayerToOxygenAsteroidCollision();
   }
 
   movementCheck() {
