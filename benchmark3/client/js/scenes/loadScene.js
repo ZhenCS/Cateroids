@@ -1,15 +1,20 @@
-import * as constants from '../../../shared/constants.js'
+import * as constants from '../../../shared/constants.js';
 
 export class LoadScene extends Phaser.Scene {
   constructor() {
-    super({ key: constants.LOADKEY});
+    super({ key: constants.LOADKEY });
   }
 
   preload() {
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
     this.load.tilemapTiledJSON('level0', 'json/LevelTemplate.json');
-    this.load.tilemapTiledJSON('level1', 'json/level1.json');
+    this.load.tilemapTiledJSON('level1', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level2', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level3', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level4', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level5', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level6', 'json/LevelTemplate.json');
 
     this.load.image(constants.LOGOKEY, 'assets/logo.png');
     this.load.image(constants.BGKEY, 'assets/bg.jpg');

@@ -26,6 +26,7 @@ export class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
+
     //init player before calling these functions
     this.initAnimations();
     this.initUI();
@@ -49,7 +50,7 @@ export class SceneMain extends Phaser.Scene {
   }
 
   loadMap(level) {
-    const map = this.make.tilemap({ key: 'level0' });
+    const map = this.make.tilemap(currentLevel);
     this.gameMap = map;
     this.mapObjects = map.getObjectLayer('Objects').objects;
     gameConfig.worldWidth = map.width * map.tileWidth;
@@ -60,19 +61,31 @@ export class SceneMain extends Phaser.Scene {
     this.sortMapObjects();
     this.setPlayerSpawn();
     this.loadMapObjects();
-    
-    this.physics.world.setBounds(0, 0, gameConfig.worldWidth, gameConfig.worldHeight);
-    this.cameras.main.setBounds(0, -1 * gameConfig.worldOffset, gameConfig.worldWidth, gameConfig.worldHeight * gameConfig.worldOffset);
+
+    this.physics.world.setBounds(
+      0,
+      0,
+      gameConfig.worldWidth,
+      gameConfig.worldHeight
+    );
+    this.cameras.main.setBounds(
+      0,
+      -1 * gameConfig.worldOffset,
+      gameConfig.worldWidth,
+      gameConfig.worldHeight * gameConfig.worldOffset
+    );
   }
 
   sortMapObjects() {
-    this.mapObjects.sort(function(a, b){return b.x - a.x});
+    this.mapObjects.sort(function(a, b) {
+      return b.x - a.x;
+    });
   }
 
-  setPlayerSpawn(){
-    for(var i = this.mapObjects.length - 1; i >= 0; i++){
+  setPlayerSpawn() {
+    for (var i = this.mapObjects.length - 1; i >= 0; i++) {
       let obj = this.mapObjects[i];
-      if(obj.type == 'spawnPoint'){
+      if (obj.type == 'spawnPoint') {
         this.player.x = obj.x;
         this.player.y = obj.y;
         break;
@@ -80,15 +93,15 @@ export class SceneMain extends Phaser.Scene {
     }
   }
 
-  loadMapObjects(){
+  loadMapObjects() {
     let self = this;
-    for(var i = this.mapObjects.length - 1; i >= 0; i++){
+    for (var i = this.mapObjects.length - 1; i >= 0; i++) {
       let obj = this.mapObjects.pop();
-      if(obj.x - this.player.x > gameConfig.spawnBuffer){
+      if (obj.x - this.player.x > gameConfig.spawnBuffer) {
         this.mapObjects.push(obj);
         break;
       }
-      
+
       if (obj.type == 'asteroid') {
         let velX = getPropertyValue(obj, 'velocityX');
         let velY = getPropertyValue(obj, 'velocityY');
@@ -121,7 +134,6 @@ export class SceneMain extends Phaser.Scene {
           deltaX
         );
       }
-
     }
   }
 
@@ -590,6 +602,7 @@ export class SceneMain extends Phaser.Scene {
     this.laserTimer.paused = true;
     this.spawnTimer.paused = true;
   }
+
   initCollisions() {
     // Check for collisions between player and asteroids
     collisions.checkPlayerToAsteroidCollision(this);
@@ -703,9 +716,19 @@ export class SceneMain extends Phaser.Scene {
 
       //camera does not move left
       let scroll = this.cameras.main.scrollX;
-      if(scroll < gameConfig.worldWidth - this.game.config.width){
-        this.physics.world.setBounds(scroll, 0, gameConfig.worldWidth - scroll, gameConfig.worldHeight);
-        this.cameras.main.setBounds(scroll, -1 * gameConfig.worldOffset, gameConfig.worldWidth - scroll, gameConfig.worldHeight + gameConfig.worldOffset);
+      if (scroll < gameConfig.worldWidth - this.game.config.width) {
+        this.physics.world.setBounds(
+          scroll,
+          0,
+          gameConfig.worldWidth - scroll,
+          gameConfig.worldHeight
+        );
+        this.cameras.main.setBounds(
+          scroll,
+          -1 * gameConfig.worldOffset,
+          gameConfig.worldWidth - scroll,
+          gameConfig.worldHeight + gameConfig.worldOffset
+        );
       }
     } else {
       if (this.player.getData('oxygenAsteroid') != null) {
