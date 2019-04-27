@@ -33,8 +33,15 @@ export class SceneMain extends Phaser.Scene {
     this.initControls();
     this.initEvents();
     this.initCollisions();
+    this.mapLoaded = false;
+    let loadMap = true;
 
-    this.loadMap();
+    if(loadMap)
+      this.loadMap();
+    else{
+      this.laserTimer.paused = false;
+      this.spawnTimer.paused = false;
+    }
     this.cameras.main.startFollow(this.player);
   }
 
@@ -74,6 +81,8 @@ export class SceneMain extends Phaser.Scene {
       gameConfig.worldWidth,
       gameConfig.worldHeight * gameConfig.worldOffset
     );
+
+    this.mapLoaded = true;
   }
 
   sortMapObjects() {
@@ -112,7 +121,10 @@ export class SceneMain extends Phaser.Scene {
         let velX = getPropertyValue(obj, 'velocityX');
         let velY = getPropertyValue(obj, 'velocityY');
         let level = getPropertyValue(obj, 'level');
-        self.setDog(obj.x, obj.y, velX, velY, level);
+        let hp = getPropertyValue(obj, 'health');
+        let damage = getPropertyValue(obj, 'damage');
+        let fireRate = getPropertyValue(obj, 'fireRate');
+        self.setDog(obj.x, obj.y, velX, velY, level, hp, damage, fireRate);
       }
       if (obj.type == 'laser') {
         let damage = getPropertyValue(obj, 'laserDamage');
@@ -249,9 +261,9 @@ export class SceneMain extends Phaser.Scene {
     else this.asteroids.add(asteroid);
   }
 
-  setDog(x, y, vX, vY, level) {
-    let imageKey = constants[`DOG${level}KEY`];
-    let dog = new Dog(this, x, y, imageKey, vX, vY);
+  setDog(x, y, vX, vY, level, hp, damage, fireRate) {
+    
+    let dog = new Dog(this, x, y, level, vX, vY, hp, damage, fireRate);
     this.dogs.add(dog);
   }
 
@@ -304,19 +316,24 @@ export class SceneMain extends Phaser.Scene {
   spawnDog() {
     const position = this.getSpawnPosition();
 
-    let imageKey = '';
+    let key = 0;
+    
     let rand = Phaser.Math.Between(0, 100);
     let { dog1SpawnRate, dog2SpawnRate, dog3SpawnRate } = gameConfig;
     if (rand < dog1SpawnRate) {
-      imageKey = constants.DOG1KEY;
+      key = 1;
     } else if (rand < dog1SpawnRate + dog2SpawnRate) {
-      imageKey = constants.DOG2KEY;
+      key = 2;
     } else if (rand < dog1SpawnRate + dog2SpawnRate + dog3SpawnRate) {
-      imageKey = constants.DOG3KEY;
+      key = 3;
     }
 
-    if (imageKey != '') {
-      const dog = new Dog(this, position.x, position.y, imageKey);
+    if (key > 0) {
+      let health = gameConfig[`dog${key}Health`];
+      let damage = gameConfig[`dog${key}Damage`];;
+      let fireRate = gameConfig[`dog${key}FireRate`];
+
+      const dog = new Dog(this, position.x, position.y, key, undefined, undefined, health, damage, fireRate);
       this.dogs.add(dog);
     }
   }
@@ -582,7 +599,7 @@ export class SceneMain extends Phaser.Scene {
 
     // Asteroid Spawner
     this.spawnTimer = this.time.addEvent({
-      delay: 2000,
+      delay: 1000,
       callback: function() {
         this.spawnAsteroid();
 
@@ -687,7 +704,9 @@ export class SceneMain extends Phaser.Scene {
 
     if (moved) {
       this.player.reelGrapple();
-      this.loadMapObjects();
+
+      if(this.mapLoaded)
+        this.loadMapObjects();
       const gas = this.add.particles(constants.PIXELKEY).createEmitter({
         x: this.player.x + Phaser.Math.Between(-2, 2),
         y: this.player.y + Phaser.Math.Between(-2, 2),

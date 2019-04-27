@@ -50,10 +50,10 @@ const gameConfig = {
   grappleSpeed: 800,
 
   //for asteroids and dogs
-  maxVelocityX: 100,
-  maxVelocityY: 100,
-  minVelocityX: 10,
-  minVelocityY: 25,
+  maxVelocityX: 500,
+  maxVelocityY: 500,
+  minVelocityX: 100,
+  minVelocityY: 100,
 
   maxPlayerHealth: 1000,
   maxPlayerOxygen: 100,
@@ -78,12 +78,13 @@ const gameConfig = {
   dog3Damage: 15,
 
   //ms
-  dog1FireRate: 800,
-  dog2FireRate: 1000,
-  dog3FireRate: 1500,
+  dog1FireRate: 1000,
+  dog2FireRate: 1500,
+  dog3FireRate: 2000,
+  bulletSpeed: 500,
 
   // out of 100
-  dogSpawnRate: 50,
+  dogSpawnRate: 100,
   dog1SpawnRate: 40,
   dog2SpawnRate: 35,
   dog3SpawnRate: 25,

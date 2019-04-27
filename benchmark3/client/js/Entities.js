@@ -1,4 +1,5 @@
 import * as constants from '../../shared/constants.js';
+import {random, aimBot, kamikazi} from './AI.js';
 
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
@@ -93,98 +94,35 @@ export class Asteroid extends Entity {
 }
 
 export class Dog extends Entity {
-  constructor(scene, x, y, key, velocityX, velocityY) {
+  constructor(scene, x, y, level, velocityX, velocityY, health, damage, fireRate) {
+    let key = constants[`DOG${level}KEY`];
     super(scene, x, y, key);
-    let fireRate = '';
-    if (key == constants.DOG1KEY) {
-      this.setScale(0.4, 0.4);
-      this.play(constants.dogAnimationKeys.DOG1IDLEKEY);
-      this.setData('dogId', 1);
-      this.setData('health', gameConfig.dog1Health);
-      this.setData('damage', gameConfig.dog1Damage);
+    
+    this.setData('dogId', level);
+    this.setData('health', health);
+    this.setData('damage', damage);
+    this.setData('fireRate', fireRate);
+    this.play(constants.dogAnimationKeys[`DOG${level}IDLEKEY`]);
 
-      fireRate = gameConfig.dog1FireRate;
+    if (level == 1) {
+      this.setScale(0.4, 0.4);
+      aimBot(this, 0x142bff, Bullet);
     }
     if (key == constants.DOG2KEY) {
       this.setScale(0.6, 0.6);
-      this.play(constants.dogAnimationKeys.DOG2IDLEKEY);
-      this.setData('dogId', 2);
-      this.setData('health', gameConfig.dog2Health);
-      this.setData('damage', gameConfig.dog2Damage);
-
-      fireRate = gameConfig.dog2FireRate;
+      aimBot(this, 0x3dff23, Bullet);
     }
     if (key == constants.DOG3KEY) {
       this.setScale(0.8, 0.8);
-      this.play(constants.dogAnimationKeys.DOG3IDLEKEY);
-      this.setData('dogId', 3);
-      this.setData('health', gameConfig.dog3Health);
-      this.setData('damage', gameConfig.dog3Damage);
-
-      fireRate = gameConfig.dog3FireRate;
+      kamikazi(this);
     }
+
     if (typeof velocityX != 'undefined' && typeof velocityY != 'undefined')
       this.body.setVelocity(velocityX, velocityY);
     else {
       let velocity = this.getInitVelocity(scene, x, y);
       this.body.setVelocity(velocity[0], velocity[1]);
     }
-    this.shootTimer = this.scene.time.addEvent({
-      delay: fireRate,
-      callback: function() {
-        if (this.scene !== undefined) {
-          const bullet = new Bullet(this.scene, this.x, this.y, false);
-          bullet.setData('isFriendly', false);
-          let animKey =
-            constants.dogAnimationKeys[`DOG${this.getData('dogId')}ATTACKKEY`];
-
-          if (animKey) {
-            this.play(animKey);
-            this.once('animationcomplete', function() {
-              this.play(
-                constants.dogAnimationKeys[`DOG${this.getData('dogId')}IDLEKEY`]
-              );
-            });
-          }
-          if (key == constants.DOG1KEY) {
-            const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
-            bullet.setTint(0x142bff);
-            bullet.setRotation(angle);
-            bullet.setData('damage', gameConfig.dog1Damage);
-            bullet.body.setVelocity(
-              100 * Math.cos(angle),
-              100 * Math.sin(angle)
-            );
-          } else if (key == constants.DOG2KEY) {
-            const dx = this.scene.player.x - this.x;
-            const dy = this.scene.player.y - this.y;
-            const angle = Math.atan2(dy, dx);
-            bullet.setTint(0x3dff23);
-            bullet.setRotation(angle);
-            bullet.setData('damage', gameConfig.dog2Damage);
-            bullet.body.setVelocity(
-              150 * Math.cos(angle),
-              150 * Math.sin(angle)
-            );
-          } else if (key == constants.DOG3KEY) {
-            const dx = this.scene.player.x - this.x;
-            const dy = this.scene.player.y - this.y;
-            const angle = Math.atan2(dy, dx);
-            bullet.setTint(0xd71fef);
-            bullet.setRotation(angle);
-            bullet.setData('damage', gameConfig.dog3Damage);
-            bullet.body.setVelocity(
-              200 * Math.cos(angle),
-              200 * Math.sin(angle)
-            );
-          }
-
-          this.scene.bullets.add(bullet);
-        }
-      },
-      callbackScope: this,
-      loop: true
-    });
   }
 
   damage(damage) {
@@ -293,6 +231,7 @@ export class Laser extends Entity {
       pause: true,
       callbackScope: this
     });
+
     this.shootCounter = 0;
     this.shoot = this.scene.time.addEvent({
       delay: laserDelay,
@@ -331,7 +270,7 @@ export class Laser extends Entity {
     this.alert.paused = false;
 
     this.scene.time.addEvent({
-      delay: 1000,
+      delay: 1500,
       callback: function() {
         this.alertLine.clear();
         this.alert.pause();
