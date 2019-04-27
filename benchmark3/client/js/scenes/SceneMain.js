@@ -92,7 +92,7 @@ export class SceneMain extends Phaser.Scene {
   }
 
   setPlayerSpawn() {
-    for (var i = this.mapObjects.length - 1; i >= 0; i++) {
+    for (var i = this.mapObjects.length - 1; i >= 0; i--) {
       let obj = this.mapObjects[i];
       if (obj.type == 'spawnPoint') {
         this.player.x = obj.x;
@@ -104,8 +104,10 @@ export class SceneMain extends Phaser.Scene {
 
   loadMapObjects() {
     let self = this;
-    for (var i = this.mapObjects.length - 1; i >= 0; i++) {
+    for (var i = this.mapObjects.length - 1; i >= 0; i--) {
       let obj = this.mapObjects.pop();
+      if(obj == undefined) break;
+      
       if (obj.x - this.player.x > gameConfig.spawnBuffer) {
         this.mapObjects.push(obj);
         break;
