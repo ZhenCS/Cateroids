@@ -55,8 +55,9 @@ export class SceneMain extends Phaser.Scene {
     this.mapObjects = map.getObjectLayer('Objects').objects;
     gameConfig.worldWidth = map.width * map.tileWidth;
     gameConfig.worldHeight = (map.height + 1) * map.tileHeight;
-    gameConfig.worldOffset = (this.game.config.height - gameConfig.worldHeight)/2;
-    gameConfig.spawnBuffer = this.game.config.width/2 + 50;
+    gameConfig.worldOffset =
+      (this.game.config.height - gameConfig.worldHeight) / 2;
+    gameConfig.spawnBuffer = this.game.config.width / 2 + 50;
 
     this.sortMapObjects();
     this.setPlayerSpawn();
@@ -83,7 +84,7 @@ export class SceneMain extends Phaser.Scene {
   }
 
   setPlayerSpawn() {
-    for (var i = this.mapObjects.length - 1; i >= 0; i++) {
+    for (var i = this.mapObjects.length - 1; i >= 0; i--) {
       let obj = this.mapObjects[i];
       if (obj.type == 'spawnPoint') {
         this.player.x = obj.x;

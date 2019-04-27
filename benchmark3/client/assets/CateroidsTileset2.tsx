@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.2" tiledversion="1.2.3" name="CateroidsTileset2" tilewidth="64" tileheight="64" tilecount="10" columns="5">
- <image source="../assets/CateroidsTileset2.png" width="320" height="128"/>
- <tile id="0">
+ <image source="CateroidsTileset2.png" width="320" height="128"/>
+ <tile id="0" type="asteroid">
   <properties>
    <property name="VelocityX" type="float" value="0"/>
    <property name="VelocityY" type="float" value="0"/>
@@ -9,7 +9,7 @@
    <property name="asteroid0Health" type="float" value="40"/>
   </properties>
  </tile>
- <tile id="1">
+ <tile id="1" type="asteroid">
   <properties>
    <property name="VelocityX" type="float" value="0"/>
    <property name="VelocityY" type="float" value="0"/>
@@ -17,7 +17,7 @@
    <property name="asteroid1Health" type="float" value="20"/>
   </properties>
  </tile>
- <tile id="2">
+ <tile id="2" type="asteroid">
   <properties>
    <property name="VelocityX" type="float" value="0"/>
    <property name="VelocityY" type="float" value="0"/>
@@ -25,7 +25,7 @@
    <property name="asteroid2Health" type="float" value="10"/>
   </properties>
  </tile>
- <tile id="3">
+ <tile id="3" type="asteroid">
   <properties>
    <property name="VelocityX" type="int" value="0"/>
    <property name="VelocityY" type="int" value="0"/>
@@ -35,7 +35,7 @@
    <property name="oxygenReplenishRate" type="float" value="0.15"/>
   </properties>
  </tile>
- <tile id="4">
+ <tile id="4" type="laser">
   <properties>
    <property name="Type" value="VERTICAL"/>
    <property name="laserDamage" type="float" value="1"/>
@@ -45,7 +45,7 @@
    <property name="playerDeltaX" type="float" value="200"/>
   </properties>
  </tile>
- <tile id="5">
+ <tile id="5" type="dog">
   <properties>
    <property name="VelocityX" type="float" value="0"/>
    <property name="VelocityY" type="float" value="0"/>
@@ -54,7 +54,7 @@
    <property name="dog3Health" type="float" value="80"/>
   </properties>
  </tile>
- <tile id="6">
+ <tile id="6" type="dog">
   <properties>
    <property name="VelocityX" type="float" value="0"/>
    <property name="VelocityY" type="float" value="0"/>
@@ -63,7 +63,7 @@
    <property name="dog2Health" type="float" value="60"/>
   </properties>
  </tile>
- <tile id="7">
+ <tile id="7" type="dog">
   <properties>
    <property name="VelocityX" type="float" value="0"/>
    <property name="VelocityY" type="float" value="0"/>
@@ -72,4 +72,6 @@
    <property name="dog1Health" type="float" value="30"/>
   </properties>
  </tile>
+ <tile id="8" type="spawnPoint"/>
+ <tile id="9" type="endPoint"/>
 </tileset>
