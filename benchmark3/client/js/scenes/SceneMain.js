@@ -55,7 +55,7 @@ export class SceneMain extends Phaser.Scene {
     gameConfig.worldWidth = map.width * map.tileWidth;
     gameConfig.worldHeight = (map.height + 1) * map.tileHeight;
     gameConfig.worldOffset = (this.game.config.height - gameConfig.worldHeight)/2;
-    gameConfig.spawnBuffer = this.game.config.width;
+    gameConfig.spawnBuffer = this.game.config.width/2 + 50;
 
     this.sortMapObjects();
     this.setPlayerSpawn();
