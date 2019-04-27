@@ -58,6 +58,7 @@ export class LevelSelectScene extends Phaser.Scene {
     iconBG.on('pointerdown', function() {
       currentLevel = { key: `level${id}` };
       console.log(`${currentLevel.key} Selected`);
+      this.scene.game.scene.stop(constants.GAMEKEY);
       this.scene.game.scene.switch(constants.LEVELSKEY, constants.GAMEKEY);
       this.scene.game.scene.stop(constants.LEVELSKEY);
     });

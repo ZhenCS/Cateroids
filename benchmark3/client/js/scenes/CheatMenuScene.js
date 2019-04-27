@@ -39,6 +39,7 @@ export class CheatMenuScene extends Phaser.Scene {
     });
 
     this.changeLevel.on('pointerdown', function() {
+      this.scene.game.scene.sleep(constants.GAMEKEY);
       this.scene.game.scene.switch(constants.CHEATKEY, constants.LEVELSKEY);
       this.scene.game.scene.stop(constants.CHEATKEY);
     });
