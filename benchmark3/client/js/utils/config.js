@@ -23,6 +23,8 @@ const gameDepths = {
   uiDepth: 5
 };
 
+let fromCheatMenu = false;
+
 let currentLevel = { key: 'level0' };
 
 const cheats = {

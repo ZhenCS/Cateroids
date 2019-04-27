@@ -4,6 +4,7 @@ import { setBG, setGameName, centerX, setBackButton } from '../utils/utils.js';
 export class CheatMenuScene extends Phaser.Scene {
   constructor() {
     super({ key: 'cm' });
+    this.fromCheat = true;
   }
 
   create() {
@@ -22,11 +23,6 @@ export class CheatMenuScene extends Phaser.Scene {
       'Change Level'
     );
 
-    this.back = this.createButton(
-      gameHeight / 2 + 300 * gameScale.scale,
-      'Back'
-    );
-
     this.invulnerability.on('pointerdown', function() {
       const isInvulernable = cheats.invulnerable;
       if (isInvulernable) {
@@ -39,16 +35,13 @@ export class CheatMenuScene extends Phaser.Scene {
     });
 
     this.changeLevel.on('pointerdown', function() {
+      fromCheatMenu = true;
       this.scene.game.scene.sleep(constants.GAMEKEY);
       this.scene.game.scene.switch(constants.CHEATKEY, constants.LEVELSKEY);
       this.scene.game.scene.stop(constants.CHEATKEY);
     });
 
-    this.back.on('pointerdown', function() {
-      this.scene.game.scene.resume(constants.GAMEKEY);
-      this.scene.game.scene.stop(constants.CHEATKEY);
-    });
-
+    setBackButton(this, constants.CHEATKEY, constants.GAMEKEY);
     this.initControls();
   }
 
