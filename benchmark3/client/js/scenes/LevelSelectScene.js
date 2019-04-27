@@ -7,7 +7,6 @@ export class LevelSelectScene extends Phaser.Scene {
   }
 
   create() {
-    let prevScene = constants.STARTMENUKEY;
     setBG(this);
     setGameName(this);
     setBackButton(this, constants.LEVELSKEY, constants.STARTMENUKEY);
@@ -57,7 +56,9 @@ export class LevelSelectScene extends Phaser.Scene {
       .setInteractive({ cursor: 'pointer' });
     iconBG.on('pointerdown', function() {
       currentLevel = { key: `level${id}` };
-      console.log(`${currentLevel.key} Selected`);
+      if (fromCheatMenu) {
+        fromCheatMenu = false;
+      }
       this.scene.game.scene.stop(constants.GAMEKEY);
       this.scene.game.scene.switch(constants.LEVELSKEY, constants.GAMEKEY);
       this.scene.game.scene.stop(constants.LEVELSKEY);
