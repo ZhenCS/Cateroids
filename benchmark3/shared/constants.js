@@ -59,6 +59,20 @@ export const COLLISION_CAT = Math.pow(2, 0);
 export const COLLISION_ANTI_CAT = Math.pow(2, 1);
 export const COLLISION_GROUP_GROUND = Math.pow(2, 2);
 
+export const CATWEAPONAUDIO = 'catDefaultWeapon';
+export const EXPLOSION1AUDIO = 'explosion1';
+export const EXPLOSION2AUDIO = 'explosion2';
+export const ASTRCOLLISION = 'asteroidCollision';
+export const LASERHIT = 'laserHit';
+export const RAYSTARTUP = 'rayStartup';
+export const RAYFIRING = 'rayFiring';
+export const MENUMOVE = 'menuMove';
+export const MENUSELECT = 'menuSelect';
+export const SPOOKY = 'spooky';
+export const WEIRDAUDIO1 = 'weird-noise-1';
+export const WEIRDAUDIO2 = 'weird-noise-2';
+export const WEIRDAUDIO3 = 'weird-noise-3';
+
 function generateDogAnimationKeys() {
   let dogAnimationKeys = new Array();
   dogKeys.forEach(function(dogStr) {

@@ -1,9 +1,9 @@
 import * as constants from '../../../shared/constants.js';
-import {setBG, setGameName, centerX, setBackButton} from '../utils/utils.js';
+import { setBG, setGameName, centerX, setBackButton } from '../utils/utils.js';
 
 export class StartMenuScene extends Phaser.Scene {
   constructor() {
-    super({ key: constants.STARTMENUKEY});
+    super({ key: constants.STARTMENUKEY });
   }
 
   create() {
@@ -31,8 +31,11 @@ export class StartMenuScene extends Phaser.Scene {
 
     this.initControls();
 
+    const menuSelectSound = this.sound.add('menuSelect');
+
     this.gameStart.on('pointerdown', function() {
       this.scene.game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
+      menuSelectSound.play();
     });
     this.levelSelect.on('pointerdown', function() {
       this.scene.game.scene.switch(constants.STARTMENUKEY, constants.LEVELSKEY);

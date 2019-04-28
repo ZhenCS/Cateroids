@@ -58,6 +58,26 @@ export class LoadScene extends Phaser.Scene {
     for (let i = 0; i < 4; i++) {
       this.load.image(constants[`ASTEROID${i}KEY`], `assets/asteroid${i}.png`);
     }
+
+    // Load audio
+    this.loadAudio(constants.CATWEAPONAUDIO, 'Default-Weapon-Cat.wav');
+    this.loadAudio(constants.EXPLOSION1AUDIO, 'Exploded.wav');
+    this.loadAudio(constants.EXPLOSION2AUDIO, 'Exploded2.wav');
+    this.loadAudio(constants.ASTRCOLLISION, 'Hit-By-Asteroid.wav');
+    this.loadAudio(constants.LASERHIT, 'Hit-By-Laser.wav');
+    this.loadAudio(constants.RAYSTARTUP, 'Laser-Startup.wav');
+    this.loadAudio(constants.RAYFIRING, 'Laser-Shot.wav');
+    this.loadAudio(constants.MENUMOVE, 'Menu-Move.wav');
+    this.loadAudio(constants.MENUSELECT, 'Menu-Select.wav');
+    this.loadAudio(constants.SPOOKY, 'Spooky.wav');
+    this.loadAudio(constants.WEIRDAUDIO1, 'Weird-Noise-1.wav');
+    this.loadAudio(constants.WEIRDAUDIO2, 'Weird-Noise-2.wav');
+    this.loadAudio(constants.WEIRDAUDIO3, 'Weird-Noise-3.wav');
+  }
+
+  loadAudio(key, fileName) {
+    const path = 'assets/sound-effects/' + fileName;
+    this.load.audio(key, path);
   }
 
   create() {
