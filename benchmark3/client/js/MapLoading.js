@@ -1,5 +1,5 @@
 import * as constants from '../../shared/constants.js';
-import { getPropertyValue } from './utils/utils.js';
+import { getPropertyValue, centerX} from './utils/utils.js';
 import { Asteroid, Dog, Laser} from './Entities.js';
 
 export function loadMap(scene, level) {
@@ -64,12 +64,16 @@ export function loadMapObjects(scene) {
       let spawnNumber = getPropertyValue(obj, 'spawnNumber');
       if(spawnNumber){
         while(getPropertyValue(obj, 'spawnNumber') == spawnNumber){
-          if (obj.type == 'asteroid')
-            setAsteroid(scene, obj);
-          if (obj.type == 'dog')
-            setDog(scene, obj);
-          if (obj.type == 'laser')
-            setLasers(scene, obj);
+            if (obj.type == 'asteroid')
+                setAsteroid(scene, obj);
+            if (obj.type == 'dog')
+                setDog(scene, obj);
+            if (obj.type == 'laser')
+                setLasers(scene, obj);
+            if(obj.type == 'text')
+                setText(scene, obj);
+            if(obj.type == 'endPoint')
+                scene.endPointX = obj.x;
 
           obj = scene.mapObjects.pop();
         }
@@ -81,27 +85,36 @@ export function loadMapObjects(scene) {
           setDog(scene, obj);
         if (obj.type == 'laser')
           setLasers(scene, obj);
+        if(obj.type == 'endPoint')
+            scene.endPointX = obj.x;
       }
     }
   }
 
 function setText(scene, obj){
     let showX = getPropertyValue(obj, 'showOnDeltaX');
-    let hideX = getPropertyValue(obj, 'hildeOnDeltaX');
+    let hideX = getPropertyValue(obj, 'hideOnDeltaX');
     let text = getPropertyValue(obj, 'text');
 
     let displayText = scene.add
       .text(0, obj.y, text, {
-        font: `${100 * gameScale.scale}px impact`,
+        font: `${50 * gameScale.scale}px impact`,
         fill: '#ffffff',
         stroke: 'black',
         strokeThickness: 5
       });
 
-    centerX(scene, displayText);
-    displayText.depth = gameDepths.uiDepth;
+    displayText.setData('displayX', obj.x);
+    displayText.setData('showOnDeltaX', showX);
+    displayText.setData('hideOnDeltaX', hideX);
 
-  }
+    centerX(scene, displayText);
+    displayText.setScrollFactor(0);
+    displayText.depth = gameDepths.uiDepth;
+    //displayText.setVisible(false);
+
+    scene.levelText.add(displayText);
+}
 
 function setAsteroid(scene, obj) {
     let velX = getPropertyValue(obj, 'velocityX');

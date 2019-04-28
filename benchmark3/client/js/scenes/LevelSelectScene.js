@@ -55,7 +55,9 @@ export class LevelSelectScene extends Phaser.Scene {
       .sprite(x, y, constants.LEVELICON)
       .setInteractive({ cursor: 'pointer' });
     iconBG.on('pointerdown', function() {
-      currentLevel = { key: `level${id}` };
+      currentLevel.key = `level${id}`;
+      currentLevel.level = id;
+      
       if (fromCheatMenu) {
         fromCheatMenu = false;
       }

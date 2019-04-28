@@ -5162,7 +5162,7 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-200
+                         "value":-500
                         }, 
                         {
                          "name":"showOnDeltaX",
@@ -5172,7 +5172,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"text",
@@ -5184,7 +5184,7 @@
                  "visible":true,
                  "width":64,
                  "x":192,
-                 "y":192
+                 "y":64
                 }, 
                 {
                  "gid":11,
@@ -5195,7 +5195,7 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-600
+                         "value":-3000
                         }, 
                         {
                          "name":"showOnDeltaX",
@@ -5217,7 +5217,7 @@
                  "visible":true,
                  "width":64,
                  "x":1728,
-                 "y":192
+                 "y":64
                 }, 
                 {
                  "gid":11,
@@ -5228,7 +5228,7 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-200
+                         "value":-300
                         }, 
                         {
                          "name":"showOnDeltaX",
@@ -5250,7 +5250,7 @@
                  "visible":true,
                  "width":64,
                  "x":5888,
-                 "y":192
+                 "y":64
                 }, 
                 {
                  "gid":11,
@@ -5261,7 +5261,7 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-200
+                         "value":-300
                         }, 
                         {
                          "name":"showOnDeltaX",
@@ -5283,7 +5283,7 @@
                  "visible":true,
                  "width":64,
                  "x":5888,
-                 "y":512
+                 "y":640
                 }, 
                 {
                  "gid":11,
@@ -5294,7 +5294,7 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-600
+                         "value":-3000
                         }, 
                         {
                          "name":"showOnDeltaX",
@@ -5315,8 +5315,8 @@
                  "type":"text",
                  "visible":true,
                  "width":64,
-                 "x":6784,
-                 "y":192
+                 "x":7040,
+                 "y":64
                 }, 
                 {
                  "gid":11,
@@ -5327,7 +5327,7 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-600
+                         "value":-3000
                         }, 
                         {
                          "name":"showOnDeltaX",
@@ -5348,8 +5348,8 @@
                  "type":"text",
                  "visible":true,
                  "width":64,
-                 "x":6784,
-                 "y":512
+                 "x":7040,
+                 "y":640
                 }],
          "opacity":1,
          "type":"objectgroup",

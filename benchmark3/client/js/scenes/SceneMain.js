@@ -21,6 +21,9 @@ export class SceneMain extends Phaser.Scene {
     this.dogs = this.add.group();
     this.lasers = this.add.group();
     this.laserSegments = this.add.group();
+    this.levelText = this.add.group();
+    
+    this.endPointX = this.gameConfig.worldWidth;
     this.gameOver = false;
     this.player = new Leo(
       this,
@@ -95,6 +98,31 @@ export class SceneMain extends Phaser.Scene {
     });
   }
 
+  showText(){
+    let self = this;
+    this.levelText.getChildren().forEach(function(text) {
+      if (text.getData('displayX') - self.player.x <= text.getData('showOnDeltaX')) {
+        text.setVisible(true);
+      }
+
+      if (text.getData('displayX') - self.player.x <= text.getData('hideOnDeltaX')) {
+        text.destroy();
+      }
+    });
+  }
+
+  levelCheck(){
+    if(this.player.x >= this.endPointX){
+      currentLevel.level += 1;
+      currentLevel.key = `level${currentLevel.level}`;
+      if(currentLevel.level > 6){
+        //end of game
+      }else{
+        this.scene.restart();
+      }
+    }
+  }
+
   movementCheck() {
     if (this.gameOver) return;
 
@@ -153,6 +181,9 @@ export class SceneMain extends Phaser.Scene {
     if (moved) {
       this.player.reelGrapple();
       this.fireLasers();
+      this.showText();
+      this.levelCheck();
+
       if(this.mapLoaded)
         mapLoading.loadMapObjects(this);
         

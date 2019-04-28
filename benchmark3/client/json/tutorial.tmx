@@ -657,48 +657,49 @@
     <property name="velocityX" value="-25"/>
    </properties>
   </object>
-  <object id="412" gid="11" x="192" y="192" width="64" height="64">
+  <object id="412" gid="11" x="192" y="64" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-200"/>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
     <property name="showOnDeltaX" type="float" value="200"/>
+    <property name="spawnNumber" type="int" value="1"/>
     <property name="text" value="Use WASD to move"/>
    </properties>
   </object>
-  <object id="413" gid="11" x="1728" y="192" width="64" height="64">
+  <object id="413" gid="11" x="1728" y="64" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-600"/>
+    <property name="hideOnDeltaX" type="float" value="-3000"/>
     <property name="showOnDeltaX" type="float" value="10"/>
     <property name="spawnNumber" type="int" value="1"/>
     <property name="text" value="Right click to shoot"/>
    </properties>
   </object>
-  <object id="415" gid="11" x="5888" y="192" width="64" height="64">
+  <object id="415" gid="11" x="5888" y="64" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-200"/>
+    <property name="hideOnDeltaX" type="float" value="-300"/>
     <property name="showOnDeltaX" type="float" value="20"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Hold Shift while aiming your cursor at this asteroid to deploy your grappling hook"/>
    </properties>
   </object>
-  <object id="416" gid="11" x="5888" y="512" width="64" height="64">
+  <object id="416" gid="11" x="5888" y="640" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-200"/>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
     <property name="showOnDeltaX" type="float" value="20"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Landing on one will replenish your oxygen"/>
    </properties>
   </object>
-  <object id="417" gid="11" x="6784" y="192" width="64" height="64">
+  <object id="417" gid="11" x="7040" y="64" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-600"/>
+    <property name="hideOnDeltaX" type="float" value="-3000"/>
     <property name="showOnDeltaX" type="float" value="20"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Release shift before landing on the asteroid"/>
    </properties>
   </object>
-  <object id="418" gid="11" x="6784" y="512" width="64" height="64">
+  <object id="418" gid="11" x="7040" y="640" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-600"/>
+    <property name="hideOnDeltaX" type="float" value="-3000"/>
     <property name="showOnDeltaX" type="float" value="20"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="you will get a boost in speed"/>
