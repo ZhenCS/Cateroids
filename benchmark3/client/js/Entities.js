@@ -1,5 +1,5 @@
 import * as constants from '../../shared/constants.js';
-import {random, aimBot, kamikazi} from './AI.js';
+import {setAI, random, aimBot, kamikazi, stayInMap} from './AI.js';
 
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
@@ -11,40 +11,42 @@ class Entity extends Phaser.GameObjects.Sprite {
   }
 
   getInitVelocity(scene, x, y) {
+    let sceneConfig = scene.gameConfig;
+
     let width = scene.game.config.width;
     let height = scene.game.config.height;
     let player = scene.player;
     let buffer = 128;
     let velocityX = Phaser.Math.Between(
-      -1 * gameConfig.maxVelocityX,
-      gameConfig.maxVelocityX
+      -1 * sceneConfig.maxVelocityX,
+      sceneConfig.maxVelocityX
     );
 
     if (x < player.x - width / 2 + buffer)
       velocityX = Phaser.Math.Between(
-        gameConfig.minVelocityX,
-        gameConfig.maxVelocityX
+        sceneConfig.minVelocityX,
+        sceneConfig.maxVelocityX
       );
     else if (x > player.x + width / 2 - buffer)
       velocityX = Phaser.Math.Between(
-        -1 * gameConfig.maxVelocityX,
-        -1 * gameConfig.minVelocityX
+        -1 * sceneConfig.maxVelocityX,
+        -1 * sceneConfig.minVelocityX
       );
 
     let velocityY = Phaser.Math.Between(
-      -1 * gameConfig.maxVelocityY,
-      gameConfig.maxVelocityY
+      -1 * sceneConfig.maxVelocityY,
+      sceneConfig.maxVelocityY
     );
 
     if (y < 0 + buffer)
       velocityY = Phaser.Math.Between(
-        gameConfig.minVelocityY,
-        gameConfig.maxVelocityY
+        sceneConfig.minVelocityY,
+        sceneConfig.maxVelocityY
       );
     else if (y > height - buffer)
       velocityY = Phaser.Math.Between(
-        -1 * gameConfig.maxVelocityX,
-        -1 * gameConfig.minVelocityX
+        -1 * sceneConfig.maxVelocityX,
+        -1 * sceneConfig.minVelocityX
       );
 
     return [velocityX, velocityY];
@@ -61,10 +63,11 @@ export class Asteroid extends Entity {
       constants.ASTEROID3KEY
     ];
     let level = asteroids.indexOf(key);
+    let sceneConfig = scene.gameConfig;
 
     if (level >= 0) {
-      this.setData('health', gameConfig[`asteroid${level}Health`]);
-      this.setData('damage', gameConfig[`asteroid${level}Damage`]);
+      this.setData('health', sceneConfig[`asteroid${level}Health`]);
+      this.setData('damage', sceneConfig[`asteroid${level}Damage`]);
     }
 
     if (level == 3) {
@@ -73,6 +76,14 @@ export class Asteroid extends Entity {
       this.setScale(1.5);
     }
     this.body.setCircle(this.displayWidth * 0.5);
+    this.scene.tweens.add({
+      targets: this,
+      duration: Phaser.Math.Between(80000, 100000),
+      angle: Math.random() < 0.5 ? -360 : 360,
+      loop: -1,
+      pause: false,
+      callbackScope: this
+    });
 
     if (typeof velocityX != 'undefined' && typeof velocityY != 'undefined') {
       this.body.setVelocity(velocityX, velocityY);
@@ -103,18 +114,28 @@ export class Dog extends Entity {
     this.setData('damage', damage);
     this.setData('fireRate', fireRate);
     this.play(constants.dogAnimationKeys[`DOG${level}IDLEKEY`]);
-
+    let self = this;
     if (level == 1) {
       this.setScale(0.4, 0.4);
-      aimBot(this, 0x142bff, Bullet);
+
+      setAI(this, function(){
+        aimBot(self, 0x142bff, Bullet);
+      });
     }
     if (key == constants.DOG2KEY) {
       this.setScale(0.6, 0.6);
-      aimBot(this, 0x3dff23, Bullet);
+
+      setAI(this, function(){
+        stayInMap(self);
+        aimBot(self, 0x3dff23, Bullet);
+      });
     }
     if (key == constants.DOG3KEY) {
       this.setScale(0.8, 0.8);
-      kamikazi(this);
+
+      setAI(this, function(){
+        kamikazi(self);
+      });
     }
 
     if (typeof velocityX != 'undefined' && typeof velocityY != 'undefined')
@@ -177,10 +198,12 @@ export class Laser extends Entity {
   ) {
     super(scene, x, y, constants.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
-    let laserDelay = gameConfig.laserDelay;
-    let laserDuration = gameConfig.laserDuration;
-    let laserSprites = gameConfig.laserSprites;
-    let laserDamage = gameConfig.laserDamage;
+
+    let sceneConfig = scene.gameConfig;
+    let laserDelay = sceneConfig.laserDelay;
+    let laserDuration = sceneConfig.laserDuration;
+    let laserSprites = sceneConfig.laserSprites;
+    let laserDamage = sceneConfig.laserDamage;
     let laserDeltaX = 0;
 
     if (typeof damage != 'undefined') laserDamage = damage;
@@ -296,9 +319,11 @@ export class Leo extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, constants.CATKEY);
     this.body.setCollideWorldBounds(true);
+
+    let sceneConfig = scene.gameConfig;
     this.setData('isMoving', false);
-    this.setData('health', gameConfig.maxPlayerHealth);
-    this.setData('oxygen', gameConfig.maxPlayerOxygen);
+    this.setData('health', sceneConfig.maxPlayerHealth);
+    this.setData('oxygen', sceneConfig.maxPlayerOxygen);
     this.setData('oxygenAsteroid', null);
     this.setData('grapplePoint', null);
     this.grappleLine = this.scene.add.graphics({
@@ -312,55 +337,60 @@ export class Leo extends Entity {
   }
 
   moveLeft(boost) {
+    let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
     if (this.body.velocity.x > 0) this.body.velocity.x = 0;
 
-    if (this.body.velocity.x > -1 * gameConfig.softMaxPlayerVelocityX)
-      this.body.velocity.x -= gameConfig.playerSpeedX;
+    if (this.body.velocity.x > -1 * sceneConfig.softMaxPlayerVelocityX)
+      this.body.velocity.x -= sceneConfig.playerSpeedX;
 
-    if (this.body.velocity.x > -1 * gameConfig.hardMaxPlayerVelocityX)
+    if (this.body.velocity.x > -1 * sceneConfig.hardMaxPlayerVelocityX)
       this.body.velocity.x -= boost;
-    else this.body.velocity.x = -1 * gameConfig.hardMaxPlayerVelocityX;
+    else this.body.velocity.x = -1 * sceneConfig.hardMaxPlayerVelocityX;
   }
 
   moveRight(boost) {
+    let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
     if (this.body.velocity.x < 0) this.body.velocity.x = 0;
 
-    if (this.body.velocity.x < gameConfig.softMaxPlayerVelocityX)
-      this.body.velocity.x += gameConfig.playerSpeedX;
+    if (this.body.velocity.x < sceneConfig.softMaxPlayerVelocityX)
+      this.body.velocity.x += sceneConfig.playerSpeedX;
 
-    if (this.body.velocity.x < gameConfig.hardMaxPlayerVelocityX)
+    if (this.body.velocity.x < sceneConfig.hardMaxPlayerVelocityX)
       this.body.velocity.x += boost;
-    else this.body.velocity.x = gameConfig.hardMaxPlayerVelocityX;
+    else this.body.velocity.x = sceneConfig.hardMaxPlayerVelocityX;
   }
 
   moveDown(boost) {
+    let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
     if (this.body.velocity.y < 0) this.body.velocity.y = 0;
 
-    if (this.body.velocity.y < gameConfig.softMaxPlayerVelocityY)
-      this.body.velocity.y += gameConfig.playerSpeedY;
+    if (this.body.velocity.y < sceneConfig.softMaxPlayerVelocityY)
+      this.body.velocity.y += sceneConfig.playerSpeedY;
 
-    if (this.body.velocity.y < gameConfig.hardMaxPlayerVelocityY)
+    if (this.body.velocity.y < sceneConfig.hardMaxPlayerVelocityY)
       this.body.velocity.y += boost;
-    else this.body.velocity.y = gameConfig.hardMaxPlayerVelocityY;
+    else this.body.velocity.y = sceneConfig.hardMaxPlayerVelocityY;
   }
 
   moveUp(boost) {
+    let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
     if (this.body.velocity.y > 0) this.body.velocity.y = 0;
 
-    if (this.body.velocity.y > -1 * gameConfig.softMaxPlayerVelocityY)
-      this.body.velocity.y -= gameConfig.playerSpeedY;
-    if (this.body.velocity.y > -1 * gameConfig.hardMaxPlayerVelocityY)
+    if (this.body.velocity.y > -1 * sceneConfig.softMaxPlayerVelocityY)
+      this.body.velocity.y -= sceneConfig.playerSpeedY;
+    if (this.body.velocity.y > -1 * sceneConfig.hardMaxPlayerVelocityY)
       this.body.velocity.y -= boost;
-    else this.body.velocity.y = -1 * gameConfig.hardMaxPlayerVelocityY;
+    else this.body.velocity.y = -1 * sceneConfig.hardMaxPlayerVelocityY;
   }
 
   moveTo(x, y, speed) {
-    if (speed > gameConfig.hardMaxPlayerVelocityX)
-      speed = gameConfig.hardMaxPlayerVelocityX;
+    let sceneConfig = this.scene.gameConfig;
+    if (speed > sceneConfig.hardMaxPlayerVelocityX)
+      speed = sceneConfig.hardMaxPlayerVelocityX;
     this.scene.physics.velocityFromAngle(
       Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(this.x, this.y, x, y)),
       speed,
@@ -369,13 +399,14 @@ export class Leo extends Entity {
   }
 
   shoot(pointerX, pointerY) {
+    let sceneConfig = this.scene.gameConfig;
     const bullet = new Bullet(this.scene, this.x, this.y, true);
     bullet.setTint(0xf90018);
     bullet.setOrigin(0.5);
-    bullet.setData('damage', gameConfig.playerDamage);
+    bullet.setData('damage', sceneConfig.playerDamage);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
     bullet.setRotation(angle);
-    const speed = 1000;
+    const speed = 2000;
     bullet.body.setVelocity(
       speed * Math.cos(angle) + Phaser.Math.Between(-50, 50),
       speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
@@ -383,13 +414,14 @@ export class Leo extends Entity {
     this.scene.bullets.add(bullet);
   }
   damage(damage) {
+    let sceneConfig = this.scene.gameConfig;
     const isInvulnerable = cheats.invulnerable;
     if (!isInvulnerable) {
       this.setData('health', this.getData('health') - damage);
       if (this.getData('health') < 0) {
         this.setData('health', 0);
-      } else if (this.getData('health') > gameConfig.maxPlayerHealth) {
-        this.setData('health', gameConfig.maxPlayerHealth);
+      } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
+        this.setData('health', sceneConfig.maxPlayerHealth);
       }
     }
 
@@ -410,24 +442,26 @@ export class Leo extends Entity {
   }
 
   oxygenDamage(damage) {
+    let sceneConfig = this.scene.gameConfig;
     this.setData('oxygen', this.getData('oxygen') - damage);
     if (this.getData('oxygen') < 0) {
       this.setData('oxygen', 0);
-      this.damage(gameConfig.oxygenDamage);
-    } else if (this.getData('oxygen') > gameConfig.maxPlayerOxygen) {
-      this.setData('oxygen', gameConfig.maxPlayerOxygen);
+      this.damage(sceneConfig.oxygenDamage);
+    } else if (this.getData('oxygen') > sceneConfig.maxPlayerOxygen) {
+      this.setData('oxygen', sceneConfig.maxPlayerOxygen);
       //play oxygen replenished sound
     }
   }
 
   grapple() {
+    let sceneConfig = this.scene.gameConfig;
     if (!this.getData('oxygenAsteroid')) {
       let point = this.getData('grapplePoint');
       this.deployGrapple(point);
       let distance = Math.sqrt(
         Math.pow(point.x - this.x, 2) + Math.pow(point.y - this.y, 2)
       );
-      let speed = (gameConfig.grappleSpeed * distance) / 200;
+      let speed = (sceneConfig.grappleSpeed * distance) / 200;
       this.moveTo(point.x, point.y, speed);
     } else {
       this.setData('grapplePoint', null);
