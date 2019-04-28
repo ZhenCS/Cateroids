@@ -25,7 +25,10 @@ const gameDepths = {
 
 let fromCheatMenu = false;
 
-let currentLevel = { key: 'level0' };
+let currentLevel = { 
+  key: 'level0',
+  level: 0
+};
 
 const cheats = {
   invulnerable: false

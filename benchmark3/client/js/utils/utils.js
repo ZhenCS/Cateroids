@@ -58,5 +58,12 @@ export function centerX(scene, object) {
 }
 
 export function getPropertyValue(object, name) {
-  return object.properties.find(x => x.name == name).value;
+  if(object.properties == undefined)
+    return null;
+
+  let property = object.properties.find(x => x.name == name);
+
+  if(property)
+    return property.value;
+  else return null;
 }
