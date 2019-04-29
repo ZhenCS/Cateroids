@@ -31,7 +31,23 @@ export class StartMenuScene extends Phaser.Scene {
 
     this.initControls();
 
-    const menuSelectSound = this.sound.add('menuSelect');
+    const menuSelectSound = this.sound.add(constants.MENUSELECT);
+    const menuHoverSound = this.sound.add(constants.MENUMOVE);
+    menuSelectSound.setVolume(0.5);
+    menuHoverSound.setVolume(0.2);
+
+    this.gameStart.on('pointerover', function() {
+      menuHoverSound.play();
+    });
+    this.levelSelect.on('pointerover', function() {
+      menuHoverSound.play();
+    });
+    this.controls.on('pointerover', function() {
+      menuHoverSound.play();
+    });
+    this.help.on('pointerover', function() {
+      menuHoverSound.play();
+    });
 
     this.gameStart.on('pointerdown', function() {
       this.scene.game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
@@ -39,12 +55,15 @@ export class StartMenuScene extends Phaser.Scene {
     });
     this.levelSelect.on('pointerdown', function() {
       this.scene.game.scene.switch(constants.STARTMENUKEY, constants.LEVELSKEY);
+      menuSelectSound.play();
     });
     this.controls.on('pointerdown', function() {
       this.scene.showControls();
+      menuSelectSound.play();
     });
     this.help.on('pointerdown', function() {
       this.scene.game.scene.start(constants.HELPKEY);
+      menuSelectSound.play();
     });
   }
 

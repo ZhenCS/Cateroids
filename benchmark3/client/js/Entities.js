@@ -105,10 +105,20 @@ export class Asteroid extends Entity {
 }
 
 export class Dog extends Entity {
-  constructor(scene, x, y, level, velocityX, velocityY, health, damage, fireRate) {
+  constructor(
+    scene,
+    x,
+    y,
+    level,
+    velocityX,
+    velocityY,
+    health,
+    damage,
+    fireRate
+  ) {
     let key = constants[`DOG${level}KEY`];
     super(scene, x, y, key);
-    
+
     this.setData('dogId', level);
     this.setData('health', health);
     this.setData('damage', damage);
@@ -118,27 +128,27 @@ export class Dog extends Entity {
     if (level == 1) {
       this.setScale(0.4, 0.4);
 
-      AI.setAI(this, function(){
+      AI.setAI(this, function() {
         AI.aimBot(self, 0x142bff, Bullet);
       });
-      AI.setMovement(this, function(){
+      AI.setMovement(this, function() {
         AI.circle(self);
       });
     }
     if (key == constants.DOG2KEY) {
       this.setScale(0.6, 0.6);
 
-      AI.setAI(this, function(){
+      AI.setAI(this, function() {
         AI.aimBot(self, 0x3dff23, Bullet);
       });
-      AI.setMovement(this, function(){
+      AI.setMovement(this, function() {
         AI.stayInMap(self);
       });
     }
     if (key == constants.DOG3KEY) {
       this.setScale(0.8, 0.8);
 
-      AI.setMovement(this, function(){
+      AI.setMovement(this, function() {
         AI.kamikazi(self);
       });
     }
@@ -297,6 +307,9 @@ export class Laser extends Entity {
     this.path.draw(this.alertLine);
     this.alert.paused = false;
 
+    const rayStartupSound = this.scene.sound.add(constants.RAYSTARTUP);
+    rayStartupSound.play();
+
     this.scene.time.addEvent({
       delay: 1500,
       callback: function() {
@@ -304,6 +317,8 @@ export class Laser extends Entity {
         this.alert.pause();
         this.shoot.paused = false;
         this.destroyTimer.paused = false;
+        const rayFiringSound = this.scene.sound.add(constants.RAYFIRING);
+        rayFiringSound.play();
       },
       callbackScope: this,
       loop: false
@@ -341,6 +356,8 @@ export class Leo extends Entity {
     });
     this.setScale(0.5, 0.5);
     this.setDepth(gameDepths.uiDepth - 1);
+    this.shootSound = scene.sound.add(constants.CATWEAPONAUDIO);
+    this.destroyedSound = scene.sound.add(constants.EXPLOSION2AUDIO);
   }
 
   moveLeft(boost) {
@@ -423,14 +440,17 @@ export class Leo extends Entity {
       speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
     );
     this.scene.bullets.add(bullet);
+    this.shootSound.play();
   }
   damage(damage) {
     let sceneConfig = this.scene.gameConfig;
     const isInvulnerable = cheats.invulnerable;
     if (!isInvulnerable) {
       this.setData('health', this.getData('health') - damage);
-      if (this.getData('health') < 0) {
+      if (this.getData('health') < 100) {
         this.setData('health', 0);
+        // dead
+        this.destroyedSound.play();
       } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
         this.setData('health', sceneConfig.maxPlayerHealth);
       }
@@ -535,19 +555,18 @@ export class Leo extends Entity {
     if (!this.getData('isMoving')) {
       this.body.velocity.x *= 0.95;
       this.body.velocity.y *= 0.95;
-    }else{
-      if(!this.getData('isMovingX')){
+    } else {
+      if (!this.getData('isMovingX')) {
         this.body.velocity.x *= 0.95;
       }
-      if(!this.getData('isMovingY')){
+      if (!this.getData('isMovingY')) {
         this.body.velocity.y *= 0.95;
       }
-      
 
       let sceneConfig = this.scene.gameConfig;
-      if(this.body.velocity.x > sceneConfig.softMaxPlayerVelocityX)
+      if (this.body.velocity.x > sceneConfig.softMaxPlayerVelocityX)
         this.body.velocity.x *= 0.995;
-      if(this.body.velocity.y > sceneConfig.softMaxPlayerVelocityY)
+      if (this.body.velocity.y > sceneConfig.softMaxPlayerVelocityY)
         this.body.velocity.y *= 0.995;
     }
     this.setData('isMoving', false);
