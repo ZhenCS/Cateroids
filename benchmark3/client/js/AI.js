@@ -25,6 +25,19 @@ export function setAI(self, functions){
     });
 }
 
+export function setMovement(self, functions){
+    self.movement = self.scene.time.addEvent({
+        delay: 10,
+        callback: function() {
+            if (self.scene !== undefined) {
+                functions();
+            }
+        },
+        callbackScope: self,
+        loop: true
+    });
+}
+
 export function stayInMap(self){
     if(self.x <= 0 || self.y <= 0 || self.x >= gameConfig.worldWidth || self.y >= gameConfig.worldHeight){
         let vel = self.body.velocity;
@@ -33,6 +46,27 @@ export function stayInMap(self){
             -1 * vel.y
         );
     }
+}
+
+export function circle(self){
+    self.body.setVelocity(0, 0);
+    let radius = 100;
+    let center = self.getData('center');
+    if(!center){
+        center = {x: self.x - radius, y: self.y};
+        self.setData('center', center);
+    }
+
+    let angle =
+      Phaser.Math.Angle.Between(
+        center.x,
+        center.y,
+        self.x,
+        self.y
+      ) + self.scene.gameConfig.playerWalkVelocityX/2;
+
+      self.x = center.x + radius * Math.cos(angle);
+      self.y = center.y + radius * Math.sin(angle);
 }
 
 export function random(self, tint, Bullet){

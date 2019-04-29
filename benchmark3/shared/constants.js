@@ -72,6 +72,8 @@ export const SPOOKY = 'spooky';
 export const WEIRDAUDIO1 = 'weird-noise-1';
 export const WEIRDAUDIO2 = 'weird-noise-2';
 export const WEIRDAUDIO3 = 'weird-noise-3';
+export const LEVELMUSIC1 = 'music1';
+export const LEVELMUSIC2 = 'music2';
 
 function generateDogAnimationKeys() {
   let dogAnimationKeys = new Array();

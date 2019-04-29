@@ -33,7 +33,6 @@ export class SceneMain extends Phaser.Scene {
 
     //init player before calling these functions
     sceneUtils.initScene(this);
-
     this.mapLoaded = false;
     let loadMap = true;
 
@@ -77,6 +76,7 @@ export class SceneMain extends Phaser.Scene {
     this.player.once('animationcomplete', function() {
       this.play(constants.IDLEKEY);
     });
+    
     sceneUtils.updateUI(this);
   }
 
@@ -120,6 +120,7 @@ export class SceneMain extends Phaser.Scene {
     if (this.player.x >= this.endPointX) {
       currentLevel.level += 1;
       currentLevel.key = `level${currentLevel.level}`;
+      this.sound.stopAll();
       if (currentLevel.level > 6) {
         //end of game
       } else {
