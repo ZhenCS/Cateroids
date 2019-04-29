@@ -14,6 +14,7 @@ export function loadMap(scene, level) {
 
     sortMapObjects(scene);
     setPlayerSpawn(scene);
+    setEndPoint(scene);
     loadMapObjects(scene);
 
     scene.gameConfig.spawnBuffer = scene.game.config.width/2 + 50;
@@ -50,6 +51,17 @@ function setPlayerSpawn(scene) {
     }
   }
 
+function setEndPoint(scene){
+  for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
+    let obj = scene.mapObjects[i];
+    if(obj.type == 'endPoint'){
+      scene.endPointX = obj.x;
+      break;
+    }
+  }
+}
+
+
 export function loadMapObjects(scene) {
     let self = scene;
     for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
@@ -72,8 +84,6 @@ export function loadMapObjects(scene) {
                 setLasers(scene, obj);
             if(obj.type == 'text')
                 setText(scene, obj);
-            if(obj.type == 'endPoint')
-                scene.endPointX = obj.x;
 
           obj = scene.mapObjects.pop();
         }
@@ -85,8 +95,6 @@ export function loadMapObjects(scene) {
           setDog(scene, obj);
         if (obj.type == 'laser')
           setLasers(scene, obj);
-        if(obj.type == 'endPoint')
-            scene.endPointX = obj.x;
       }
     }
   }

@@ -43,6 +43,14 @@ export class SceneMain extends Phaser.Scene {
       this.spawnTimer.paused = false;
     }
     this.cameras.main.startFollow(this.player);
+    this.sound.add(constants.LEVELMUSIC1);
+
+    this.levelMusic = this.sound.play(constants.LEVELMUSIC1,  {
+      volume: 0.2,
+      loop: true,
+      delay: 1
+    });
+
   }
 
   update() {
@@ -77,6 +85,7 @@ export class SceneMain extends Phaser.Scene {
     this.player.once('animationcomplete', function() {
       this.play(constants.IDLEKEY);
     });
+    
     sceneUtils.updateUI(this);
   }
 
@@ -120,6 +129,7 @@ export class SceneMain extends Phaser.Scene {
     if (this.player.x >= this.endPointX) {
       currentLevel.level += 1;
       currentLevel.key = `level${currentLevel.level}`;
+      this.sound.stopAll();
       if (currentLevel.level > 6) {
         //end of game
       } else {

@@ -683,7 +683,7 @@
   </object>
   <object id="416" gid="11" x="5888" y="640" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="hideOnDeltaX" type="float" value="-300"/>
     <property name="showOnDeltaX" type="float" value="20"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Landing on one will replenish your oxygen"/>

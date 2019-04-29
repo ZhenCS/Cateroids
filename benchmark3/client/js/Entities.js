@@ -434,6 +434,7 @@ export class Leo extends Entity {
         callback: function() {
           this.scene.scene.pause(constants.GAMEKEY);
           this.scene.scene.start(constants.GAMEOVERKEY);
+          this.scene.sound.stopAll();
         },
         callbackScope: this,
         loop: false
@@ -523,6 +524,12 @@ export class Leo extends Entity {
     if (!this.getData('isMoving')) {
       this.body.velocity.x *= 0.95;
       this.body.velocity.y *= 0.95;
+    }else{
+      let sceneConfig = this.scene.gameConfig;
+      if(this.body.velocity.x > sceneConfig.softMaxPlayerVelocityX)
+        this.body.velocity.x *= 0.99;
+      if(this.body.velocity.y > sceneConfig.softMaxPlayerVelocityY)
+        this.body.velocity.y *= 0.99;
     }
     this.setData('isMoving', false);
 
