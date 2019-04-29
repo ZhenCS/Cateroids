@@ -2029,7 +2029,7 @@
                         {
                          "name":"health",
                          "type":"float",
-                         "value":300
+                         "value":6666
                         }, 
                         {
                          "name":"level",

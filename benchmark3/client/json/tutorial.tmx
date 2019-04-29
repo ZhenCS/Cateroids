@@ -269,6 +269,7 @@
   </object>
   <object id="323" gid="4" x="6016" y="320" width="64" height="64">
    <properties>
+    <property name="health" type="float" value="6666"/>
     <property name="oxygenReplenishRate" type="float" value="0.3"/>
     <property name="spawnNumber" type="int" value="5"/>
    </properties>

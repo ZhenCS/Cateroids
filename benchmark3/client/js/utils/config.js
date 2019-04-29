@@ -26,8 +26,8 @@ const gameDepths = {
 let fromCheatMenu = false;
 
 let currentLevel = { 
-  key: 'level0',
-  level: 0
+  key: 'level1',
+  level: 1
 };
 
 const cheats = {
@@ -35,6 +35,7 @@ const cheats = {
 };
 
 const gameConfig = {
+  gameMode: '',
   spawnBuffer: 0,
   worldOffset: 200,
   worldWidth: 10000,

@@ -54,7 +54,7 @@ class Entity extends Phaser.GameObjects.Sprite {
 }
 
 export class Asteroid extends Entity {
-  constructor(scene, x, y, key, velocityX, velocityY) {
+  constructor(scene, x, y, key, velocityX, velocityY, health, damage) {
     super(scene, x, y, key);
     let asteroids = [
       constants.ASTEROID0KEY,
@@ -66,8 +66,8 @@ export class Asteroid extends Entity {
     let sceneConfig = scene.gameConfig;
 
     if (level >= 0) {
-      this.setData('health', sceneConfig[`asteroid${level}Health`]);
-      this.setData('damage', sceneConfig[`asteroid${level}Damage`]);
+      this.setData('health', health || sceneConfig[`asteroid${level}Health`]);
+      this.setData('damage', damage || sceneConfig[`asteroid${level}Damage`]);
     }
 
     if (level == 3) {

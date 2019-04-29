@@ -7,10 +7,28 @@ export function loadMap(scene, level) {
     scene.gameMap = map;
     scene.mapObjects = map.getObjectLayer('Objects').objects;
 
-    scene.gameConfig.worldWidth = map.width * map.tileWidth;
+    setLevelProperties(scene, map);
+    sortMapObjects(scene, scene.gameConfig.gameMode);
+
+    if(scene.gameConfig.gameMode == 'RUN'){
+      setPlayerSpawn(scene);
+      setEndPoint(scene);
+      loadMapObjectsRUN(scene);
+    }else if(scene.gameConfig.gameMode == 'DEFEND'){
+      
+    }
+
+    scene.gameConfig.spawnBuffer = scene.game.config.width/2 + 50;
+    scene.mapLoaded = true;
+}
+
+function setLevelProperties(scene, map){
+  scene.gameConfig.worldWidth = map.width * map.tileWidth;
     scene.gameConfig.worldHeight = (map.height + 1) * map.tileHeight;
     scene.gameConfig.worldOffset = (scene.game.config.height - scene.gameConfig.worldHeight)/2;
     scene.gameConfig.spawnBuffer = scene.game.config.width;
+
+    scene.gameConfig.gameMode = getPropertyValue(map, 'type');
 
     scene.gameConfig.maxPlayerHealth = getPropertyValue(map, 'maxPlayerHealth');
     scene.gameConfig.maxPlayerOxygen = getPropertyValue(map, 'maxPlayerOxygen');
@@ -21,13 +39,7 @@ export function loadMap(scene, level) {
     scene.gameConfig.oxygenDepletionRate = getPropertyValue(map, 'oxygenDepletionRate');
     scene.gameConfig.oxygenReplenishDelay = getPropertyValue(map, 'oxygenReplenishDelay') || gameConfig.oxygenReplenishDelay;
     scene.gameConfig.oxygenReplenishRate = getPropertyValue(map, 'oxygenReplenishRate') || gameConfig.oxygenDepletionRate;
-    
-    sortMapObjects(scene);
-    setPlayerSpawn(scene);
-    setEndPoint(scene);
-    loadMapObjects(scene);
 
-    scene.gameConfig.spawnBuffer = scene.game.config.width/2 + 50;
     scene.physics.world.setBounds(
       0,
       0,
@@ -40,14 +52,19 @@ export function loadMap(scene, level) {
       scene.gameConfig.worldWidth,
       scene.gameConfig.worldHeight * scene.gameConfig.worldOffset
     );
+}
 
-    scene.mapLoaded = true;
-  }
+function sortMapObjects(scene, mode) {
 
-function sortMapObjects(scene) {
+  if(mode == 'RUN'){
     scene.mapObjects.sort(function(a, b) {
       return b.x - a.x;
     });
+  }else if(mode == 'DEFEND'){
+    scene.mapObjects.sort(function(a, b) {
+      return getPropertyValue(b, 'spawnNumber') - getPropertyValue(a, 'spawnNumber');
+    });
+  }
 }
 
 function setPlayerSpawn(scene) {
@@ -71,9 +88,19 @@ function setEndPoint(scene){
   }
 }
 
+export function loadMapObjects(scene){
+  if(scene.gameConfig.gameMode == 'RUN'){
+    loadMapObjectsRUN(scene);
+  }else if(scene.gameConfig.gameMode == 'DEFEND'){
+    loadMapObjectsDEFEND(scene);
+  }
+}
 
-export function loadMapObjects(scene) {
-    let self = scene;
+function loadMapObjectsDEFEND(scene){
+
+}
+
+function loadMapObjectsRUN(scene) {
     for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
       let obj = scene.mapObjects.pop();
       if(obj == undefined) break;
@@ -107,7 +134,7 @@ export function loadMapObjects(scene) {
           setLasers(scene, obj);
       }
     }
-  }
+}
 
 function setText(scene, obj){
     let showX = getPropertyValue(obj, 'showOnDeltaX');
@@ -137,6 +164,9 @@ function setText(scene, obj){
 function setAsteroid(scene, obj) {
     let velX = getPropertyValue(obj, 'velocityX');
     let velY = getPropertyValue(obj, 'velocityY');
+    let health = getPropertyValue(obj, 'health');
+    let damage = getPropertyValue(obj, 'damage');
+
     let level = getPropertyValue(obj, 'level');
 
     let asteroid = new Asteroid(
@@ -145,7 +175,9 @@ function setAsteroid(scene, obj) {
       obj.y,
       constants[`ASTEROID${level}KEY`],
       velX,
-      velY
+      velY,
+      health,
+      damage
     );
 
     if (level == 3){ 

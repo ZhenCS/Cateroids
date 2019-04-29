@@ -33,7 +33,6 @@ export class SceneMain extends Phaser.Scene {
 
     //init player before calling these functions
     sceneUtils.initScene(this);
-
     this.mapLoaded = false;
     let loadMap = true;
 
@@ -43,14 +42,6 @@ export class SceneMain extends Phaser.Scene {
       this.spawnTimer.paused = false;
     }
     this.cameras.main.startFollow(this.player);
-    this.sound.add(constants.LEVELMUSIC1);
-    this.sound.stopAll();
-    this.levelMusic = this.sound.play(constants.LEVELMUSIC1,  {
-      volume: 0.2,
-      loop: true,
-      delay: 1
-    });
-
   }
 
   update() {

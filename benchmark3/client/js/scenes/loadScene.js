@@ -26,7 +26,7 @@ export class LoadScene extends Phaser.Scene {
 
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
-    this.load.tilemapTiledJSON('level0', 'json/LevelTemplate.json');
+
     this.load.tilemapTiledJSON('level1', 'json/tutorial.json');
     this.load.tilemapTiledJSON('level2', 'json/LevelTemplate.json');
     this.load.tilemapTiledJSON('level3', 'json/LevelTemplate.json');
@@ -93,6 +93,7 @@ export class LoadScene extends Phaser.Scene {
     this.loadAudio(constants.WEIRDAUDIO3, 'Weird-Noise-3.wav');
 
     this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
+    this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
   }
 
   loadMusic(key, fileName){

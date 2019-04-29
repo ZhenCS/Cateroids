@@ -8,6 +8,7 @@ export function initScene(scene){
   initControls(scene);
   initEvents(scene);
   initCollisions(scene);
+  initSound(scene);
 }
 
 export function updateUI(scene) {
@@ -61,6 +62,16 @@ function updateCamera(scene){
         scene.gameConfig.worldHeight + scene.gameConfig.worldOffset
       );
     }
+}
+
+function initSound(scene){
+  scene.sound.stopAll();
+  scene.sound.add(constants[`LEVELMUSIC${currentLevel.level}`]);
+  scene.levelMusic = scene.sound.play(constants[`LEVELMUSIC${currentLevel.level}`],  {
+    volume: 0.2,
+    loop: true,
+    delay: 1
+  });
 }
 
 function getLaserPosition(scene) {
