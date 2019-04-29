@@ -1,16 +1,16 @@
-{ "height":9,
+{ "height":12,
  "infinite":false,
  "layers":[
         {
-         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "data":"DAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA",
          "encoding":"base64",
-         "height":9,
-         "id":3,
-         "name":"Tile Layer 1",
+         "height":12,
+         "id":6,
+         "name":"testLayer",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":13,
+         "width":19,
          "x":0,
          "y":0
         }, 
@@ -59,8 +59,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":384,
-                 "y":640
+                 "x":576,
+                 "y":1024
                 }, 
                 {
                  "gid":8,
@@ -107,8 +107,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":762,
-                 "y":194
+                 "x":956,
+                 "y":212
                 }, 
                 {
                  "gid":8,
@@ -155,8 +155,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":384,
-                 "y":54
+                 "x":576,
+                 "y":64
                 }, 
                 {
                  "gid":8,
@@ -203,8 +203,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":84,
-                 "y":110
+                 "x":278,
+                 "y":108
                 }, 
                 {
                  "gid":8,
@@ -251,8 +251,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":178,
-                 "y":76
+                 "x":372,
+                 "y":74
                 }, 
                 {
                  "gid":8,
@@ -299,8 +299,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":594,
-                 "y":66
+                 "x":802,
+                 "y":92
                 }, 
                 {
                  "gid":8,
@@ -347,8 +347,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":684,
-                 "y":116
+                 "x":890,
+                 "y":132
                 }, 
                 {
                  "gid":8,
@@ -395,8 +395,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":18,
-                 "y":182
+                 "x":214,
+                 "y":202
                 }, 
                 {
                  "gid":8,
@@ -443,8 +443,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":270,
-                 "y":58
+                 "x":466,
+                 "y":70
                 }, 
                 {
                  "gid":8,
@@ -491,8 +491,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":490,
-                 "y":58
+                 "x":698,
+                 "y":64
                 }, 
                 {
                  "gid":7,
@@ -539,8 +539,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":206,
-                 "y":156
+                 "x":400,
+                 "y":154
                 }, 
                 {
                  "gid":7,
@@ -587,8 +587,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":372,
-                 "y":112
+                 "x":566,
+                 "y":110
                 }, 
                 {
                  "gid":7,
@@ -630,13 +630,829 @@
                          "name":"velocityY",
                          "type":"float",
                          "value":0
+                        }, 
+                        {
+                         "name":"waveRate",
+                         "type":"int",
+                         "value":5000
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":730,
+                 "y":152
+                }, 
+                {
+                 "gid":6,
+                 "height":64,
+                 "id":15,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":84,
+                 "y":200
+                }, 
+                {
+                 "gid":6,
+                 "height":64,
+                 "id":19,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":198,
+                 "y":90
+                }, 
+                {
+                 "gid":6,
+                 "height":64,
+                 "id":20,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":954,
+                 "y":94
+                }, 
+                {
+                 "gid":6,
+                 "height":64,
+                 "id":21,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":1086,
+                 "y":212
+                }, 
+                {
+                 "gid":4,
+                 "height":64,
+                 "id":22,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":300
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"asteroid",
+                 "visible":true,
+                 "width":64,
+                 "x":570,
+                 "y":210
+                }, 
+                {
+                 "gid":8,
+                 "height":64,
+                 "id":23,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":632,
+                 "y":354
+                }, 
+                {
+                 "gid":8,
+                 "height":64,
+                 "id":24,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":742,
+                 "y":354
+                }, 
+                {
+                 "gid":8,
+                 "height":64,
+                 "id":25,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":858,
+                 "y":352
+                }, 
+                {
+                 "gid":8,
+                 "height":64,
+                 "id":26,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"dog",
                  "visible":true,
                  "width":64,
                  "x":536,
-                 "y":154
+                 "y":348
+                }, 
+                {
+                 "gid":8,
+                 "height":64,
+                 "id":27,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":428,
+                 "y":346
+                }, 
+                {
+                 "gid":8,
+                 "height":64,
+                 "id":28,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":308,
+                 "y":342
+                }, 
+                {
+                 "gid":7,
+                 "height":64,
+                 "id":29,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":60
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":692,
+                 "y":258
+                }, 
+                {
+                 "gid":7,
+                 "height":64,
+                 "id":30,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":60
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":150
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":422,
+                 "y":252
+                }, 
+                {
+                 "gid":7,
+                 "height":64,
+                 "id":31,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":60
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":208,
+                 "y":118
+                }, 
+                {
+                 "gid":7,
+                 "height":64,
+                 "id":32,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":60
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":150
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":964,
+                 "y":128
+                }, 
+                {
+                 "gid":6,
+                 "height":64,
+                 "id":33,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":30,
+                 "y":472
+                }, 
+                {
+                 "gid":6,
+                 "height":64,
+                 "id":34,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dog",
+                 "visible":true,
+                 "width":64,
+                 "x":1116,
+                 "y":462
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -644,8 +1460,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":4,
- "nextobjectid":15,
+ "nextlayerid":7,
+ "nextobjectid":35,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -687,6 +1503,11 @@
          "name":"type",
          "type":"string",
          "value":"DEFEND"
+        }, 
+        {
+         "name":"waveRate",
+         "type":"int",
+         "value":5000
         }],
  "renderorder":"right-down",
  "tiledversion":"1.2.3",
@@ -1059,5 +1880,5 @@
  "tilewidth":64,
  "type":"map",
  "version":1.2,
- "width":13
+ "width":19
 }

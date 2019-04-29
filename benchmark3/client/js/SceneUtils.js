@@ -8,10 +8,12 @@ export function initScene(scene) {
   initControls(scene);
   initEvents(scene);
   initCollisions(scene);
-  initSound(scene);
+  //initSound(scene);
 }
 
 export function updateUI(scene) {
+  updateCamera(scene);
+
   scene.hpBar
     .clear()
     .fillStyle(gameStyles.healthColor)
@@ -41,8 +43,6 @@ export function updateUI(scene) {
       scene.textScore.displayWidth -
       gameStyles.padding
   );
-
-  updateCamera(scene);
 }
 
 function updateCamera(scene) {
@@ -55,6 +55,7 @@ function updateCamera(scene) {
       scene.gameConfig.worldWidth - scroll,
       scene.gameConfig.worldHeight
     );
+
     scene.cameras.main.setBounds(
       scroll,
       -1 * scene.gameConfig.worldOffset,

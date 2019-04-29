@@ -41,17 +41,14 @@ export class SceneMain extends Phaser.Scene {
       this.laserTimer.paused = false;
       this.spawnTimer.paused = false;
     }
-    this.cameras.main.startFollow(this.player);
   }
 
   update() {
     if (this.player.active) {
       this.player.update();
-      sceneUtils.updateUI(this);
       this.movementCheck();
       this.frustumCulling();
-      //this.debug.clear()
-      //this.player.body.drawDebug(this.debug);
+      sceneUtils.updateUI(this);
     }
   }
 
@@ -131,7 +128,7 @@ export class SceneMain extends Phaser.Scene {
 
   movementCheck() {
     if (this.gameOver) return;
-
+    //console.log(`x ${this.player.x} y ${this.player.y}`);
     let moved = false;
     let boost = 0;
     // Check for boost
