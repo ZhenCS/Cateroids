@@ -1,5 +1,5 @@
 import * as constants from '../../shared/constants.js';
-import {setAI, random, aimBot, kamikazi, stayInMap} from './AI.js';
+import * as AI from './AI.js';
 
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
@@ -118,23 +118,28 @@ export class Dog extends Entity {
     if (level == 1) {
       this.setScale(0.4, 0.4);
 
-      setAI(this, function(){
-        aimBot(self, 0x142bff, Bullet);
+      AI.setAI(this, function(){
+        AI.aimBot(self, 0x142bff, Bullet);
+      });
+      AI.setMovement(this, function(){
+        AI.circle(self);
       });
     }
     if (key == constants.DOG2KEY) {
       this.setScale(0.6, 0.6);
 
-      setAI(this, function(){
-        stayInMap(self);
-        aimBot(self, 0x3dff23, Bullet);
+      AI.setAI(this, function(){
+        AI.aimBot(self, 0x3dff23, Bullet);
+      });
+      AI.setMovement(this, function(){
+        AI.stayInMap(self);
       });
     }
     if (key == constants.DOG3KEY) {
       this.setScale(0.8, 0.8);
 
-      setAI(this, function(){
-        kamikazi(self);
+      AI.setMovement(this, function(){
+        AI.kamikazi(self);
       });
     }
 
@@ -322,6 +327,8 @@ export class Leo extends Entity {
 
     let sceneConfig = scene.gameConfig;
     this.setData('isMoving', false);
+    this.setData('isMovingX', false);
+    this.setData('isMovingY', false);
     this.setData('health', sceneConfig.maxPlayerHealth);
     this.setData('oxygen', sceneConfig.maxPlayerOxygen);
     this.setData('oxygenAsteroid', null);
@@ -339,10 +346,11 @@ export class Leo extends Entity {
   moveLeft(boost) {
     let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
+    this.setData('isMovingX', true);
     if (this.body.velocity.x > 0) this.body.velocity.x = 0;
 
     if (this.body.velocity.x > -1 * sceneConfig.softMaxPlayerVelocityX)
-      this.body.velocity.x -= sceneConfig.playerSpeedX;
+      this.body.velocity.x -= sceneConfig.playerAccelerationX;
 
     if (this.body.velocity.x > -1 * sceneConfig.hardMaxPlayerVelocityX)
       this.body.velocity.x -= boost;
@@ -352,10 +360,11 @@ export class Leo extends Entity {
   moveRight(boost) {
     let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
+    this.setData('isMovingX', true);
     if (this.body.velocity.x < 0) this.body.velocity.x = 0;
 
     if (this.body.velocity.x < sceneConfig.softMaxPlayerVelocityX)
-      this.body.velocity.x += sceneConfig.playerSpeedX;
+      this.body.velocity.x += sceneConfig.playerAccelerationX;
 
     if (this.body.velocity.x < sceneConfig.hardMaxPlayerVelocityX)
       this.body.velocity.x += boost;
@@ -365,10 +374,11 @@ export class Leo extends Entity {
   moveDown(boost) {
     let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
+    this.setData('isMovingY', true);
     if (this.body.velocity.y < 0) this.body.velocity.y = 0;
 
     if (this.body.velocity.y < sceneConfig.softMaxPlayerVelocityY)
-      this.body.velocity.y += sceneConfig.playerSpeedY;
+      this.body.velocity.y += sceneConfig.playerAccelerationY;
 
     if (this.body.velocity.y < sceneConfig.hardMaxPlayerVelocityY)
       this.body.velocity.y += boost;
@@ -378,10 +388,11 @@ export class Leo extends Entity {
   moveUp(boost) {
     let sceneConfig = this.scene.gameConfig;
     this.setData('isMoving', true);
+    this.setData('isMovingY', true);
     if (this.body.velocity.y > 0) this.body.velocity.y = 0;
 
     if (this.body.velocity.y > -1 * sceneConfig.softMaxPlayerVelocityY)
-      this.body.velocity.y -= sceneConfig.playerSpeedY;
+      this.body.velocity.y -= sceneConfig.playerAccelerationY;
     if (this.body.velocity.y > -1 * sceneConfig.hardMaxPlayerVelocityY)
       this.body.velocity.y -= boost;
     else this.body.velocity.y = -1 * sceneConfig.hardMaxPlayerVelocityY;
@@ -525,13 +536,23 @@ export class Leo extends Entity {
       this.body.velocity.x *= 0.95;
       this.body.velocity.y *= 0.95;
     }else{
+      if(!this.getData('isMovingX')){
+        this.body.velocity.x *= 0.95;
+      }
+      if(!this.getData('isMovingY')){
+        this.body.velocity.y *= 0.95;
+      }
+      
+
       let sceneConfig = this.scene.gameConfig;
       if(this.body.velocity.x > sceneConfig.softMaxPlayerVelocityX)
-        this.body.velocity.x *= 0.99;
+        this.body.velocity.x *= 0.995;
       if(this.body.velocity.y > sceneConfig.softMaxPlayerVelocityY)
-        this.body.velocity.y *= 0.99;
+        this.body.velocity.y *= 0.995;
     }
     this.setData('isMoving', false);
+    this.setData('isMovingX', false);
+    this.setData('isMovingY', false);
 
     if (!this.getData('oxygenAsteroid')) this.setRotation(this.rotation * 0.8);
   }

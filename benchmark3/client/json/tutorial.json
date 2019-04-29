@@ -2037,14 +2037,9 @@
                          "value":3
                         }, 
                         {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
                          "name":"oxygenReplenishRate",
                          "type":"float",
-                         "value":0.15
+                         "value":0.3
                         }, 
                         {
                          "name":"spawnNumber",
@@ -2090,14 +2085,9 @@
                          "value":3
                         }, 
                         {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
                          "name":"oxygenReplenishRate",
                          "type":"float",
-                         "value":0.15
+                         "value":0.3
                         }, 
                         {
                          "name":"spawnNumber",
@@ -2143,14 +2133,9 @@
                          "value":3
                         }, 
                         {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
                          "name":"oxygenReplenishRate",
                          "type":"float",
-                         "value":0.15
+                         "value":0.3
                         }, 
                         {
                          "name":"spawnNumber",
@@ -2196,16 +2181,6 @@
                          "value":3
                         }, 
                         {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"oxygenReplenishRate",
-                         "type":"float",
-                         "value":0.15
-                        }, 
-                        {
                          "name":"spawnNumber",
                          "type":"int",
                          "value":5
@@ -2247,16 +2222,6 @@
                          "name":"level",
                          "type":"int",
                          "value":3
-                        }, 
-                        {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"oxygenReplenishRate",
-                         "type":"float",
-                         "value":0.15
                         }, 
                         {
                          "name":"spawnNumber",
@@ -2302,16 +2267,6 @@
                          "value":3
                         }, 
                         {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"oxygenReplenishRate",
-                         "type":"float",
-                         "value":0.15
-                        }, 
-                        {
                          "name":"spawnNumber",
                          "type":"int",
                          "value":5
@@ -2353,16 +2308,6 @@
                          "name":"level",
                          "type":"int",
                          "value":3
-                        }, 
-                        {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"oxygenReplenishRate",
-                         "type":"float",
-                         "value":0.15
                         }, 
                         {
                          "name":"spawnNumber",
@@ -3556,14 +3501,9 @@
                          "value":3
                         }, 
                         {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
                          "name":"oxygenReplenishRate",
                          "type":"float",
-                         "value":0.15
+                         "value":0.3
                         }, 
                         {
                          "name":"spawnNumber",
@@ -3645,8 +3585,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4609.33333333333,
-                 "y":49.3333333333333
+                 "x":4609.33,
+                 "y":49.3333
                 }, 
                 {
                  "gid":2,
@@ -3688,7 +3628,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4609.33333333333,
+                 "x":4609.33,
                  "y":84
                 }, 
                 {
@@ -3731,8 +3671,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4609.33333333333,
-                 "y":113.333333333333
+                 "x":4609.33,
+                 "y":113.333
                 }, 
                 {
                  "gid":2,
@@ -3774,7 +3714,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4609.33333333333,
+                 "x":4609.33,
                  "y":148
                 }, 
                 {
@@ -3817,8 +3757,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4609.33333333333,
-                 "y":182.6667
+                 "x":4609.33,
+                 "y":182.667
                 }, 
                 {
                  "gid":2,
@@ -3860,7 +3800,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4609.33333333333,
+                 "x":4609.33,
                  "y":212
                 }, 
                 {
@@ -3903,8 +3843,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":241.333333333333
+                 "x":4610.67,
+                 "y":241.333
                 }, 
                 {
                  "gid":2,
@@ -3946,8 +3886,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":276.000033333333
+                 "x":4610.67,
+                 "y":276
                 }, 
                 {
                  "gid":2,
@@ -3989,8 +3929,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":305.333333333333
+                 "x":4610.67,
+                 "y":305.333
                 }, 
                 {
                  "gid":2,
@@ -4032,8 +3972,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":338.666666666667
+                 "x":4610.67,
+                 "y":338.667
                 }, 
                 {
                  "gid":2,
@@ -4075,8 +4015,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":373.333366666667
+                 "x":4610.67,
+                 "y":373.333
                 }, 
                 {
                  "gid":2,
@@ -4118,8 +4058,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":402.666666666667
+                 "x":4610.67,
+                 "y":402.667
                 }, 
                 {
                  "gid":2,
@@ -4161,8 +4101,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":438.666666666667
+                 "x":4610.67,
+                 "y":438.667
                 }, 
                 {
                  "gid":2,
@@ -4204,8 +4144,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":473.333366666667
+                 "x":4610.67,
+                 "y":473.333
                 }, 
                 {
                  "gid":2,
@@ -4247,8 +4187,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":502.666666666667
+                 "x":4610.67,
+                 "y":502.667
                 }, 
                 {
                  "gid":2,
@@ -4290,8 +4230,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":530.666666666667
+                 "x":4610.67,
+                 "y":530.667
                 }, 
                 {
                  "gid":2,
@@ -4333,8 +4273,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":565.333366666667
+                 "x":4610.67,
+                 "y":565.333
                 }, 
                 {
                  "gid":2,
@@ -4376,8 +4316,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4610.66666666667,
-                 "y":594.666666666667
+                 "x":4610.67,
+                 "y":594.667
                 }, 
                 {
                  "gid":2,
@@ -4419,8 +4359,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4409.99666666667,
-                 "y":49.9998166666666
+                 "x":4410,
+                 "y":49.9998
                 }, 
                 {
                  "gid":2,
@@ -4462,8 +4402,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4409.99666666667,
-                 "y":84.6665166666666
+                 "x":4410,
+                 "y":84.6665
                 }, 
                 {
                  "gid":2,
@@ -4505,8 +4445,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4409.99666666667,
-                 "y":113.999516666667
+                 "x":4410,
+                 "y":114
                 }, 
                 {
                  "gid":2,
@@ -4548,8 +4488,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4409.99666666667,
-                 "y":148.666516666667
+                 "x":4410,
+                 "y":148.667
                 }, 
                 {
                  "gid":2,
@@ -4591,8 +4531,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4409.99666666667,
-                 "y":183.333516666667
+                 "x":4410,
+                 "y":183.334
                 }, 
                 {
                  "gid":2,
@@ -4634,8 +4574,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4409.99666666667,
-                 "y":212.666516666667
+                 "x":4410,
+                 "y":212.667
                 }, 
                 {
                  "gid":2,
@@ -4677,8 +4617,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":241.999516666667
+                 "x":4411.34,
+                 "y":242
                 }, 
                 {
                  "gid":2,
@@ -4720,8 +4660,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":276.666516666667
+                 "x":4411.34,
+                 "y":276.667
                 }, 
                 {
                  "gid":2,
@@ -4763,8 +4703,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":305.999516666667
+                 "x":4411.34,
+                 "y":306
                 }, 
                 {
                  "gid":2,
@@ -4806,8 +4746,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":339.333516666667
+                 "x":4411.34,
+                 "y":339.334
                 }, 
                 {
                  "gid":2,
@@ -4849,8 +4789,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":373.999516666667
+                 "x":4411.34,
+                 "y":374
                 }, 
                 {
                  "gid":2,
@@ -4892,8 +4832,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":403.333516666667
+                 "x":4411.34,
+                 "y":403.334
                 }, 
                 {
                  "gid":2,
@@ -4935,8 +4875,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":439.333516666667
+                 "x":4411.34,
+                 "y":439.334
                 }, 
                 {
                  "gid":2,
@@ -4978,8 +4918,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":473.999516666667
+                 "x":4411.34,
+                 "y":474
                 }, 
                 {
                  "gid":2,
@@ -5021,8 +4961,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":503.333516666667
+                 "x":4411.34,
+                 "y":503.334
                 }, 
                 {
                  "gid":2,
@@ -5064,8 +5004,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":531.333516666667
+                 "x":4411.34,
+                 "y":531.334
                 }, 
                 {
                  "gid":2,
@@ -5107,8 +5047,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":565.999516666667
+                 "x":4411.34,
+                 "y":566
                 }, 
                 {
                  "gid":2,
@@ -5150,8 +5090,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":4411.33666666667,
-                 "y":595.333516666667
+                 "x":4411.34,
+                 "y":595.334
                 }, 
                 {
                  "gid":11,
@@ -5200,7 +5140,7 @@
                         {
                          "name":"showOnDeltaX",
                          "type":"float",
-                         "value":10
+                         "value":100
                         }, 
                         {
                          "name":"spawnNumber",
@@ -5228,12 +5168,12 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-300
+                         "value":-500
                         }, 
                         {
                          "name":"showOnDeltaX",
                          "type":"float",
-                         "value":20
+                         "value":100
                         }, 
                         {
                          "name":"spawnNumber",
@@ -5249,7 +5189,7 @@
                  "type":"text",
                  "visible":true,
                  "width":64,
-                 "x":5888,
+                 "x":5824,
                  "y":64
                 }, 
                 {
@@ -5261,12 +5201,12 @@
                         {
                          "name":"hideOnDeltaX",
                          "type":"float",
-                         "value":-300
+                         "value":-500
                         }, 
                         {
                          "name":"showOnDeltaX",
                          "type":"float",
-                         "value":20
+                         "value":100
                         }, 
                         {
                          "name":"spawnNumber",
@@ -5282,8 +5222,8 @@
                  "type":"text",
                  "visible":true,
                  "width":64,
-                 "x":5888,
-                 "y":640
+                 "x":5824,
+                 "y":98
                 }, 
                 {
                  "gid":11,
@@ -5299,7 +5239,7 @@
                         {
                          "name":"showOnDeltaX",
                          "type":"float",
-                         "value":20
+                         "value":100
                         }, 
                         {
                          "name":"spawnNumber",
@@ -5332,7 +5272,7 @@
                         {
                          "name":"showOnDeltaX",
                          "type":"float",
-                         "value":20
+                         "value":100
                         }, 
                         {
                          "name":"spawnNumber",
@@ -5348,7 +5288,40 @@
                  "type":"text",
                  "visible":true,
                  "width":64,
-                 "x":7040,
+                 "x":7039.5,
+                 "y":93
+                }, 
+                {
+                 "gid":11,
+                 "height":64,
+                 "id":420,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hideOnDeltaX",
+                         "type":"float",
+                         "value":-500
+                        }, 
+                        {
+                         "name":"showOnDeltaX",
+                         "type":"float",
+                         "value":100
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"text",
+                         "type":"string",
+                         "value":"Press Space to leave asteroid"
+                        }],
+                 "rotation":0,
+                 "type":"text",
+                 "visible":true,
+                 "width":64,
+                 "x":5824,
                  "y":640
                 }],
          "opacity":1,
@@ -5358,7 +5331,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":420,
+ "nextobjectid":423,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -5385,6 +5358,16 @@
          "name":"oxygenDepletionRate",
          "type":"float",
          "value":0.1
+        }, 
+        {
+         "name":"oxygenReplenishDelay",
+         "type":"int",
+         "value":50
+        }, 
+        {
+         "name":"oxygenReplenishRate",
+         "type":"float",
+         "value":1
         }, 
         {
          "name":"type",
@@ -5529,16 +5512,6 @@
                          "name":"level",
                          "type":"int",
                          "value":3
-                        }, 
-                        {
-                         "name":"oxygenReplenishDelay",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"oxygenReplenishRate",
-                         "type":"float",
-                         "value":0.15
                         }, 
                         {
                          "name":"spawnNumber",

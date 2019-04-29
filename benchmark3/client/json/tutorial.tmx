@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="200" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="4" nextobjectid="420">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="200" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="4" nextobjectid="423">
  <properties>
   <property name="maxPlayerHealth" type="int" value="1000"/>
   <property name="maxPlayerOxygen" type="int" value="100"/>
   <property name="oxygenDamage" type="float" value="2"/>
   <property name="oxygenDepletionDelay" type="int" value="50"/>
   <property name="oxygenDepletionRate" type="float" value="0.1"/>
+  <property name="oxygenReplenishDelay" type="int" value="50"/>
+  <property name="oxygenReplenishRate" type="float" value="1"/>
   <property name="type" value="RUN"/>
  </properties>
  <tileset firstgid="1" source="../assets/CateroidsTileset2.tsx"/>
@@ -267,16 +269,19 @@
   </object>
   <object id="323" gid="4" x="6016" y="320" width="64" height="64">
    <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
     <property name="spawnNumber" type="int" value="5"/>
    </properties>
   </object>
   <object id="327" gid="4" x="6208" y="128" width="64" height="64">
    <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
     <property name="spawnNumber" type="int" value="5"/>
    </properties>
   </object>
   <object id="328" gid="4" x="6208" y="512" width="64" height="64">
    <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
     <property name="spawnNumber" type="int" value="5"/>
    </properties>
   </object>
@@ -436,6 +441,7 @@
   </object>
   <object id="365" gid="4" x="11584" y="320" width="64" height="64">
    <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
     <property name="spawnNumber" type="int" value="7"/>
     <property name="velocityX" type="int" value="10"/>
    </properties>
@@ -668,23 +674,23 @@
   <object id="413" gid="11" x="1728" y="64" width="64" height="64">
    <properties>
     <property name="hideOnDeltaX" type="float" value="-3000"/>
-    <property name="showOnDeltaX" type="float" value="10"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="1"/>
     <property name="text" value="Right click to shoot"/>
    </properties>
   </object>
-  <object id="415" gid="11" x="5888" y="64" width="64" height="64">
+  <object id="415" gid="11" x="5824" y="64" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-300"/>
-    <property name="showOnDeltaX" type="float" value="20"/>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Hold Shift while aiming your cursor at this asteroid to deploy your grappling hook"/>
    </properties>
   </object>
-  <object id="416" gid="11" x="5888" y="640" width="64" height="64">
+  <object id="416" gid="11" x="5824" y="98" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-300"/>
-    <property name="showOnDeltaX" type="float" value="20"/>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Landing on one will replenish your oxygen"/>
    </properties>
@@ -692,17 +698,25 @@
   <object id="417" gid="11" x="7040" y="64" width="64" height="64">
    <properties>
     <property name="hideOnDeltaX" type="float" value="-3000"/>
-    <property name="showOnDeltaX" type="float" value="20"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Release shift before landing on the asteroid"/>
    </properties>
   </object>
-  <object id="418" gid="11" x="7040" y="640" width="64" height="64">
+  <object id="418" gid="11" x="7039.5" y="93" width="64" height="64">
    <properties>
     <property name="hideOnDeltaX" type="float" value="-3000"/>
-    <property name="showOnDeltaX" type="float" value="20"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="you will get a boost in speed"/>
+   </properties>
+  </object>
+  <object id="420" gid="11" x="5824" y="640" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="text" value="Press Space to leave asteroid"/>
    </properties>
   </object>
  </objectgroup>

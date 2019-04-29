@@ -40,8 +40,8 @@ const gameConfig = {
   worldWidth: 10000,
   worldHeight: 0,
   //soft cap for just arrow keys. can be exceeded with boost
-  softMaxPlayerVelocityX: 350,
-  softMaxPlayerVelocityY: 350,
+  softMaxPlayerVelocityX: 500,
+  softMaxPlayerVelocityY: 500,
 
   //radians
   playerWalkVelocityX: Math.PI / 45,
@@ -49,10 +49,10 @@ const gameConfig = {
   //hard cap with boost. will never exceed
   hardMaxPlayerVelocityX: 1000,
   hardMaxPlayerVelocityY: 1000,
-  playerSpeedX: 10,
-  playerSpeedY: 10,
-  boost: 20,
-  grappleSpeed: 800,
+  playerAccelerationX: 20,
+  playerAccelerationY: 20,
+  boost: 30,
+  grappleSpeed: 1000,
 
   //for asteroids and dogs
   maxVelocityX: 500,

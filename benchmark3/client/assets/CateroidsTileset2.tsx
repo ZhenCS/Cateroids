@@ -36,8 +36,6 @@
    <property name="damage" type="float" value="500"/>
    <property name="health" type="float" value="300"/>
    <property name="level" type="int" value="3"/>
-   <property name="oxygenReplenishDelay" type="int" value="50"/>
-   <property name="oxygenReplenishRate" type="float" value="0.15"/>
    <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="int" value="0"/>
    <property name="velocityY" type="int" value="0"/>

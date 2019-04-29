@@ -44,7 +44,7 @@ export class SceneMain extends Phaser.Scene {
     }
     this.cameras.main.startFollow(this.player);
     this.sound.add(constants.LEVELMUSIC1);
-
+    this.sound.stopAll();
     this.levelMusic = this.sound.play(constants.LEVELMUSIC1,  {
       volume: 0.2,
       loop: true,

@@ -12,6 +12,16 @@ export function loadMap(scene, level) {
     scene.gameConfig.worldOffset = (scene.game.config.height - scene.gameConfig.worldHeight)/2;
     scene.gameConfig.spawnBuffer = scene.game.config.width;
 
+    scene.gameConfig.maxPlayerHealth = getPropertyValue(map, 'maxPlayerHealth');
+    scene.gameConfig.maxPlayerOxygen = getPropertyValue(map, 'maxPlayerOxygen');
+    scene.player.setData('health', scene.gameConfig.maxPlayerHealth);
+    scene.player.setData('oxygen', scene.gameConfig.maxPlayerOxygen);
+
+    scene.gameConfig.oxygenDepletionDelay = getPropertyValue(map, 'oxygenDepletionDelay');
+    scene.gameConfig.oxygenDepletionRate = getPropertyValue(map, 'oxygenDepletionRate');
+    scene.gameConfig.oxygenReplenishDelay = getPropertyValue(map, 'oxygenReplenishDelay') || gameConfig.oxygenReplenishDelay;
+    scene.gameConfig.oxygenReplenishRate = getPropertyValue(map, 'oxygenReplenishRate') || gameConfig.oxygenDepletionRate;
+    
     sortMapObjects(scene);
     setPlayerSpawn(scene);
     setEndPoint(scene);
@@ -119,7 +129,7 @@ function setText(scene, obj){
     centerX(scene, displayText);
     displayText.setScrollFactor(0);
     displayText.depth = gameDepths.uiDepth;
-    //displayText.setVisible(false);
+    displayText.setVisible(false);
 
     scene.levelText.add(displayText);
 }
@@ -138,7 +148,9 @@ function setAsteroid(scene, obj) {
       velY
     );
 
-    if (level == 3) scene.oxygenAsteroids.add(asteroid);
+    if (level == 3){ 
+      scene.oxygenAsteroids.add(asteroid);
+    }
     else scene.asteroids.add(asteroid);
   }
 

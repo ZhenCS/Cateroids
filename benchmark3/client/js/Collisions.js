@@ -32,6 +32,21 @@ export const checkPlayerToEnemyCollision = scene => {
     null,
     scene
   );
+
+  scene.physics.add.overlap(
+    scene.player,
+    scene.dogs,
+    function(player, dog) {
+      scene.createExplosion(player.x, player.y, player.displayWidth);
+
+      if (player) {
+        scene.onLifeDown(dog.getData('damage'));
+        dog.damage(gameConfig.playerDamage);
+      }
+    },
+    null,
+    scene
+  );
 };
 
 export const checkPlayerToBulletCollision = scene => {
