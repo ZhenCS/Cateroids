@@ -50,6 +50,11 @@ export class LevelSelectScene extends Phaser.Scene {
       }
     );
 
+    const menuSelectSound = this.sound.add(constants.MENUSELECT);
+    const menuHoverSound = this.sound.add(constants.MENUMOVE);
+    menuSelectSound.setVolume(0.5);
+    menuHoverSound.setVolume(0.2);
+
     iconText.depth = 2;
     let iconBG = this.add
       .sprite(x, y, constants.LEVELICON)
@@ -57,13 +62,19 @@ export class LevelSelectScene extends Phaser.Scene {
     iconBG.on('pointerdown', function() {
       currentLevel.key = `level${id}`;
       currentLevel.level = id;
-      
+
       if (fromCheatMenu) {
         fromCheatMenu = false;
       }
       this.scene.game.scene.stop(constants.GAMEKEY);
       this.scene.game.scene.switch(constants.LEVELSKEY, constants.GAMEKEY);
       this.scene.game.scene.stop(constants.LEVELSKEY);
+
+      menuSelectSound.play();
+    });
+
+    iconBG.on('pointerover', function() {
+      menuHoverSound.play();
     });
     iconBG.setScale(0.8 * gameScale.scale);
     let iconMiddle = this.add.sprite(x, y, constants.ASTEROID0KEY);

@@ -1,5 +1,5 @@
 import * as constants from '../../shared/constants.js';
-import {setAI, random, aimBot, kamikazi, stayInMap} from './AI.js';
+import { setAI, random, aimBot, kamikazi, stayInMap } from './AI.js';
 
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
@@ -105,10 +105,20 @@ export class Asteroid extends Entity {
 }
 
 export class Dog extends Entity {
-  constructor(scene, x, y, level, velocityX, velocityY, health, damage, fireRate) {
+  constructor(
+    scene,
+    x,
+    y,
+    level,
+    velocityX,
+    velocityY,
+    health,
+    damage,
+    fireRate
+  ) {
     let key = constants[`DOG${level}KEY`];
     super(scene, x, y, key);
-    
+
     this.setData('dogId', level);
     this.setData('health', health);
     this.setData('damage', damage);
@@ -118,14 +128,14 @@ export class Dog extends Entity {
     if (level == 1) {
       this.setScale(0.4, 0.4);
 
-      setAI(this, function(){
+      setAI(this, function() {
         aimBot(self, 0x142bff, Bullet);
       });
     }
     if (key == constants.DOG2KEY) {
       this.setScale(0.6, 0.6);
 
-      setAI(this, function(){
+      setAI(this, function() {
         stayInMap(self);
         aimBot(self, 0x3dff23, Bullet);
       });
@@ -133,7 +143,7 @@ export class Dog extends Entity {
     if (key == constants.DOG3KEY) {
       this.setScale(0.8, 0.8);
 
-      setAI(this, function(){
+      setAI(this, function() {
         kamikazi(self);
       });
     }
@@ -292,6 +302,9 @@ export class Laser extends Entity {
     this.path.draw(this.alertLine);
     this.alert.paused = false;
 
+    const rayStartupSound = this.scene.sound.add(constants.RAYSTARTUP);
+    rayStartupSound.play();
+
     this.scene.time.addEvent({
       delay: 1500,
       callback: function() {
@@ -299,6 +312,8 @@ export class Laser extends Entity {
         this.alert.pause();
         this.shoot.paused = false;
         this.destroyTimer.paused = false;
+        const rayFiringSound = this.scene.sound.add(constants.RAYFIRING);
+        rayFiringSound.play();
       },
       callbackScope: this,
       loop: false
@@ -334,6 +349,8 @@ export class Leo extends Entity {
     });
     this.setScale(0.5, 0.5);
     this.setDepth(gameDepths.uiDepth - 1);
+    this.shootSound = scene.sound.add(constants.CATWEAPONAUDIO);
+    this.destroyedSound = scene.sound.add(constants.EXPLOSION2AUDIO);
   }
 
   moveLeft(boost) {
@@ -412,14 +429,17 @@ export class Leo extends Entity {
       speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
     );
     this.scene.bullets.add(bullet);
+    this.shootSound.play();
   }
   damage(damage) {
     let sceneConfig = this.scene.gameConfig;
     const isInvulnerable = cheats.invulnerable;
     if (!isInvulnerable) {
       this.setData('health', this.getData('health') - damage);
-      if (this.getData('health') < 0) {
+      if (this.getData('health') < 100) {
         this.setData('health', 0);
+        // dead
+        this.destroyedSound.play();
       } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
         this.setData('health', sceneConfig.maxPlayerHealth);
       }

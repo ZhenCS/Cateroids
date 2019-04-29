@@ -52,9 +52,8 @@ export class LoadScene extends Phaser.Scene {
       'assets/dog3_spritesheet.png',
       'json/dog.json'
     );
-    // Load asteroids
-    // TODO: Create 4 different asteroids then just swap them in
 
+    // Load asteroids
     for (let i = 0; i < 4; i++) {
       this.load.image(constants[`ASTEROID${i}KEY`], `assets/asteroid${i}.png`);
     }
