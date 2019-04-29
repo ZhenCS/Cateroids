@@ -307,8 +307,7 @@ export class Laser extends Entity {
     this.path.draw(this.alertLine);
     this.alert.paused = false;
 
-    const rayStartupSound = this.scene.sound.add(constants.RAYSTARTUP);
-    rayStartupSound.play();
+    this.scene.sound.play(constants.RAYSTARTUP, { volume: 0.4 });
 
     this.scene.time.addEvent({
       delay: 1500,
@@ -317,8 +316,7 @@ export class Laser extends Entity {
         this.alert.pause();
         this.shoot.paused = false;
         this.destroyTimer.paused = false;
-        const rayFiringSound = this.scene.sound.add(constants.RAYFIRING);
-        rayFiringSound.play();
+        this.scene.sound.play(constants.RAYFIRING, { volume: 0.1 });
       },
       callbackScope: this,
       loop: false
@@ -356,8 +354,6 @@ export class Leo extends Entity {
     });
     this.setScale(0.5, 0.5);
     this.setDepth(gameDepths.uiDepth - 1);
-    this.shootSound = scene.sound.add(constants.CATWEAPONAUDIO);
-    this.destroyedSound = scene.sound.add(constants.EXPLOSION2AUDIO);
   }
 
   moveLeft(boost) {
@@ -440,7 +436,7 @@ export class Leo extends Entity {
       speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
     );
     this.scene.bullets.add(bullet);
-    this.shootSound.play();
+    this.scene.sound.play(constants.CATWEAPONAUDIO);
   }
   damage(damage) {
     let sceneConfig = this.scene.gameConfig;
@@ -450,7 +446,7 @@ export class Leo extends Entity {
       if (this.getData('health') < 100) {
         this.setData('health', 0);
         // dead
-        this.destroyedSound.play();
+        this.scene.sound.play(constants.EXPLOSION2AUDIO, { volume: 0.1 });
       } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
         this.setData('health', sceneConfig.maxPlayerHealth);
       }

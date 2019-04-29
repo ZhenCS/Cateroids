@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="200" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="2834">
+ <properties>
+  <property name="maxPlayerHealth" type="int" value="1000"/>
+  <property name="maxPlayerOxygen" type="int" value="100"/>
+  <property name="oxygenDamage" type="float" value="2"/>
+  <property name="oxygenDepletionDelay" type="int" value="50"/>
+  <property name="oxygenDepletionRate" type="float" value="0.1"/>
+  <property name="type" value="RUN"/>
+ </properties>
+ <tileset firstgid="1" name="CateroidsTileset2" tilewidth="64" tileheight="64" tilecount="15" columns="5">
+  <image source="../assets/CateroidsTileset2.png" width="320" height="192"/>
+  <tile id="0" type="asteroid">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="1" type="asteroid">
+   <properties>
+    <property name="damage" type="float" value="15"/>
+    <property name="health" type="float" value="20"/>
+    <property name="level" type="int" value="1"/>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="2" type="asteroid">
+   <properties>
+    <property name="damage" type="float" value="10"/>
+    <property name="health" type="float" value="10"/>
+    <property name="level" type="int" value="2"/>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="3" type="asteroid">
+   <properties>
+    <property name="damage" type="float" value="500"/>
+    <property name="health" type="float" value="300"/>
+    <property name="level" type="int" value="3"/>
+    <property name="oxygenReplenishDelay" type="int" value="50"/>
+    <property name="oxygenReplenishRate" type="float" value="0.15"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" type="int" value="0"/>
+   </properties>
+  </tile>
+  <tile id="4" type="laser">
+   <properties>
+    <property name="laserDamage" type="float" value="1"/>
+    <property name="laserDelay" type="int" value="50"/>
+    <property name="laserDuration" type="int" value="2500"/>
+    <property name="laserSprites" type="int" value="50"/>
+    <property name="playerDeltaX" type="float" value="200"/>
+    <property name="scale" type="float" value="4"/>
+    <property name="type" value="VERTICAL"/>
+   </properties>
+  </tile>
+  <tile id="5" type="dog">
+   <properties>
+    <property name="damage" type="float" value="15"/>
+    <property name="fireRate" type="float" value="1500"/>
+    <property name="health" type="float" value="80"/>
+    <property name="level" type="int" value="3"/>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="6" type="dog">
+   <properties>
+    <property name="damage" type="float" value="10"/>
+    <property name="fireRate" type="float" value="1000"/>
+    <property name="health" type="float" value="60"/>
+    <property name="level" type="int" value="2"/>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="7" type="dog">
+   <properties>
+    <property name="damage" type="float" value="5"/>
+    <property name="fireRate" type="float" value="800"/>
+    <property name="health" type="float" value="30"/>
+    <property name="level" type="int" value="1"/>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="0"/>
+   </properties>
+  </tile>
+  <tile id="8" type="spawnPoint"/>
+  <tile id="9" type="endPoint"/>
+ </tileset>
+ <tileset firstgid="16" source="CateroidsTileset2.tsx"/>
+ <tileset firstgid="31" source="../../../../../cateroids/benchmark3/client/assets/CateroidsTileset2.tsx"/>
+ <tileset firstgid="41" source="../assets/CateroidsTileset2.tsx"/>
+ <layer id="3" name="Tile Layer 1" width="200" height="9">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <objectgroup id="2" name="Objects">
+  <object id="122" gid="25" x="12608" y="320" width="64" height="64"/>
+  <object id="1507" gid="16" x="12601.3" y="44.1212" width="64" height="64"/>
+  <object id="1508" gid="16" x="12598.3" y="107.758" width="64" height="64"/>
+  <object id="1509" gid="16" x="12601.3" y="141.091" width="64" height="64"/>
+  <object id="1510" gid="16" x="12604.4" y="195.636" width="64" height="64"/>
+  <object id="1511" gid="16" x="12601.3" y="235.03" width="64" height="64"/>
+  <object id="1512" gid="16" x="12601.3" y="322.909" width="64" height="64"/>
+  <object id="1513" gid="16" x="12604.4" y="374.424" width="64" height="64"/>
+  <object id="1514" gid="16" x="12604.4" y="435.03" width="64" height="64"/>
+  <object id="1515" gid="16" x="12604.4" y="471.394" width="64" height="64"/>
+  <object id="1516" gid="16" x="12604.4" y="507.758" width="64" height="64"/>
+  <object id="1517" gid="16" x="12604.4" y="519.879" width="64" height="64"/>
+  <object id="1518" gid="16" x="12604.4" y="550.182" width="64" height="64"/>
+  <object id="1519" gid="16" x="12604.4" y="556.242" width="64" height="64"/>
+  <object id="2371" gid="45" x="825.333" y="320" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="200"/>
+   </properties>
+  </object>
+  <object id="2373" gid="45" x="1749" y="323" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="300"/>
+   </properties>
+  </object>
+  <object id="2389" gid="48" x="820" y="532" width="64" height="64"/>
+  <object id="2391" gid="48" x="1158" y="538" width="64" height="64"/>
+  <object id="2402" gid="45" x="2859.33" y="309.667" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="200"/>
+   </properties>
+  </object>
+  <object id="2403" gid="45" x="3323" y="314" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="300"/>
+   </properties>
+  </object>
+  <object id="2408" gid="47" x="2614" y="67" width="64" height="64"/>
+  <object id="2416" gid="48" x="3530" y="103" width="64" height="64"/>
+  <object id="2418" gid="48" x="3456" y="531" width="64" height="64"/>
+  <object id="2420" gid="48" x="3918" y="97" width="64" height="64"/>
+  <object id="2423" gid="45" x="4067.33" y="309.667" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="200"/>
+   </properties>
+  </object>
+  <object id="2425" gid="45" x="4955.67" y="317.333" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="2800"/>
+   </properties>
+  </object>
+  <object id="2431" gid="48" x="3602" y="523" width="64" height="64"/>
+  <object id="2433" gid="48" x="3940" y="529" width="64" height="64"/>
+  <object id="2434" gid="48" x="3920" y="187" width="64" height="64"/>
+  <object id="2436" gid="48" x="4282" y="491" width="64" height="64"/>
+  <object id="2440" gid="48" x="4428" y="117" width="64" height="64"/>
+  <object id="2450" gid="43" x="4508" y="178" width="64" height="64"/>
+  <object id="2451" gid="43" x="4140" y="374" width="64" height="64"/>
+  <object id="2453" gid="43" x="3406" y="378" width="64" height="64"/>
+  <object id="2454" gid="43" x="3178" y="106" width="64" height="64"/>
+  <object id="2455" gid="43" x="3006" y="156" width="64" height="64"/>
+  <object id="2456" gid="43" x="2560" y="436" width="64" height="64"/>
+  <object id="2457" gid="43" x="2564" y="564" width="64" height="64"/>
+  <object id="2458" gid="43" x="3580" y="596" width="64" height="64"/>
+  <object id="2463" gid="43" x="2946" y="102" width="64" height="64"/>
+  <object id="2464" gid="43" x="2452" y="136" width="64" height="64"/>
+  <object id="2468" gid="43" x="4322" y="378" width="64" height="64"/>
+  <object id="2472" gid="41" x="1472" y="204" width="64" height="64"/>
+  <object id="2473" gid="41" x="1408" y="536" width="64" height="64"/>
+  <object id="2474" gid="41" x="1970" y="340" width="64" height="64"/>
+  <object id="2476" gid="41" x="2246" y="560" width="64" height="64"/>
+  <object id="2478" gid="41" x="2284" y="276" width="64" height="64"/>
+  <object id="2479" gid="41" x="2256" y="402" width="64" height="64"/>
+  <object id="2480" gid="41" x="3678" y="98" width="64" height="64"/>
+  <object id="2481" gid="41" x="3668" y="214" width="64" height="64"/>
+  <object id="2484" gid="41" x="3676" y="352" width="64" height="64"/>
+  <object id="2485" gid="41" x="4588" y="568" width="64" height="64"/>
+  <object id="2486" gid="41" x="4814" y="554" width="64" height="64"/>
+  <object id="2487" gid="41" x="4838" y="552" width="64" height="64"/>
+  <object id="2488" gid="41" x="4992" y="546" width="64" height="64"/>
+  <object id="2489" gid="41" x="5064" y="546" width="64" height="64"/>
+  <object id="2491" gid="41" x="4754" y="262" width="64" height="64"/>
+  <object id="2492" gid="41" x="4908" y="440" width="64" height="64"/>
+  <object id="2493" gid="41" x="4750" y="474" width="64" height="64"/>
+  <object id="2503" gid="47" x="204" y="540" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2506" gid="47" x="1162" y="80" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2507" gid="47" x="1736" y="414" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2508" gid="47" x="2162" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2509" gid="47" x="3524" y="160" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2510" gid="47" x="4002" y="418" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2741" gid="47" x="6817.24" y="22.4501" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2742" gid="47" x="6753.35" y="31.2923" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2743" gid="47" x="6705.28" y="25.9146" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2744" gid="47" x="6661.28" y="26.494" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2745" gid="47" x="6633.28" y="26.8627" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2746" gid="47" x="6599.23" y="23.3055" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2747" gid="47" x="6529.29" y="28.222" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2748" gid="47" x="6485.3" y="28.8013" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2749" gid="47" x="6453.3" y="29.2227" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2750" gid="47" x="6409.38" y="35.8017" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2751" gid="47" x="6357.39" y="36.4763" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2752" gid="47" x="6333.36" y="34.7925" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2753" gid="47" x="6325.34" y="32.8979" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2755" gid="47" x="6270.38" y="36.6144" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2756" gid="47" x="6011.91" y="504.497" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2757" gid="47" x="5947.87" y="512.18" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2758" gid="47" x="5899.9" y="505.932" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2759" gid="47" x="5855.9" y="505.714" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2760" gid="47" x="5827.9" y="505.576" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2761" gid="47" x="5793.92" y="501.402" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2762" gid="47" x="5723.9" y="505.05" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2763" gid="47" x="5679.9" y="504.832" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2764" gid="47" x="5647.9" y="504.674" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2765" gid="47" x="5603.87" y="510.456" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2766" gid="47" x="5551.87" y="510.188" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2767" gid="47" x="5527.88" y="508.069" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2768" gid="47" x="5519.89" y="506.03" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2770" gid="47" x="5464.88" y="508.75" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2777" gid="49" x="5262" y="310" width="64" height="64"/>
+  <object id="2778" gid="47" x="7638.18" y="15.135" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2779" gid="47" x="7574.29" y="23.9772" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2780" gid="47" x="7526.22" y="18.5996" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2781" gid="47" x="7482.22" y="19.1789" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2782" gid="47" x="7454.22" y="19.5476" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="2783" gid="47" x="7420.17" y="15.9905" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2784" gid="47" x="7350.23" y="20.907" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2785" gid="47" x="7306.24" y="21.4863" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2786" gid="47" x="7274.24" y="21.9076" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2787" gid="47" x="7230.32" y="28.4866" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2788" gid="47" x="7178.33" y="29.1613" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2789" gid="47" x="7154.3" y="27.4774" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2790" gid="47" x="7146.28" y="25.5829" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2791" gid="47" x="7091.32" y="29.2994" width="64" height="64" rotation="-270.751">
+   <properties>
+    <property name="velocityX" type="float" value="0"/>
+    <property name="velocityY" type="float" value="151"/>
+   </properties>
+  </object>
+  <object id="2792" gid="47" x="6832.85" y="497.182" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2793" gid="47" x="6768.81" y="504.865" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2794" gid="47" x="6720.84" y="498.617" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2795" gid="47" x="6676.84" y="498.399" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2796" gid="47" x="6648.84" y="498.261" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2797" gid="47" x="6614.86" y="494.087" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2798" gid="47" x="6544.84" y="497.735" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2799" gid="47" x="6500.84" y="497.517" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2800" gid="47" x="6468.84" y="497.359" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2801" gid="47" x="6424.81" y="503.141" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2802" gid="47" x="6372.81" y="502.873" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2803" gid="47" x="6348.82" y="500.754" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2804" gid="47" x="6340.83" y="498.715" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2805" gid="47" x="6285.82" y="501.435" width="64" height="64" rotation="90.2874">
+   <properties>
+    <property name="velocityX" type="float" value="150"/>
+    <property name="velocityY" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="2806" gid="47" x="6962.17" y="37.8977" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2807" gid="47" x="6969.84" y="101.939" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2808" gid="47" x="6963.59" y="149.902" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2809" gid="47" x="6963.36" y="193.906" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2810" gid="47" x="6963.22" y="221.908" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2811" gid="47" x="6959.04" y="255.887" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2812" gid="47" x="6962.68" y="325.905" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2813" gid="47" x="6962.45" y="369.898" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2814" gid="47" x="6962.29" y="401.901" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2815" gid="47" x="6968.06" y="445.934" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2816" gid="47" x="6967.78" y="497.927" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2817" gid="47" x="6965.66" y="521.922" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2818" gid="47" x="6963.62" y="529.906" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2819" gid="47" x="6966.33" y="584.925" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" value="0"/>
+   </properties>
+  </object>
+  <object id="2820" gid="47" x="6171.73" y="34.4864" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2821" gid="47" x="6179.4" y="98.5277" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2822" gid="47" x="6173.15" y="146.491" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2823" gid="47" x="6172.92" y="190.495" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2824" gid="47" x="6172.78" y="218.497" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2825" gid="47" x="6168.6" y="252.476" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2826" gid="47" x="6172.24" y="322.494" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2827" gid="47" x="6172.01" y="366.487" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2828" gid="47" x="6171.85" y="398.49" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2829" gid="47" x="6177.62" y="442.523" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2830" gid="47" x="6177.34" y="494.516" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2831" gid="47" x="6175.22" y="518.511" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2832" gid="47" x="6173.18" y="526.495" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2833" gid="47" x="6175.89" y="581.514" width="64" height="64" rotation="-359.703">
+   <properties>
+    <property name="velocityX" value="150"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

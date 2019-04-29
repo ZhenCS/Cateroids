@@ -11,8 +11,7 @@ export const checkPlayerToAsteroidCollision = scene => {
       if (scene.player) {
         scene.onLifeDown(asteroids.getData('damage'));
         asteroids.damage(gameConfig.playerDamage);
-        const asteroidCollision = scene.sound.add(constants.ASTRCOLLISION);
-        asteroidCollision.play();
+        scene.sound.play(constants.ASTRCOLLISION);
       }
     },
     null,
@@ -30,8 +29,8 @@ export const checkPlayerToEnemyCollision = scene => {
       if (player) {
         scene.onLifeDown(dog.getData('damage'));
         dog.damage(gameConfig.playerDamage);
-        const enemyCollision = scene.sound.add(constants.ASTRCOLLISION);
-        enemyCollision.play();
+
+        scene.sound.play(constants.ASTRCOLLISION);
       }
     },
     null,
@@ -65,8 +64,7 @@ export const checkPlayerToBulletCollision = scene => {
         if (player) {
           scene.onLifeDown(bullet.getData('damage'));
           bullet.destroy();
-          const laserHit = scene.sound.add(constants.LASERHIT);
-          laserHit.play();
+          scene.sound.play(constants.LASERHIT);
         }
       }
     },
@@ -109,8 +107,7 @@ export const checkEnemyToBulletCollision = scene => {
             if (key == constants.DOG1ATLASKEY) {
               scene.addScore(200);
             }
-            const laserHit = scene.sound.add(constants.LASERHIT);
-            laserHit.play();
+            scene.sound.play(constants.LASERHIT);
           }
 
           dog.damage(bullet.getData('damage'));

@@ -7,22 +7,31 @@ export class LoadScene extends Phaser.Scene {
 
   preload() {
     let bgBar = this.add.graphics();
-    let barW = window.innerWidth/2;
+    let barW = window.innerWidth / 2;
     let barH = 30;
 
-    bgBar.setPosition(this.sys.game.config.width/2 - barW/2, this.sys.game.config.height/2 - barH/2);
-    bgBar.fillStyle(0xF5F5F5, 1);
+    bgBar.setPosition(
+      this.sys.game.config.width / 2 - barW / 2,
+      this.sys.game.config.height / 2 - barH / 2
+    );
+    bgBar.fillStyle(0xf5f5f5, 1);
     bgBar.fillRect(0, 0, barW, barH);
 
     let progressBar = this.add.graphics();
-    progressBar.setPosition(this.sys.game.config.width/2 - barW/2, this.sys.game.config.height/2 - barH/2);
- 
-    this.load.on('progress', function(value){
-      progressBar.clear();
-      progressBar.fillStyle(0x9AD98D, 1);
-      progressBar.fillRect(0, 0, value * barW, barH);
-  
-    }, this);
+    progressBar.setPosition(
+      this.sys.game.config.width / 2 - barW / 2,
+      this.sys.game.config.height / 2 - barH / 2
+    );
+
+    this.load.on(
+      'progress',
+      function(value) {
+        progressBar.clear();
+        progressBar.fillStyle(0x9ad98d, 1);
+        progressBar.fillRect(0, 0, value * barW, barH);
+      },
+      this
+    );
 
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
@@ -93,9 +102,12 @@ export class LoadScene extends Phaser.Scene {
 
     this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
     this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
   }
 
-  loadMusic(key, fileName){
+  loadMusic(key, fileName) {
     const path = 'assets/music/' + fileName;
     this.load.audio(key, path);
   }
