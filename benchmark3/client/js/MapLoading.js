@@ -4,10 +4,14 @@ import { Asteroid, Dog, Laser} from './Entities.js';
 
 export function loadMap(scene, level) {
     const map = scene.make.tilemap(level);
+    // const tiles1 = map.addTilesetImage('CateroidsTileset2', 'tiles2');
+    // map.createStaticLayer('testLayer', tiles1, 0, 0);
+
     scene.gameMap = map;
     scene.mapObjects = map.getObjectLayer('Objects').objects;
-
+    
     setLevelProperties(scene, map);
+    setCamera(scene, scene.gameConfig.gameMode);
     sortMapObjects(scene, scene.gameConfig.gameMode);
 
     if(scene.gameConfig.gameMode == 'RUN'){
@@ -15,7 +19,10 @@ export function loadMap(scene, level) {
       setEndPoint(scene);
       loadMapObjectsRUN(scene);
     }else if(scene.gameConfig.gameMode == 'DEFEND'){
-      
+      scene.waveNumber = 1;
+      scene.waveObjects = new Array();
+      setWaveArrays(scene);
+      setBase(scene, scene.waveObjects[0]);
     }
 
     scene.gameConfig.spawnBuffer = scene.game.config.width/2 + 50;
@@ -24,11 +31,16 @@ export function loadMap(scene, level) {
 
 function setLevelProperties(scene, map){
   scene.gameConfig.worldWidth = map.width * map.tileWidth;
-    scene.gameConfig.worldHeight = (map.height + 1) * map.tileHeight;
-    scene.gameConfig.worldOffset = (scene.game.config.height - scene.gameConfig.worldHeight)/2;
+    scene.gameConfig.worldHeight = (map.height) * map.tileHeight;
+    scene.gameConfig.worldOffsetX = (scene.game.config.width - scene.gameConfig.worldWidth)/2;
+    scene.gameConfig.worldOffsetY = (scene.game.config.height - scene.gameConfig.worldHeight)/2;
     scene.gameConfig.spawnBuffer = scene.game.config.width;
-
     scene.gameConfig.gameMode = getPropertyValue(map, 'type');
+
+    if(scene.gameConfig.gameMode == 'DEFEND'){
+      scene.gameConfig.waveRate = getPropertyValue(map, 'waveRate') || gameConfig.waveRate;
+      scene.spawningWaves = false;
+    }
 
     scene.gameConfig.maxPlayerHealth = getPropertyValue(map, 'maxPlayerHealth');
     scene.gameConfig.maxPlayerOxygen = getPropertyValue(map, 'maxPlayerOxygen');
@@ -52,6 +64,50 @@ function setLevelProperties(scene, map){
       scene.gameConfig.worldWidth,
       scene.gameConfig.worldHeight * scene.gameConfig.worldOffset
     );
+}
+
+function setCamera(scene, mode){
+
+  if(mode == 'RUN'){
+    scene.cameras.main.startFollow(scene.player);
+    scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
+    scene.cameras.main.setBounds(
+      -30,
+      -1 * scene.gameConfig.worldOffsetY, 
+      scene.gameConfig.worldWidth,
+      scene.gameConfig.worldHeight + scene.gameConfig.worldOffsetY
+    );
+
+  }else if(mode == 'DEFEND'){
+    scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
+    scene.cameras.main.setBounds(
+      -1 * scene.gameConfig.worldOffsetX,
+      -1 * scene.gameConfig.worldOffsetY, 
+      scene.gameConfig.worldWidth,
+      scene.gameConfig.worldHeight + scene.gameConfig.worldOffsetY
+    );
+  }
+  
+}
+
+function setWaveArrays(scene){
+  var waveNumber = 0;
+  let wave = new Array();
+
+  for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
+    let obj = scene.mapObjects[i];
+    if(obj == undefined) break;
+    if(getPropertyValue(obj, 'spawnNumber') == waveNumber){
+      wave.push(obj);
+    }else{
+      scene.waveObjects.push(wave);
+      waveNumber++;
+      i++;
+      wave = new Array();
+    }
+  }
+
+  scene.waveObjects.push(wave);
 }
 
 function sortMapObjects(scene, mode) {
@@ -92,16 +148,42 @@ export function loadMapObjects(scene){
   if(scene.gameConfig.gameMode == 'RUN'){
     loadMapObjectsRUN(scene);
   }else if(scene.gameConfig.gameMode == 'DEFEND'){
-    loadMapObjectsDEFEND(scene);
+    if(!scene.spawningWaves)
+      loadMapObjectsDEFEND(scene);
   }
 }
 
 function loadMapObjectsDEFEND(scene){
+  scene.spawningWaves = true;
 
+  scene.waveTimer = scene.time.addEvent({
+    delay: scene.gameConfig.waveRate,
+    callback: function() {
+      if(scene.waveNumber >= scene.waveObjects.length){
+        console.log('no more waves');
+        scene.waveTimer.paused = true;
+        return;
+      }
+
+      let wave = scene.waveObjects[scene.waveNumber];
+      for (var i = wave.length; i >= 0; i--) {
+        let obj = wave.pop();
+        if(obj == undefined) break;
+
+        setObjects(scene, obj);
+      }
+
+      scene.waveNumber++;
+    },
+    callbackScope: scene,
+    loop: true
+  });
+
+    
 }
 
 function loadMapObjectsRUN(scene) {
-    for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
+    for (var i = scene.mapObjects.length; i >= 0; i--) {
       let obj = scene.mapObjects.pop();
       if(obj == undefined) break;
       
@@ -113,27 +195,45 @@ function loadMapObjectsRUN(scene) {
       let spawnNumber = getPropertyValue(obj, 'spawnNumber');
       if(spawnNumber){
         while(getPropertyValue(obj, 'spawnNumber') == spawnNumber){
-            if (obj.type == 'asteroid')
-                setAsteroid(scene, obj);
-            if (obj.type == 'dog')
-                setDog(scene, obj);
-            if (obj.type == 'laser')
-                setLasers(scene, obj);
-            if(obj.type == 'text')
-                setText(scene, obj);
-
+          setObjects(scene, obj);
           obj = scene.mapObjects.pop();
         }
         scene.mapObjects.push(obj);
       }else{ //if map is not updated with new tileset
-        if (obj.type == 'asteroid')
-          setAsteroid(scene, obj);
-        if (obj.type == 'dog')
-          setDog(scene, obj);
-        if (obj.type == 'laser')
-          setLasers(scene, obj);
+        setObjects(scene, obj);
       }
     }
+}
+
+function setObjects(scene, obj){
+  if (obj.type == 'asteroid')
+    setAsteroid(scene, obj);
+  else if (obj.type == 'dog')
+    setDog(scene, obj);
+  else if (obj.type == 'laser')
+    setLasers(scene, obj);
+  else if(obj.type == 'text')
+    setText(scene, obj);
+}
+
+function setBase(scene, wave){
+  let obj = null;
+  for(var i = 0; i < wave.length; i++){
+    if(wave[i].name == 'base'){
+      obj = wave[i];
+      break;
+    }
+  }
+  if(obj == null) return;
+
+  let health = getPropertyValue(obj, 'health');
+  let damage = getPropertyValue(obj, 'damage');
+  let level = getPropertyValue(obj, 'level');
+
+  let asteroid = new Asteroid(scene, obj.x, obj.y, constants[`ASTEROID${level}KEY`], 0, 0, health, damage);
+  
+  asteroid.setScale(15);
+  scene.oxygenAsteroids.add(asteroid);
 }
 
 function setText(scene, obj){
@@ -215,6 +315,21 @@ function setLasers(scene, obj) {
         false,
         scale,
         -Math.PI / 2,
+        damage,
+        delay,
+        duration,
+        sprites,
+        deltaX
+      );
+      scene.lasers.add(laser);
+    }else if(type == 'HORIZONTAL'){
+      let laser = new Laser(
+        scene,
+        obj.x,
+        obj.y,
+        false,
+        scale,
+        -Math.PI,
         damage,
         delay,
         duration,

@@ -8,10 +8,12 @@ export function initScene(scene){
   initControls(scene);
   initEvents(scene);
   initCollisions(scene);
-  initSound(scene);
+  //initSound(scene);
 }
 
 export function updateUI(scene) {
+  updateCamera(scene);
+
   scene.hpBar
     .clear()
     .fillStyle(gameStyles.healthColor)
@@ -41,27 +43,27 @@ export function updateUI(scene) {
       scene.textScore.displayWidth -
       gameStyles.padding
   );
-
-  updateCamera(scene);
 }
 
 function updateCamera(scene){
   //player cannot move left after moving right
   let scroll = scene.cameras.main.scrollX;
-    if (scroll < scene.gameConfig.worldWidth - scene.game.config.width) {
-      scene.physics.world.setBounds(
-        scroll,
-        0,
-        scene.gameConfig.worldWidth - scroll,
-        scene.gameConfig.worldHeight
-      );
-      scene.cameras.main.setBounds(
-        scroll,
-        -1 * scene.gameConfig.worldOffset,
-        scene.gameConfig.worldWidth - scroll,
-        scene.gameConfig.worldHeight + scene.gameConfig.worldOffset
-      );
-    }
+  if (scroll < scene.gameConfig.worldWidth - scene.game.config.width) {
+    scene.physics.world.setBounds(
+      scroll,
+      0,
+      scene.gameConfig.worldWidth - scroll,
+      scene.gameConfig.worldHeight
+    );
+
+
+    scene.cameras.main.setBounds(
+      scroll,
+      -1 * scene.gameConfig.worldOffset,
+      scene.gameConfig.worldWidth - scroll,
+      scene.gameConfig.worldHeight + scene.gameConfig.worldOffset
+    );
+  }
 }
 
 function initSound(scene){
