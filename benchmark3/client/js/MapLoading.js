@@ -12,6 +12,7 @@ export function loadMap(scene, level) {
     
     setLevelProperties(scene, map);
     setCamera(scene, scene.gameConfig.gameMode);
+    setBackground(scene, scene.gameConfig.gameMode);
     sortMapObjects(scene, scene.gameConfig.gameMode);
 
     if(scene.gameConfig.gameMode == 'RUN'){
@@ -51,43 +52,64 @@ function setLevelProperties(scene, map){
     scene.gameConfig.oxygenDepletionRate = getPropertyValue(map, 'oxygenDepletionRate');
     scene.gameConfig.oxygenReplenishDelay = getPropertyValue(map, 'oxygenReplenishDelay') || gameConfig.oxygenReplenishDelay;
     scene.gameConfig.oxygenReplenishRate = getPropertyValue(map, 'oxygenReplenishRate') || gameConfig.oxygenDepletionRate;
-
-    scene.physics.world.setBounds(
-      0,
-      0,
-      scene.gameConfig.worldWidth,
-      scene.gameConfig.worldHeight
-    );
-    scene.cameras.main.setBounds(
-      0,
-      0,
-      scene.gameConfig.worldWidth - scene.gameConfig.worldOffsetX,
-      scene.gameConfig.worldHeight - 2 * scene.gameConfig.worldOffsetY
-    );
+    
 }
 
 function setCamera(scene, mode){
-
   if(mode == 'RUN'){
     scene.cameras.main.startFollow(scene.player);
     scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
     scene.cameras.main.setBounds(
       0,
-      -1 * scene.gameConfig.worldOffsetY, 
-      scene.gameConfig.worldWidth - scene.gameConfig.worldOffsetX,
-      scene.gameConfig.worldHeight - scene.gameConfig.worldOffsetY
+      0  - scene.gameConfig.worldOffsetY, 
+      scene.gameConfig.worldWidth,
+      scene.gameConfig.worldHeight + 2 * scene.gameConfig.worldOffsetY
     );
 
   }else if(mode == 'DEFEND'){
     scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
     scene.cameras.main.setBounds(
-      -1 * scene.gameConfig.worldOffsetX,
-      -1 * scene.gameConfig.worldOffsetY, 
-      scene.gameConfig.worldWidth,
+      0 - scene.gameConfig.worldOffsetX,
+      0 - scene.gameConfig.worldOffsetY, 
+      scene.gameConfig.worldWidth  - scene.gameConfig.worldOffsetX,
       scene.gameConfig.worldHeight + scene.gameConfig.worldOffsetY
     );
   }
-  
+}
+
+function setBackground(scene, mode){
+
+  if(mode == 'RUN'){
+    let bgWidth = (scene.gameMap.width * 16) * 1.2;
+    let bgHeight = scene.gameConfig.worldHeight;
+    scene.add
+      .tileSprite(
+        0,
+        0,
+        bgWidth,
+        bgHeight,
+        constants.SPACE_BACKGROUND
+      )
+      .setDisplayOrigin(0, 0)
+      .setScrollFactor(1 / 5, 1)
+      .setDepth(-1)
+      .setScale(1, 1);
+  }else if(mode == 'DEFEND'){
+    let bgWidth = scene.gameConfig.worldWidth;
+    let bgHeight = scene.gameConfig.worldHeight;
+    scene.add
+      .tileSprite(
+        0,
+        0,
+        bgWidth,
+        bgHeight,
+        constants.SPACE_BACKGROUND
+      )
+      .setDisplayOrigin(0, 0)
+      .setScrollFactor(1 / 5, 1)
+      .setDepth(-1)
+      .setScale(1, 1);
+  }
 }
 
 function setWaveArrays(scene){

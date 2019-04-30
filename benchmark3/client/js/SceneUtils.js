@@ -58,24 +58,24 @@ function updateCamera(scene) {
 
     scene.cameras.main.setBounds(
       scroll,
-      -1 * scene.gameConfig.worldOffsetY,
+      0 - scene.gameConfig.worldOffsetY,
       scene.gameConfig.worldWidth - scroll,
-      scene.gameConfig.worldHeight - 2 * scene.gameConfig.worldOffsetY
+      scene.gameConfig.worldHeight + 2 * scene.gameConfig.worldOffsetY
     );
   }
 }
 
 function initSound(scene) {
   scene.sound.stopAll();
-  scene.sound.add(constants[`LEVELMUSIC${currentLevel.level}`]);
-  scene.levelMusic = scene.sound.play(
-    constants[`LEVELMUSIC${currentLevel.level}`],
-    {
-      volume: 0.2,
-      loop: true,
-      delay: 1
-    }
-  );
+  // scene.sound.add(constants[`LEVELMUSIC${currentLevel.level}`]);
+  // scene.levelMusic = scene.sound.play(
+  //   constants[`LEVELMUSIC${currentLevel.level}`],
+  //   {
+  //     volume: 0.2,
+  //     loop: true,
+  //     delay: 1
+  //   }
+  // );
 
   scene.sound.add(constants.MENUSELECT);
   scene.sound.add(constants.MENUMOVE);
