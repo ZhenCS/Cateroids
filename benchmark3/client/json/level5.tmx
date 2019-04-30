@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="600" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1929">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="600" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1940">
  <properties>
   <property name="maxPlayerHealth" type="int" value="1000"/>
   <property name="maxPlayerOxygen" type="int" value="100"/>
@@ -182,6 +182,9 @@
   </data>
  </layer>
  <objectgroup id="2" name="Objects">
+  <properties>
+   <property name="spawnNumber" type="int" value="1"/>
+  </properties>
   <object id="1520" gid="25" x="38210" y="320" width="64" height="64"/>
   <object id="1523" gid="24" x="192" y="318" width="64" height="64"/>
   <object id="1524" gid="28" x="3906" y="320" width="64" height="64">
@@ -852,5 +855,16 @@
     <property name="dogTurret" value="here"/>
    </properties>
   </object>
+  <object id="1929" gid="4" x="35289.3" y="324" width="64" height="64"/>
+  <object id="1930" gid="4" x="32718.7" y="353.333" width="64" height="64"/>
+  <object id="1931" gid="4" x="30314.7" y="349.333" width="64" height="64"/>
+  <object id="1932" gid="4" x="27821.3" y="369.333" width="64" height="64"/>
+  <object id="1933" gid="4" x="25460" y="361.333" width="64" height="64"/>
+  <object id="1934" gid="4" x="23070.7" y="372" width="64" height="64"/>
+  <object id="1935" gid="4" x="20312" y="352" width="64" height="64"/>
+  <object id="1936" gid="4" x="17229.3" y="310.667" width="64" height="64"/>
+  <object id="1937" gid="4" x="12961.3" y="350.667" width="64" height="64"/>
+  <object id="1938" gid="4" x="10953.3" y="314.667" width="64" height="64"/>
+  <object id="1939" gid="4" x="37696" y="310" width="64" height="64"/>
  </objectgroup>
 </map>
