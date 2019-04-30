@@ -113,7 +113,9 @@ export const checkEnemyToBulletCollision = scene => {
           dog.damage(bullet.getData('damage'));
         }
 
-        if (bullet) {
+        console.log(bullet.type);
+
+        if (bullet && bullet.type !== 'strongLaser') {
           bullet.destroy();
         }
       }

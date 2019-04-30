@@ -33,10 +33,7 @@ export class LoadScene extends Phaser.Scene {
       this
     );
 
-    this.load.image(
-      constants.SPACE_BACKGROUND,
-      'assets/bg2.png'
-    );
+    this.load.image(constants.SPACE_BACKGROUND, 'assets/bg2.png');
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
 
@@ -53,6 +50,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.image(constants.LIFEICON, 'assets/iconLife.png');
     this.load.image(constants.PIXELKEY, 'assets/pixel.png');
     this.load.image(constants.BULLETKEY, 'assets/bullet.png');
+    this.load.image(constants.BOSSBEAMKEY, 'assets/bossBeam.png');
 
     this.load.image(constants.CONTROLS1KEY, 'assets/controls1.png');
     this.load.image(constants.LEVELICON, 'assets/levelicon.png');
