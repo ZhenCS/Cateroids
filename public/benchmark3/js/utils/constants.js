@@ -79,10 +79,10 @@ export const DYINGAUDIO = 'dying';
 export const BOOSTAUDIO = 'boost';
 export const LEVELMUSIC1 = 'music1';
 export const LEVELMUSIC2 = 'music2';
-export const LEVELMUSIC3 = 'music3';
-export const LEVELMUSIC4 = 'music4';
-export const LEVELMUSIC5 = 'music5';
-export const LEVELMUSIC6 = 'music6';
+export const LEVELMUSIC3 = 'music2';
+export const LEVELMUSIC4 = 'music2';
+export const LEVELMUSIC5 = 'music2';
+export const LEVELMUSIC6 = 'music2';
 
 export const SPACE_BACKGROUND = 'spaceBackground';
 

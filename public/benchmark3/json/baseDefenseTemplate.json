@@ -107,8 +107,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":956,
-                 "y":212
+                 "x":946,
+                 "y":272
                 }, 
                 {
                  "gid":8,
@@ -155,8 +155,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":576,
-                 "y":64
+                 "x":566,
+                 "y":124
                 }, 
                 {
                  "gid":8,
@@ -203,8 +203,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":278,
-                 "y":108
+                 "x":268,
+                 "y":168
                 }, 
                 {
                  "gid":8,
@@ -251,8 +251,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":372,
-                 "y":74
+                 "x":362,
+                 "y":134
                 }, 
                 {
                  "gid":8,
@@ -299,8 +299,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":802,
-                 "y":92
+                 "x":792,
+                 "y":152
                 }, 
                 {
                  "gid":8,
@@ -347,8 +347,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":890,
-                 "y":132
+                 "x":880,
+                 "y":192
                 }, 
                 {
                  "gid":8,
@@ -395,8 +395,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":214,
-                 "y":202
+                 "x":204,
+                 "y":262
                 }, 
                 {
                  "gid":8,
@@ -443,8 +443,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":466,
-                 "y":70
+                 "x":456,
+                 "y":130
                 }, 
                 {
                  "gid":8,
@@ -491,8 +491,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":698,
-                 "y":64
+                 "x":688,
+                 "y":124
                 }, 
                 {
                  "gid":7,
@@ -539,8 +539,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":400,
-                 "y":154
+                 "x":390,
+                 "y":214
                 }, 
                 {
                  "gid":7,
@@ -587,8 +587,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":566,
-                 "y":110
+                 "x":556,
+                 "y":170
                 }, 
                 {
                  "gid":7,
@@ -640,8 +640,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":730,
-                 "y":152
+                 "x":720,
+                 "y":212
                 }, 
                 {
                  "gid":6,
@@ -688,8 +688,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":84,
-                 "y":200
+                 "x":74,
+                 "y":260
                 }, 
                 {
                  "gid":6,
@@ -736,8 +736,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":198,
-                 "y":90
+                 "x":188,
+                 "y":150
                 }, 
                 {
                  "gid":6,
@@ -784,8 +784,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":954,
-                 "y":94
+                 "x":944,
+                 "y":154
                 }, 
                 {
                  "gid":6,
@@ -832,8 +832,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":1086,
-                 "y":212
+                 "x":1076,
+                 "y":272
                 }, 
                 {
                  "gid":4,
@@ -875,8 +875,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":570,
-                 "y":210
+                 "x":560,
+                 "y":270
                 }, 
                 {
                  "gid":8,
@@ -923,8 +923,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":632,
-                 "y":354
+                 "x":622,
+                 "y":414
                 }, 
                 {
                  "gid":8,
@@ -971,8 +971,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":742,
-                 "y":354
+                 "x":732,
+                 "y":414
                 }, 
                 {
                  "gid":8,
@@ -1019,8 +1019,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":858,
-                 "y":352
+                 "x":848,
+                 "y":412
                 }, 
                 {
                  "gid":8,
@@ -1067,8 +1067,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":536,
-                 "y":348
+                 "x":526,
+                 "y":408
                 }, 
                 {
                  "gid":8,
@@ -1115,8 +1115,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":428,
-                 "y":346
+                 "x":418,
+                 "y":406
                 }, 
                 {
                  "gid":8,
@@ -1163,8 +1163,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":308,
-                 "y":342
+                 "x":298,
+                 "y":402
                 }, 
                 {
                  "gid":7,
@@ -1211,8 +1211,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":692,
-                 "y":258
+                 "x":682,
+                 "y":318
                 }, 
                 {
                  "gid":7,
@@ -1259,8 +1259,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":422,
-                 "y":252
+                 "x":412,
+                 "y":312
                 }, 
                 {
                  "gid":7,
@@ -1307,8 +1307,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":208,
-                 "y":118
+                 "x":198,
+                 "y":178
                 }, 
                 {
                  "gid":7,
@@ -1355,8 +1355,8 @@
                  "type":"dog",
                  "visible":true,
                  "width":64,
-                 "x":964,
-                 "y":128
+                 "x":954,
+                 "y":188
                 }, 
                 {
                  "gid":6,
@@ -1682,6 +1682,11 @@
                          "name":"laserDuration",
                          "type":"int",
                          "value":2500
+                        }, 
+                        {
+                         "name":"laserFireDelay",
+                         "type":"int",
+                         "value":1500
                         }, 
                         {
                          "name":"laserSprites",

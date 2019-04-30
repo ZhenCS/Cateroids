@@ -4,8 +4,8 @@ import { Asteroid, Dog, Laser} from './Entities.js';
 
 export function loadMap(scene, level) {
     const map = scene.make.tilemap(level);
-    // const tiles1 = map.addTilesetImage('CateroidsTileset2', 'tiles2');
-    // map.createStaticLayer('testLayer', tiles1, 0, 0);
+    //const tiles1 = map.addTilesetImage('CateroidsTileset2', 'tiles2');
+    //map.createStaticLayer('testLayer', tiles1, 0, 0);
 
     scene.gameMap = map;
     scene.mapObjects = map.getObjectLayer('Objects').objects;
@@ -18,7 +18,6 @@ export function loadMap(scene, level) {
     if(scene.gameConfig.gameMode == 'RUN'){
       setPlayerSpawn(scene);
       setEndPoint(scene);
-      loadMapObjectsRUN(scene);
     }else if(scene.gameConfig.gameMode == 'DEFEND'){
       scene.waveNumber = 1;
       scene.waveObjects = new Array();
@@ -56,29 +55,24 @@ function setLevelProperties(scene, map){
 }
 
 function setCamera(scene, mode){
-  if(mode == 'RUN'){
-    scene.cameras.main.startFollow(scene.player);
-    scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
-    scene.cameras.main.setBounds(
-      0,
-      0  - scene.gameConfig.worldOffsetY, 
-      scene.gameConfig.worldWidth,
-      scene.gameConfig.worldHeight + 2 * scene.gameConfig.worldOffsetY
-    );
+  let sceneConfig = scene.gameConfig;
+  scene.cameras.main.startFollow(scene.player);
+  scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
+  
+  //positive means window is larger than map size
+  let offsetY = sceneConfig.worldOffsetY;
+  if(offsetY < 0) offsetY = 0;
+  
+  scene.cameras.main.setBounds(
+    0,
+    0 - offsetY, 
+    sceneConfig.worldWidth,
+    sceneConfig.worldHeight + 2 * offsetY
+  );
 
-  }else if(mode == 'DEFEND'){
-    scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
-    scene.cameras.main.setBounds(
-      0 - scene.gameConfig.worldOffsetX,
-      0 - scene.gameConfig.worldOffsetY, 
-      scene.gameConfig.worldWidth  + scene.gameConfig.worldOffsetX,
-      scene.gameConfig.worldHeight + scene.gameConfig.worldOffsetY
-    );
-  }
 }
 
 function setBackground(scene, mode){
-
   if(mode == 'RUN'){
     let bgWidth = (scene.gameMap.width * 16) * 1.2;
     let bgHeight = scene.gameConfig.worldHeight;
@@ -95,11 +89,11 @@ function setBackground(scene, mode){
       .setDepth(-1)
       .setScale(1, 1);
   }else if(mode == 'DEFEND'){
-    let bgWidth = scene.gameConfig.worldWidth + 3 *  scene.gameConfig.worldOffsetX;
+    let bgWidth = scene.gameConfig.worldWidth;
     let bgHeight = scene.gameConfig.worldHeight;
     scene.add
       .tileSprite(
-        0 - scene.gameConfig.worldOffsetX,
+        0,
         0,
         bgWidth,
         bgHeight,

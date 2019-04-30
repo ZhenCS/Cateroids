@@ -123,7 +123,9 @@ export class Dog extends Entity {
     this.setData('health', health);
     this.setData('damage', damage);
     this.setData('fireRate', fireRate);
-    this.play(constants.dogAnimationKeys[`DOG${level}IDLEKEY`]);
+    let animKey = constants.dogAnimationKeys[`DOG${level}IDLEKEY`];
+    if(animKey) this.play(animKey);
+
     let self = this;
     if (level == 1) {
       this.setScale(0.4, 0.4);
@@ -543,9 +545,9 @@ export class Leo extends Entity {
       this.setData('oxygenAsteroid', null);
     } else if (
       this.y >
-      this.scene.game.config.height - this.displayHeight / 2
+      this.scene.gameConfig.worldHeight - this.displayHeight / 2
     ) {
-      this.y = this.scene.game.config.height - this.displayHeight / 2;
+      this.y = this.scene.gameConfig.worldHeight - this.displayHeight / 2;
       this.setData('oxygenAsteroid', null);
     }
     let camera = this.scene.cameras.main;
@@ -554,10 +556,10 @@ export class Leo extends Entity {
       this.setData('oxygenAsteroid', null);
     } else if (
       this.x >
-      camera.scrollX + this.scene.game.config.width - this.displayWidth / 2
+      camera.scrollX + this.scene.gameConfig.worldWidth - this.displayWidth / 2
     ) {
       this.x =
-        camera.scrollX + this.scene.game.config.width - this.displayWidth / 2;
+        camera.scrollX + this.scene.gameConfig.worldWidth- this.displayWidth / 2;
       this.setData('oxygenAsteroid', null);
     }
   }

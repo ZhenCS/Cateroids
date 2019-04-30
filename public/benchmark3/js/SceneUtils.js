@@ -13,7 +13,7 @@ export function initScene(scene, mode) {
 }
 
 export function updateUI(scene, mode) {
-  updateCamera(scene);
+  updateCamera(scene, mode);
 
   if(mode == 'DEFEND'){
     scene.baseBar
@@ -62,23 +62,24 @@ export function updateUI(scene, mode) {
   );
 }
 
-function updateCamera(scene) {
+function updateCamera(scene, mode) {
   //player cannot move left after moving right
   let scroll = scene.cameras.main.scrollX;
   if (scroll < scene.gameConfig.worldWidth - scene.game.config.width) {
-    scene.physics.world.setBounds(
-      scroll,
-      0,
-      scene.gameConfig.worldWidth - scroll,
-      scene.gameConfig.worldHeight
-    );
+    scene.physics.world.setBounds(scroll, 0, scene.gameConfig.worldWidth - scroll, scene.gameConfig.worldHeight);
 
-    scene.cameras.main.setBounds(
-      scroll,
-      0 - scene.gameConfig.worldOffsetY,
-      scene.gameConfig.worldWidth - scroll,
-      scene.gameConfig.worldHeight + 2 * scene.gameConfig.worldOffsetY
-    );
+    if(mode == 'RUN'){
+      let sceneConfig = scene.gameConfig;
+      let offsetY = sceneConfig.worldOffsetY;
+      if(offsetY < 0){ offsetY = 0;}
+      
+      scene.cameras.main.setBounds(
+        scroll,
+        0 - offsetY, 
+        sceneConfig.worldWidth - scroll,
+        sceneConfig.worldHeight + 2 * offsetY
+      );
+    }
   }
 }
 
@@ -288,7 +289,6 @@ function initAnimations(scene) {
       animCounter++;
     });
   });
-
   scene.player.play(constants.IDLEKEY);
 }
 
