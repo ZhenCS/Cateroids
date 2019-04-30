@@ -1,4 +1,4 @@
-import * as constants from '../../shared/constants.js';
+import * as constants from './utils/constants.js';
 import * as AI from './AI.js';
 
 class Entity extends Phaser.GameObjects.Sprite {

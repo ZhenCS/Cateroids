@@ -1,4 +1,4 @@
-import * as constants from '../../shared/constants.js';
+import * as constants from './utils/constants.js';
 import * as collisions from './Collisions.js';
 import { Asteroid, Dog, Laser } from './Entities.js';
 import { centerX } from './utils/utils.js';
@@ -84,15 +84,15 @@ function updateCamera(scene) {
 
 function initSound(scene) {
   scene.sound.stopAll();
-  // scene.sound.add(constants[`LEVELMUSIC${currentLevel.level}`]);
-  // scene.levelMusic = scene.sound.play(
-  //   constants[`LEVELMUSIC${currentLevel.level}`],
-  //   {
-  //     volume: 0.2,
-  //     loop: true,
-  //     delay: 1
-  //   }
-  // );
+  scene.sound.add(constants[`LEVELMUSIC${currentLevel.level}`]);
+  scene.levelMusic = scene.sound.play(
+    constants[`LEVELMUSIC${currentLevel.level}`],
+    {
+      volume: 0.2,
+      loop: true,
+      delay: 1
+    }
+  );
 
   scene.sound.add(constants.MENUSELECT);
   scene.sound.add(constants.MENUMOVE);

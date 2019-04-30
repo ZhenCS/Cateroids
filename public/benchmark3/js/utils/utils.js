@@ -1,4 +1,4 @@
-import * as constants from '../../../shared/constants.js';
+import * as constants from './constants.js';
 
 export function setBG(scene) {
   let gameWidth = scene.sys.game.config.width;

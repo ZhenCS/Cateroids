@@ -1,4 +1,4 @@
-import * as constants from '../../../shared/constants.js';
+import * as constants from '../utils/constants.js';
 
 export class LoadScene extends Phaser.Scene {
   constructor() {
@@ -109,12 +109,12 @@ export class LoadScene extends Phaser.Scene {
     this.loadAudio(constants.DYINGAUDIO, 'Dying.wav');
     this.loadAudio(constants.BOOSTAUDIO, 'Boost.wav');
 
-    // this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
-    // this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
-    // this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
-    // this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
-    // this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
-    // this.loadMusic(constants.LEVELMUSIC6, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
+    this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC6, 'levelMusic2.mp3');
   }
 
   loadMusic(key, fileName) {

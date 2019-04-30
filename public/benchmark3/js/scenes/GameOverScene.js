@@ -1,4 +1,4 @@
-import * as constants from '../../../shared/constants.js';
+import * as constants from '../utils/constants.js';
 import { centerX } from '../utils/utils.js';
 
 export class GameOverScene extends Phaser.Scene {

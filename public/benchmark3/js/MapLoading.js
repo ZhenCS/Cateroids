@@ -1,4 +1,4 @@
-import * as constants from '../../shared/constants.js';
+import * as constants from './utils/constants.js';
 import { getPropertyValue, centerX} from './utils/utils.js';
 import { Asteroid, Dog, Laser} from './Entities.js';
 

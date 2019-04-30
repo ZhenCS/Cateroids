@@ -1,4 +1,4 @@
-import * as constants from '../../../shared/constants.js';
+import * as constants from '../utils/constants.js';
 import { Leo } from '../Entities.js';
 import * as culling from '../FrustumCulling.js';
 import * as mapLoading from '../MapLoading.js';

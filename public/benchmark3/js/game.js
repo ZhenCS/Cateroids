@@ -1,4 +1,4 @@
-import * as constants from '../../shared/constants.js';
+import * as constants from './utils/constants.js';
 import { LoadScene } from './scenes/LoadScene.js';
 import { SplashScene } from './scenes/SplashScene.js';
 import { StartMenuScene } from './scenes/StartMenuScene.js';

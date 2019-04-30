@@ -1,9 +1,9 @@
-import * as constants from '../../../shared/constants.js';
+import * as constants from '../utils/constants.js';
 import { setBG, setGameName, centerX, setBackButton } from '../utils/utils.js';
 
-export class StartMenuScene extends Phaser.Scene {
+export class CheatMenuScene extends Phaser.Scene {
   constructor() {
-    super({ key: constants.STARTMENUKEY });
+    super({ key: 'cm' });
   }
 
   create() {
@@ -12,62 +12,35 @@ export class StartMenuScene extends Phaser.Scene {
     setBG(this);
     setGameName(this);
 
-    this.gameStart = this.createButton(
+    this.invulnerability = this.createButton(
+      gameHeight / 2 + 0 * gameScale.scale,
+      'Enable Invulnerability'
+    );
+
+    this.changeLevel = this.createButton(
       gameHeight / 2 + 150 * gameScale.scale,
-      'Start Game'
-    );
-    this.levelSelect = this.createButton(
-      gameHeight / 2 + 300 * gameScale.scale,
-      'Level Select'
-    );
-    this.controls = this.createButton(
-      gameHeight / 2 + 450 * gameScale.scale,
-      'Controls'
-    );
-    this.help = this.createButton(
-      gameHeight / 2 + 600 * gameScale.scale,
-      'Help'
+      'Change Level'
     );
 
+    this.invulnerability.on('pointerdown', function() {
+      const isInvulernable = cheats.invulnerable;
+      if (isInvulernable) {
+        this.setStyle({ fill: '#ffffff' });
+      } else {
+        this.setStyle({ fill: '#0f0' });
+      }
+
+      cheats.invulnerable = !cheats.invulnerable;
+    });
+    
+    this.changeLevel.on('pointerdown', function() {
+      this.scene.game.scene.moveAbove(constants.GAMEKEY, constants.LEVELSKEY);
+      fromCheatMenu = true;
+      this.scene.game.scene.switch(constants.CHEATKEY, constants.LEVELSKEY);
+    });
+
+    setBackButton(this, constants.CHEATKEY, constants.PAUSEKEY);
     this.initControls();
-
-    const menuSelectSound = this.sound.add(constants.MENUSELECT);
-    const menuHoverSound = this.sound.add(constants.MENUMOVE);
-    menuSelectSound.setVolume(0.5);
-    menuHoverSound.setVolume(0.2);
-
-    this.gameStart.on('pointerover', function() {
-      menuHoverSound.play();
-    });
-    this.levelSelect.on('pointerover', function() {
-      menuHoverSound.play();
-    });
-    this.controls.on('pointerover', function() {
-      menuHoverSound.play();
-    });
-    this.help.on('pointerover', function() {
-      menuHoverSound.play();
-    });
-
-    this.gameStart.on('pointerdown', function() {
-      currentLevel.level = 1;
-      currentLevel.key = 'level1';
-
-      this.scene.game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
-      menuSelectSound.play();
-    });
-    this.levelSelect.on('pointerdown', function() {
-      this.scene.game.scene.switch(constants.STARTMENUKEY, constants.LEVELSKEY);
-      menuSelectSound.play();
-    });
-    this.controls.on('pointerdown', function() {
-      this.scene.showControls();
-      menuSelectSound.play();
-    });
-    this.help.on('pointerdown', function() {
-      this.scene.game.scene.start(constants.HELPKEY);
-      menuSelectSound.play();
-    });
   }
 
   createButton(yPosition, text) {
@@ -120,6 +93,7 @@ export class StartMenuScene extends Phaser.Scene {
     this.levelSelect.removeInteractive().visible = false;
     this.controls.removeInteractive().visible = false;
     this.help.removeInteractive().visible = false;
+    this.cheats.removeInteractive().visible = false;
   }
 
   hideControls() {
@@ -129,5 +103,6 @@ export class StartMenuScene extends Phaser.Scene {
     this.levelSelect.setInteractive().visible = true;
     this.controls.setInteractive().visible = true;
     this.help.setInteractive().visible = true;
+    this.cheats.removeInteractive().visible = true;
   }
 }

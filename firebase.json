@@ -27,8 +27,8 @@
         "destination": "/benchmark2/index.html"
       },
       {
-        "source": "/serverTest{, /**}",
-        "destination": "/serverTest/server/public/index.html"
+        "source": "/benchmark3{, /**}",
+        "destination": "/benchmark3/index.html"
       }
     ]
   }

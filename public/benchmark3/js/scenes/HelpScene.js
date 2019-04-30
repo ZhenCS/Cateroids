@@ -1,4 +1,4 @@
-import * as constants from '../../../shared/constants.js';
+import * as constants from '../utils/constants.js';
 import {setBG, centerX, setBackButton} from '../utils/utils.js';
 
 export class HelpScene extends Phaser.Scene {

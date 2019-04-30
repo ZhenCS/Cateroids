@@ -1,4 +1,4 @@
-import * as constants from '../../shared/constants.js';
+import * as constants from './utils/constants.js';
 import { Asteroid, Dog, Laser, Leo } from './Entities.js';
 
 export const checkPlayerToAsteroidCollision = scene => {

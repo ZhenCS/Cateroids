@@ -1,4 +1,4 @@
-import * as constants from '../../shared/constants.js';
+import * as constants from './utils/constants.js';
 
 export function setAI(self, functions){
     self.shootTimer = self.scene.time.addEvent({
