@@ -58,9 +58,9 @@ function updateCamera(scene) {
 
     scene.cameras.main.setBounds(
       scroll,
-      -1 * scene.gameConfig.worldOffset,
+      0,
       scene.gameConfig.worldWidth - scroll,
-      scene.gameConfig.worldHeight + scene.gameConfig.worldOffset
+      scene.gameConfig.worldHeight - 2 * scene.gameConfig.worldOffsetY
     );
   }
 }

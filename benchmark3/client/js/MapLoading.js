@@ -60,9 +60,9 @@ function setLevelProperties(scene, map){
     );
     scene.cameras.main.setBounds(
       0,
-      -1 * scene.gameConfig.worldOffset,
-      scene.gameConfig.worldWidth,
-      scene.gameConfig.worldHeight * scene.gameConfig.worldOffset
+      0,
+      scene.gameConfig.worldWidth - scene.gameConfig.worldOffsetX,
+      scene.gameConfig.worldHeight - 2 * scene.gameConfig.worldOffsetY
     );
 }
 
@@ -72,10 +72,10 @@ function setCamera(scene, mode){
     scene.cameras.main.startFollow(scene.player);
     scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
     scene.cameras.main.setBounds(
-      -30,
-      -1 * scene.gameConfig.worldOffsetY, 
-      scene.gameConfig.worldWidth,
-      scene.gameConfig.worldHeight + scene.gameConfig.worldOffsetY
+      0,
+      0, 
+      scene.gameConfig.worldWidth - scene.gameConfig.worldOffsetX,
+      scene.gameConfig.worldHeight - scene.gameConfig.worldOffsetY
     );
 
   }else if(mode == 'DEFEND'){

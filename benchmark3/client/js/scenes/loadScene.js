@@ -32,7 +32,8 @@ export class LoadScene extends Phaser.Scene {
       },
       this
     );
-
+    
+    this.load.image(constants.SPACE_BACKGROUND, 'assets/cateroidsSpaceBackground.png');
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
 
