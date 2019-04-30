@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.3" name="CateroidsTileset2" tilewidth="64" tileheight="64" tilecount="10" columns="5">
- <image source="../assets/CateroidsTileset2.png" width="320" height="128"/>
+<tileset version="1.2" tiledversion="1.2.3" name="CateroidsTileset2" tilewidth="64" tileheight="64" tilecount="15" columns="5">
+ <image source="../assets/CateroidsTileset2.png" width="320" height="192"/>
  <tile id="0" type="asteroid">
   <properties>
    <property name="damage" type="float" value="20"/>
    <property name="health" type="float" value="40"/>
    <property name="level" type="int" value="0"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="float" value="0"/>
    <property name="velocityY" type="float" value="0"/>
   </properties>
@@ -15,6 +16,7 @@
    <property name="damage" type="float" value="15"/>
    <property name="health" type="float" value="20"/>
    <property name="level" type="int" value="1"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="float" value="0"/>
    <property name="velocityY" type="float" value="0"/>
   </properties>
@@ -24,6 +26,7 @@
    <property name="damage" type="float" value="10"/>
    <property name="health" type="float" value="10"/>
    <property name="level" type="int" value="2"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="float" value="0"/>
    <property name="velocityY" type="float" value="0"/>
   </properties>
@@ -33,8 +36,7 @@
    <property name="damage" type="float" value="500"/>
    <property name="health" type="float" value="300"/>
    <property name="level" type="int" value="3"/>
-   <property name="oxygenReplenishDelay" type="int" value="50"/>
-   <property name="oxygenReplenishRate" type="float" value="0.15"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="int" value="0"/>
    <property name="velocityY" type="int" value="0"/>
   </properties>
@@ -47,6 +49,7 @@
    <property name="laserSprites" type="int" value="50"/>
    <property name="playerDeltaX" type="float" value="200"/>
    <property name="scale" type="float" value="4"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="type" value="VERTICAL"/>
   </properties>
  </tile>
@@ -56,6 +59,7 @@
    <property name="fireRate" type="float" value="1500"/>
    <property name="health" type="float" value="80"/>
    <property name="level" type="int" value="3"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="float" value="0"/>
    <property name="velocityY" type="float" value="0"/>
   </properties>
@@ -66,6 +70,7 @@
    <property name="fireRate" type="float" value="1000"/>
    <property name="health" type="float" value="60"/>
    <property name="level" type="int" value="2"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="float" value="0"/>
    <property name="velocityY" type="float" value="0"/>
   </properties>
@@ -76,10 +81,27 @@
    <property name="fireRate" type="float" value="800"/>
    <property name="health" type="float" value="30"/>
    <property name="level" type="int" value="1"/>
+   <property name="spawnNumber" type="int" value="0"/>
    <property name="velocityX" type="float" value="0"/>
    <property name="velocityY" type="float" value="0"/>
   </properties>
  </tile>
- <tile id="8" type="spawnPoint"/>
- <tile id="9" type="endPoint"/>
+ <tile id="8" type="spawnPoint">
+  <properties>
+   <property name="spawnNumber" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="9" type="endPoint">
+  <properties>
+   <property name="spawnNumber" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="10" type="text">
+  <properties>
+   <property name="hideOnDeltaX" type="float" value="0"/>
+   <property name="showOnDeltaX" type="float" value="0"/>
+   <property name="spawnNumber" type="int" value="0"/>
+   <property name="text" value="placeholder text"/>
+  </properties>
+ </tile>
 </tileset>
