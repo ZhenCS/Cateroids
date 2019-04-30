@@ -209,7 +209,8 @@ export class Laser extends Entity {
     delay,
     duration,
     sprites,
-    deltaX
+    deltaX,
+    fireDelay
   ) {
     super(scene, x, y, constants.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
@@ -220,15 +221,18 @@ export class Laser extends Entity {
     let laserSprites = sceneConfig.laserSprites;
     let laserDamage = sceneConfig.laserDamage;
     let laserDeltaX = 0;
+    let laserFireDelay = sceneConfig.laserFireDelay;
 
-    if (typeof damage != 'undefined') laserDamage = damage;
-    if (typeof delay != 'undefined') laserDelay = delay;
-    if (typeof duration != 'undefined') laserDuration = duration;
-    if (typeof sprites != 'undefined') laserSprites = sprites;
-    if (typeof deltaX != 'undefined') laserDeltaX = deltaX;
+    if (damage && typeof damage != 'undefined') laserDamage = damage;
+    if (delay && typeof delay != 'undefined') laserDelay = delay;
+    if (duration && typeof duration != 'undefined') laserDuration = duration;
+    if (sprites && typeof sprites != 'undefined') laserSprites = sprites;
+    if (deltaX && typeof deltaX != 'undefined') laserDeltaX = deltaX;
+    if (fireDelay && typeof fireDelay != 'undefined') laserFireDelay = fireDelay;
 
     this.setData('damage', laserDamage);
     this.setData('deltaX', laserDeltaX);
+    this.setData('fireDelay', laserFireDelay);
     this.setData('fired', false);
 
     if (!angle) this.setData('angle', this.randomAngle());
@@ -239,7 +243,7 @@ export class Laser extends Entity {
     let pointx = this.scene.game.config.width * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
-    this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
+    this.path = new Phaser.Curves.Path(x - pointx * 2, y - pointy);
     this.path.lineTo(x + pointx, y + pointy);
 
     for (var i = 0; i < this.segments.length; i++) {
@@ -309,7 +313,7 @@ export class Laser extends Entity {
     this.scene.sound.play(constants.RAYSTARTUP, { volume: 0.4 });
 
     this.scene.time.addEvent({
-      delay: 1500,
+      delay: this.getData('fireDelay'),
       callback: function() {
         this.alertLine.clear();
         this.alert.pause();

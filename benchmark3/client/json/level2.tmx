@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="600" height="13" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="4875">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="600" height="13" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="4892">
  <properties>
   <property name="maxPlayerHealth" type="int" value="1000"/>
   <property name="maxPlayerOxygen" type="int" value="100"/>
@@ -3835,7 +3835,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1478" gid="5" x="4992" y="448" width="64" height="64">
+  <object id="1478" gid="5" x="4992" y="458" width="64" height="64">
    <properties>
     <property name="laserDuration" type="int" value="2000"/>
     <property name="spawnNumber" value="1"/>
@@ -3861,7 +3861,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1483" gid="5" x="6344" y="418" width="64" height="64">
+  <object id="1483" gid="5" x="6340" y="430" width="64" height="64">
    <properties>
     <property name="laserDuration" type="int" value="2000"/>
     <property name="spawnNumber" value="1"/>
@@ -3893,7 +3893,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1488" gid="5" x="7232" y="736" width="64" height="64">
+  <object id="1488" gid="5" x="7234" y="734" width="64" height="64">
    <properties>
     <property name="laserDuration" type="int" value="2000"/>
     <property name="spawnNumber" value="1"/>
@@ -4219,7 +4219,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1542" gid="5" x="8246" y="180.364" width="64" height="64">
+  <object id="1542" gid="5" x="8262" y="167.031" width="64" height="64">
    <properties>
     <property name="laserDuration" type="int" value="2000"/>
     <property name="spawnNumber" value="1"/>
@@ -6408,23 +6408,59 @@
   <object id="2153" gid="4" x="21824" y="448" width="64" height="64"/>
   <object id="2154" gid="4" x="22272" y="704" width="64" height="64"/>
   <object id="2155" gid="4" x="22656" y="448" width="64" height="64"/>
-  <object id="2157" gid="5" x="21824" y="384" width="64" height="64"/>
-  <object id="2158" gid="5" x="22656" y="384" width="64" height="64"/>
+  <object id="2157" gid="5" x="21824" y="384" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="2158" gid="5" x="22656" y="384" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
+   </properties>
+  </object>
   <object id="2160" gid="4" x="23104" y="256" width="64" height="64"/>
   <object id="2161" gid="4" x="23552" y="576" width="64" height="64"/>
   <object id="2162" gid="4" x="24000" y="704" width="64" height="64"/>
   <object id="2163" gid="4" x="24384" y="384" width="64" height="64"/>
-  <object id="2164" gid="5" x="23552" y="512" width="64" height="64"/>
-  <object id="2165" gid="5" x="24384" y="320" width="64" height="64"/>
+  <object id="2164" gid="5" x="23552" y="512" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="2165" gid="5" x="24384" y="320" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="900"/>
+   </properties>
+  </object>
   <object id="2166" gid="4" x="24768" y="704" width="64" height="64"/>
   <object id="2167" gid="4" x="25280" y="512" width="64" height="64"/>
   <object id="2168" gid="4" x="25728" y="448" width="64" height="64"/>
   <object id="2169" gid="4" x="26112" y="256" width="64" height="64"/>
-  <object id="2170" gid="5" x="25280" y="448" width="64" height="64"/>
-  <object id="2171" gid="5" x="26112" y="192" width="64" height="64"/>
-  <object id="2172" gid="5" x="24000" y="640" width="64" height="64"/>
-  <object id="2173" gid="5" x="24768" y="640" width="64" height="64"/>
-  <object id="2174" gid="5" x="25728" y="384" width="64" height="64"/>
+  <object id="2170" gid="5" x="25280" y="448" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="800"/>
+   </properties>
+  </object>
+  <object id="2171" gid="5" x="26112" y="192" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="700"/>
+   </properties>
+  </object>
+  <object id="2172" gid="5" x="24000" y="640" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="950"/>
+   </properties>
+  </object>
+  <object id="2173" gid="5" x="24768" y="640" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="850"/>
+   </properties>
+  </object>
+  <object id="2174" gid="5" x="25728" y="384" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="750"/>
+   </properties>
+  </object>
   <object id="3042" gid="1" x="27994.6" y="212.122" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="1"/>
@@ -8054,9 +8090,9 @@
   <object id="3379" gid="5" x="29266.9" y="423.94" width="64" height="64">
    <properties>
     <property name="laserDuration" type="int" value="2000"/>
+    <property name="laserFireDelay" type="int" value="1000"/>
     <property name="spawnNumber" value="1"/>
     <property name="type" value="HORIZONTAL"/>
-    <property name="velocityX" value="0"/>
    </properties>
   </object>
   <object id="3380" gid="4" x="29522.9" y="103.94" width="64" height="64">
@@ -8071,14 +8107,27 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="3384" gid="5" x="27200" y="384" width="64" height="64"/>
-  <object id="3385" gid="5" x="28160" y="64" width="64" height="64"/>
+  <object id="3384" gid="5" x="27200" y="384" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="3385" gid="5" x="28160" y="64" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
+   </properties>
+  </object>
   <object id="3388" gid="5" x="29712" y="97.0909" width="64" height="64">
    <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="3390" gid="5" x="29264" y="353.091" width="64" height="64"/>
+  <object id="3390" gid="5" x="29264" y="353.091" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="1000"/>
+   </properties>
+  </object>
   <object id="3391" gid="1" x="30445.3" y="277.818" width="64" height="64"/>
   <object id="3392" gid="1" x="30447.3" y="301.818" width="64" height="64"/>
   <object id="3393" gid="1" x="30446.3" y="333.818" width="64" height="64"/>
@@ -8158,75 +8207,31 @@
   <object id="3621" gid="2" x="31749.9" y="547.485" width="64" height="64"/>
   <object id="3622" gid="2" x="31784.6" y="518.151" width="64" height="64"/>
   <object id="4284" gid="4" x="30148" y="424" width="64" height="64"/>
-  <object id="4291" gid="5" x="31673.7" y="785.212" width="64" height="64">
+  <object id="4291" gid="5" x="31461.6" y="782.182" width="64" height="64">
    <properties>
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="4292" gid="5" x="32364.6" y="784.848" width="64" height="64">
+  <object id="4292" gid="5" x="32512" y="776.545" width="64" height="64">
    <properties>
-    <property name="playerDeltaX" type="float" value="900"/>
+    <property name="playerDeltaX" type="float" value="1250"/>
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="4293" gid="5" x="31674.7" y="136.667" width="64" height="64">
+  <object id="4293" gid="5" x="31462.6" y="133.637" width="64" height="64">
    <properties>
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="4294" gid="5" x="32365.6" y="136.303" width="64" height="64">
+  <object id="4294" gid="5" x="32513" y="128" width="64" height="64">
    <properties>
-    <property name="playerDeltaX" type="float" value="900"/>
+    <property name="playerDeltaX" type="float" value="1250"/>
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
   <object id="4295" gid="4" x="32034.7" y="432" width="64" height="64"/>
   <object id="4296" gid="4" x="35648" y="452" width="64" height="64"/>
   <object id="4297" gid="4" x="33824" y="456" width="64" height="64"/>
-  <object id="4298" gid="5" x="33478.6" y="132.182" width="64" height="64">
-   <properties>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4299" gid="5" x="34169.4" y="131.818" width="64" height="64">
-   <properties>
-    <property name="playerDeltaX" type="float" value="900"/>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4300" gid="5" x="33470.6" y="780.182" width="64" height="64">
-   <properties>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4301" gid="5" x="34161.4" y="779.818" width="64" height="64">
-   <properties>
-    <property name="playerDeltaX" type="float" value="900"/>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4302" gid="5" x="35314.6" y="148.182" width="64" height="64">
-   <properties>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4303" gid="5" x="36005.4" y="147.818" width="64" height="64">
-   <properties>
-    <property name="playerDeltaX" type="float" value="900"/>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4304" gid="5" x="35314.6" y="764.182" width="64" height="64">
-   <properties>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
-  <object id="4305" gid="5" x="36005.4" y="763.818" width="64" height="64">
-   <properties>
-    <property name="playerDeltaX" type="float" value="900"/>
-    <property name="type" value="HORIZONTAL"/>
-   </properties>
-  </object>
   <object id="4306" gid="4" x="32931.6" y="150.182" width="64" height="64"/>
   <object id="4307" gid="4" x="32943.8" y="768.364" width="64" height="64"/>
   <object id="4308" gid="4" x="34783.2" y="153.212" width="64" height="64"/>
@@ -8853,6 +8858,55 @@
   <object id="4874" gid="7" x="37084.7" y="439.697" width="64" height="64">
    <properties>
     <property name="velocityY" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="4883" gid="5" x="33314.3" y="779.091" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4884" gid="5" x="34364.7" y="773.454" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="1250"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4885" gid="5" x="33315.3" y="130.546" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4886" gid="5" x="34365.7" y="124.909" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="1250"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4887" gid="5" x="35233.2" y="779.939" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4888" gid="5" x="36283.6" y="774.302" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="1250"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4889" gid="5" x="35234.2" y="131.394" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4890" gid="5" x="36284.6" y="125.757" width="64" height="64">
+   <properties>
+    <property name="playerDeltaX" type="float" value="1250"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="4891" gid="5" x="37755.9" y="386.545" width="64" height="64">
+   <properties>
+    <property name="laserFireDelay" type="int" value="500"/>
    </properties>
   </object>
  </objectgroup>

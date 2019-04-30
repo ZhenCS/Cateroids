@@ -112,5 +112,6 @@ const gameConfig = {
   laserDuration: 2500,
   laserSprites: 50,
   laserDelay: 50,
-  laserSpawnRate: 8000
+  laserSpawnRate: 8000,
+  laserFireDelay: 1500
 };

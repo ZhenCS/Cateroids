@@ -183,10 +183,10 @@ function loadMapObjectsDEFEND(scene){
     callback: function() {
       if(scene.waveNumber >= scene.waveObjects.length){
         scene.endOfWaveCounter++;
-        if(scene.asteroids.getLength() == 0 && scene.dogs.getLength() == 0 || scene.endOfWaveCounter > 10){
+        if(scene.asteroids.getLength() == 0 && scene.dogs.getLength() == 0 || scene.endOfWaveCounter > 6){
           scene.waveTimer.paused = true;
           scene.time.addEvent({
-            delay: 1000,
+            delay: 5000,
             callback: function(){
               scene.endPointX = 0;
             },
@@ -339,6 +339,7 @@ function setLasers(scene, obj) {
     let deltaX = getPropertyValue(obj, 'playerDeltaX');
     let scale = getPropertyValue(obj, 'scale');
     let type = getPropertyValue(obj, 'type');
+    let fireDelay = getPropertyValue(obj, 'laserFireDelay');
 
     if (type == 'VERTICAL') {
       let laser = new Laser(
@@ -352,7 +353,8 @@ function setLasers(scene, obj) {
         delay,
         duration,
         sprites,
-        deltaX
+        deltaX,
+        fireDelay,
       );
       scene.lasers.add(laser);
     }else if(type == 'HORIZONTAL'){
@@ -367,7 +369,8 @@ function setLasers(scene, obj) {
         delay,
         duration,
         sprites,
-        deltaX
+        deltaX,
+        fireDelay
       );
       scene.lasers.add(laser);
     }else if(type = "ANGLE"){
@@ -383,7 +386,8 @@ function setLasers(scene, obj) {
         delay,
         duration,
         sprites,
-        deltaX
+        deltaX,
+        fireDelay
       );
       scene.lasers.add(laser);
     }

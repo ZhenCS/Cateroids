@@ -47,6 +47,7 @@
    <property name="laserDamage" type="float" value="1"/>
    <property name="laserDelay" type="int" value="50"/>
    <property name="laserDuration" type="int" value="2500"/>
+   <property name="laserFireDelay" type="int" value="1500"/>
    <property name="laserSprites" type="int" value="50"/>
    <property name="playerDeltaX" type="float" value="200"/>
    <property name="scale" type="float" value="4"/>
