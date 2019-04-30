@@ -233,7 +233,6 @@ export class Laser extends Entity {
 
     if (!angle) this.setData('angle', this.randomAngle());
     else this.setData('angle', angle);
-
     this.visible = false;
     this.segments = new Array(laserSprites);
 
@@ -447,7 +446,7 @@ export class Leo extends Entity {
 
     bullet.body.setVelocity(xVelocity * 1.5, yVelocity * 1.5);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.CATWEAPONAUDIO);
+    this.scene.sound.play(constants.CATWEAPONAUDIO, {volume: 0.1});
   }
 
   shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity) {

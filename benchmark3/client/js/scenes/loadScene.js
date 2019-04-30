@@ -32,15 +32,16 @@ export class LoadScene extends Phaser.Scene {
       },
       this
     );
-
+    
+    this.load.image(constants.SPACE_BACKGROUND, 'assets/cateroidsSpaceBackground.png');
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
 
     this.load.tilemapTiledJSON('level1', 'json/tutorial.json');
-    this.load.tilemapTiledJSON('level2', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level2', 'json/level2.json');
     this.load.tilemapTiledJSON('level3', 'json/baseDefenseTemplate.json');
     this.load.tilemapTiledJSON('level4', 'json/level4.json');
-    this.load.tilemapTiledJSON('level5', 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON('level5', 'json/level5.json');
     this.load.tilemapTiledJSON('level6', 'json/LevelTemplate.json');
 
     this.load.image(constants.LOGOKEY, 'assets/logo.png');
@@ -100,12 +101,12 @@ export class LoadScene extends Phaser.Scene {
     this.loadAudio(constants.WEIRDAUDIO2, 'Weird-Noise-2.wav');
     this.loadAudio(constants.WEIRDAUDIO3, 'Weird-Noise-3.wav');
 
-    //this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
-    //this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC6, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
+    this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC6, 'levelMusic2.mp3');
   }
 
   loadMusic(key, fileName) {

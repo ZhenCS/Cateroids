@@ -57,6 +57,7 @@ const gameConfig = {
   playerAccelerationY: 20,
   boost: 30,
   grappleSpeed: 1000,
+  playerFireRate: 100,
 
   //for asteroids and dogs
   maxVelocityX: 500,

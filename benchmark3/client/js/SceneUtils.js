@@ -5,10 +5,10 @@ import { Asteroid, Dog, Laser } from './Entities.js';
 export function initScene(scene) {
   initAnimations(scene);
   initUI(scene);
-  initControls(scene);
   initEvents(scene);
+  initControls(scene);
   initCollisions(scene);
-  //initSound(scene);
+  initSound(scene);
 }
 
 export function updateUI(scene) {
@@ -58,9 +58,9 @@ function updateCamera(scene) {
 
     scene.cameras.main.setBounds(
       scroll,
-      -1 * scene.gameConfig.worldOffset,
+      0,
       scene.gameConfig.worldWidth - scroll,
-      scene.gameConfig.worldHeight + scene.gameConfig.worldOffset
+      scene.gameConfig.worldHeight - 2 * scene.gameConfig.worldOffsetY
     );
   }
 }
@@ -393,6 +393,25 @@ function initControls(scene) {
   scene.input.on(
     'pointerdown',
     function(pointer) {
+      scene.playerShootTimer.paused = false;
+    },
+    scene
+  );
+
+  scene.input.on(
+    'pointerup',
+    function(pointer) {
+      scene.playerShootTimer.paused = true;
+    },
+    scene
+  );
+}
+
+function initEvents(scene) {
+  // Player Shooting
+  scene.playerShootTimer = scene.time.addEvent({
+    delay: scene.gameConfig.playerFireRate,
+    callback: function() {
       if (scene.player.active && !scene.gameOver) {
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
@@ -410,11 +429,10 @@ function initControls(scene) {
         }
       }
     },
-    scene
-  );
-}
+    callbackScope: scene,
+    loop: true
+  });
 
-function initEvents(scene) {
   // Oxygen Depletion
   scene.oxygenDepletionTimer = scene.time.addEvent({
     delay: scene.gameConfig.oxygenDepletionDelay,
@@ -477,6 +495,7 @@ function initEvents(scene) {
   scene.oxygenReplenishTimer.paused = true;
   scene.laserTimer.paused = true;
   scene.spawnTimer.paused = true;
+  scene.playerShootTimer.paused = true;
 }
 
 function initCollisions(scene) {
