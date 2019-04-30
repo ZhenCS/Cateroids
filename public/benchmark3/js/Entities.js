@@ -548,7 +548,7 @@ export class Leo extends Entity {
       this.scene.gameConfig.worldHeight - this.displayHeight / 2
     ) {
       this.y = this.scene.gameConfig.worldHeight - this.displayHeight / 2;
-      this.setData('oxygenAsteroid', null);
+      //this.setData('oxygenAsteroid', null);
     }
     let camera = this.scene.cameras.main;
     if (this.x < camera.scrollX + this.displayWidth / 2) {
@@ -559,7 +559,7 @@ export class Leo extends Entity {
       camera.scrollX + this.scene.gameConfig.worldWidth - this.displayWidth / 2
     ) {
       this.x =
-        camera.scrollX + this.scene.gameConfig.worldWidth- this.displayWidth / 2;
+        camera.scrollX + this.scene.gameConfig.worldWidth - this.displayWidth / 2;
       this.setData('oxygenAsteroid', null);
     }
   }

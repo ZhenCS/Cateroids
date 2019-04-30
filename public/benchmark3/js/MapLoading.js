@@ -58,15 +58,17 @@ function setCamera(scene, mode){
   let sceneConfig = scene.gameConfig;
   scene.cameras.main.startFollow(scene.player);
   scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
-  
+
   //positive means window is larger than map size
+  let offsetX = sceneConfig.worldOffsetX;
   let offsetY = sceneConfig.worldOffsetY;
+  if(offsetX < 0) offsetX = 0;
   if(offsetY < 0) offsetY = 0;
   
   scene.cameras.main.setBounds(
-    0,
+    0 - offsetX,
     0 - offsetY, 
-    sceneConfig.worldWidth,
+    sceneConfig.worldWidth + 2 * offsetX,
     sceneConfig.worldHeight + 2 * offsetY
   );
 
@@ -91,9 +93,12 @@ function setBackground(scene, mode){
   }else if(mode == 'DEFEND'){
     let bgWidth = scene.gameConfig.worldWidth;
     let bgHeight = scene.gameConfig.worldHeight;
+    let offsetX = scene.gameConfig.worldOffsetX;
+    if(offsetX < 0) offsetX = 0;
+
     scene.add
       .tileSprite(
-        0,
+        offsetX,
         0,
         bgWidth,
         bgHeight,
