@@ -100,12 +100,12 @@ export class LoadScene extends Phaser.Scene {
     this.loadAudio(constants.WEIRDAUDIO2, 'Weird-Noise-2.wav');
     this.loadAudio(constants.WEIRDAUDIO3, 'Weird-Noise-3.wav');
 
-    //this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
-    //this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
-    //this.loadMusic(constants.LEVELMUSIC6, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
+    this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC3, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC4, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC5, 'levelMusic2.mp3');
+    this.loadMusic(constants.LEVELMUSIC6, 'levelMusic2.mp3');
   }
 
   loadMusic(key, fileName) {

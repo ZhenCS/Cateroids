@@ -8,7 +8,7 @@ export function initScene(scene) {
   initControls(scene);
   initEvents(scene);
   initCollisions(scene);
-  //initSound(scene);
+  initSound(scene);
 }
 
 export function updateUI(scene) {
