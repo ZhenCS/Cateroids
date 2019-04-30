@@ -1,18 +1,35 @@
 import * as constants from '../../shared/constants.js';
 import * as collisions from './Collisions.js';
 import { Asteroid, Dog, Laser } from './Entities.js';
+import { centerX } from './utils/utils.js';
 
-export function initScene(scene) {
+export function initScene(scene, mode) {
   initAnimations(scene);
-  initUI(scene);
+  initUI(scene, mode);
   initEvents(scene);
   initControls(scene);
   initCollisions(scene);
   initSound(scene);
 }
 
-export function updateUI(scene) {
+export function updateUI(scene, mode) {
   updateCamera(scene);
+
+  if(mode == 'DEFEND'){
+    scene.baseBar
+      .clear()
+      .fillStyle(gameStyles.baseColor)
+      .setDepth(gameDepths.uiDepth);
+    scene.baseBar.fillRect(
+      gameStyles.padding,
+      scene.game.config.height - gameStyles.basePadding,
+      gameStyles.healthWidth *
+        (scene.baseAsteroid.getData('health') / scene.gameConfig.maxBaseHealth),
+      gameStyles.barHeight
+    );
+
+    //centerX(scene, scene.baseBar);
+  }
 
   scene.hpBar
     .clear()
@@ -275,10 +292,43 @@ function initAnimations(scene) {
   scene.player.play(constants.IDLEKEY);
 }
 
-function initUI(scene) {
+function initUI(scene, mode) {
   let uiContainer = scene.add.container();
   let gameHeight = scene.sys.game.config.height;
   let gameWidth = scene.sys.game.config.width;
+  
+  if(mode == 'DEFEND'){
+    let baseBG = scene.add
+    .graphics()
+    .fillStyle(gameStyles.barColor)
+    .setDepth(gameDepths.uiDepth);
+    scene.baseBar = scene.add
+      .graphics()
+      .fillStyle(gameStyles.baseColor)
+      .setDepth(gameDepths.uiDepth);
+
+
+    //centerX(scene, baseBG);
+    //centerX(scene, scene.baseBar);
+    baseBG.fillRect(
+      gameStyles.padding,
+      scene.game.config.height - gameStyles.basePadding,
+      gameStyles.healthWidth,
+      gameStyles.barHeight
+    ); 
+
+    scene.baseBar.fillRect(
+      gameStyles.padding,
+      scene.game.config.height - gameStyles.basePadding,
+      gameStyles.healthWidth,
+      gameStyles.barHeight
+    );
+
+    
+
+    uiContainer.add([baseBG, scene.baseBar]);
+  }
+  
   let hpBG = scene.add
     .graphics()
     .fillStyle(gameStyles.barColor)
@@ -356,6 +406,7 @@ function initUI(scene) {
     scene.pauseButton,
     scene.textScore
   ]);
+
   scene.uiContainer = uiContainer;
   scene.uiContainer.setScrollFactor(0);
 }

@@ -71,7 +71,7 @@ function setCamera(scene, mode){
     scene.cameras.main.setBounds(
       0 - scene.gameConfig.worldOffsetX,
       0 - scene.gameConfig.worldOffsetY, 
-      scene.gameConfig.worldWidth  - scene.gameConfig.worldOffsetX,
+      scene.gameConfig.worldWidth  + scene.gameConfig.worldOffsetX,
       scene.gameConfig.worldHeight + scene.gameConfig.worldOffsetY
     );
   }
@@ -95,11 +95,11 @@ function setBackground(scene, mode){
       .setDepth(-1)
       .setScale(1, 1);
   }else if(mode == 'DEFEND'){
-    let bgWidth = scene.gameConfig.worldWidth;
+    let bgWidth = scene.gameConfig.worldWidth + 3 *  scene.gameConfig.worldOffsetX;
     let bgHeight = scene.gameConfig.worldHeight;
     scene.add
       .tileSprite(
-        0,
+        0 - scene.gameConfig.worldOffsetX,
         0,
         bgWidth,
         bgHeight,
@@ -266,6 +266,8 @@ function setBase(scene, wave){
   let asteroid = new Asteroid(scene, obj.x, obj.y, constants[`ASTEROID${level}KEY`], 0, 0, health, damage);
   
   asteroid.setScale(15);
+  scene.baseAsteroid = asteroid;
+  scene.gameConfig.maxBaseHealth = health;
   scene.oxygenAsteroids.add(asteroid);
 }
 

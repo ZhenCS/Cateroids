@@ -31,14 +31,14 @@ export class SceneMain extends Phaser.Scene {
       this.game.config.height * 0.5
     );
 
-    //init player before calling these functions
-    sceneUtils.initScene(this);
     this.mapLoaded = false;
     let loadMap = true;
 
     if (loadMap) {
       mapLoading.loadMap(this, currentLevel);
+      sceneUtils.initScene(this, this.gameConfig.gameMode);
     } else {
+      sceneUtils.initScene(this);
       this.laserTimer.paused = false;
       this.spawnTimer.paused = false;
     }
@@ -49,7 +49,7 @@ export class SceneMain extends Phaser.Scene {
       this.player.update();
       this.movementCheck();
       this.frustumCulling();
-      sceneUtils.updateUI(this);
+      sceneUtils.updateUI(this, this.gameConfig.gameMode);
       this.fireLasers();
       this.showText();
       this.levelCheck();
@@ -78,7 +78,7 @@ export class SceneMain extends Phaser.Scene {
       this.play(constants.IDLEKEY);
     });
 
-    sceneUtils.updateUI(this);
+    sceneUtils.updateUI(this, this.gameConfig.gameMode);
   }
 
   addScore(amount) {
@@ -116,8 +116,26 @@ export class SceneMain extends Phaser.Scene {
       }
     });
   }
+  showGameOverMenu(){
+    this.player.play(constants.DYINGKEY);
+
+    this.time.addEvent({
+      delay: 2000,
+      callback: function() {
+        this.scene.pause(constants.GAMEKEY);
+        this.scene.start(constants.GAMEOVERKEY);
+        this.sound.stopAll();
+      },
+      callbackScope: this,
+      loop: false
+    });
+    
+  }
 
   levelCheck() {
+    if(this.gameOver)
+      this.showGameOverMenu();
+
     if (this.player.x >= this.endPointX) {
       currentLevel.level += 1;
       currentLevel.key = `level${currentLevel.level}`;
@@ -128,11 +146,16 @@ export class SceneMain extends Phaser.Scene {
         this.scene.restart();
       }
     }
+
+    if(this.gameConfig.gameMode == 'DEFEND'){
+      if(typeof this.baseAsteroid.getData('health') == 'undefined'){
+        this.gameOver = true;
+      }
+    }
   }
 
   movementCheck() {
     if (this.gameOver) return;
-    //console.log(`x ${this.player.x} y ${this.player.y}`);
     let moved = false;
     let boost = 0;
     // Check for boost

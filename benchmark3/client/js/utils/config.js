@@ -15,7 +15,9 @@ const gameStyles = {
   oxygenWidth: 600 * gameScale.scale,
   healthColor: 0xff4d4d,
   oxygenColor: 0x3399ff,
-  barColor: 0xf2f2f2
+  barColor: 0xf2f2f2,
+  baseColor: 0x4ef442,
+  basePadding: 75
 };
 
 const gameDepths = {
@@ -36,6 +38,7 @@ const cheats = {
 
 const gameConfig = {
   gameMode: '',
+  maxBaseHealth: 0,
   spawnBuffer: 0,
   worldOffsetX: 0,
   worldOffsetY: 0,
