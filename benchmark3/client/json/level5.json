@@ -5036,6 +5036,12 @@
                  "y":576
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"spawnNumber",
+                 "type":"int",
+                 "value":1
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,

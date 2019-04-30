@@ -182,6 +182,9 @@
   </data>
  </layer>
  <objectgroup id="2" name="Objects">
+  <properties>
+   <property name="spawnNumber" type="int" value="1"/>
+  </properties>
   <object id="1520" gid="25" x="38210" y="320" width="64" height="64"/>
   <object id="1523" gid="24" x="192" y="318" width="64" height="64"/>
   <object id="1524" gid="28" x="3906" y="320" width="64" height="64">
