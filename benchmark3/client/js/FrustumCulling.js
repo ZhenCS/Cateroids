@@ -1,6 +1,6 @@
 function getMaxLength(scene) {
   return (
-    1.2 *
+    1.6 *
     Math.sqrt(
       Math.pow(scene.game.config.width * 0.5, 2) +
         Math.pow(scene.game.config.height * 0.5, 2)
@@ -31,19 +31,36 @@ export function asteroidCulling(scene) {
   for (let i = 0; i < scene.asteroids.getChildren().length; i++) {
     const asteroid = scene.asteroids.getChildren()[i];
 
-    if (
-      Phaser.Math.Distance.Between(
-        asteroid.x,
-        asteroid.y,
-        scene.player.x,
-        scene.player.y
-      ) > getMaxLength(scene) &&
-      asteroid.x < scene.player.x
-    ) {
-      if (asteroid) {
-        asteroid.destroy();
+    if(scene.gameConfig.gameMode == 'RUN'){
+      if (
+        Phaser.Math.Distance.Between(
+          asteroid.x,
+          asteroid.y,
+          scene.player.x,
+          scene.player.y
+        ) > getMaxLength(scene) &&
+        asteroid.x < scene.player.x
+      ) {
+        if (asteroid) {
+          asteroid.destroy();
+        }
+      }
+    }else if(scene.gameConfig.gameMode == 'DEFEND'){
+      if (
+        Phaser.Math.Distance.Between(
+          asteroid.x,
+          asteroid.y,
+          scene.player.x,
+          scene.player.y
+        ) > getMaxLength(scene)
+      ) {
+        if (asteroid) {
+          asteroid.destroy();
+        }
       }
     }
+
+
   }
 }
 
