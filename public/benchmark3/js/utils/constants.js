@@ -29,6 +29,7 @@ export const DOG2KEY = 'dog2';
 export const DOG3KEY = 'dog3';
 
 export const BULLETKEY = 'bullet';
+export const BOSSBEAMKEY = 'bossBeam';
 export const PIXELKEY = 'pixels';
 export const DOGLASERKEY = 'dogLaser';
 

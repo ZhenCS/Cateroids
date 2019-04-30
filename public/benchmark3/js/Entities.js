@@ -124,7 +124,7 @@ export class Dog extends Entity {
     this.setData('damage', damage);
     this.setData('fireRate', fireRate);
     let animKey = constants.dogAnimationKeys[`DOG${level}IDLEKEY`];
-    if(animKey) this.play(animKey);
+    if (animKey) this.play(animKey);
 
     let self = this;
     if (level == 1) {
@@ -193,9 +193,23 @@ export class Dog extends Entity {
 }
 
 export class Bullet extends Entity {
-  constructor(scene, x, y, isFriendly) {
-    super(scene, x, y, constants.BULLETKEY);
+  constructor(scene, x, y, isFriendly, type) {
+    if (type === 'strongLaser') {
+      super(scene, x, y, constants.BOSSBEAMKEY);
+      this.capacity = 3;
+      this.ammoCount = 3;
+      setInterval(() => {
+        if (this.ammoCount < this.capacity) {
+          this.ammoCount++;
+          console.log('Incrementing ammo');
+        }
+      }, 3000);
+    } else {
+      super(scene, x, y, constants.BULLETKEY);
+    }
+
     this.setData('isFriendly', isFriendly);
+    this.type = type;
   }
 }
 
@@ -230,7 +244,8 @@ export class Laser extends Entity {
     if (duration && typeof duration != 'undefined') laserDuration = duration;
     if (sprites && typeof sprites != 'undefined') laserSprites = sprites;
     if (deltaX && typeof deltaX != 'undefined') laserDeltaX = deltaX;
-    if (fireDelay && typeof fireDelay != 'undefined') laserFireDelay = fireDelay;
+    if (fireDelay && typeof fireDelay != 'undefined')
+      laserFireDelay = fireDelay;
 
     this.setData('damage', laserDamage);
     this.setData('deltaX', laserDeltaX);
@@ -429,7 +444,7 @@ export class Leo extends Entity {
 
   shoot(pointerX, pointerY, type) {
     let playerDamage = this.scene.gameConfig.playerDamage;
-    const bullet = new Bullet(this.scene, this.x, this.y, true);
+    const bullet = new Bullet(this.scene, this.x, this.y, true, type);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
     const speed = 2000;
     const xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-50, 50);
@@ -438,7 +453,14 @@ export class Leo extends Entity {
     if (type === 'primary') {
       this.shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity);
     } else if (type === 'strongLaser') {
-      this.shootLaser(bullet, angle, playerDamage, xVelocity, yVelocity);
+      const strongLaserMultiplier = playerDamage * 2.5;
+      this.shootLaser(
+        bullet,
+        angle,
+        strongLaserMultiplier,
+        xVelocity,
+        yVelocity
+      );
     } else if (type === 'missle') {
     }
   }
@@ -450,7 +472,9 @@ export class Leo extends Entity {
       .setData('damage', playerDamage)
       .setRotation(angle);
 
-    bullet.body.setVelocity(xVelocity * 0.5, yVelocity * 0.5);
+    bullet.ammoCount--;
+    console.log('Current Ammo Count', bullet.ammoCount);
+    bullet.body.setVelocity(xVelocity * 0.25, yVelocity * 0.25);
     this.scene.bullets.add(bullet);
     this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
   }
@@ -559,7 +583,9 @@ export class Leo extends Entity {
       camera.scrollX + this.scene.gameConfig.worldWidth - this.displayWidth / 2
     ) {
       this.x =
-        camera.scrollX + this.scene.gameConfig.worldWidth- this.displayWidth / 2;
+        camera.scrollX +
+        this.scene.gameConfig.worldWidth -
+        this.displayWidth / 2;
       this.setData('oxygenAsteroid', null);
     }
   }
