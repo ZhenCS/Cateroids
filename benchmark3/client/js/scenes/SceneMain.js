@@ -41,15 +41,15 @@ export class SceneMain extends Phaser.Scene {
     
     if (loadMap) {
       mapLoading.loadMap(this, currentLevel);
-      if(this.gameConfig.gameMode == 'RUN'){
-        let bgWidth = 7680;
-        let bgHeight = 576;
-        this.add.tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND)
-                .setDisplayOrigin(0,0)
-                .setScrollFactor(1/5, 1)
-                .setDepth(-1)
-                .setScale(1,1.5);
-      }
+      
+      let bgWidth = 7680;
+      let bgHeight = 576;
+      this.add.tileSprite(0, -1 * this.gameConfig.worldOffsetY, bgWidth, bgHeight, constants.SPACE_BACKGROUND)
+        .setDisplayOrigin(0,0)
+        .setScrollFactor(1/5, 1)
+        .setDepth(-1)
+        .setScale(1,1.5);
+      
     }
     else {
       this.laserTimer.paused = false;

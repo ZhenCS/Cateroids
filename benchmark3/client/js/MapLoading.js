@@ -73,7 +73,7 @@ function setCamera(scene, mode){
     scene.physics.world.setBounds(0, 0, scene.gameConfig.worldWidth, scene.gameConfig.worldHeight);
     scene.cameras.main.setBounds(
       0,
-      0, 
+      -1 * scene.gameConfig.worldOffsetY, 
       scene.gameConfig.worldWidth - scene.gameConfig.worldOffsetX,
       scene.gameConfig.worldHeight - scene.gameConfig.worldOffsetY
     );
