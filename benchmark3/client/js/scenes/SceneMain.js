@@ -49,6 +49,9 @@ export class SceneMain extends Phaser.Scene {
       this.movementCheck();
       this.frustumCulling();
       sceneUtils.updateUI(this);
+      this.fireLasers();
+      this.showText();
+      this.levelCheck();
     }
   }
 
@@ -182,10 +185,7 @@ export class SceneMain extends Phaser.Scene {
 
     if (moved) {
       this.player.reelGrapple();
-      this.fireLasers();
-      this.showText();
-      this.levelCheck();
-
+      
       if (this.mapLoaded) mapLoading.loadMapObjects(this);
 
       const gas = this.add.particles(constants.PIXELKEY).createEmitter({
