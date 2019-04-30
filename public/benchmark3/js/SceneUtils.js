@@ -112,6 +112,7 @@ function initSound(scene) {
   scene.sound.add(constants.GRAPPLEAWAYAUDIO);
   scene.sound.add(constants.GRAPPLING);
   scene.sound.add(constants.BOOSTAUDIO);
+  scene.sound.add(constants.OXYGENLOWAUDIO);
 }
 
 function getLaserPosition(scene) {

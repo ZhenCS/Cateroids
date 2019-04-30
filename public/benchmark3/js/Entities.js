@@ -513,6 +513,16 @@ export class Leo extends Entity {
   oxygenDamage(damage) {
     let sceneConfig = this.scene.gameConfig;
     this.setData('oxygen', this.getData('oxygen') - damage);
+    
+    
+    if(this.getData('oxygen') < 30 && this.getData('oxygen') > 28) {
+      this.scene.sound.play(constants.OXYGENLOWAUDIO);
+    } else if(this.getData('oxygen') < 20 && this.getData('oxygen') > 18) {
+      this.scene.sound.play(constants.OXYGENLOWAUDIO);
+    } else if(this.getData('oxygen') < 10 && this.getData('oxygen') > 8) {
+      this.scene.sound.play(constants.OXYGENLOWAUDIO);
+    }
+
     if (this.getData('oxygen') < 0) {
       this.setData('oxygen', 0);
       this.damage(sceneConfig.oxygenDamage);

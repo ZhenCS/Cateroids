@@ -71,6 +71,8 @@ function setCamera(scene, mode){
     sceneConfig.worldWidth + 2 * offsetX,
     sceneConfig.worldHeight + 2 * offsetY
   );
+  // let camera = scene.cameras.main;
+  // camera.setZoom(Phaser.Math.Clamp(camera.zoom, 0.2, 0.8));
 
 }
 

@@ -78,6 +78,7 @@ export const GRAPPLEAWAYAUDIO = 'sendGrapple';
 export const GRAPPLING = 'grappling';
 export const DYINGAUDIO = 'dying';
 export const BOOSTAUDIO = 'boost';
+export const OXYGENLOWAUDIO = 'lowOxygen'
 export const LEVELMUSIC1 = 'music1';
 export const LEVELMUSIC2 = 'music2';
 export const LEVELMUSIC3 = 'music2';
