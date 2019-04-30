@@ -162,6 +162,7 @@ function loadMapObjectsDEFEND(scene){
       if(scene.waveNumber >= scene.waveObjects.length){
         console.log('no more waves');
         scene.waveTimer.paused = true;
+        scene.endPointX = 0;
         return;
       }
 
