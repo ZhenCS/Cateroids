@@ -41,12 +41,6 @@ export function setBackButton(fromScene, fromSceneString, toSceneString) {
   fromScene.backButton.setScale(gameScale.scale);
   if (fromSceneString != null && toSceneString != null) {
     fromScene.backButton.on('pointerdown', function() {
-      if (fromCheatMenu) {
-        fromScene.game.scene.switch(fromSceneString, constants.CHEATKEY);
-        fromCheatMenu = false;
-        return;
-      }
-
       fromScene.game.scene.switch(fromSceneString, toSceneString);
     });
   }

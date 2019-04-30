@@ -344,8 +344,8 @@ function initUI(scene) {
     })
     .setInteractive({ cursor: 'pointer' })
     .on('pointerdown', function() {
-      scene.scene.game.scene.pause(constants.GAMEKEY);
-      scene.scene.game.scene.start(constants.PAUSEKEY);
+      scene.game.scene.pause(constants.GAMEKEY);
+      scene.game.scene.start(constants.PAUSEKEY);
     });
 
   uiContainer.add([

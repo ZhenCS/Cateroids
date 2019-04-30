@@ -10,8 +10,6 @@ export class PauseScene extends Phaser.Scene {
   create() {
     this.controlContainer = this.initControls();
     this.pauseContainer = this.initPauseMenu();
-
-    this.showPauseMenu();
   }
 
   initPauseMenu() {
@@ -51,7 +49,6 @@ export class PauseScene extends Phaser.Scene {
     });
 
     pauseContainer.depth = gameDepths.menuDepth;
-    pauseContainer.visible = false;
     pauseContainer.add([
       pauseHeader,
       resumeButton,
@@ -77,12 +74,6 @@ export class PauseScene extends Phaser.Scene {
 
     this.backButton.on('pointerdown', function() {
       this.scene.hideControls();
-    });
-
-    const shiftKey = this.input.keyboard.addKey('SHIFT');
-    shiftKey.on('down', function(event) {
-      console.log('x', game.input.mousePointer.x);
-      console.log('y', game.input.mousePointer.y);
     });
 
     let controlContainer = this.add.sprite(
@@ -120,17 +111,9 @@ export class PauseScene extends Phaser.Scene {
     return button;
   }
 
-  showPauseMenu() {
-    this.pauseContainer.visible = true;
-
-    //pause game
-  }
-
   hidePauseMenu() {
-    this.pauseContainer.visible = false;
-    this.scene.pause(constants.PAUSEKEY);
+    this.scene.stop(constants.PAUSEKEY);
     this.scene.resume(constants.GAMEKEY);
-    //resume game
   }
 
   showControls() {

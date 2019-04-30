@@ -50,6 +50,9 @@ export class StartMenuScene extends Phaser.Scene {
     });
 
     this.gameStart.on('pointerdown', function() {
+      currentLevel.level = 1;
+      currentLevel.key = 'level1';
+
       this.scene.game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
       menuSelectSound.play();
     });
