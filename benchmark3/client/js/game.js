@@ -31,7 +31,7 @@ const config = {
     CheatMenuScene,
     GameOverScene
   ],
-  // disableContextMenu: true,
+  disableContextMenu: true,
   pixelArt: true,
   roundPixels: true
 };

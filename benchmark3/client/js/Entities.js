@@ -444,9 +444,9 @@ export class Leo extends Entity {
       .setData('damage', playerDamage)
       .setRotation(angle);
 
-    bullet.body.setVelocity(xVelocity * 1.5, yVelocity * 1.5);
+    bullet.body.setVelocity(xVelocity * 0.5, yVelocity * 0.5);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.CATWEAPONAUDIO, {volume: 0.1});
+    this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
   }
 
   shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity) {

@@ -30,28 +30,25 @@ export class SceneMain extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5
     );
-    
-
- 
 
     //init player before calling these functions
     sceneUtils.initScene(this);
     this.mapLoaded = false;
     let loadMap = true;
-    
+
     if (loadMap) {
       mapLoading.loadMap(this, currentLevel);
-      if(this.gameConfig.gameMode == 'RUN'){
+      if (this.gameConfig.gameMode == 'RUN') {
         let bgWidth = 7680;
         let bgHeight = 576;
-        this.add.tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND)
-                .setDisplayOrigin(0,0)
-                .setScrollFactor(1/5, 1)
-                .setDepth(-1)
-                .setScale(1,1.5);
+        this.add
+          .tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND)
+          .setDisplayOrigin(0, 0)
+          .setScrollFactor(1 / 5, 1)
+          .setDepth(-1)
+          .setScale(1, 1.5);
       }
-    }
-    else {
+    } else {
       this.laserTimer.paused = false;
       this.spawnTimer.paused = false;
     }
@@ -90,7 +87,7 @@ export class SceneMain extends Phaser.Scene {
     this.player.once('animationcomplete', function() {
       this.play(constants.IDLEKEY);
     });
-    
+
     sceneUtils.updateUI(this);
   }
 
@@ -150,6 +147,7 @@ export class SceneMain extends Phaser.Scene {
     let boost = 0;
     // Check for boost
     if (this.keySpace.isDown) {
+      // this.sound.play(constants.BOOSTAUDIO);
       boost = this.gameConfig.boost;
       this.player.setData('oxygenAsteroid', null);
     }
@@ -164,6 +162,7 @@ export class SceneMain extends Phaser.Scene {
 
     if (this.keyShift.isDown && this.player.getData('grapplePoint')) {
       this.player.grapple();
+      this.sound.play(constants.GRAPPLING, { volume: 0.1 });
       if (this.mapLoaded) mapLoading.loadMapObjects(this);
     } else {
       // Check for vertical movement
@@ -199,7 +198,7 @@ export class SceneMain extends Phaser.Scene {
 
     if (moved) {
       this.player.reelGrapple();
-      
+
       if (this.mapLoaded) mapLoading.loadMapObjects(this);
 
       const gas = this.add.particles(constants.PIXELKEY).createEmitter({

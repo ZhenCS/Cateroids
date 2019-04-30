@@ -87,8 +87,13 @@ function initSound(scene) {
   scene.sound.add(constants.LASERHIT);
 
   scene.sound.add(constants.CATWEAPONAUDIO);
+  scene.sound.add(constants.SECONDARYWEAPONAUDIO);
   scene.sound.add(constants.EXPLOSION2AUDIO);
-  scene.sound.add(constants.DYINGKEY);
+  scene.sound.add(constants.DYINGAUDIO);
+
+  scene.sound.add(constants.GRAPPLEAWAYAUDIO);
+  scene.sound.add(constants.GRAPPLING);
+  scene.sound.add(constants.BOOSTAUDIO);
 }
 
 function getLaserPosition(scene) {
@@ -413,6 +418,7 @@ function initEvents(scene) {
     delay: scene.gameConfig.playerFireRate,
     callback: function() {
       if (scene.player.active && !scene.gameOver) {
+        let pointer = scene.input.mousePointer;
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
           scene.player.shoot(pointer.worldX, pointer.worldY, 'strongLaser');

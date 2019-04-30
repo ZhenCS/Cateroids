@@ -32,8 +32,11 @@ export class LoadScene extends Phaser.Scene {
       },
       this
     );
-    
-    this.load.image(constants.SPACE_BACKGROUND, 'assets/cateroidsSpaceBackground.png');
+
+    this.load.image(
+      constants.SPACE_BACKGROUND,
+      'assets/cateroidsSpaceBackground.png'
+    );
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
 
@@ -88,6 +91,7 @@ export class LoadScene extends Phaser.Scene {
 
     // Load audio
     this.loadAudio(constants.CATWEAPONAUDIO, 'Default-Weapon-Cat.wav');
+    this.loadAudio(constants.SECONDARYWEAPONAUDIO, 'SecondaryLaser.wav');
     this.loadAudio(constants.EXPLOSION1AUDIO, 'Exploded.wav');
     this.loadAudio(constants.EXPLOSION2AUDIO, 'Exploded2.wav');
     this.loadAudio(constants.ASTRCOLLISION, 'Hit-By-Asteroid.wav');
@@ -100,6 +104,10 @@ export class LoadScene extends Phaser.Scene {
     this.loadAudio(constants.WEIRDAUDIO1, 'Weird-Noise-1.wav');
     this.loadAudio(constants.WEIRDAUDIO2, 'Weird-Noise-2.wav');
     this.loadAudio(constants.WEIRDAUDIO3, 'Weird-Noise-3.wav');
+    this.loadAudio(constants.GRAPPLEAWAYAUDIO, 'SendGrapple.wav');
+    this.loadAudio(constants.GRAPPLING, 'Grappling.wav');
+    this.loadAudio(constants.DYINGAUDIO, 'Dying.wav');
+    this.loadAudio(constants.BOOSTAUDIO, 'Boost.wav');
 
     this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
     this.loadMusic(constants.LEVELMUSIC2, 'levelMusic2.mp3');
