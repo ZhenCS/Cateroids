@@ -233,7 +233,6 @@ export class Laser extends Entity {
 
     if (!angle) this.setData('angle', this.randomAngle());
     else this.setData('angle', angle);
-
     this.visible = false;
     this.segments = new Array(laserSprites);
 
