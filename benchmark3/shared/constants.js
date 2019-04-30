@@ -79,6 +79,8 @@ export const LEVELMUSIC4 = 'music4';
 export const LEVELMUSIC5 = 'music5';
 export const LEVELMUSIC6 = 'music6';
 
+export const SPACE_BACKGROUND = 'spaceBackground';
+
 function generateDogAnimationKeys() {
   let dogAnimationKeys = new Array();
   dogKeys.forEach(function(dogStr) {
