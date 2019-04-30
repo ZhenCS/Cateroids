@@ -422,22 +422,46 @@ export class Leo extends Entity {
     );
   }
 
-  shoot(pointerX, pointerY) {
-    let sceneConfig = this.scene.gameConfig;
+  shoot(pointerX, pointerY, type) {
+    let playerDamage = this.scene.gameConfig.playerDamage;
     const bullet = new Bullet(this.scene, this.x, this.y, true);
-    bullet.setTint(0xf90018);
-    bullet.setOrigin(0.5);
-    bullet.setData('damage', sceneConfig.playerDamage);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
-    bullet.setRotation(angle);
     const speed = 2000;
-    bullet.body.setVelocity(
-      speed * Math.cos(angle) + Phaser.Math.Between(-50, 50),
-      speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
-    );
+    const xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-50, 50);
+    const yVelocity = speed * Math.sin(angle) + Phaser.Math.Between(-50, 50);
+
+    if (type === 'primary') {
+      this.shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity);
+    } else if (type === 'strongLaser') {
+      this.shootLaser(bullet, angle, playerDamage, xVelocity, yVelocity);
+    } else if (type === 'missle') {
+    }
+  }
+
+  shootLaser(bullet, angle, playerDamage, xVelocity, yVelocity) {
+    bullet
+      .setTint(0x7cfc00)
+      .setOrigin(0.5)
+      .setData('damage', playerDamage)
+      .setRotation(angle);
+
+    bullet.body.setVelocity(xVelocity * 1.5, yVelocity * 1.5);
     this.scene.bullets.add(bullet);
     this.scene.sound.play(constants.CATWEAPONAUDIO);
   }
+
+  shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity) {
+    bullet
+      .setTint(0xf90018)
+      .setOrigin(0.5)
+      .setData('damage', playerDamage)
+      .setRotation(angle);
+
+    bullet.body.setVelocity(xVelocity, yVelocity);
+    this.scene.bullets.add(bullet);
+    this.scene.sound.play(constants.CATWEAPONAUDIO);
+  }
+
   damage(damage) {
     let sceneConfig = this.scene.gameConfig;
     const isInvulnerable = cheats.invulnerable;

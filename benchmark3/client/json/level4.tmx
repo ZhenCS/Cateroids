@@ -388,7 +388,7 @@
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="2777" gid="49" x="5262" y="310" width="64" height="64"/>
+  <object id="2777" gid="49" x="66" y="322" width="64" height="64"/>
   <object id="2778" gid="47" x="7638.18" y="15.135" width="64" height="64" rotation="-270.751">
    <properties>
     <property name="velocityX" type="float" value="0"/>
@@ -644,85 +644,85 @@
   <object id="2820" gid="47" x="6171.73" y="34.4864" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2821" gid="47" x="6179.4" y="98.5277" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2822" gid="47" x="6173.15" y="146.491" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2823" gid="47" x="6172.92" y="190.495" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2824" gid="47" x="6172.78" y="218.497" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2825" gid="47" x="6168.6" y="252.476" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2826" gid="47" x="6172.24" y="322.494" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2827" gid="47" x="6172.01" y="366.487" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2828" gid="47" x="6171.85" y="398.49" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2829" gid="47" x="6177.62" y="442.523" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2830" gid="47" x="6177.34" y="494.516" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2831" gid="47" x="6175.22" y="518.511" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2832" gid="47" x="6173.18" y="526.495" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
   <object id="2833" gid="47" x="6175.89" y="581.514" width="64" height="64" rotation="-359.703">
    <properties>
     <property name="velocityX" value="150"/>
-    <property name="velocityY" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-50"/>
    </properties>
   </object>
  </objectgroup>

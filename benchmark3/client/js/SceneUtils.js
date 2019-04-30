@@ -394,11 +394,20 @@ function initControls(scene) {
     'pointerdown',
     function(pointer) {
       if (scene.player.active && !scene.gameOver) {
-        scene.player.shoot(pointer.worldX, pointer.worldY);
-        scene.player.play(constants.ATTACKKEY);
-        scene.player.once('animationcomplete', function() {
-          scene.player.play(constants.IDLEKEY);
-        });
+        if (pointer.rightButtonDown()) {
+          // Shoot secondary fire
+          scene.player.shoot(pointer.worldX, pointer.worldY, 'strongLaser');
+          scene.player.play(constants.ATTACKKEY);
+          scene.player.once('animationcomplete', function() {
+            scene.player.play(constants.IDLEKEY);
+          });
+        } else {
+          scene.player.shoot(pointer.worldX, pointer.worldY, 'primary');
+          scene.player.play(constants.ATTACKKEY);
+          scene.player.once('animationcomplete', function() {
+            scene.player.play(constants.IDLEKEY);
+          });
+        }
       }
     },
     scene
