@@ -67,7 +67,7 @@ const gameConfig = {
 
   maxPlayerHealth: 1000,
   maxPlayerOxygen: 100,
-  playerDamage: 10,
+  playerDamage: 50,
 
   asteroid0Health: 40,
   asteroid1Health: 20,

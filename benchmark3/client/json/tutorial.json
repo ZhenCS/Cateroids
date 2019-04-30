@@ -2013,7 +2013,7 @@
                  "visible":true,
                  "width":64,
                  "x":4510.67,
-                 "y":169.3333
+                 "y":169.333
                 }, 
                 {
                  "gid":4,
@@ -3586,7 +3586,7 @@
                  "visible":true,
                  "width":64,
                  "x":4609.33,
-                 "y":177.3333
+                 "y":177.333
                 }, 
                 {
                  "gid":2,
@@ -4360,7 +4360,7 @@
                  "visible":true,
                  "width":64,
                  "x":4410,
-                 "y":177.9998
+                 "y":178
                 }, 
                 {
                  "gid":2,
@@ -4403,7 +4403,7 @@
                  "visible":true,
                  "width":64,
                  "x":4410,
-                 "y":212.6665
+                 "y":212.666
                 }, 
                 {
                  "gid":2,
@@ -5150,7 +5150,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"Right click to shoot"
+                         "value":"Hold Right click to shoot"
                         }],
                  "rotation":0,
                  "type":"text",

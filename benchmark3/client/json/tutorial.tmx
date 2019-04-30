@@ -677,7 +677,7 @@
     <property name="hideOnDeltaX" type="float" value="-3000"/>
     <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="1"/>
-    <property name="text" value="Right click to shoot"/>
+    <property name="text" value="Hold Right click to shoot"/>
    </properties>
   </object>
   <object id="415" gid="11" x="5824" y="192" width="64" height="64">

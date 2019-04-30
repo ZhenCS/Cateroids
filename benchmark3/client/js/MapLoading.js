@@ -155,14 +155,24 @@ export function loadMapObjects(scene){
 
 function loadMapObjectsDEFEND(scene){
   scene.spawningWaves = true;
-
+  scene.endOfWaveCounter = 0;
   scene.waveTimer = scene.time.addEvent({
     delay: scene.gameConfig.waveRate,
     callback: function() {
       if(scene.waveNumber >= scene.waveObjects.length){
-        console.log('no more waves');
-        scene.waveTimer.paused = true;
-        scene.endPointX = 0;
+        scene.endOfWaveCounter++;
+        if(scene.asteroids.getLength() == 0 && scene.dogs.getLength() == 0 || scene.endOfWaveCounter > 10){
+          scene.waveTimer.paused = true;
+          scene.time.addEvent({
+            delay: 1000,
+            callback: function(){
+              scene.endPointX = 0;
+            },
+            callbackScope: scene,
+            loop: false
+          });
+        }
+        
         return;
       }
 
@@ -331,6 +341,22 @@ function setLasers(scene, obj) {
         false,
         scale,
         -Math.PI,
+        damage,
+        delay,
+        duration,
+        sprites,
+        deltaX
+      );
+      scene.lasers.add(laser);
+    }else if(type = "ANGLE"){
+      let angleFactor = getPropertyValue(obj, 'angleFactor');
+      let laser = new Laser(
+        scene,
+        obj.x,
+        obj.y,
+        false,
+        scale,
+        Math.PI/angleFactor,
         damage,
         delay,
         duration,
