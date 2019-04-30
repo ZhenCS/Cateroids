@@ -435,7 +435,7 @@ export class Leo extends Entity {
       speed * Math.sin(angle) + Phaser.Math.Between(-50, 50)
     );
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.CATWEAPONAUDIO);
+    this.scene.sound.play(constants.CATWEAPONAUDIO, {volume: 0.1});
   }
   damage(damage) {
     let sceneConfig = this.scene.gameConfig;
