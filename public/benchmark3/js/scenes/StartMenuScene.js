@@ -68,6 +68,11 @@ export class StartMenuScene extends Phaser.Scene {
       this.scene.game.scene.start(constants.HELPKEY);
       menuSelectSound.play();
     });
+
+    this.keyEsc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+    this.input.keyboard.on('keyup-ESC', function(){
+      this.game.scene.switch(constants.STARTMENUKEY, constants.SPLASHKEY);
+    });
   }
 
   createButton(yPosition, text) {

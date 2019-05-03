@@ -95,7 +95,7 @@ function setBackground(scene, mode){
   }else if(mode == 'DEFEND'){
     let bgWidth = scene.gameConfig.worldWidth;
     let bgHeight = scene.gameConfig.worldHeight;
-    let offsetX = scene.gameConfig.worldOffsetX;
+    let offsetX = scene.gameConfig.worldOffsetX - 16;
     if(offsetX < 0) offsetX = 0;
 
     scene.add

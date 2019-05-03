@@ -7,7 +7,7 @@
   <property name="oxygenDepletionDelay" type="int" value="50"/>
   <property name="oxygenDepletionRate" type="float" value="0.5"/>
   <property name="oxygenReplenishDelay" type="int" value="50"/>
-  <property name="oxygenReplenishRate" type="float" value="0.5"/>
+  <property name="oxygenReplenishRate" type="float" value="0.9"/>
   <property name="type" value="RUN"/>
  </properties>
  <tileset firstgid="1" source="../assets/CateroidsTileset2.tsx"/>

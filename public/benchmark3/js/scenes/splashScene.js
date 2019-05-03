@@ -27,6 +27,14 @@ export class SplashScene extends Phaser.Scene {
       pause: false,
       callbackScope: this
     });
+    this.input.on(
+      'pointerdown',
+      function(pointer) {
+        this.game.scene.switch(constants.SPLASHKEY, constants.STARTMENUKEY);
+      },
+      this
+    );
+
   }
 
   initText(gameWidth, gameHeight) {

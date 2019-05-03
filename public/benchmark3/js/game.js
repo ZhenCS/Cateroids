@@ -52,23 +52,4 @@ window.addEventListener(
   false
 );
 
-// SplashScene to Start Menu
-window.addEventListener('click', function(event) {
-  if (game.scene.isActive(constants.SPLASHKEY)) {
-    game.scene.switch(constants.SPLASHKEY, constants.STARTMENUKEY);
-  }
-});
-
-// StartMenu to Game
-window.addEventListener('keydown', function(event) {
-  if (game.scene.isActive(constants.STARTMENUKEY) && event.key == 'Escape') {
-    game.scene.switch(constants.STARTMENUKEY, constants.GAMEKEY);
-  }
-
-  if (game.scene.isActive(constants.GAMEKEY) && event.key == 'Escape') {
-    game.scene.start(constants.PAUSEKEY);
-    game.scene.pause(constants.GAMEKEY);
-  }
-});
-
 const game = new Phaser.Game(config);

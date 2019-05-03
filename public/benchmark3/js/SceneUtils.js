@@ -308,9 +308,6 @@ function initUI(scene, mode) {
       .fillStyle(gameStyles.baseColor)
       .setDepth(gameDepths.uiDepth);
 
-
-    //centerX(scene, baseBG);
-    //centerX(scene, scene.baseBar);
     baseBG.fillRect(
       gameStyles.padding,
       scene.game.config.height - gameStyles.basePadding,
@@ -324,9 +321,6 @@ function initUI(scene, mode) {
       gameStyles.healthWidth,
       gameStyles.barHeight
     );
-
-    
-
     uiContainer.add([baseBG, scene.baseBar]);
   }
   
@@ -395,8 +389,8 @@ function initUI(scene, mode) {
     })
     .setInteractive({ cursor: 'pointer' })
     .on('pointerdown', function() {
-      scene.game.scene.pause(constants.GAMEKEY);
       scene.game.scene.start(constants.PAUSEKEY);
+      scene.game.scene.pause(constants.GAMEKEY);
     });
 
   uiContainer.add([
@@ -423,6 +417,7 @@ function initControls(scene) {
   scene.keyShift = scene.input.keyboard.addKey(
     Phaser.Input.Keyboard.KeyCodes.SHIFT
   );
+  scene.keyEsc = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
 
   scene.input.keyboard.on('keydown-SHIFT', function() {
     let mouseX = scene.input.mousePointer.worldX;
@@ -439,6 +434,11 @@ function initControls(scene) {
         scene.player.setData('oxygenAsteroid', null);
       }
     });
+  });
+
+  scene.input.keyboard.on('keyup-ESC', function(){
+      scene.game.scene.start(constants.PAUSEKEY);
+      scene.game.scene.pause(constants.GAMEKEY);
   });
 
   scene.input.keyboard.on('keyup-SHIFT', function() {

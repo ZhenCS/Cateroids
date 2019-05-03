@@ -17,7 +17,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="Objects" offsetx="0" offsety="-32">
-  <object id="228" gid="10" x="12608" y="320" width="64" height="64"/>
+  <object id="228" gid="10" x="10752" y="320" width="64" height="64"/>
   <object id="229" gid="1" x="3072" y="256" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
@@ -306,147 +306,6 @@
     <property name="spawnNumber" type="int" value="5"/>
    </properties>
   </object>
-  <object id="335" gid="1" x="10496" y="44" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="336" gid="1" x="10498" y="78" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="337" gid="1" x="10496" y="108" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="338" gid="1" x="10497" y="138" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="339" gid="1" x="10499" y="172" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="340" gid="1" x="10497" y="202" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="341" gid="1" x="10495" y="148" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="342" gid="1" x="10497" y="182" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="343" gid="1" x="10495" y="212" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="347" gid="1" x="10497" y="248" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="348" gid="1" x="10499" y="282" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="349" gid="1" x="10497" y="312" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="350" gid="1" x="10499" y="342" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="351" gid="1" x="10501" y="376" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="352" gid="1" x="10499" y="406" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="353" gid="1" x="10499" y="450" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="354" gid="1" x="10501" y="484" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="355" gid="1" x="10499" y="514" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="356" gid="1" x="10497" y="554" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="357" gid="1" x="10499" y="588" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="359" gid="8" x="10624" y="192" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-    <property name="velocityX" type="float" value="-50"/>
-   </properties>
-  </object>
-  <object id="360" gid="8" x="10624" y="448" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-    <property name="velocityX" type="float" value="-50"/>
-   </properties>
-  </object>
-  <object id="361" gid="7" x="10944" y="192" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-    <property name="velocityY" type="float" value="-100"/>
-   </properties>
-  </object>
-  <object id="362" gid="7" x="10944" y="448" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="6"/>
-    <property name="velocityY" type="float" value="100"/>
-   </properties>
-  </object>
-  <object id="363" gid="6" x="11520" y="192" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="7"/>
-   </properties>
-  </object>
-  <object id="364" gid="6" x="11520" y="448" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" type="int" value="7"/>
-   </properties>
-  </object>
-  <object id="365" gid="4" x="11584" y="320" width="64" height="64">
-   <properties>
-    <property name="oxygenReplenishRate" type="float" value="0.3"/>
-    <property name="spawnNumber" type="int" value="7"/>
-    <property name="velocityX" type="int" value="10"/>
-   </properties>
-  </object>
   <object id="366" gid="9" x="192" y="320" width="64" height="64"/>
   <object id="367" gid="2" x="4609.33" y="49.333" width="64" height="64">
    <properties>
@@ -672,7 +531,7 @@
     <property name="text" value="Use WASD to move"/>
    </properties>
   </object>
-  <object id="413" gid="11" x="1728" y="64" width="64" height="64">
+  <object id="413" gid="11" x="1618.91" y="57.9394" width="64" height="64">
    <properties>
     <property name="hideOnDeltaX" type="float" value="-3000"/>
     <property name="showOnDeltaX" type="float" value="100"/>
@@ -682,7 +541,7 @@
   </object>
   <object id="415" gid="11" x="5824" y="64" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="hideOnDeltaX" type="float" value="-1000"/>
     <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Hold Shift while aiming your cursor at this asteroid to deploy your grappling hook"/>
@@ -690,7 +549,7 @@
   </object>
   <object id="416" gid="11" x="5824" y="98" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="hideOnDeltaX" type="float" value="-1000"/>
     <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Landing on one will replenish your oxygen"/>
@@ -714,7 +573,7 @@
   </object>
   <object id="420" gid="11" x="5824" y="640" width="64" height="64">
    <properties>
-    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="hideOnDeltaX" type="float" value="-1000"/>
     <property name="showOnDeltaX" type="float" value="100"/>
     <property name="spawnNumber" type="int" value="3"/>
     <property name="text" value="Press Space to leave asteroid"/>

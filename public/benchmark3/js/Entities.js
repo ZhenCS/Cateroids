@@ -257,10 +257,10 @@ export class Laser extends Entity {
     this.visible = false;
     this.segments = new Array(laserSprites);
 
-    let pointx = this.scene.game.config.width * Math.cos(this.getData('angle'));
+    let pointx = this.scene.game.config.width * 2 * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
-    this.path = new Phaser.Curves.Path(x - pointx * 2, y - pointy);
+    this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
     this.path.lineTo(x + pointx, y + pointy);
 
     for (var i = 0; i < this.segments.length; i++) {
@@ -278,7 +278,7 @@ export class Laser extends Entity {
     }
     this.scene.laserSegments.addMultiple(this.segments);
     this.alertLine = this.scene.add.graphics();
-    this.alertLine.lineStyle(1, 0xffffff, 1);
+    this.alertLine.lineStyle(2, 0xffffff, 1);
 
     this.alert = this.scene.tweens.add({
       targets: this.alertLine,
@@ -286,7 +286,6 @@ export class Laser extends Entity {
       alpha: 0,
       yoyo: true,
       loop: -1,
-      pause: true,
       callbackScope: this
     });
 
@@ -324,8 +323,8 @@ export class Laser extends Entity {
 
   fire() {
     this.setData('fired', true);
-    this.path.draw(this.alertLine);
-    this.alert.paused = false;
+    this.path.draw(this.alertLine, 8);
+    console.log(this.x);
 
     this.scene.sound.play(constants.RAYSTARTUP, { volume: 0.4 });
 

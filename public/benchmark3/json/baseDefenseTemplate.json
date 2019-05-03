@@ -33,7 +33,7 @@
                         {
                          "name":"health",
                          "type":"float",
-                         "value":5000
+                         "value":2500
                         }, 
                         {
                          "name":"level",
@@ -1454,6 +1454,8 @@
                  "x":1116,
                  "y":462
                 }],
+         "offsetx":32,
+         "offsety":0,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
