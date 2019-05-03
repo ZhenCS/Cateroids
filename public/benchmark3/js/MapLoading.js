@@ -30,7 +30,7 @@ export function loadMap(scene, level) {
 }
 
 function setLevelProperties(scene, map){
-  scene.gameConfig.worldWidth = map.width * map.tileWidth;
+    scene.gameConfig.worldWidth = map.width * map.tileWidth;
     scene.gameConfig.worldHeight = (map.height) * map.tileHeight;
     scene.gameConfig.worldOffsetX = (scene.game.config.width - scene.gameConfig.worldWidth)/2;
     scene.gameConfig.worldOffsetY = (scene.game.config.height - scene.gameConfig.worldHeight)/2;
@@ -90,26 +90,20 @@ function setBackground(scene, mode){
       )
       .setDisplayOrigin(0, 0)
       .setScrollFactor(1 / 5, 1)
-      .setDepth(-1)
-      .setScale(1, 1);
+      .setDepth(-1);
   }else if(mode == 'DEFEND'){
     let bgWidth = scene.gameConfig.worldWidth;
     let bgHeight = scene.gameConfig.worldHeight;
-    let offsetX = scene.gameConfig.worldOffsetX - 16;
-    if(offsetX < 0) offsetX = 0;
-
     scene.add
       .tileSprite(
-        offsetX,
+        0 ,
         0,
         bgWidth,
         bgHeight,
         constants.SPACE_BACKGROUND
       )
       .setDisplayOrigin(0, 0)
-      .setScrollFactor(1 / 5, 1)
-      .setDepth(-1)
-      .setScale(1, 1);
+      .setDepth(-1);
   }
 }
 
@@ -184,7 +178,7 @@ function loadMapObjectsDEFEND(scene){
     callback: function() {
       if(scene.waveNumber >= scene.waveObjects.length){
         scene.endOfWaveCounter++;
-        if(scene.asteroids.getLength() == 0 && scene.dogs.getLength() == 0 || scene.endOfWaveCounter > 6){
+        if(scene.asteroids.getLength() == 0 && scene.dogs.getLength() == 0 || scene.endOfWaveCounter > 4){
           scene.waveTimer.paused = true;
           scene.time.addEvent({
             delay: 5000,

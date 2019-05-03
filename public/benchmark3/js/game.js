@@ -32,7 +32,7 @@ const config = {
     GameOverScene
   ],
   disableContextMenu: true,
-  pixelArt: true,
+  pixelArt: false,
   roundPixels: true
 };
 function resize(width, height) {

@@ -8,6 +8,7 @@ class Entity extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.scene.add.existing(this);
     this.scene.physics.world.enableBody(this, 0);
+    
   }
 
   getInitVelocity(scene, x, y) {
@@ -324,7 +325,6 @@ export class Laser extends Entity {
   fire() {
     this.setData('fired', true);
     this.path.draw(this.alertLine, 8);
-    console.log(this.x);
 
     this.scene.sound.play(constants.RAYSTARTUP, { volume: 0.4 });
 
@@ -550,7 +550,7 @@ export class Leo extends Entity {
   }
 
   deployGrapple(point) {
-    this.grappleLine.clear().lineStyle(1, 0xffffff);
+    this.grappleLine.clear().lineStyle(2, 0xffffff);
     this.grappleLine.strokeLineShape({
       x1: this.x,
       y1: this.y,

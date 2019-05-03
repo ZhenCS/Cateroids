@@ -33,7 +33,7 @@
                         {
                          "name":"health",
                          "type":"float",
-                         "value":5000
+                         "value":2500
                         }, 
                         {
                          "name":"level",

@@ -21,8 +21,9 @@ const gameStyles = {
 };
 
 const gameDepths = {
-  menuDepth: 10,
-  uiDepth: 5
+  menuDepth: 15,
+  uiDepth: 10,
+  entityDepth: 2
 };
 
 let fromCheatMenu = false;

@@ -294,7 +294,7 @@ function initAnimations(scene) {
 }
 
 function initUI(scene, mode) {
-  let uiContainer = scene.add.container();
+  let uiContainer = scene.add.container().setDepth(gameDepths.uiDepth);
   let gameHeight = scene.sys.game.config.height;
   let gameWidth = scene.sys.game.config.width;
   
