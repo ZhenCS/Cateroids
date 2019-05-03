@@ -263,7 +263,6 @@ function setBase(scene, wave){
   let health = getPropertyValue(obj, 'health');
   let damage = getPropertyValue(obj, 'damage');
   let level = getPropertyValue(obj, 'level');
-
   let asteroid = new Asteroid(scene, obj.x, obj.y, constants[`ASTEROID${level}KEY`], 0, 0, health, damage);
   
   asteroid.setScale(15);

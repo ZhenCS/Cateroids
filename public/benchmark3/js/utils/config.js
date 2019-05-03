@@ -51,8 +51,8 @@ const gameConfig = {
   softMaxPlayerVelocityY: 500,
 
   //radians
-  playerWalkVelocityX: Math.PI / 45,
-  playerWalkVelocityY: Math.PI / 45,
+  playerWalkVelocityX: Math.PI * 2/ 45,
+  playerWalkVelocityY: Math.PI * 2/ 45,
   //hard cap with boost. will never exceed
   hardMaxPlayerVelocityX: 1000,
   hardMaxPlayerVelocityY: 1000,

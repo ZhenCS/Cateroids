@@ -42,6 +42,8 @@ export class SceneMain extends Phaser.Scene {
       this.laserTimer.paused = false;
       this.spawnTimer.paused = false;
     }
+    this.debugg = this.add.graphics().lineStyle(2, 0xffffff, 1);
+
   }
 
   update() {
@@ -53,6 +55,9 @@ export class SceneMain extends Phaser.Scene {
       this.fireLasers();
       this.showText();
       this.levelCheck();
+
+      //this.debugg.clear();
+      //this.baseAsteroid.body.drawDebug(this.debugg);
     }
   }
 

@@ -75,7 +75,7 @@ export class Asteroid extends Entity {
       this.setTint(0xfff572);
       this.setScale(1.5);
     }
-    this.body.setCircle(this.displayWidth * 0.5);
+    this.body.setCircle(this.displayWidth * 0.3, this.displayWidth * 0.03);
     this.scene.tweens.add({
       targets: this,
       duration: Phaser.Math.Between(80000, 100000),
@@ -569,7 +569,7 @@ export class Leo extends Entity {
         asteroid.y - asteroid.body.deltaY(),
         this.x,
         this.y
-      ) + rad;
+      ) + rad / (radius/48);
     this.setRotation(angle + Math.PI / 2);
     this.x = asteroid.x + radius * Math.cos(angle);
     this.y = asteroid.y + radius * Math.sin(angle);
