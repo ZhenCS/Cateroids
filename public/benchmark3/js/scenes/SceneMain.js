@@ -25,6 +25,7 @@ export class SceneMain extends Phaser.Scene {
 
     this.endPointX = this.gameConfig.worldWidth;
     this.gameOver = false;
+    this.baseAsteroid = null;
     this.player = new Leo(
       this,
       this.game.config.width * 0.5,
@@ -37,6 +38,9 @@ export class SceneMain extends Phaser.Scene {
     if (loadMap) {
       mapLoading.loadMap(this, currentLevel);
       sceneUtils.initScene(this, this.gameConfig.gameMode);
+
+      if(this.baseAsteroid)
+        this.player.setData('oxygenAsteroid', this.baseAsteroid);
     } else {
       sceneUtils.initScene(this);
       this.laserTimer.paused = false;

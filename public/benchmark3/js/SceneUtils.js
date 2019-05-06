@@ -323,7 +323,12 @@ function initUI(scene, mode) {
     );
     uiContainer.add([baseBG, scene.baseBar]);
   }
-  
+  let hpText = scene.add
+    .text(gameStyles.padding + 2, gameStyles.padding - 2, "Health", {
+      font: `${32 * gameScale.scale}px Georgia`,
+      fill: '#ffffff',
+  }).setDepth(gameDepths.uiDepth + 1);
+
   let hpBG = scene.add
     .graphics()
     .fillStyle(gameStyles.barColor)
@@ -346,6 +351,13 @@ function initUI(scene, mode) {
     gameStyles.healthWidth,
     gameStyles.barHeight
   );
+
+
+  let oxygenText = scene.add
+    .text(gameStyles.padding + 2, gameStyles.padding * 2 + gameStyles.barHeight - 2, "Oxygen", {
+      font: `${32 * gameScale.scale}px Georgia`,
+      fill: '#ffffff',
+  }).setDepth(gameDepths.uiDepth + 1);
 
   let oxygenBG = scene.add
     .graphics()
@@ -396,8 +408,10 @@ function initUI(scene, mode) {
   uiContainer.add([
     hpBG,
     scene.hpBar,
+    hpText,
     oxygenBG,
     scene.oxygenBar,
+    oxygenText,
     scene.pauseButton,
     scene.textScore
   ]);

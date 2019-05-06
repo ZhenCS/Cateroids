@@ -39,18 +39,19 @@ export class LoadScene extends Phaser.Scene {
 
     this.load.tilemapTiledJSON('level1', 'json/tutorial.json');
     this.load.tilemapTiledJSON('level2', 'json/level2.json');
-    this.load.tilemapTiledJSON('level3', 'json/level3.json');
+    this.load.tilemapTiledJSON('level3', 'json/level3a.json');
     this.load.tilemapTiledJSON('level4', 'json/level4.json');
     this.load.tilemapTiledJSON('level5', 'json/level5.json');
     this.load.tilemapTiledJSON('level6', 'json/LevelTemplate.json');
-
+      
     this.load.image(constants.LOGOKEY, 'assets/logo.png');
     this.load.image(constants.BGKEY, 'assets/bg.jpg');
     this.load.image(constants.NAMEKEY, 'assets/gameName.png');
     this.load.image(constants.LIFEICON, 'assets/iconLife.png');
     this.load.image(constants.PIXELKEY, 'assets/pixel.png');
-    this.load.image(constants.BULLETKEY, 'assets/bullet.png');
+    this.load.image(constants.BULLETKEY, 'assets/bullet2.png');
     this.load.image(constants.BOSSBEAMKEY, 'assets/bossBeam.png');
+    this.load.image(constants.MOONKEY, 'assets/moon.png');
 
     this.load.image(constants.CONTROLS1KEY, 'assets/controls1.png');
     this.load.image(constants.LEVELICON, 'assets/levelicon.png');

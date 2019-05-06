@@ -61,7 +61,8 @@ export class Asteroid extends Entity {
       constants.ASTEROID0KEY,
       constants.ASTEROID1KEY,
       constants.ASTEROID2KEY,
-      constants.ASTEROID3KEY
+      constants.ASTEROID3KEY,
+      constants.MOONKEY
     ];
     let level = asteroids.indexOf(key);
     let sceneConfig = scene.gameConfig;
@@ -70,13 +71,19 @@ export class Asteroid extends Entity {
       this.setData('health', health || sceneConfig[`asteroid${level}Health`]);
       this.setData('damage', damage || sceneConfig[`asteroid${level}Damage`]);
     }
+    if(level == 4){
+      this.body.setMass(100);
+    }
 
     if (level == 3) {
       this.body.setMass(100);
       this.setTint(0xfff572);
       this.setScale(1.5);
+      this.body.setCircle(this.displayWidth * 0.3, this.displayWidth * 0.03);
+    }else{
+      this.body.setCircle(this.displayWidth * 0.5);
     }
-    this.body.setCircle(this.displayWidth * 0.3, this.displayWidth * 0.03);
+    
     this.scene.tweens.add({
       targets: this,
       duration: Phaser.Math.Between(80000, 100000),
@@ -572,27 +579,33 @@ export class Leo extends Entity {
     this.setRotation(angle + Math.PI / 2);
     this.x = asteroid.x + radius * Math.cos(angle);
     this.y = asteroid.y + radius * Math.sin(angle);
-
+      
+    let sceneConfig = this.scene.gameConfig;
+    
     if (this.y < 0 + this.displayHeight / 2) {
       this.y = this.displayHeight / 2;
       this.setData('oxygenAsteroid', null);
     } else if (
       this.y >
-      this.scene.gameConfig.worldHeight - this.displayHeight / 2
+      sceneConfig.worldHeight - this.displayHeight / 2
     ) {
-      this.y = this.scene.gameConfig.worldHeight - this.displayHeight / 2;
-      //this.setData('oxygenAsteroid', null);
+      this.y = sceneConfig.worldHeight - this.displayHeight / 2;
+
+      if(asteroid != this.scene.baseAsteroid)
+        this.setData('oxygenAsteroid', null);
     }
+
     let camera = this.scene.cameras.main;
+    let offset = (sceneConfig.worldOffsetX < 0) ? 0 : sceneConfig.worldOffsetX;
+    
     if (this.x < camera.scrollX + this.displayWidth / 2) {
       this.x = camera.scrollX + this.displayWidth / 2;
       this.setData('oxygenAsteroid', null);
     } else if (
       this.x >
-      camera.scrollX + this.scene.gameConfig.worldWidth - this.displayWidth / 2
+      camera.scrollX + sceneConfig.worldWidth - this.displayWidth / 2 + offset
     ) {
-      this.x =
-        camera.scrollX + this.scene.gameConfig.worldWidth - this.displayWidth / 2;
+      this.x = camera.scrollX + sceneConfig.worldWidth - this.displayWidth / 2 + offset;
       this.setData('oxygenAsteroid', null);
     }
   }

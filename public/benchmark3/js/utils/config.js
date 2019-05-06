@@ -46,6 +46,7 @@ const gameConfig = {
   worldWidth: 10000,
   worldHeight: 0,
 
+  waves: 0,
   waveRate: 5000,
   //soft cap for just arrow keys. can be exceeded with boost
   softMaxPlayerVelocityX: 500,

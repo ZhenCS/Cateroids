@@ -39,7 +39,11 @@ export function setMovement(self, functions){
 }
 
 export function stayInMap(self){
-    if(self.x <= 0 || self.y <= 0 || self.x >= gameConfig.worldWidth || self.y >= gameConfig.worldHeight){
+    let offsetX = self.displayWidth/2
+    let offsetY = self.displayHeight/2;
+
+    if(self.x <= 0 + offsetX|| self.y <= 0 + offsetY || 
+        self.x >= gameConfig.worldWidth - offsetX || self.y >= gameConfig.worldHeight - offsetY){
         let vel = self.body.velocity;
         self.body.setVelocity(
             -1 * vel.x,

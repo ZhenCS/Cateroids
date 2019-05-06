@@ -17,6 +17,7 @@ export const ASTEROID0KEY = 'asteroid0';
 export const ASTEROID1KEY = 'asteroid1';
 export const ASTEROID2KEY = 'asteroid2';
 export const ASTEROID3KEY = 'asteroid3';
+export const MOONKEY = 'moon';
 
 export const LEVELICON = 'levelIcon';
 export const LIFEICON = 'lifeIcon';

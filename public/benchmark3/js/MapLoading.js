@@ -21,8 +21,14 @@ export function loadMap(scene, level) {
     }else if(scene.gameConfig.gameMode == 'DEFEND'){
       scene.waveNumber = 1;
       scene.waveObjects = new Array();
-      setWaveArrays(scene);
-      setBase(scene, scene.waveObjects[0]);
+      if(scene.gameConfig.waves == 0){
+        setWaveArrays(scene);
+        setBase(scene, scene.waveObjects[0]);
+      }else{
+        scene.waveSpawnNumber = 0;
+        setWaves(scene);
+        setBase(scene, scene.waveObjects[0]);
+      }
     }
 
     scene.gameConfig.spawnBuffer = scene.game.config.width/2 + 50;
@@ -39,6 +45,7 @@ function setLevelProperties(scene, map){
 
     if(scene.gameConfig.gameMode == 'DEFEND'){
       scene.gameConfig.waveRate = getPropertyValue(map, 'waveRate') || gameConfig.waveRate;
+      scene.gameConfig.waves = getPropertyValue(map, 'waves') || 0;
       scene.spawningWaves = false;
     }
 
@@ -107,6 +114,19 @@ function setBackground(scene, mode){
   }
 }
 
+function setWaves(scene){
+  let waves = scene.gameConfig.waves;
+  let waveNumber = 1;
+  scene.waveObjects.push(scene.mapObjects);
+
+  while(waveNumber <= waves){
+    let wave = scene.gameMap.getObjectLayer(`${waveNumber}`).objects;
+    sortWave(wave);
+    scene.waveObjects.push(wave);
+    waveNumber++;
+  }
+}
+
 function setWaveArrays(scene){
   var waveNumber = 0;
   let wave = new Array();
@@ -140,12 +160,22 @@ function sortMapObjects(scene, mode) {
   }
 }
 
+function sortWave(wave){
+  wave.sort(function(a, b) {
+    return getPropertyValue(b, 'spawnNumber') - getPropertyValue(a, 'spawnNumber');
+  });
+}
+
 function setPlayerSpawn(scene) {
     for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
       let obj = scene.mapObjects[i];
       if (obj.type == 'spawnPoint') {
         scene.player.x = obj.x;
         scene.player.y = obj.y;
+
+        let asteroid = new Asteroid(scene, obj.x, obj.y, constants.ASTEROID3KEY, 0, 0, 1000, 0);
+        scene.oxygenAsteroids.add(asteroid);
+        scene.player.setData('oxygenAsteroid', asteroid);
         break;
       }
     }
@@ -165,14 +195,64 @@ export function loadMapObjects(scene){
   if(scene.gameConfig.gameMode == 'RUN'){
     loadMapObjectsRUN(scene);
   }else if(scene.gameConfig.gameMode == 'DEFEND'){
-    if(!scene.spawningWaves)
-      loadMapObjectsDEFEND(scene);
+    if(!scene.spawningWaves){
+      if(scene.gameConfig.waves == 0){
+        loadMapObjectsDEFEND(scene);
+      }
+      else if(scene.gameConfig.waves > 0){
+        loadWaves(scene);
+      }
+    }
   }
+}
+
+function loadWaves(scene){
+  scene.spawningWaves = true;
+  let rate = 1000;
+  let waveRate = scene.gameConfig.waveRate/rate;
+
+  scene.waveTimer = scene.time.addEvent({
+    delay: rate,
+    callback: function() {
+      if(scene.waveNumber >= scene.gameConfig.waves){
+        scene.waveTimer.paused = true;
+        scene.time.addEvent({
+          delay: scene.gameConfig.waveRate * 4,
+          callback: function(){
+            scene.endPointX = 0;
+          },
+          callbackScope: scene,
+          loop: false
+        });
+      }
+
+      let wave = scene.waveObjects[scene.waveNumber];
+      for (var i = wave.length; i >= 0; i--) {
+        let obj = wave.pop();
+        if(obj == undefined) break;
+
+        if(getPropertyValue(obj, 'spawnNumber') == scene.waveSpawnNumber)
+          setObjects(scene, obj);
+        else wave.push(obj);
+      }
+      
+
+      if(scene.waveSpawnNumber >= waveRate){
+        scene.waveNumber++;
+        scene.waveSpawnNumber = 0;
+      }else{
+        scene.waveSpawnNumber++;
+      }
+    },
+    callbackScope: scene,
+    loop: true
+  });
 }
 
 function loadMapObjectsDEFEND(scene){
   scene.spawningWaves = true;
   scene.endOfWaveCounter = 0;
+
   scene.waveTimer = scene.time.addEvent({
     delay: scene.gameConfig.waveRate,
     callback: function() {
@@ -256,10 +336,10 @@ function setBase(scene, wave){
 
   let health = getPropertyValue(obj, 'health');
   let damage = getPropertyValue(obj, 'damage');
-  let level = getPropertyValue(obj, 'level');
-  let asteroid = new Asteroid(scene, obj.x, obj.y, constants[`ASTEROID${level}KEY`], 0, 0, health, damage);
+
+  let asteroid = new Asteroid(scene, obj.x, obj.y, constants.MOONKEY, 0, 0, health, damage);
   
-  asteroid.setScale(15);
+  asteroid.setScale(0.5);
   scene.baseAsteroid = asteroid;
   scene.gameConfig.maxBaseHealth = health;
   scene.oxygenAsteroids.add(asteroid);
@@ -272,7 +352,7 @@ function setText(scene, obj){
 
     let displayText = scene.add
       .text(0, obj.y, text, {
-        font: `${50 * gameScale.scale}px impact`,
+        font: `${50 * gameScale.scale}px Georgia`,
         fill: '#ffffff',
         stroke: 'black',
         strokeThickness: 5

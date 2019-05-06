@@ -43,6 +43,7 @@
  </tile>
  <tile id="4" type="laser">
   <properties>
+   <property name="angleFactor" type="int" value="0"/>
    <property name="laserDamage" type="float" value="1"/>
    <property name="laserDelay" type="int" value="50"/>
    <property name="laserDuration" type="int" value="2500"/>
