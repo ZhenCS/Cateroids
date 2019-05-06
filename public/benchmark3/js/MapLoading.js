@@ -21,10 +21,10 @@ export function loadMap(scene, level) {
     }else if(scene.gameConfig.gameMode == 'DEFEND'){
       scene.waveNumber = 1;
       scene.waveObjects = new Array();
-      if(scene.gameConfig.waves == 0){
+      if(scene.gameConfig.waves == 0){//old map loading
         setWaveArrays(scene);
         setBase(scene, scene.waveObjects[0]);
-      }else{
+      }else{//new map loading
         scene.waveSpawnNumber = 0;
         setWaves(scene);
         setBase(scene, scene.waveObjects[0]);

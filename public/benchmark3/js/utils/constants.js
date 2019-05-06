@@ -50,12 +50,24 @@ export const dogKeys = ['DOG1', 'DOG2', 'DOG3'];
 export const animationKeys = ['idle', 'attack', 'damage', 'dying', 'dead'];
 export const dogAnimationKeys = generateDogAnimationKeys();
 
-export const LEVEL1KEY = 'lvl1';
-export const LEVEL2KEY = 'lvl2';
-export const LEVEL3KEY = 'lvl3';
-export const LEVEL4KEY = 'lvl4';
-export const LEVEL5KEY = 'lvl5';
-export const LEVEL6KEY = 'lvl6';
+export const LEVEL1KEY = 'level1';
+export const LEVEL2KEY = 'level2';
+export const LEVEL3KEY = 'level3';
+export const LEVEL4KEY = 'level4';
+export const LEVEL5KEY = 'level5';
+export const LEVEL6KEY = 'level6';
+export const LEVEL7KEY = 'level7';
+export const LEVEL8KEY = 'level8';
+export const LEVELS = 8;
+
+export const LEVELMUSIC1 = 'music1';
+export const LEVELMUSIC2 = 'music2';
+export const LEVELMUSIC3 = 'music2';
+export const LEVELMUSIC4 = 'music2';
+export const LEVELMUSIC5 = 'music2';
+export const LEVELMUSIC6 = 'music2';
+export const LEVELMUSIC7 = 'music2';
+export const LEVELMUSIC8 = 'music2';
 
 export const COLLISION_CAT = Math.pow(2, 0);
 export const COLLISION_ANTI_CAT = Math.pow(2, 1);
@@ -80,12 +92,6 @@ export const GRAPPLING = 'grappling';
 export const DYINGAUDIO = 'dying';
 export const BOOSTAUDIO = 'boost';
 export const OXYGENLOWAUDIO = 'lowOxygen'
-export const LEVELMUSIC1 = 'music1';
-export const LEVELMUSIC2 = 'music2';
-export const LEVELMUSIC3 = 'music2';
-export const LEVELMUSIC4 = 'music2';
-export const LEVELMUSIC5 = 'music2';
-export const LEVELMUSIC6 = 'music2';
 
 export const SPACE_BACKGROUND = 'spaceBackground';
 

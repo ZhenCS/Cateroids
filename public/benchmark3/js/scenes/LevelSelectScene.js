@@ -18,10 +18,16 @@ export class LevelSelectScene extends Phaser.Scene {
 
     let { iconY, iconSpace } = levelsStyle;
     this.iconList = [];
-
-    for (var i = 1; i <= 6; i++) {
-      const icon = this.createLevelIcon(i, iconSpace * (i - 1), 0);
+    let y = 0;
+    let x = 0;
+    for (var i = 1; i <= constants.LEVELS; i++) {
+      const icon = this.createLevelIcon(i, x, y);
       this.iconList.push(icon);
+      x += iconSpace;
+      if(i%6 == 0){
+        y += 100;
+        x = 0;
+      }
     }
 
     this.levelsContainer = this.add.container(0, iconY, this.iconList);
@@ -65,7 +71,7 @@ export class LevelSelectScene extends Phaser.Scene {
       .sprite(x, y, constants.LEVELICON)
       .setInteractive({ cursor: 'pointer' });
     iconBG.on('pointerdown', function() {
-      currentLevel.key = `level${id}`;
+      currentLevel.key = constants[`LEVEL${id}KEY`];
       currentLevel.level = id;
 
       this.scene.game.scene.stop(constants.GAMEKEY);
