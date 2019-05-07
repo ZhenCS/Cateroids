@@ -20,8 +20,10 @@ export function updateUI(scene, mode) {
       .clear()
       .fillStyle(gameStyles.baseColor)
       .setDepth(gameDepths.uiDepth);
+    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+
     scene.baseBar.fillRect(
-      gameStyles.padding,
+      offset,
       scene.game.config.height - gameStyles.basePadding,
       gameStyles.healthWidth *
         (scene.baseAsteroid.getData('health') / scene.gameConfig.maxBaseHealth),
@@ -308,15 +310,16 @@ function initUI(scene, mode) {
       .fillStyle(gameStyles.baseColor)
       .setDepth(gameDepths.uiDepth);
 
+    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
     baseBG.fillRect(
-      gameStyles.padding,
+      offset,
       scene.game.config.height - gameStyles.basePadding,
       gameStyles.healthWidth,
       gameStyles.barHeight
     ); 
 
     scene.baseBar.fillRect(
-      gameStyles.padding,
+      offset,
       scene.game.config.height - gameStyles.basePadding,
       gameStyles.healthWidth,
       gameStyles.barHeight

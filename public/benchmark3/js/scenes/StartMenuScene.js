@@ -65,7 +65,7 @@ export class StartMenuScene extends Phaser.Scene {
       menuSelectSound.play();
     });
     this.help.on('pointerdown', function() {
-      this.scene.game.scene.start(constants.HELPKEY);
+      this.scene.game.scene.switch(constants.STARTMENUKEY, constants.HELPKEY);
       menuSelectSound.play();
     });
 

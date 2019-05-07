@@ -146,13 +146,13 @@ export class SceneMain extends Phaser.Scene {
       this.showGameOverMenu();
 
     if (this.player.x >= this.endPointX) {
-      currentLevel.level += 1;
-      currentLevel.key = `level${currentLevel.level}`;
       this.sound.stopAll();
       if (currentLevel.level > 6) {
         //end of game
       } else {
-        this.scene.restart();
+        //this.scene.restart();
+        this.game.scene.start(constants.GOALKEY, {scene: this});
+        this.game.scene.pause(constants.GAMEKEY);
       }
     }
 

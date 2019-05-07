@@ -7,6 +7,9 @@ export class LevelSelectScene extends Phaser.Scene {
   }
 
   create() {
+    this.starCount = 0;
+    this.stars = new Array();
+
     setBG(this);
     setGameName(this);
 
@@ -47,6 +50,13 @@ export class LevelSelectScene extends Phaser.Scene {
       pause: false,
       callbackScope: this
     });
+  }
+
+  update(){
+    if(this.starCount < playerStars){
+      this.updateStars();
+      this.starCount = playerStars;
+    }
   }
 
   createLevelIcon(id, x, y) {
@@ -90,7 +100,10 @@ export class LevelSelectScene extends Phaser.Scene {
     iconMiddle.setScale(3.5 * gameScale.scale);
     iconContainer.add([iconBG, iconMiddle, iconText]);
     let { paddingStars } = levelsStyle;
+
+    let starGroup = new Array();
     for (var i = 0; i < 3; i++) {
+      
       let star = this.add.sprite(
         x - iconBG.displayWidth / 2 + paddingStars + 80 * gameScale.scale * i,
         y + paddingStars + iconBG.displayHeight / 2,
@@ -98,10 +111,21 @@ export class LevelSelectScene extends Phaser.Scene {
       );
       star.depth = 2;
       star.setScale(0.8 * gameScale.scale);
-      //star.tint = 0xf2ff00;
+
+      starGroup.push(star);
       iconContainer.add(star);
     }
 
+    this.stars[id] = starGroup;
     return iconContainer;
+  }
+
+  updateStars(){
+    for(var i = 1; i <= constants.LEVELS; i++){
+      for(var k = 0; k < 3; k++){
+        if(stars[i][k])
+          this.stars[i][k].tint = gameStyles.starTint;
+      }
+    }
   }
 }

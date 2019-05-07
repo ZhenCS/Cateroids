@@ -2,7 +2,7 @@ const gameScale = {
   scale: window.innerHeight / 1600
 };
 
-var levelsStyle = {
+const levelsStyle = {
   paddingStars: 50 * gameScale.scale,
   iconY: 600 * gameScale.scale,
   iconSpace: 180 * gameScale.scale
@@ -17,7 +17,8 @@ const gameStyles = {
   oxygenColor: 0x3399ff,
   barColor: 0xf2f2f2,
   baseColor: 0x4ef442,
-  basePadding: 75
+  basePadding: 50,
+  starTint: 0xfbff42
 };
 
 const gameDepths = {
@@ -32,6 +33,18 @@ let currentLevel = {
   key: 'level1',
   level: 1
 };
+
+let playerStars = 0;
+let stars = initStars();
+
+function initStars(){
+    let stars = new Array();
+    for(var i = 1; i <= 12; i++){
+        stars[i] = [false, false, false];
+    }
+
+    return stars;
+}
 
 const cheats = {
   invulnerable: false
