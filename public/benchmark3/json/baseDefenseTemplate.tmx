@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="19" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="28" nextobjectid="52">
+ <properties>
+  <property name="maxPlayerHealth" type="int" value="1000"/>
+  <property name="maxPlayerOxygen" type="int" value="100"/>
+  <property name="oxygenDamage" type="float" value="2"/>
+  <property name="oxygenDepletionDelay" type="int" value="50"/>
+  <property name="oxygenDepletionRate" type="float" value="0.5"/>
+  <property name="oxygenReplenishDelay" type="int" value="50"/>
+  <property name="oxygenReplenishRate" type="float" value="1"/>
+  <property name="type" value="DEFEND"/>
+  <property name="waveRate" type="int" value="5000"/>
+  <property name="waves" type="int" value="20"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/CateroidsTileset2.tsx"/>
+ <layer id="6" name="testLayer" width="19" height="12" visible="0">
+  <data encoding="base64">
+   DAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA
+  </data>
+ </layer>
+ <objectgroup id="2" name="Objects" offsetx="32" offsety="-64">
+  <object id="1" name="base" gid="4" x="576" y="1024" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="50"/>
+    <property name="health" type="float" value="2500"/>
+    <property name="spawnNumber" type="int" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="1" visible="0" offsetx="32" offsety="-64">
+  <object id="35" gid="7" x="576" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="-40"/>
+   </properties>
+  </object>
+  <object id="36" gid="7" x="192" y="256" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="40"/>
+   </properties>
+  </object>
+  <object id="37" gid="7" x="960" y="256" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="40"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="2" visible="0" offsetx="32" offsety="-64">
+  <object id="38" gid="7" x="192" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="39" gid="7" x="960" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="40" gid="8" x="192" y="320" width="64" height="64"/>
+  <object id="41" gid="8" x="960" y="320" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="9" name="3" offsetx="32" offsety="-64">
+  <object id="42" gid="2" x="192" y="128" width="64" height="64"/>
+  <object id="43" gid="2" x="320" y="128" width="64" height="64"/>
+  <object id="44" gid="2" x="448" y="128" width="64" height="64"/>
+  <object id="45" gid="2" x="576" y="128" width="64" height="64"/>
+  <object id="46" gid="2" x="704" y="128" width="64" height="64"/>
+  <object id="47" gid="2" x="832" y="128" width="64" height="64"/>
+  <object id="48" gid="2" x="960" y="128" width="64" height="64"/>
+  <object id="49" gid="2" x="1088" y="128" width="64" height="64"/>
+  <object id="51" gid="4" x="0" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="int" value="50"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="10" name="4" offsetx="32" offsety="-64"/>
+ <objectgroup id="11" name="5" offsetx="32" offsety="-64"/>
+ <objectgroup id="12" name="6" offsetx="32" offsety="-64"/>
+ <objectgroup id="13" name="7" offsetx="32" offsety="-64"/>
+ <objectgroup id="14" name="8" offsetx="32" offsety="-64"/>
+ <objectgroup id="15" name="9" offsetx="32" offsety="-64"/>
+ <objectgroup id="16" name="10" offsetx="32" offsety="-64"/>
+ <objectgroup id="17" name="11" offsetx="32" offsety="-64"/>
+ <objectgroup id="18" name="12" offsetx="32" offsety="-64"/>
+ <objectgroup id="19" name="13" offsetx="32" offsety="-64"/>
+ <objectgroup id="20" name="14" offsetx="32" offsety="-64"/>
+ <objectgroup id="21" name="15" offsetx="32" offsety="-64"/>
+ <objectgroup id="22" name="16" offsetx="32" offsety="-64"/>
+ <objectgroup id="24" name="17" offsetx="32" offsety="-64"/>
+ <objectgroup id="25" name="18" offsetx="32" offsety="-64"/>
+ <objectgroup id="26" name="19" offsetx="32" offsety="-64"/>
+ <objectgroup id="27" name="20" offsetx="32" offsety="-64"/>
+</map>

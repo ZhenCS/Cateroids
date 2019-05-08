@@ -1,0 +1,1974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="19" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="28" nextobjectid="466">
+ <properties>
+  <property name="maxPlayerHealth" type="int" value="1000"/>
+  <property name="maxPlayerOxygen" type="int" value="100"/>
+  <property name="oxygenDamage" type="float" value="2"/>
+  <property name="oxygenDepletionDelay" type="int" value="50"/>
+  <property name="oxygenDepletionRate" type="float" value="0.5"/>
+  <property name="oxygenReplenishDelay" type="int" value="50"/>
+  <property name="oxygenReplenishRate" type="float" value="1"/>
+  <property name="type" value="DEFEND"/>
+  <property name="waveRate" type="int" value="8000"/>
+  <property name="waves" type="int" value="20"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/CateroidsTileset2.tsx"/>
+ <layer id="6" name="testLayer" width="19" height="12" visible="0">
+  <data encoding="base64">
+   DAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA
+  </data>
+ </layer>
+ <objectgroup id="2" name="Objects" offsetx="32" offsety="0">
+  <object id="1" name="base" gid="4" x="576" y="1024" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="50"/>
+    <property name="health" type="float" value="2500"/>
+    <property name="spawnNumber" type="int" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="1" visible="0" offsetx="32" offsety="0">
+  <object id="35" gid="7" x="576" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="-40"/>
+   </properties>
+  </object>
+  <object id="36" gid="7" x="192" y="256" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="40"/>
+   </properties>
+  </object>
+  <object id="37" gid="7" x="960" y="256" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="40"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="2" visible="0" offsetx="32" offsety="0">
+  <object id="38" gid="7" x="192" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="39" gid="7" x="960" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="40" gid="8" x="192" y="320" width="64" height="64"/>
+  <object id="41" gid="8" x="960" y="320" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="9" name="3" offsetx="32" offsety="0">
+  <object id="51" gid="4" x="0" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="457" gid="7" x="192" y="128" width="64" height="64"/>
+  <object id="458" gid="7" x="320" y="128" width="64" height="64"/>
+  <object id="459" gid="7" x="448" y="128" width="64" height="64"/>
+  <object id="460" gid="7" x="576" y="128" width="64" height="64"/>
+  <object id="461" gid="7" x="704" y="128" width="64" height="64"/>
+  <object id="462" gid="7" x="832" y="128" width="64" height="64"/>
+  <object id="463" gid="7" x="960" y="128" width="64" height="64"/>
+  <object id="464" gid="7" x="1088" y="128" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="10" name="4" visible="0" offsetx="32" offsety="0">
+  <object id="52" gid="5" x="576" y="704" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="53" gid="8" x="960" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="54" gid="8" x="576" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="55" gid="8" x="192" y="384" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="11" name="5" visible="0" offsetx="32" offsety="0">
+  <object id="62" gid="6" x="0" y="256" width="64" height="64"/>
+  <object id="63" gid="6" x="0" y="448" width="64" height="64"/>
+  <object id="64" gid="6" x="0" y="640" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="12" name="6" visible="0" offsetx="32" offsety="0">
+  <object id="61" gid="5" x="576" y="192" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="13" name="7" visible="0" offsetx="32" offsety="0">
+  <object id="65" gid="6" x="1152" y="256" width="64" height="64"/>
+  <object id="66" gid="6" x="1152" y="448" width="64" height="64"/>
+  <object id="67" gid="6" x="1152" y="640" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="14" name="8" visible="0" offsetx="32" offsety="0">
+  <object id="72" gid="1" x="64" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="70"/>
+   </properties>
+  </object>
+  <object id="73" gid="1" x="64" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="70"/>
+   </properties>
+  </object>
+  <object id="74" gid="1" x="64" y="448" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="70"/>
+   </properties>
+  </object>
+  <object id="75" gid="1" x="64" y="576" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="70"/>
+   </properties>
+  </object>
+  <object id="76" gid="1" x="1024" y="256" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-70"/>
+   </properties>
+  </object>
+  <object id="77" gid="1" x="1024" y="384" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-70"/>
+   </properties>
+  </object>
+  <object id="78" gid="1" x="1024" y="512" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-70"/>
+   </properties>
+  </object>
+  <object id="79" gid="1" x="1024" y="640" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-70"/>
+   </properties>
+  </object>
+  <object id="80" gid="1" x="64" y="704" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="70"/>
+   </properties>
+  </object>
+  <object id="81" gid="7" x="576" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="velocityX" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="82" gid="7" x="576" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="velocityX" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="83" gid="7" x="576" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="velocityX" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="84" gid="7" x="576" y="640" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="velocityX" type="float" value="100"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="15" name="9" visible="0" offsetx="32" offsety="0">
+  <object id="85" gid="8" x="64" y="192" width="64" height="64"/>
+  <object id="86" gid="8" x="192" y="320" width="64" height="64"/>
+  <object id="87" gid="8" x="320" y="192" width="64" height="64"/>
+  <object id="88" gid="8" x="448" y="320" width="64" height="64"/>
+  <object id="89" gid="8" x="576" y="192" width="64" height="64"/>
+  <object id="90" gid="8" x="704" y="320" width="64" height="64"/>
+  <object id="91" gid="8" x="832" y="192" width="64" height="64"/>
+  <object id="92" gid="8" x="960" y="320" width="64" height="64"/>
+  <object id="93" gid="8" x="1088" y="192" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="16" name="10" visible="0" offsetx="32" offsety="0">
+  <object id="94" gid="7" x="128" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="95" gid="7" x="256" y="320" width="64" height="64"/>
+  <object id="96" gid="7" x="384" y="448" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="97" gid="7" x="1024" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="98" gid="7" x="896" y="320" width="64" height="64"/>
+  <object id="99" gid="7" x="768" y="448" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="100" gid="1" x="320" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="101" gid="1" x="832" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="104" gid="1" x="512" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="105" gid="1" x="640" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="124" gid="1" x="0" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="velocityX" type="float" value="100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="125" gid="1" x="0" y="704" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="velocityX" type="float" value="100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="126" gid="1" x="1152" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="127" gid="1" x="1152" y="704" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="17" name="11" visible="0" offsetx="32" offsety="0">
+  <object id="106" gid="7" x="128" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="107" gid="7" x="256" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="108" gid="7" x="384" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="109" gid="7" x="512" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="110" gid="7" x="640" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="111" gid="7" x="768" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="112" gid="7" x="896" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="113" gid="7" x="1024" y="192" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="60"/>
+   </properties>
+  </object>
+  <object id="114" gid="7" x="960" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="115" gid="7" x="832" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="116" gid="7" x="704" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="117" gid="7" x="576" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="118" gid="7" x="448" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="119" gid="7" x="320" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="120" gid="7" x="192" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+  <object id="121" gid="7" x="64" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-60"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="18" name="12" visible="0" offsetx="32" offsety="0">
+  <object id="122" gid="4" x="1152" y="512" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="int" value="-80"/>
+   </properties>
+  </object>
+  <object id="123" gid="5" x="576" y="704" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="19" name="13" visible="0" offsetx="32" offsety="0">
+  <object id="128" gid="5" x="832" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="129" gid="5" x="832" y="704" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="130" gid="4" x="0" y="320" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="int" value="80"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="20" name="14" visible="0" offsetx="32" offsety="0">
+  <object id="131" gid="6" x="576" y="64" width="64" height="64"/>
+  <object id="132" gid="6" x="512" y="64" width="64" height="64"/>
+  <object id="133" gid="6" x="640" y="64" width="64" height="64"/>
+  <object id="134" gid="6" x="448" y="64" width="64" height="64"/>
+  <object id="135" gid="6" x="704" y="64" width="64" height="64"/>
+  <object id="141" gid="6" x="1152" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="142" gid="6" x="1152" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="143" gid="6" x="1152" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="144" gid="6" x="1152" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="145" gid="6" x="1152" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="146" gid="1" x="448" y="128" width="64" height="64"/>
+  <object id="147" gid="1" x="512" y="128" width="64" height="64"/>
+  <object id="148" gid="1" x="576" y="128" width="64" height="64"/>
+  <object id="149" gid="1" x="640" y="128" width="64" height="64"/>
+  <object id="150" gid="1" x="704" y="128" width="64" height="64"/>
+  <object id="151" gid="1" x="1088" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="152" gid="1" x="1088" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="153" gid="1" x="1088" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="156" gid="1" x="1088" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="157" gid="1" x="1088" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="21" name="15" visible="0" offsetx="32" offsety="0">
+  <object id="158" gid="4" x="0" y="512" width="64" height="64"/>
+  <object id="159" gid="4" x="1152" y="512" width="64" height="64"/>
+  <object id="163" gid="5" x="384" y="640" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="164" gid="5" x="0" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="165" gid="5" x="1152" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="22" name="16" visible="0" offsetx="32" offsety="0">
+  <object id="166" gid="5" x="576" y="576" width="64" height="64">
+   <properties>
+    <property name="angleFactor" type="int" value="4"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="type" value="ANGLE"/>
+   </properties>
+  </object>
+  <object id="167" gid="5" x="576" y="562.333" width="64" height="64">
+   <properties>
+    <property name="angleFactor" type="int" value="-4"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="type" value="ANGLE"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="24" name="17" visible="0" offsetx="32" offsety="0">
+  <object id="168" gid="1" x="576" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="169" gid="1" x="576" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="170" gid="1" x="576" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="171" gid="1" x="512" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="172" gid="1" x="640" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="173" gid="1" x="640" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="174" gid="1" x="512" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="176" gid="1" x="512" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="177" gid="1" x="640" y="128" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="182" gid="1" x="485" y="101" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="183" gid="1" x="545" y="160" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="184" gid="1" x="608" y="160" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="185" gid="1" x="672" y="101" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="186" gid="1" x="673" y="35" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="187" gid="1" x="485" y="38" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="188" gid="1" x="548" y="-19" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="189" gid="1" x="613" y="-17" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="190" gid="1" x="537" y="63" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="191" gid="1" x="576" y="25" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="192" gid="1" x="612" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+  <object id="193" gid="1" x="578" y="102" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="50"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="25" name="18" visible="0" offsetx="32" offsety="0">
+  <object id="194" gid="1" x="128" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="195" gid="1" x="126" y="-47.3333" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="196" gid="1" x="126.667" y="47.3333" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="197" gid="1" x="83.3333" y="0.666667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="198" gid="1" x="180" y="6.66667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="199" gid="1" x="184.667" y="-56.6667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="200" gid="1" x="89.3333" y="-22.6667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="201" gid="1" x="80.6667" y="38.6667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="202" gid="1" x="164" y="30" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="215" gid="1" x="89" y="-1" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="216" gid="1" x="128" y="-39" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="217" gid="1" x="164" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="218" gid="1" x="130" y="38" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="219" gid="1" x="1024" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="220" gid="1" x="1031.33" y="-38.6667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="221" gid="1" x="1018" y="22.6667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="222" gid="1" x="974.667" y="-8.66667" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="223" gid="1" x="1088" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="224" gid="1" x="1073.33" y="-30" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="225" gid="1" x="984.667" y="-29.3333" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="226" gid="1" x="984" y="33.3333" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="227" gid="1" x="1058.67" y="35.3333" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="240" gid="1" x="985" y="-1" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="241" gid="1" x="1024" y="-39" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="242" gid="1" x="1060" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="243" gid="1" x="1026" y="38" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="26" name="19" visible="0" offsetx="32" offsety="0">
+  <object id="272" gid="1" x="64" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="273" gid="1" x="64" y="-64" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="274" gid="1" x="77.5" y="28.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="275" gid="1" x="25" y="29" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="276" gid="1" x="128" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="277" gid="1" x="107" y="-26.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="278" gid="1" x="13" y="-44.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="279" gid="1" x="23" y="68.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="280" gid="1" x="128" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="285" gid="1" x="-27" y="37" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="286" gid="1" x="26" y="66" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="287" gid="1" x="125.5" y="52" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="288" gid="1" x="160" y="37" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="289" gid="1" x="141" y="10.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="290" gid="1" x="-8.5" y="-13.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="291" gid="1" x="48" y="-37.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="292" gid="1" x="63" y="-57.5" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="293" gid="1" x="25" y="-1" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="294" gid="1" x="64" y="-39" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="295" gid="1" x="100" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="296" gid="1" x="77.5" y="76" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="297" gid="1" x="1069" y="12" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="298" gid="1" x="1087" y="-32" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="299" gid="1" x="1088" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="300" gid="1" x="1026" y="9" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="301" gid="1" x="1152" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="302" gid="1" x="1103" y="-76" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="303" gid="1" x="1024" y="-64" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="304" gid="1" x="998" y="-12" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="305" gid="1" x="1152" y="64" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="310" gid="1" x="997" y="37" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="311" gid="1" x="1086" y="81" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="312" gid="1" x="1149" y="86" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="313" gid="1" x="1180" y="7" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="314" gid="1" x="1153" y="-77" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="315" gid="1" x="1020" y="-39" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="316" gid="1" x="1065" y="-51" width="47" height="55">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="317" gid="1" x="1123" y="-38" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="318" gid="1" x="1057" y="11" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="319" gid="1" x="1101" y="3" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="320" gid="1" x="1124" y="0" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="321" gid="1" x="1090" y="38" width="64" height="64">
+   <properties>
+    <property name="velocityX" type="float" value="-20"/>
+    <property name="velocityY" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="443" gid="7" x="192" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="444" gid="7" x="256" y="512" width="64" height="64"/>
+  <object id="445" gid="7" x="320" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="446" gid="7" x="384" y="512" width="64" height="64"/>
+  <object id="447" gid="7" x="448" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="448" gid="7" x="512" y="512" width="64" height="64"/>
+  <object id="449" gid="7" x="576" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="450" gid="7" x="640" y="512" width="64" height="64"/>
+  <object id="451" gid="7" x="704" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="452" gid="7" x="768" y="512" width="64" height="64"/>
+  <object id="453" gid="7" x="896" y="512" width="64" height="64"/>
+  <object id="454" gid="7" x="832" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="455" gid="7" x="960" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="27" name="20" visible="0" offsetx="32" offsety="0">
+  <object id="347" type="asteroid" gid="1" x="585" y="-139.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="348" type="asteroid" gid="1" x="586" y="-169.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="349" type="asteroid" gid="1" x="622" y="-139.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="350" type="asteroid" gid="1" x="554" y="-138.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="351" type="asteroid" gid="1" x="584" y="-103.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="352" type="asteroid" gid="1" x="541" y="-184.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="353" type="asteroid" gid="1" x="632" y="-185.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="354" type="asteroid" gid="1" x="632" y="-92.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="355" type="asteroid" gid="1" x="537" y="-91.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="356" type="asteroid" gid="1" x="583" y="-63.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="357" type="asteroid" gid="1" x="658" y="-135.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="358" type="asteroid" gid="1" x="512" y="-140.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="359" type="asteroid" gid="1" x="583" y="-217.333" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="360" type="asteroid" gid="1" x="582.333" y="-306" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="361" type="asteroid" gid="1" x="583.333" y="-336" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="362" type="asteroid" gid="1" x="619.333" y="-306" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="363" type="asteroid" gid="1" x="551.333" y="-305" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="364" type="asteroid" gid="1" x="581.333" y="-270" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="365" type="asteroid" gid="1" x="538.333" y="-351" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="366" type="asteroid" gid="1" x="629.333" y="-352" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="367" type="asteroid" gid="1" x="629.333" y="-259" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="368" type="asteroid" gid="1" x="534.333" y="-258" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="369" type="asteroid" gid="1" x="580.333" y="-230" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="370" type="asteroid" gid="1" x="655.333" y="-302" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="371" type="asteroid" gid="1" x="509.333" y="-307" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="372" type="asteroid" gid="1" x="580.333" y="-384" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="373" type="asteroid" gid="1" x="462.333" y="-234" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="374" type="asteroid" gid="1" x="463.333" y="-264" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="375" type="asteroid" gid="1" x="499.333" y="-234" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="376" type="asteroid" gid="1" x="431.333" y="-233" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="377" type="asteroid" gid="1" x="461.333" y="-198" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="378" type="asteroid" gid="1" x="418.333" y="-279" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="379" type="asteroid" gid="1" x="509.333" y="-280" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="380" type="asteroid" gid="1" x="509.333" y="-187" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="381" type="asteroid" gid="1" x="414.333" y="-186" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="382" type="asteroid" gid="1" x="460.333" y="-158" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="383" type="asteroid" gid="1" x="535.333" y="-230" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="384" type="asteroid" gid="1" x="389.333" y="-235" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="385" type="asteroid" gid="1" x="460.333" y="-312" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="386" type="asteroid" gid="1" x="663.666" y="-280.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="387" type="asteroid" gid="1" x="664.666" y="-310.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="388" type="asteroid" gid="1" x="700.666" y="-280.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="389" type="asteroid" gid="1" x="632.666" y="-279.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="390" type="asteroid" gid="1" x="662.666" y="-244.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="391" type="asteroid" gid="1" x="619.666" y="-325.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="392" type="asteroid" gid="1" x="710.666" y="-326.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="393" type="asteroid" gid="1" x="710.666" y="-233.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="394" type="asteroid" gid="1" x="615.666" y="-232.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="395" type="asteroid" gid="1" x="661.666" y="-204.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="396" type="asteroid" gid="1" x="736.666" y="-276.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="397" type="asteroid" gid="1" x="590.666" y="-281.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="398" type="asteroid" gid="1" x="661.666" y="-358.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="399" type="asteroid" gid="1" x="457" y="-130" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="400" type="asteroid" gid="1" x="458" y="-160" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="401" type="asteroid" gid="1" x="494" y="-130" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="402" type="asteroid" gid="1" x="426" y="-129" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="403" type="asteroid" gid="1" x="456" y="-94" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="404" type="asteroid" gid="1" x="413" y="-175" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="405" type="asteroid" gid="1" x="504" y="-176" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="406" type="asteroid" gid="1" x="504" y="-83" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="407" type="asteroid" gid="1" x="409" y="-82" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="408" type="asteroid" gid="1" x="455" y="-54" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="409" type="asteroid" gid="1" x="530" y="-126" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="410" type="asteroid" gid="1" x="384" y="-131" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="411" type="asteroid" gid="1" x="455" y="-208" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="412" type="asteroid" gid="1" x="683.666" y="-160.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="413" type="asteroid" gid="1" x="684.666" y="-190.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="414" type="asteroid" gid="1" x="720.666" y="-160.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="415" type="asteroid" gid="1" x="652.666" y="-159.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="416" type="asteroid" gid="1" x="682.666" y="-124.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="417" type="asteroid" gid="1" x="639.666" y="-205.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="418" type="asteroid" gid="1" x="730.666" y="-206.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="419" type="asteroid" gid="1" x="730.666" y="-113.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="420" type="asteroid" gid="1" x="635.666" y="-112.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="421" type="asteroid" gid="1" x="681.666" y="-84.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="422" type="asteroid" gid="1" x="756.666" y="-156.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="423" type="asteroid" gid="1" x="610.666" y="-161.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="424" type="asteroid" gid="1" x="681.666" y="-238.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="425" type="asteroid" gid="1" x="586.333" y="-100.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="426" type="asteroid" gid="1" x="587.333" y="-130.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="427" type="asteroid" gid="1" x="623.333" y="-100.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="428" type="asteroid" gid="1" x="555.333" y="-99.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="429" type="asteroid" gid="1" x="585.333" y="-64.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="430" type="asteroid" gid="1" x="542.333" y="-145.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="431" type="asteroid" gid="1" x="633.333" y="-146.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="432" type="asteroid" gid="1" x="633.333" y="-53.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="433" type="asteroid" gid="1" x="538.333" y="-52.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="434" type="asteroid" gid="1" x="584.333" y="-24.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="435" type="asteroid" gid="1" x="659.333" y="-96.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="436" type="asteroid" gid="1" x="513.333" y="-101.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="437" type="asteroid" gid="1" x="584.333" y="-178.667" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="438" type="asteroid" gid="1" x="491" y="-346" width="64" height="64">
+   <properties>
+    <property name="damage" type="float" value="20"/>
+    <property name="health" type="float" value="40"/>
+    <property name="level" type="int" value="0"/>
+    <property name="spawnNumber" type="int" value="0"/>
+    <property name="velocityX" type="int" value="0"/>
+    <property name="velocityY" value="5"/>
+   </properties>
+  </object>
+  <object id="439" gid="1" x="370" y="-188" width="64" height="64">
+   <properties>
+    <property name="velocityY" type="float" value="5"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

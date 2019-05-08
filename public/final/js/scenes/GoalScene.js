@@ -42,7 +42,10 @@ export class GoalScene extends Phaser.Scene {
     });
     centerX(this, goalHeader);
     
-    let buttonY = 500;
+    
+    let starY = offsetY + 150;
+    let goalY = starY + 110;
+    let buttonY = goalY + 190;
 
     let restartButton = this.createButton(0,
       buttonY,
@@ -92,10 +95,10 @@ export class GoalScene extends Phaser.Scene {
         nextButton,
         homeButton
     ];
-
+ 
     this.stars = new Array();
     for (var i = 0; i < 3; i++) {
-      let star = this.add.sprite(0, 200 - (i%2) * 20, constants.STARKEY);
+      let star = this.add.sprite(0, starY - (i%2) * 20, constants.STARKEY);
       star.setScale(3 * gameScale.scale);
       goalContainer.add(star);
       this.stars.push(star);
@@ -107,12 +110,11 @@ export class GoalScene extends Phaser.Scene {
         this.stars[i].x = offsetX + padding * i + this.stars[i].displayWidth/2;
     }
     this.tintStars();
-    goalContainer.add(this.setGoals());
+    goalContainer.add(this.setGoals(goalY));
     return goalContainer;
   }
 
-  setGoals(){
-    let y = 310;
+  setGoals(y){
     let offsetY = 45;
 
     let goal1 = this.setText(this, y, "Level Completed", this.levelStars[0]);
