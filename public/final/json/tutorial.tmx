@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="200" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="424">
+ <properties>
+  <property name="maxPlayerHealth" type="int" value="1000"/>
+  <property name="maxPlayerOxygen" type="int" value="100"/>
+  <property name="oxygenDamage" type="float" value="2"/>
+  <property name="oxygenDepletionDelay" type="int" value="50"/>
+  <property name="oxygenDepletionRate" type="float" value="0.1"/>
+  <property name="oxygenReplenishDelay" type="int" value="50"/>
+  <property name="oxygenReplenishRate" type="float" value="1"/>
+  <property name="type" value="RUN"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/CateroidsTileset2.tsx"/>
+ <layer id="5" name="Tile Layer 1" width="200" height="9">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <objectgroup id="2" name="Objects" offsetx="0" offsety="-32">
+  <object id="228" gid="10" x="12608" y="320" width="64" height="64"/>
+  <object id="229" gid="1" x="3072" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="230" gid="1" x="3072" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="231" gid="1" x="3136" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="232" gid="1" x="3136" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="233" gid="1" x="3072" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="234" gid="1" x="3136" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="235" gid="1" x="3136" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="236" gid="1" x="3072" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="237" gid="1" x="3136" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="238" gid="2" x="2624" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="239" gid="2" x="2560" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="240" gid="2" x="2624" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="241" gid="2" x="2560" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="242" gid="2" x="2624" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="243" gid="2" x="2560" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="244" gid="2" x="2624" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="245" gid="2" x="2560" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="246" gid="2" x="2624" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="247" gid="3" x="2112" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="248" gid="3" x="2048" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="249" gid="3" x="2112" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="250" gid="3" x="2048" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="251" gid="3" x="2112" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="252" gid="3" x="2048" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="253" gid="3" x="2112" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="254" gid="3" x="2048" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="255" gid="3" x="2112" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="269" gid="1" x="4544" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="270" gid="1" x="4480" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="271" gid="1" x="4544" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="272" gid="1" x="4480" y="256" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="273" gid="1" x="4544" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="274" gid="1" x="4480" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="275" gid="1" x="4544" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="276" gid="1" x="4480" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="277" gid="1" x="4544" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="278" gid="2" x="4513.33" y="104" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="279" gid="2" x="4514.67" y="232" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="280" gid="2" x="4512" y="293.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="281" gid="2" x="4514.67" y="164" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="282" gid="2" x="4513.33" y="360" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="283" gid="2" x="4518.67" y="529.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="284" gid="2" x="4514.67" y="414.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="285" gid="2" x="4522.67" y="462.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="287" gid="2" x="4518.67" y="596" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="288" gid="2" x="4510.67" y="41.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="323" gid="4" x="6016" y="320" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="6666"/>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="327" gid="4" x="6208" y="128" width="64" height="64">
+   <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="328" gid="4" x="6208" y="512" width="64" height="64">
+   <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="329" gid="4" x="7168" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="330" gid="4" x="8000" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="332" gid="4" x="8832" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="334" gid="4" x="9664" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="335" gid="1" x="10496" y="44" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="336" gid="1" x="10498" y="78" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="337" gid="1" x="10496" y="108" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="338" gid="1" x="10497" y="138" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="339" gid="1" x="10499" y="172" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="340" gid="1" x="10497" y="202" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="341" gid="1" x="10495" y="148" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="342" gid="1" x="10497" y="182" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="343" gid="1" x="10495" y="212" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="347" gid="1" x="10497" y="248" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="348" gid="1" x="10499" y="282" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="349" gid="1" x="10497" y="312" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="350" gid="1" x="10499" y="342" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="351" gid="1" x="10501" y="376" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="352" gid="1" x="10499" y="406" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="353" gid="1" x="10499" y="450" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="354" gid="1" x="10501" y="484" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="355" gid="1" x="10499" y="514" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="356" gid="1" x="10497" y="554" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="357" gid="1" x="10499" y="588" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="359" gid="8" x="10624" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+    <property name="velocityX" type="float" value="-50"/>
+   </properties>
+  </object>
+  <object id="360" gid="8" x="10624" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+    <property name="velocityX" type="float" value="-50"/>
+   </properties>
+  </object>
+  <object id="361" gid="7" x="10944" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="362" gid="7" x="10944" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="363" gid="6" x="11520" y="192" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="364" gid="6" x="11520" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="365" gid="4" x="11584" y="320" width="64" height="64">
+   <properties>
+    <property name="oxygenReplenishRate" type="float" value="0.3"/>
+    <property name="spawnNumber" type="int" value="7"/>
+    <property name="velocityX" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="366" gid="9" x="192" y="320" width="64" height="64"/>
+  <object id="367" gid="2" x="4609.33" y="49.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="368" gid="2" x="4609.33" y="84" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="369" gid="2" x="4609.33" y="113.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="370" gid="2" x="4609.33" y="148" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="371" gid="2" x="4609.33" y="182.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="372" gid="2" x="4609.33" y="212" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="373" gid="2" x="4610.67" y="241.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="374" gid="2" x="4610.67" y="276" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="375" gid="2" x="4610.67" y="305.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="382" gid="2" x="4610.67" y="338.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="383" gid="2" x="4610.67" y="373.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="384" gid="2" x="4610.67" y="402.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="385" gid="2" x="4610.67" y="438.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="386" gid="2" x="4610.67" y="473.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="387" gid="2" x="4610.67" y="502.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="391" gid="2" x="4610.67" y="530.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="392" gid="2" x="4610.67" y="565.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="393" gid="2" x="4610.67" y="594.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="394" gid="2" x="4410" y="50" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="395" gid="2" x="4410" y="84.666" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="396" gid="2" x="4410" y="114" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="397" gid="2" x="4410" y="148.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="398" gid="2" x="4410" y="183.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="399" gid="2" x="4410" y="212.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="400" gid="2" x="4411.34" y="242" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="401" gid="2" x="4411.34" y="276.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="402" gid="2" x="4411.34" y="306" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="403" gid="2" x="4411.34" y="339.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="404" gid="2" x="4411.34" y="374" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="405" gid="2" x="4411.34" y="403.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="406" gid="2" x="4411.34" y="439.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="407" gid="2" x="4411.34" y="474" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="408" gid="2" x="4411.34" y="503.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="409" gid="2" x="4411.34" y="531.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="410" gid="2" x="4411.34" y="566" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="411" gid="2" x="4411.34" y="595.334" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+    <property name="velocityX" value="-25"/>
+   </properties>
+  </object>
+  <object id="412" gid="11" x="192" y="64" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="200"/>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="text" value="Use WASD to move"/>
+   </properties>
+  </object>
+  <object id="413" gid="11" x="1728" y="64" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-3000"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="1"/>
+    <property name="text" value="Hold Right click to shoot"/>
+   </properties>
+  </object>
+  <object id="415" gid="11" x="5824" y="64" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="text" value="Hold Shift while aiming your cursor at this asteroid to deploy your grappling hook"/>
+   </properties>
+  </object>
+  <object id="416" gid="11" x="5824" y="98" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="text" value="Landing on one will replenish your oxygen"/>
+   </properties>
+  </object>
+  <object id="417" gid="11" x="7040" y="64" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-3000"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="text" value="Release shift before landing on the asteroid"/>
+   </properties>
+  </object>
+  <object id="418" gid="11" x="7039.5" y="93" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-3000"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="text" value="you will get a boost in speed"/>
+   </properties>
+  </object>
+  <object id="420" gid="11" x="5824" y="640" width="64" height="64">
+   <properties>
+    <property name="hideOnDeltaX" type="float" value="-500"/>
+    <property name="showOnDeltaX" type="float" value="100"/>
+    <property name="spawnNumber" type="int" value="3"/>
+    <property name="text" value="Press Space to leave asteroid"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
