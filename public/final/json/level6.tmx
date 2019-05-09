@@ -132,6 +132,7 @@
     <property name="damage" type="float" value="10"/>
     <property name="fireRate" type="float" value="1500"/>
     <property name="health" type="float" value="80"/>
+    <property name="level" type="int" value="4"/>
     <property name="spawnNumber" type="int" value="0"/>
     <property name="velocityX" type="float" value="0"/>
     <property name="velocityY" type="float" value="0"/>

@@ -60,9 +60,14 @@ export class SceneMain extends Phaser.Scene {
       this.showText();
       this.levelCheck();
 
+      if (this.boss){
+        this.boss.update();
+      }
+
       //this.debugg.clear();
       //this.baseAsteroid.body.drawDebug(this.debugg);
     }
+
   }
 
   createExplosion(x, y, amount) {

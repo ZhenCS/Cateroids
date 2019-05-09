@@ -381,11 +381,16 @@ export class Laser extends Entity {
 }
 
 export class DogWall extends Entity {
-  constructor(scene, x, y, key, health, damage){
+  constructor(scene, x, y, key, health, damage, moveVelocity, slamVelocity){
     super(scene, x, y, key);
     this.setData('health', health);
     this.setData('damage', damage);
     this.body.immovable = true;
+    this.setData('resetX', x);
+    this.setData('resetY', y);
+    this.setData('moveVelocity', moveVelocity);
+    this.setData('slamVelocity', slamVelocity);
+    this.plannedActions = [];
   }
 
   damage(damage) {
@@ -396,8 +401,113 @@ export class DogWall extends Entity {
       //this.onDestroy();
       this.destroy();
     }
+    
     // TODO: add damaged animation
   }
+
+  update(){
+    think();
+    if (this.plannedActions.length >= 1){
+      nextAction = this.plannedActions[0];
+      if (nextAction()){
+        this.plannedActions.shift();
+      }
+    }
+  }
+
+  think(){
+    // think
+  }
+
+  /**
+   * A body slam attack where the dog wall flies straight down, if the player gets caught in it they die
+   * @param {boolean} goLeft If true, body slams on the left side of the screen, otherwise body slam the right 
+   */
+  bodySlam(goLeft){
+    let targetX;
+    if (goLeft){
+      targetX = this.getData('resetX') - this.body.width / 3;
+    } else {
+      targetX = this.getData('resetX') + this.body.width / 3
+    }
+    plannedActions.push(
+      this.dogWallMoveTo.bind(
+        this,
+        targetX,
+        this.getData('resetY'),
+        this.getData('moveVelocity')
+      )
+    );
+    plannedActions.push(
+      this.dogWallMoveTo.bind(
+        this, 
+        this.body.x, 
+        this.body.y - this.body.halfWidth, 
+        this.getData('slamVelocity')
+      )
+    );
+    plannedActions.push(
+      this.dogWallMoveTo.bind(
+        this,
+        this.body.x,
+        this.getData('resetY'),
+        this.getData('slamVelocity')
+      )
+    );
+    plannedActions.push(
+      this.dogWallMoveTo.bind(
+        this,
+        this.getData('resetX'),
+        this.getData('resetY'),
+        this.getData('moveVelocity')
+      )
+    );
+  }
+
+  /**
+   * Moves the dog wall to the specified point with the specified velocity. Returns true if 
+   * @param {number} x x-coordinate of target movement
+   * @param {number} y y-coordinate of target movement
+   * @param {number} velocity Velocity to move at, must be positive
+   */
+  dogWallMoveTo(x, y, velocity){
+    console.assert(velocity > 0, "Error, dog wall given an invalid velocity");
+    let epsilon = 0.05
+    if (Math.abs(this.body.x - x) >= velocity){
+      let newX = this.body.x + velocity * Math.sign(this.body.x - x);
+      this.body.x = newX;
+    } else{
+      this.body.x = x;
+    }
+
+    if (Math.abs(this.body.y - y) >= velocity){
+      let newY = this.body.y + velocity * Math.sign(this.body.y - y);
+      this.body.y = y;
+    } else {
+      this.body.y = y;
+    }
+    
+    return Math.abs(this.body.x - x) < epsilon && Math.abs(this.body.y - y) < epsilon;
+  }
+
+  /**
+   * Expels a bunch of garbage (asteroids) in front of the dog wall
+   */
+  expelGarbage(){
+
+  }
+
+  spawnHardPoints(){
+
+  }
+
+  bulletPattern(pattern){
+
+  }
+
+  activateLaserMover(){
+
+  }  
 }
 
 export class Leo extends Entity {
@@ -487,6 +597,7 @@ export class Leo extends Entity {
       speed,
       this.scene.player.body.velocity
     );
+    
   }
 
   shoot(pointerX, pointerY, type) {
