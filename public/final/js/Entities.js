@@ -227,12 +227,6 @@ export class Bullet extends Entity {
       super(scene, x, y, constants.BOSSBEAMKEY);
       this.capacity = 3;
       this.ammoCount = 3;
-      setInterval(() => {
-        if (this.ammoCount < this.capacity) {
-          this.ammoCount++;
-          console.log('Incrementing ammo');
-        }
-      }, 3000);
     } else {
       super(scene, x, y, constants.BULLETKEY);
     }
@@ -390,7 +384,11 @@ export class DogWall extends Entity {
     this.setData('resetY', y);
     this.setData('moveVelocity', moveVelocity);
     this.setData('slamVelocity', slamVelocity);
+    this.garbageExpelled = false;
     this.plannedActions = [];
+    this.hardPoints = [];
+    this.currentPattern = [];
+    this.laserIsMoving = false;
   }
 
   damage(damage) {
@@ -406,10 +404,11 @@ export class DogWall extends Entity {
   }
 
   update(){
-    think();
-    if (this.plannedActions.length >= 1){
-      nextAction = this.plannedActions[0];
-      if (nextAction()){
+    if (this.plannedActions.length == 0){
+      this.think();
+    }
+    else{
+      if (this.plannedActions[0]()){
         this.plannedActions.shift();
       }
     }
@@ -476,13 +475,13 @@ export class DogWall extends Entity {
     if (Math.abs(this.body.x - x) >= velocity){
       let newX = this.body.x + velocity * Math.sign(this.body.x - x);
       this.body.x = newX;
-    } else{
+    } else {
       this.body.x = x;
     }
 
     if (Math.abs(this.body.y - y) >= velocity){
       let newY = this.body.y + velocity * Math.sign(this.body.y - y);
-      this.body.y = y;
+      this.body.y = newY;
     } else {
       this.body.y = y;
     }
@@ -494,20 +493,36 @@ export class DogWall extends Entity {
    * Expels a bunch of garbage (asteroids) in front of the dog wall
    */
   expelGarbage(){
-
+    if (!this.garbageExpelled){
+      
+      this.garbageExpelled = true;
+      return false;
+    }
   }
 
   spawnHardPoints(){
+    if (this.hardPoints.length < 4){
 
+    }
   }
 
-  bulletPattern(pattern){
+  bulletPattern(){
+    if (this.currentPattern.length > 0){
+      nextPattern = this.currentPattern.shift();
+      switch(nextPattern){
 
+      }
+      return false;
+    } else {
+      return true;
+    }
   }
 
   activateLaserMover(){
-
-  }  
+    // Turn on laser mover
+    this.laserIsMoving = true;
+    return true;
+  }
 }
 
 export class Leo extends Entity {
@@ -531,6 +546,14 @@ export class Leo extends Entity {
     });
     this.setScale(0.5, 0.5);
     this.setDepth(gameDepths.uiDepth - 1);
+    this.ammoCount = 3;
+    this.capacity = 3;
+    setInterval(() => {
+      if (this.ammoCount < this.capacity) {
+        this.ammoCount++;
+        console.log('Incrementing ammo');
+      }
+    }, 3000);
   }
 
   moveLeft(boost) {
@@ -601,6 +624,9 @@ export class Leo extends Entity {
   }
 
   shoot(pointerX, pointerY, type) {
+    if (type === 'strongLaser' && this.ammoCount == 0){
+      return;
+    }
     let playerDamage = this.scene.gameConfig.playerDamage;
     const bullet = new Bullet(this.scene, this.x, this.y, true, type);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
@@ -630,7 +656,7 @@ export class Leo extends Entity {
       .setData('damage', playerDamage)
       .setRotation(angle);
 
-    bullet.ammoCount--;
+    this.ammoCount--;
     console.log('Current Ammo Count', bullet.ammoCount);
     bullet.body.setVelocity(xVelocity * 0.25, yVelocity * 0.25);
     this.scene.bullets.add(bullet);
@@ -785,6 +811,14 @@ export class Leo extends Entity {
     this.setData('isMovingX', false);
     this.setData('isMovingY', false);
 
-    if (!this.getData('oxygenAsteroid')) this.setRotation(this.rotation * 0.8);
+    if (!this.getData('oxygenAsteroid')) {
+      this.setRotation(this.rotation * 0.8);
+    } else {
+      let oxygenAsteroid = this.getData('oxygenAsteroid');
+      if (oxygenAsteroid.getData('health') - gameConfig.oxygenAsteroidDamage <= 0){
+        this.setData('oxygenAsteroid', null);
+      }
+      oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage);
+    }
   }
 }

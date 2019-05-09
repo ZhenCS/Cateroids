@@ -17,7 +17,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="Objects">
-  <object id="228" gid="10" x="38208" y="448" width="64" height="64"/>
+  <object id="228" gid="11" x="38208" y="448" width="64" height="64"/>
   <object id="269" gid="1" x="4544" y="192" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="1"/>
@@ -120,7 +120,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="366" gid="9" x="192" y="448" width="64" height="64"/>
+  <object id="366" gid="10" x="192" y="448" width="64" height="64"/>
   <object id="367" gid="2" x="4609.33" y="177.333" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="1"/>
@@ -4239,13 +4239,13 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1545" gid="6" x="9058.91" y="735.03" width="64" height="64">
+  <object id="1545" gid="7" x="9058.91" y="735.03" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="2"/>
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1546" gid="6" x="10083.2" y="101.697" width="64" height="64">
+  <object id="1546" gid="7" x="10083.2" y="101.697" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="3"/>
     <property name="velocityX" value="0"/>
@@ -4308,7 +4308,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="1559" gid="6" x="11010" y="774" width="64" height="64">
+  <object id="1559" gid="7" x="11010" y="774" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="4"/>
    </properties>
@@ -4814,7 +4814,7 @@
     <property name="spawnNumber" value="5"/>
    </properties>
   </object>
-  <object id="1681" gid="8" x="12098" y="318" width="64" height="64">
+  <object id="1681" gid="9" x="12098" y="318" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="5"/>
    </properties>
@@ -5319,24 +5319,24 @@
     <property name="spawnNumber" value="6"/>
    </properties>
   </object>
-  <object id="1884" gid="8" x="13855.4" y="498.68" width="64" height="64" rotation="-180.235">
+  <object id="1884" gid="9" x="13855.4" y="498.68" width="64" height="64" rotation="-180.235">
    <properties>
     <property name="spawnNumber" value="6"/>
    </properties>
   </object>
-  <object id="1885" gid="7" x="12672" y="448" width="64" height="64">
+  <object id="1885" gid="8" x="12672" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
     <property name="velocityY" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="1886" gid="7" x="12928" y="448" width="64" height="64">
+  <object id="1886" gid="8" x="12928" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
     <property name="velocityY" type="float" value="100"/>
    </properties>
   </object>
-  <object id="1887" gid="7" x="13184" y="448" width="64" height="64">
+  <object id="1887" gid="8" x="13184" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
     <property name="velocityY" type="float" value="-100"/>
@@ -5347,17 +5347,17 @@
     <property name="spawnNumber" value="5"/>
    </properties>
   </object>
-  <object id="1889" gid="8" x="12100" y="70" width="64" height="64">
+  <object id="1889" gid="9" x="12100" y="70" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="5"/>
    </properties>
   </object>
-  <object id="1890" gid="8" x="11952" y="74" width="64" height="64">
+  <object id="1890" gid="9" x="11952" y="74" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="5"/>
    </properties>
   </object>
-  <object id="1891" gid="8" x="11948" y="322" width="64" height="64">
+  <object id="1891" gid="9" x="11948" y="322" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="5"/>
    </properties>
@@ -5868,7 +5868,7 @@
     <property name="spawnNumber" value="7"/>
    </properties>
   </object>
-  <object id="1993" gid="1073741832" x="15135.4" y="277.25" width="64" height="64" rotation="180.235">
+  <object id="1993" gid="1073741833" x="15135.4" y="277.25" width="64" height="64" rotation="180.235">
    <properties>
     <property name="spawnNumber" value="7"/>
    </properties>
@@ -5878,7 +5878,7 @@
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1996" gid="6" x="15071" y="101.697" width="64" height="64">
+  <object id="1996" gid="7" x="15071" y="101.697" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="7"/>
    </properties>
@@ -6271,7 +6271,7 @@
     <property name="velocityX" value="0"/>
    </properties>
   </object>
-  <object id="2126" gid="8" x="16214.7" y="433.333" width="64" height="64">
+  <object id="2126" gid="9" x="16214.7" y="433.333" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
    </properties>
@@ -6282,115 +6282,115 @@
     <property name="health" type="float" value="500"/>
    </properties>
   </object>
-  <object id="2129" gid="8" x="17536" y="192" width="64" height="64">
+  <object id="2129" gid="9" x="17536" y="192" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
    </properties>
   </object>
-  <object id="2130" gid="8" x="17600" y="320" width="64" height="64">
+  <object id="2130" gid="9" x="17600" y="320" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
    </properties>
   </object>
-  <object id="2131" gid="8" x="17600" y="512" width="64" height="64">
+  <object id="2131" gid="9" x="17600" y="512" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
    </properties>
   </object>
-  <object id="2132" gid="8" x="17536" y="640" width="64" height="64">
+  <object id="2132" gid="9" x="17536" y="640" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
    </properties>
   </object>
-  <object id="2133" gid="6" x="20224" y="128" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" value="8"/>
-    <property name="velocityX" type="float" value="-100"/>
-   </properties>
-  </object>
-  <object id="2134" gid="6" x="20224" y="448" width="64" height="64">
+  <object id="2133" gid="7" x="20224" y="128" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2135" gid="6" x="20224" y="768" width="64" height="64">
+  <object id="2134" gid="7" x="20224" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2136" gid="7" x="18112" y="192" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" value="8"/>
-    <property name="velocityX" type="float" value="-100"/>
-    <property name="velocityY" type="float" value="100"/>
-   </properties>
-  </object>
-  <object id="2137" gid="7" x="18112" y="448" width="64" height="64">
+  <object id="2135" gid="7" x="20224" y="768" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2138" gid="7" x="18112" y="704" width="64" height="64">
-   <properties>
-    <property name="spawnNumber" value="8"/>
-    <property name="velocityX" type="float" value="-100"/>
-    <property name="velocityY" type="float" value="-100"/>
-   </properties>
-  </object>
-  <object id="2139" gid="7" x="18240" y="64" width="64" height="64">
+  <object id="2136" gid="8" x="18112" y="192" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
     <property name="velocityY" type="float" value="100"/>
    </properties>
   </object>
-  <object id="2140" gid="7" x="18240" y="818" width="64" height="64">
+  <object id="2137" gid="8" x="18112" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" value="8"/>
+    <property name="velocityX" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2138" gid="8" x="18112" y="704" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
     <property name="velocityY" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2141" gid="7" x="18752" y="448" width="64" height="64">
+  <object id="2139" gid="8" x="18240" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" value="8"/>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="100"/>
+   </properties>
+  </object>
+  <object id="2140" gid="8" x="18240" y="818" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" value="8"/>
+    <property name="velocityX" type="float" value="-100"/>
+    <property name="velocityY" type="float" value="-100"/>
+   </properties>
+  </object>
+  <object id="2141" gid="8" x="18752" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2142" gid="7" x="18880" y="320" width="64" height="64">
+  <object id="2142" gid="8" x="18880" y="320" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2143" gid="7" x="19008" y="192" width="64" height="64">
+  <object id="2143" gid="8" x="19008" y="192" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2144" gid="7" x="19136" y="86" width="64" height="64">
+  <object id="2144" gid="8" x="19136" y="86" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2145" gid="7" x="18880" y="576" width="64" height="64">
+  <object id="2145" gid="8" x="18880" y="576" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2146" gid="7" x="19008" y="704" width="64" height="64">
+  <object id="2146" gid="8" x="19008" y="704" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
    </properties>
   </object>
-  <object id="2147" gid="7" x="19137" y="802" width="64" height="64">
+  <object id="2147" gid="8" x="19137" y="802" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="8"/>
     <property name="velocityX" type="float" value="-100"/>
@@ -9814,19 +9814,19 @@
     <property name="spawnNumber" value="11"/>
    </properties>
   </object>
-  <object id="4548" gid="7" x="32377.3" y="458.667" width="64" height="64">
+  <object id="4548" gid="8" x="32377.3" y="458.667" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4549" gid="7" x="32900" y="456" width="64" height="64">
+  <object id="4549" gid="8" x="32900" y="456" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4553" gid="7" x="33340.7" y="452.667" width="64" height="64">
+  <object id="4553" gid="8" x="33340.7" y="452.667" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
@@ -10597,43 +10597,43 @@
     <property name="spawnNumber" value="11"/>
    </properties>
   </object>
-  <object id="4708" gid="7" x="34205.9" y="451.455" width="64" height="64">
+  <object id="4708" gid="8" x="34205.9" y="451.455" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4709" gid="7" x="34408.5" y="452.788" width="64" height="64">
+  <object id="4709" gid="8" x="34408.5" y="452.788" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4710" gid="7" x="34731.2" y="446.788" width="64" height="64">
+  <object id="4710" gid="8" x="34731.2" y="446.788" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4711" gid="7" x="35079.2" y="440.788" width="64" height="64">
+  <object id="4711" gid="8" x="35079.2" y="440.788" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4712" gid="7" x="34579.4" y="452.667" width="64" height="64">
+  <object id="4712" gid="8" x="34579.4" y="452.667" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4713" gid="7" x="34907.2" y="451.455" width="64" height="64">
+  <object id="4713" gid="8" x="34907.2" y="451.455" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4714" gid="7" x="35239.2" y="444.788" width="64" height="64">
+  <object id="4714" gid="8" x="35239.2" y="444.788" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
@@ -11404,43 +11404,43 @@
     <property name="spawnNumber" value="11"/>
    </properties>
   </object>
-  <object id="4868" gid="7" x="36051.4" y="446.364" width="64" height="64">
+  <object id="4868" gid="8" x="36051.4" y="446.364" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4869" gid="7" x="36254" y="447.697" width="64" height="64">
+  <object id="4869" gid="8" x="36254" y="447.697" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4870" gid="7" x="36576.7" y="441.697" width="64" height="64">
+  <object id="4870" gid="8" x="36576.7" y="441.697" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4871" gid="7" x="36924.7" y="435.697" width="64" height="64">
+  <object id="4871" gid="8" x="36924.7" y="435.697" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="150"/>
    </properties>
   </object>
-  <object id="4872" gid="7" x="36424.9" y="447.576" width="64" height="64">
+  <object id="4872" gid="8" x="36424.9" y="447.576" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4873" gid="7" x="36752.7" y="446.364" width="64" height="64">
+  <object id="4873" gid="8" x="36752.7" y="446.364" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="4874" gid="7" x="37084.7" y="439.697" width="64" height="64">
+  <object id="4874" gid="8" x="37084.7" y="439.697" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="11"/>
     <property name="velocityY" type="float" value="-150"/>
@@ -11984,37 +11984,37 @@
     <property name="spawnNumber" value="11"/>
    </properties>
   </object>
-  <object id="5030" gid="6" x="26432" y="448" width="64" height="64">
+  <object id="5030" gid="7" x="26432" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" value="9"/>
    </properties>
   </object>
-  <object id="5031" gid="7" x="25728" y="128" width="64" height="64">
+  <object id="5031" gid="8" x="25728" y="128" width="64" height="64">
    <properties>
     <property name="fireRate" type="float" value="500"/>
    </properties>
   </object>
-  <object id="5033" gid="7" x="21376" y="768" width="64" height="64">
+  <object id="5033" gid="8" x="21376" y="768" width="64" height="64">
    <properties>
     <property name="fireRate" type="float" value="500"/>
    </properties>
   </object>
-  <object id="5034" gid="7" x="22272" y="128" width="64" height="64">
+  <object id="5034" gid="8" x="22272" y="128" width="64" height="64">
    <properties>
     <property name="fireRate" type="float" value="500"/>
    </properties>
   </object>
-  <object id="5035" gid="7" x="23104" y="768" width="64" height="64">
+  <object id="5035" gid="8" x="23104" y="768" width="64" height="64">
    <properties>
     <property name="fireRate" type="float" value="500"/>
    </properties>
   </object>
-  <object id="5036" gid="7" x="24000" y="128" width="64" height="64">
+  <object id="5036" gid="8" x="24000" y="128" width="64" height="64">
    <properties>
     <property name="fireRate" type="float" value="500"/>
    </properties>
   </object>
-  <object id="5037" gid="7" x="24768" y="128" width="64" height="64">
+  <object id="5037" gid="8" x="24768" y="128" width="64" height="64">
    <properties>
     <property name="fireRate" type="float" value="500"/>
    </properties>

@@ -46,6 +46,7 @@
   <tile id="3" type="asteroid">
    <properties>
     <property name="damage" type="float" value="500"/>
+    <property name="hasDog" type="bool" value="false"/>
     <property name="health" type="float" value="300"/>
     <property name="level" type="int" value="3"/>
     <property name="spawnNumber" type="int" value="0"/>
