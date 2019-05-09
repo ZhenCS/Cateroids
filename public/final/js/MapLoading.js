@@ -1,6 +1,6 @@
 import * as constants from './utils/constants.js';
 import { getPropertyValue, centerX} from './utils/utils.js';
-import { Asteroid, Dog, Laser} from './Entities.js';
+import { Asteroid, Dog, Laser, DogWall} from './Entities.js';
 
 export function loadMap(scene, level) {
     const map = scene.make.tilemap(level);
@@ -29,11 +29,16 @@ export function loadMap(scene, level) {
         setWaves(scene);
         setBase(scene, scene.waveObjects[0]);
       }
+    } else if (scene.gameConfig.gameMode == 'BOSS'){
+      setPlayerSpawn(scene);
+      setBossType(scene);
     }
 
     scene.gameConfig.spawnBuffer = scene.game.config.width/2 + 50;
     scene.mapLoaded = true;
 }
+
+
 
 function setLevelProperties(scene, map){
     scene.gameConfig.worldWidth = map.width * map.tileWidth;
@@ -111,6 +116,13 @@ function setBackground(scene, mode){
       )
       .setDisplayOrigin(0, 0)
       .setDepth(-1);
+  } else if (mode == 'BOSS'){
+    let bgWidth = scene.gameConfig.worldWidth;
+    let bgHeight = scene.gameConfig.worldHeight;
+    // temporary until boss battle background is ready
+    scene.add.tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND)
+             .setDisplayOrigin(0,0)
+             .setDepth(-1);
   }
 }
 
@@ -167,19 +179,43 @@ function sortWave(wave){
 }
 
 function setPlayerSpawn(scene) {
-    for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
-      let obj = scene.mapObjects[i];
-      if (obj.type == 'spawnPoint') {
-        scene.player.x = obj.x;
-        scene.player.y = obj.y;
+  for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
+    let obj = scene.mapObjects[i];
+    if (obj.type == 'spawnPoint') {
+      scene.player.x = obj.x;
+      scene.player.y = obj.y;
 
-        let asteroid = new Asteroid(scene, obj.x, obj.y, constants.ASTEROID3KEY, 0, 0, 1000, 0);
-        scene.oxygenAsteroids.add(asteroid);
-        scene.player.setData('oxygenAsteroid', asteroid);
-        break;
-      }
+      let asteroid = new Asteroid(scene, obj.x, obj.y, constants.ASTEROID3KEY, 0, 0, 1000, 0);
+      scene.oxygenAsteroids.add(asteroid);
+      scene.player.setData('oxygenAsteroid', asteroid);
+      break;
     }
   }
+}
+
+function setBossType(scene) {
+  for (var i = scene.mapObjects.length - 1; i >=0; i--) {
+    let obj = scene.mapObjects[i];
+    if (obj.type == 'boss'){
+      let boss;
+      let bossType = getPropertyValue(obj, 'bossType');
+      let bossHealth = getPropertyValue(obj, 'health');
+      let bossDamage = getPropertyValue(obj, 'damage');
+      switch (bossType){
+        case 'dogWall':{
+          boss = new DogWall(scene, obj.x, obj.y, constants.DOGWALLKEY, bossHealth, bossDamage);
+          scene.gameConfig.maxBossHealth = boss.getData('health');
+          break;
+        }
+        default:{
+          console.log(`Error no boss found for boss type: ${ obj.bossType }`);
+        }
+      }
+
+      scene.boss = boss;
+    }
+  }
+}
 
 function setEndPoint(scene){
   for (var i = scene.mapObjects.length - 1; i >= 0; i--) {

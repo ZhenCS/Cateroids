@@ -18,7 +18,9 @@ const gameStyles = {
   barColor: 0xf2f2f2,
   baseColor: 0x4ef442,
   basePadding: 50,
-  starTint: 0xfbff42
+  starTint: 0xfbff42,
+  bossColor: 0x7851a9 ,
+  bossPadding: 50
 };
 
 const gameDepths = {
