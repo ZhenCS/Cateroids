@@ -203,7 +203,7 @@ function setBossType(scene) {
       let bossDamage = getPropertyValue(obj, 'damage');
       switch (bossType){
         case 'dogWall':{
-          boss = new DogWall(scene, obj.x, obj.y, constants.DOGWALLKEY, bossHealth, bossDamage);
+          boss = new DogWall(scene, obj.x, obj.y, constants.DOGWALLKEY, bossHealth, bossDamage, 33, 100);
           scene.gameConfig.maxBossHealth = boss.getData('health');
           break;
         }
@@ -213,6 +213,7 @@ function setBossType(scene) {
       }
 
       scene.boss = boss;
+      break;
     }
   }
 }

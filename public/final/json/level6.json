@@ -536,6 +536,11 @@
                          "value":80
                         }, 
                         {
+                         "name":"level",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
                          "name":"spawnNumber",
                          "type":"int",
                          "value":0
