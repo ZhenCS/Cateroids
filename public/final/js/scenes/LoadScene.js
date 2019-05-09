@@ -42,7 +42,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.tilemapTiledJSON(constants.LEVEL3KEY, 'json/level3a.json');
     this.load.tilemapTiledJSON(constants.LEVEL4KEY, 'json/level4.json');
     this.load.tilemapTiledJSON(constants.LEVEL5KEY, 'json/level5.json');
-    this.load.tilemapTiledJSON(constants.LEVEL6KEY, 'json/LevelTemplate.json');
+    this.load.tilemapTiledJSON(constants.LEVEL6KEY, 'json/level6.json');
     this.load.tilemapTiledJSON(constants.LEVEL7KEY, 'json/level3.json');
     this.load.tilemapTiledJSON(constants.LEVEL8KEY, 'json/level5.json');
       
@@ -54,6 +54,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.image(constants.BULLETKEY, 'assets/bullet2.png');
     this.load.image(constants.BOSSBEAMKEY, 'assets/bossBeam.png');
     this.load.image(constants.MOONKEY, 'assets/moon.png');
+    this.load.image(constants.DOGWALLKEY, 'assets/dogWall.png');
 
     this.load.image(constants.CONTROLS1KEY, 'assets/controls1.png');
     this.load.image(constants.GOALBGKEY, 'assets/goals.png');
