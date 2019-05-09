@@ -380,6 +380,26 @@ export class Laser extends Entity {
   }
 }
 
+export class DogWall extends Entity {
+  constructor(scene, x, y, key, health, damage){
+    super(scene, x, y, key);
+    this.setData('health', health);
+    this.setData('damage', damage);
+    this.body.immovable = true;
+  }
+
+  damage(damage) {
+    let health = this.getData('health');
+
+    this.setData('health', health - damage);
+    if (health - damage <= 0) {
+      //this.onDestroy();
+      this.destroy();
+    }
+    // TODO: add damaged animation
+  }
+}
+
 export class Leo extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, constants.CATKEY);
@@ -649,6 +669,7 @@ export class Leo extends Entity {
       if (this.body.velocity.y > sceneConfig.softMaxPlayerVelocityY)
         this.body.velocity.y *= 0.995;
     }
+
     this.setData('isMoving', false);
     this.setData('isMovingX', false);
     this.setData('isMovingY', false);

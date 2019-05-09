@@ -31,6 +31,16 @@ export function updateUI(scene, mode) {
     );
 
     //centerX(scene, scene.baseBar);
+  } else if (mode == 'BOSS'){
+    scene.bossBar
+         .clear()
+         .fillStyle(gameStyles.bossColor)
+         .setDepth(gameDepths.uiDepth);
+    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+
+    scene.bossBar.fillRect(offset, gameStyles.bossPadding, 
+                          gameStyles.healthWidth * (scene.boss.getData('health') / scene.gameConfig.maxBossHealth),
+                          gameStyles.barHeight)
   }
 
   scene.hpBar
@@ -325,6 +335,26 @@ function initUI(scene, mode) {
       gameStyles.barHeight
     );
     uiContainer.add([baseBG, scene.baseBar]);
+  } else if (mode == 'BOSS'){
+    let bossBG = scene.add
+                      .graphics()
+                      .fillStyle(gameStyles.barColor)
+                      .setDepth(gameDepths.uiDepth);
+
+    scene.bossBar = scene.add
+                         .graphics()
+                         .fillStyle(gameStyles.bossColor)
+                         .setDepth(gameDepths.uiDepth);
+
+    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+
+    bossBG.fillRect(offset, 
+      gameStyles.bossPadding,
+      gameStyles.healthWidth,
+      gameStyles.barHeight);
+
+    scene.bossBar.fillRect(offset, gameStyles.bossPadding, gameStyles.healthWidth, gameStyles.barHeight);
+    uiContainer.add([bossBG, scene.bossBar])
   }
   let hpText = scene.add
     .text(gameStyles.padding + 2, gameStyles.padding - 2, "Health", {

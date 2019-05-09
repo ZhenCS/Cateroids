@@ -114,3 +114,5 @@ function generateDogAnimationKeys() {
 
   return dogAnimationKeys;
 }
+
+export const DOGWALLKEY = 'bossDogWall';
