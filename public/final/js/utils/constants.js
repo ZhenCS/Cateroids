@@ -8,6 +8,7 @@ export const PAUSEKEY = 'ps';
 export const GAMEOVERKEY = 'gos';
 export const CHEATKEY = 'cm';
 export const GOALKEY = 'gs'
+export const UPGRADEKEY = 'upg'
 
 export const LOGOKEY = 'logo';
 export const NAMEKEY = 'name';

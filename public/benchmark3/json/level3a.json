@@ -466,7 +466,7 @@
                         {
                          "name":"velocityX",
                          "type":"int",
-                         "value":50
+                         "value":30
                         }, 
                         {
                          "name":"velocityY",
@@ -4108,7 +4108,7 @@
                         {
                          "name":"playerDeltaX",
                          "type":"float",
-                         "value":200
+                         "value":1000
                         }, 
                         {
                          "name":"scale",
@@ -4117,8 +4117,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"1"
                         }, 
                         {
                          "name":"type",
@@ -4129,7 +4129,7 @@
                  "type":"laser",
                  "visible":true,
                  "width":64,
-                 "x":832,
+                 "x":512,
                  "y":512
                 }, 
                 {
@@ -4171,7 +4171,7 @@
                         {
                          "name":"playerDeltaX",
                          "type":"float",
-                         "value":200
+                         "value":1000
                         }, 
                         {
                          "name":"scale",
@@ -4180,8 +4180,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"1"
                         }, 
                         {
                          "name":"type",
@@ -4192,7 +4192,7 @@
                  "type":"laser",
                  "visible":true,
                  "width":64,
-                 "x":832,
+                 "x":512,
                  "y":704
                 }, 
                 {
@@ -4280,7 +4280,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4328,7 +4328,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4376,7 +4376,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4424,7 +4424,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4472,7 +4472,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4520,7 +4520,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4568,7 +4568,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4616,7 +4616,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4664,7 +4664,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4712,7 +4712,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4969,8 +4969,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5012,8 +5012,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5055,8 +5055,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5098,8 +5098,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5141,8 +5141,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5425,7 +5425,7 @@
                         {
                          "name":"playerDeltaX",
                          "type":"float",
-                         "value":200
+                         "value":1000
                         }, 
                         {
                          "name":"scale",
@@ -5453,7 +5453,7 @@
          "offsety":0,
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -5511,7 +5511,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":3
+                         "value":2
                         }, 
                         {
                          "name":"type",
@@ -5574,7 +5574,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":3
+                         "value":2
                         }, 
                         {
                          "name":"type",
@@ -5586,13 +5586,13 @@
                  "visible":true,
                  "width":64,
                  "x":576,
-                 "y":562.333333333333
+                 "y":562.333
                 }],
          "offsetx":32,
          "offsety":0,
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -5625,7 +5625,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5668,7 +5668,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5711,7 +5711,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5754,7 +5754,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5797,7 +5797,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5840,7 +5840,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5883,7 +5883,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5926,7 +5926,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5969,7 +5969,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6012,7 +6012,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6055,7 +6055,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6098,7 +6098,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6141,7 +6141,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6184,7 +6184,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6227,7 +6227,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6270,7 +6270,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6313,7 +6313,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6356,7 +6356,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6399,7 +6399,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6442,7 +6442,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6485,7 +6485,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6601,7 +6601,7 @@
                  "visible":true,
                  "width":64,
                  "x":126,
-                 "y":-47.3333333333333
+                 "y":-47.3333
                 }, 
                 {
                  "gid":1,
@@ -6643,8 +6643,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":126.666666666667,
-                 "y":47.3333333333333
+                 "x":126.667,
+                 "y":47.3333
                 }, 
                 {
                  "gid":1,
@@ -6686,8 +6686,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":83.3333333333333,
-                 "y":0.666666666666671
+                 "x":83.3333,
+                 "y":0.666667
                 }, 
                 {
                  "gid":1,
@@ -6730,7 +6730,7 @@
                  "visible":true,
                  "width":64,
                  "x":180,
-                 "y":6.66666666666667
+                 "y":6.66667
                 }, 
                 {
                  "gid":1,
@@ -6772,8 +6772,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":184.666666666667,
-                 "y":-56.6666666666667
+                 "x":184.667,
+                 "y":-56.6667
                 }, 
                 {
                  "gid":1,
@@ -6815,8 +6815,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":89.3333333333333,
-                 "y":-22.6666666666667
+                 "x":89.3333,
+                 "y":-22.6667
                 }, 
                 {
                  "gid":1,
@@ -6858,8 +6858,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":80.6666666666667,
-                 "y":38.6666666666667
+                 "x":80.6667,
+                 "y":38.6667
                 }, 
                 {
                  "gid":1,
@@ -6944,7 +6944,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":88.9999999999999,
+                 "x":89,
                  "y":-1
                 }, 
                 {
@@ -7159,8 +7159,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":1031.33333333333,
-                 "y":-38.6666666666667
+                 "x":1031.33,
+                 "y":-38.6667
                 }, 
                 {
                  "gid":1,
@@ -7203,7 +7203,7 @@
                  "visible":true,
                  "width":64,
                  "x":1018,
-                 "y":22.6666666666667
+                 "y":22.6667
                 }, 
                 {
                  "gid":1,
@@ -7245,8 +7245,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":974.666666666667,
-                 "y":-8.66666666666666
+                 "x":974.667,
+                 "y":-8.66667
                 }, 
                 {
                  "gid":1,
@@ -7331,7 +7331,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":1073.33333333333,
+                 "x":1073.33,
                  "y":-30
                 }, 
                 {
@@ -7374,8 +7374,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":984.666666666667,
-                 "y":-29.3333333333333
+                 "x":984.667,
+                 "y":-29.3333
                 }, 
                 {
                  "gid":1,
@@ -7418,7 +7418,7 @@
                  "visible":true,
                  "width":64,
                  "x":984,
-                 "y":33.3333333333333
+                 "y":33.3333
                 }, 
                 {
                  "gid":1,
@@ -7460,8 +7460,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":1058.66666666667,
-                 "y":35.3333333333333
+                 "x":1058.67,
+                 "y":35.3333
                 }, 
                 {
                  "gid":1,
@@ -9483,7 +9483,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9579,7 +9579,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9675,7 +9675,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9771,7 +9771,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9867,7 +9867,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -10011,7 +10011,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -10059,7 +10059,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -10433,7 +10433,7 @@
                  "visible":true,
                  "width":64,
                  "x":632,
-                 "y":-92.3330000000001
+                 "y":-92.333
                 }, 
                 {
                  "gid":1,
@@ -10476,7 +10476,7 @@
                  "visible":true,
                  "width":64,
                  "x":537,
-                 "y":-91.3330000000001
+                 "y":-91.333
                 }, 
                 {
                  "gid":1,
@@ -10519,7 +10519,7 @@
                  "visible":true,
                  "width":64,
                  "x":583,
-                 "y":-63.3330000000001
+                 "y":-63.333
                 }, 
                 {
                  "gid":1,

@@ -52,6 +52,18 @@ const cheats = {
   invulnerable: false
 };
 
+const playerUpgrades = {
+  health: 0,
+  damage: 0,
+  oxygenDepletion: 0,
+  oxygenReplenish: 0,
+
+  bulletSize: 0,
+  extraAmmo: 0,
+  fireRate: 0,
+  speed: 0,
+}
+
 const gameConfig = {
   gameMode: '',
   maxBaseHealth: 0,
@@ -63,21 +75,22 @@ const gameConfig = {
 
   waves: 0,
   waveRate: 5000,
-  //soft cap for just arrow keys. can be exceeded with boost
-  softMaxPlayerVelocityX: 500,
-  softMaxPlayerVelocityY: 500,
 
   //radians
   playerWalkVelocityX: Math.PI * 2/ 45,
   playerWalkVelocityY: Math.PI * 2/ 45,
+  //soft cap for just arrow keys. can be exceeded with boost
+  softMaxPlayerVelocityX: 500, //changed by upgrades
+  softMaxPlayerVelocityY: 500, //changed by upgrades
+
   //hard cap with boost. will never exceed
-  hardMaxPlayerVelocityX: 1000,
-  hardMaxPlayerVelocityY: 1000,
+  hardMaxPlayerVelocityX: 1000, //changed by upgrades
+  hardMaxPlayerVelocityY: 1000, //changed by upgrades
   playerAccelerationX: 20,
   playerAccelerationY: 20,
   boost: 30,
   grappleSpeed: 1000,
-  playerFireRate: 100,
+  playerFireRate: 100, //changed by upgrades
 
   //for asteroids and dogs
   maxVelocityX: 500,
@@ -85,9 +98,11 @@ const gameConfig = {
   minVelocityX: 100,
   minVelocityY: 100,
 
-  maxPlayerHealth: 1000,
+  maxPlayerHealth: 1000, //changed by upgrades
   maxPlayerOxygen: 100,
-  playerDamage: 50,
+  playerDamage: 50, //changed by upgrades
+  playerBulletSize: 1, //changed by upgrades
+  playerAmmo: 3, //changed by upgrades
 
   asteroid0Health: 40,
   asteroid1Health: 20,
@@ -127,10 +142,10 @@ const gameConfig = {
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
   oxygenDepletionDelay: 50,
-  oxygenDepletionRate: 10 / 100,
+  oxygenDepletionRate: 10 / 100, //changed by upgrades
 
   oxygenReplenishDelay: 50,
-  oxygenReplenishRate: 15 / 100,
+  oxygenReplenishRate: 15 / 100, //changed by upgrades
 
   laserDamage: 1,
   laserDuration: 2500,
