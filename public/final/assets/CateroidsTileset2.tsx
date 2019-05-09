@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.3" name="CateroidsTileset2" tilewidth="64" tileheight="64" tilecount="15" columns="5">
- <image source="CateroidsTileset2.png" width="320" height="192"/>
+<tileset version="1.2" tiledversion="1.2.3" name="CateroidsTileset2" tilewidth="64" tileheight="64" tilecount="24" columns="6">
+ <image source="CateroidsTileset2.png" width="384" height="256"/>
  <tile id="0" type="asteroid">
   <properties>
    <property name="damage" type="float" value="20"/>
@@ -34,6 +34,7 @@
  <tile id="3" type="asteroid">
   <properties>
    <property name="damage" type="float" value="500"/>
+   <property name="hasDog" type="bool" value="false"/>
    <property name="health" type="float" value="300"/>
    <property name="level" type="int" value="3"/>
    <property name="spawnNumber" type="int" value="0"/>
@@ -55,7 +56,8 @@
    <property name="type" value="VERTICAL"/>
   </properties>
  </tile>
- <tile id="5" type="dog">
+ <tile id="5" type="dog"/>
+ <tile id="6" type="dog">
   <properties>
    <property name="damage" type="float" value="15"/>
    <property name="fireRate" type="float" value="1500"/>
@@ -66,7 +68,7 @@
    <property name="velocityY" type="float" value="0"/>
   </properties>
  </tile>
- <tile id="6" type="dog">
+ <tile id="7" type="dog">
   <properties>
    <property name="damage" type="float" value="10"/>
    <property name="fireRate" type="float" value="1000"/>
@@ -77,7 +79,7 @@
    <property name="velocityY" type="float" value="0"/>
   </properties>
  </tile>
- <tile id="7" type="dog">
+ <tile id="8" type="dog">
   <properties>
    <property name="damage" type="float" value="5"/>
    <property name="fireRate" type="float" value="800"/>
@@ -88,22 +90,41 @@
    <property name="velocityY" type="float" value="0"/>
   </properties>
  </tile>
- <tile id="8" type="spawnPoint">
+ <tile id="9" type="spawnPoint">
   <properties>
    <property name="spawnNumber" type="int" value="0"/>
   </properties>
  </tile>
- <tile id="9" type="endPoint">
+ <tile id="10" type="endPoint">
   <properties>
    <property name="spawnNumber" type="int" value="0"/>
   </properties>
  </tile>
- <tile id="10" type="text">
+ <tile id="12" type="text">
   <properties>
    <property name="hideOnDeltaX" type="float" value="0"/>
    <property name="showOnDeltaX" type="float" value="0"/>
    <property name="spawnNumber" type="int" value="0"/>
    <property name="text" value="placeholder text"/>
+  </properties>
+ </tile>
+ <tile id="18" type="boss">
+  <properties>
+   <property name="bossType" value="placeholder"/>
+   <property name="damage" type="float" value="20"/>
+   <property name="health" type="float" value="1000"/>
+   <property name="spawnNumber" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="19" type="dog">
+  <properties>
+   <property name="damage" type="float" value="10"/>
+   <property name="fireRate" type="float" value="1500"/>
+   <property name="health" type="float" value="80"/>
+   <property name="level" type="int" value="4"/>
+   <property name="spawnNumber" type="int" value="0"/>
+   <property name="velocityX" type="float" value="0"/>
+   <property name="velocityY" type="float" value="0"/>
   </properties>
  </tile>
 </tileset>
