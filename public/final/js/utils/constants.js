@@ -20,26 +20,29 @@ export const ASTEROID1KEY = 'asteroid1';
 export const ASTEROID2KEY = 'asteroid2';
 export const ASTEROID3KEY = 'asteroid3';
 export const MOONKEY = 'moon';
+export const ENDPOINT = 'endGalaxy';
 
 export const LEVELICON = 'levelIcon';
 export const LIFEICON = 'lifeIcon';
 export const BACKKEY = 'back';
 export const STARKEY = 'star';
 
-export const CATKEY = 'cat';
-export const DOG1KEY = 'dog';
-export const DOG2KEY = 'dog2';
-export const DOG3KEY = 'dog3';
-
 export const BULLETKEY = 'bullet';
 export const BOSSBEAMKEY = 'bossBeam';
 export const PIXELKEY = 'pixels';
 export const DOGLASERKEY = 'dogLaser';
 
+export const CATKEY = 'cat';
+export const DOG1KEY = 'dog';
+export const DOG2KEY = 'dog2';
+export const DOG3KEY = 'dog3';
+export const DOG4KEY = 'dog4';
+
 export const CATATLASKEY = 'catAtlas';
 export const DOG1ATLASKEY = 'dogAtlas';
 export const DOG2ATLASKEY = 'dog2Atlas';
 export const DOG3ATLASKEY = 'dog3Atlas';
+export const DOG4ATLASKEY = 'dog4Atlas';
 
 export const SPRITEPREFIXKEY = 'sprite';
 export const IDLEKEY = 'idle';
@@ -48,7 +51,7 @@ export const DAMAGEKEY = 'damage';
 export const DYINGKEY = 'dying';
 export const DEADKEY = 'dead';
 
-export const dogKeys = ['DOG1', 'DOG2', 'DOG3'];
+export const dogKeys = ['DOG1', 'DOG2', 'DOG3', 'DOG4'];
 export const animationKeys = ['idle', 'attack', 'damage', 'dying', 'dead'];
 export const dogAnimationKeys = generateDogAnimationKeys();
 
@@ -95,7 +98,9 @@ export const DYINGAUDIO = 'dying';
 export const BOOSTAUDIO = 'boost';
 export const OXYGENLOWAUDIO = 'lowOxygen'
 
-export const SPACE_BACKGROUND = 'spaceBackground';
+export const SPACE_BACKGROUND1 = 'spaceBackground';
+export const SPACE_BACKGROUND2 = 'spaceBackground2';
+export const SPACE_BACKGROUND3 = 'spaceBackground3';
 
 function generateDogAnimationKeys() {
   let dogAnimationKeys = new Array();

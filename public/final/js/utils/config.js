@@ -100,22 +100,26 @@ const gameConfig = {
   dog1Health: 30,
   dog2Health: 60,
   dog3Health: 80,
+  dog4Health: 120,
 
   dog1Damage: 5,
   dog2Damage: 10,
   dog3Damage: 15,
+  dog4Damage: 10,
 
   //ms
   dog1FireRate: 1000,
   dog2FireRate: 1500,
   dog3FireRate: 2000,
+  dog4FireRate: 1200,
   bulletSpeed: 500,
 
   // out of 100
   dogSpawnRate: 100,
-  dog1SpawnRate: 40,
-  dog2SpawnRate: 35,
+  dog1SpawnRate: 35,
+  dog2SpawnRate: 30,
   dog3SpawnRate: 25,
+  dog4SpawnRate: 10,
 
   oxygenAsteroidSpawnRate: 35,
   //when oxygen is 0, damage to health

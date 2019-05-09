@@ -93,7 +93,7 @@ function setBackground(scene, mode){
         0,
         bgWidth,
         bgHeight,
-        constants.SPACE_BACKGROUND
+        constants[`SPACE_BACKGROUND${Phaser.Math.Between(1,3)}`]
       )
       .setDisplayOrigin(0, 0)
       .setScrollFactor(1 / 5, 1)
@@ -107,7 +107,7 @@ function setBackground(scene, mode){
         0,
         bgWidth,
         bgHeight,
-        constants.SPACE_BACKGROUND
+        constants[`SPACE_BACKGROUND${Phaser.Math.Between(1,3)}`]
       )
       .setDisplayOrigin(0, 0)
       .setDepth(-1);
@@ -186,6 +186,9 @@ function setEndPoint(scene){
     let obj = scene.mapObjects[i];
     if(obj.type == 'endPoint'){
       scene.endPointX = obj.x;
+      let end = scene.add.sprite(obj.x, obj.y, constants.ENDPOINT);
+      end.setScale(0.4);
+      end.setAlpha(0.5);
       break;
     }
   }

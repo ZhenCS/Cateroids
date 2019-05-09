@@ -124,13 +124,23 @@ export class Dog extends Entity {
     damage,
     fireRate
   ) {
+
     let key = constants[`DOG${level}KEY`];
     super(scene, x, y, key);
+    let sceneConfig = scene.gameConfig;
+
+    let dogHealth = sceneConfig[`dog${level}Health`];
+    let dogDamage = sceneConfig[`dog${level}Damage`];
+    let dogFireRate = sceneConfig[`dog${level}FireRate`];
+
+    if (health && typeof health != 'undefined') dogHealth = health;
+    if (damage && typeof damage != 'undefined') dogDamage = damage;
+    if (fireRate && typeof fireRate != 'undefined') dogFireRate = fireRate;
 
     this.setData('dogId', level);
-    this.setData('health', health);
-    this.setData('damage', damage);
-    this.setData('fireRate', fireRate);
+    this.setData('health', dogHealth);
+    this.setData('damage', dogDamage);
+    this.setData('fireRate', dogFireRate);
     let animKey = constants.dogAnimationKeys[`DOG${level}IDLEKEY`];
     if (animKey) this.play(animKey);
 
@@ -160,6 +170,17 @@ export class Dog extends Entity {
 
       AI.setMovement(this, function() {
         AI.kamikazi(self);
+      });
+    }
+    if (key == constants.DOG4KEY) {
+      this.setScale(0.6, 0.6);
+
+      AI.setAI(this, function() {
+        AI.aimBot(self, 0xaa00ff, Bullet);
+      });
+
+      AI.setMovement(this, function() {
+        AI.rotate(self, -Math.PI/2);
       });
     }
 

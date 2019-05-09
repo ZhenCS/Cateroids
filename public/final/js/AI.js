@@ -52,6 +52,14 @@ export function stayInMap(self){
     }
 }
 
+export function rotate(self, offset){
+    const dx = self.scene.player.x - self.x;
+    const dy = self.scene.player.y - self.y;
+    const angle = Math.atan2(dy, dx) + offset;
+
+    self.setRotation(angle);
+}
+
 export function circle(self){
     self.body.setVelocity(0, 0);
     let radius = 100;
