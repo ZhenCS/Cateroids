@@ -33,7 +33,9 @@ export class LoadScene extends Phaser.Scene {
       this
     );
 
-    this.load.image(constants.SPACE_BACKGROUND, 'assets/bg2.png');
+    this.load.image(constants.SPACE_BACKGROUND1, 'assets/bg2.png');
+    this.load.image(constants.SPACE_BACKGROUND2, 'assets/bg3.png');
+    this.load.image(constants.SPACE_BACKGROUND3, 'assets/bg4.png');
     this.load.image('tiles', 'assets/CateroidsTileSet.png');
     this.load.image('tiles2', 'assets/CateroidsTileset2.png');
 
@@ -55,6 +57,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.image(constants.BOSSBEAMKEY, 'assets/bossBeam.png');
     this.load.image(constants.MOONKEY, 'assets/moon.png');
     this.load.image(constants.DOGWALLKEY, 'assets/dogWall.png');
+    this.load.image(constants.ENDPOINT, 'assets/endPoint.png');
 
     this.load.image(constants.CONTROLS1KEY, 'assets/controls1.png');
     this.load.image(constants.GOALBGKEY, 'assets/goals.png');
@@ -85,6 +88,11 @@ export class LoadScene extends Phaser.Scene {
       constants.DOG3ATLASKEY,
       'assets/dog3_spritesheet.png',
       'json/dog.json'
+    );
+    this.load.atlas(
+      constants.DOG4ATLASKEY,
+      'assets/dog4_spritesheet.png',
+      'json/turret.json'
     );
 
     // Load asteroids
