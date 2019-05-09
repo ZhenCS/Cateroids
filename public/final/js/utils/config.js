@@ -124,6 +124,7 @@ const gameConfig = {
   dog4SpawnRate: 10,
 
   oxygenAsteroidSpawnRate: 35,
+  oxygenAsteroidDamage: 4,
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
   oxygenDepletionDelay: 50,
