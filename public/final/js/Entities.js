@@ -374,6 +374,33 @@ export class Laser extends Entity {
   }
 }
 
+class DogWallWeapon extends Entity {
+  constructor(scene, x, y, key, parentEntity){
+    super(scene, x, y, key);
+    this.y += this.body.halfWidth;
+    this.parentEntity = parentEntity;
+    this.isMoving = false;
+    this.performingAction = false;
+  }
+
+  beginGarbageExpulsion(){
+    // TODO: play an animation rather than just wait 5 seconds
+    setTimeout(function(){
+      this.parentEntity.emit('garbageLaunched');
+    }.bind(this), 5000);
+  }
+
+  beginMovement(){
+    // Strafe left to right
+  }
+
+  update(){
+    if (!this.performingAction){
+
+    }
+  }
+}
+
 export class DogWall extends Entity {
   constructor(scene, x, y, key, health, damage, moveVelocity, slamVelocity){
     super(scene, x, y, key);
@@ -388,7 +415,9 @@ export class DogWall extends Entity {
     this.plannedActions = [];
     this.hardPoints = [];
     this.currentPattern = [];
-    this.laserIsMoving = false;
+    this.weapon = new DogWallWeapon(scene, x, y + this.body.halfHeight, constants.DOGWALLWEAPONKEY, this);
+    this.asteroidCircle = new Phaser.Geom.Circle(this.weapon.x, y + this.body.halfHeight + 100, 100);
+    this.doneExpelling = false;
   }
 
   damage(damage) {
@@ -403,6 +432,9 @@ export class DogWall extends Entity {
     // TODO: add damaged animation
   }
 
+  /**
+   * Method to be called every frame
+   */
   update(){
     if (this.plannedActions.length == 0){
       this.think();
@@ -412,10 +444,15 @@ export class DogWall extends Entity {
         this.plannedActions.shift();
       }
     }
+    this.weapon.update();
   }
 
+  /**
+   * AI to decide which action's to take/queue up
+   */
   think(){
     // think
+    this.expelGarbage();
   }
 
   /**
@@ -440,15 +477,15 @@ export class DogWall extends Entity {
     plannedActions.push(
       this.dogWallMoveTo.bind(
         this, 
-        this.body.x, 
-        this.body.y - this.body.halfWidth, 
+        this.x, 
+        this.y - this.body.halfWidth, 
         this.getData('slamVelocity')
       )
     );
     plannedActions.push(
       this.dogWallMoveTo.bind(
         this,
-        this.body.x,
+        this.x,
         this.getData('resetY'),
         this.getData('slamVelocity')
       )
@@ -472,21 +509,21 @@ export class DogWall extends Entity {
   dogWallMoveTo(x, y, velocity){
     console.assert(velocity > 0, "Error, dog wall given an invalid velocity");
     let epsilon = 0.05
-    if (Math.abs(this.body.x - x) >= velocity){
-      let newX = this.body.x + velocity * Math.sign(this.body.x - x);
-      this.body.x = newX;
+    if (Math.abs(this.x - x) >= velocity){
+      let newX = this.x + velocity * Math.sign(this.x - x);
+      this.x = newX;
     } else {
-      this.body.x = x;
+      this.x = x;
     }
 
-    if (Math.abs(this.body.y - y) >= velocity){
-      let newY = this.body.y + velocity * Math.sign(this.body.y - y);
-      this.body.y = newY;
+    if (Math.abs(this.y - y) >= velocity){
+      let newY = this.y + velocity * Math.sign(this.y - y);
+      this.y = newY;
     } else {
-      this.body.y = y;
+      this.y = y;
     }
     
-    return Math.abs(this.body.x - x) < epsilon && Math.abs(this.body.y - y) < epsilon;
+    return Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
   }
 
   /**
@@ -494,10 +531,43 @@ export class DogWall extends Entity {
    */
   expelGarbage(){
     if (!this.garbageExpelled){
+      // play an animation, then spawn a bunch of asteroids
+      // Start animation on the dog wall weapon
+      // weapon will emit the garbageLaunched event, handle it here
+      this.once('garbageLaunched', function(){
+        let {x, y} = this.getWeaponLocation();
+        // Spawn 10 med and 3 large asteroids in a circle
+        this.asteroidCircle.setPosition(x, this.asteroidCircle.y);
+        let point = new Phaser.Geom.Point();
+        for (let i = 0; i < 13; i++){
+          this.asteroidCircle.getRandomPoint(point);
+          // create asteroid here
+          //constructor(scene, x, y, key, velocityX, velocityY, health, damage)
+          let asteroid;
+          if (i < 10)
+            asteroid = new Asteroid(this.scene, point.x, point.y, constants.ASTEROID1KEY, 0, 40, gameConfig.asteroid1Health, gameConfig.asteroid1Damage);
+          else 
+            asteroid = new Asteroid(this.scene, point.x, point.y, constants.ASTEROID0KEY, 0, 40, gameConfig.asteroid0Health, gameConfig.asteroid0Damage);
+          this.doneExpelling = true;
+        }
+      }.bind(this));
+      this.weapon.beginGarbageExpulsion();
       
       this.garbageExpelled = true;
+      this.doneExpelling = false;
       return false;
     }
+
+    if (this.doneExpelling){
+      this.garbageExpelled = false;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getWeaponLocation(){
+    return {x: this.weapon.x, y: this.weapon.y};
   }
 
   spawnHardPoints(){
@@ -520,7 +590,7 @@ export class DogWall extends Entity {
 
   activateLaserMover(){
     // Turn on laser mover
-    this.laserIsMoving = true;
+    
     return true;
   }
 }

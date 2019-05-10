@@ -74,10 +74,6 @@ export const LEVELMUSIC6 = 'music2';
 export const LEVELMUSIC7 = 'music2';
 export const LEVELMUSIC8 = 'music2';
 
-export const COLLISION_CAT = Math.pow(2, 0);
-export const COLLISION_ANTI_CAT = Math.pow(2, 1);
-export const COLLISION_GROUP_GROUND = Math.pow(2, 2);
-
 export const CATWEAPONAUDIO = 'catDefaultWeapon';
 export const SECONDARYWEAPONAUDIO = 'secondaryCatWeapon';
 export const EXPLOSION1AUDIO = 'explosion1';
@@ -116,3 +112,4 @@ function generateDogAnimationKeys() {
 }
 
 export const DOGWALLKEY = 'bossDogWall';
+export const DOGWALLWEAPONKEY = 'bossDogWallWeapon';
