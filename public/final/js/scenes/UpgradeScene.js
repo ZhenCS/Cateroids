@@ -42,18 +42,18 @@ export class UpgradeScene extends Phaser.Scene {
     ]);
 
     let x = upgradeBG.x - upgradeBG.displayWidth/2 + 50;
-    let y = 140;
+    let y = offsetY + 60;
     for(var i = 0; i < playerUpgrades.length; i++){
       this.setUpgradeBar(this, upgradeContainer, x, y, i);
       y += 120;
 
       if(i == playerUpgrades.length/2 - 1){
-        y = 140;
         x = upgradeBG.x - upgradeBG.displayWidth/2 + 430;
+        y = offsetY + 60;
       }
     }
-
-    let doneButton = this.createButton(x + 430,
+    x += 430;
+    let doneButton = this.createButton(x,
       y - 60,
       'Done'
     ).on('pointerdown', function() {
@@ -61,7 +61,28 @@ export class UpgradeScene extends Phaser.Scene {
         this.scene.game.scene.stop(constants.UPGRADEKEY);
     });
 
-    upgradeContainer.add(doneButton);
+    let star = this.add.sprite(x - 40, offsetY + 90, constants.STARKEY);
+    star.tint = gameStyles.starTint;
+    star.setScale(0.8);
+
+    this.tweens.add({
+      targets: star,
+      duration: 10240,
+      angle: 360,
+      loop: -1,
+      pause: false,
+      callbackScope: this
+    });
+    
+    let playerStarCount = this.add.text(x + 10,  offsetY + 60, `${playerStars}`, {
+      font: `${100 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    });
+    this.playerStarCount = playerStarCount;
+
+    upgradeContainer.add([doneButton, star, playerStarCount]);
     return upgradeContainer;
   }
 
@@ -86,9 +107,9 @@ export class UpgradeScene extends Phaser.Scene {
         let y = circle.getData('y');
         circle.clear().fillStyle(gameStyles.upgradeBGColor).fillCircle(x, y, gameStyles.upgradeRadius);
         playerUpgrades[upgradeIndex][1]--;
+        playerStars++;
+        scene.playerStarCount.setText(playerStars);
       }
-
-      console.log(playerUpgrades[upgradeIndex][1]);
     });
 
     let upgradeCount = new Array();
@@ -114,15 +135,15 @@ export class UpgradeScene extends Phaser.Scene {
     .on('pointerdown', function() {
       let count = playerUpgrades[upgradeIndex][1];
 
-      if(count < gameConfig.maxUpgrades){
+      if(count < gameConfig.maxUpgrades && playerStars > 0){
         let circle = scene.upgradeCounts[upgradeIndex][count];
         let x = circle.getData('x');
         let y = circle.getData('y');
         circle.clear().fillStyle(gameStyles.upgradeColor).fillCircle(x, y, gameStyles.upgradeRadius);
         playerUpgrades[upgradeIndex][1]++;
+        playerStars--;
+        scene.playerStarCount.setText(playerStars);
       }
-
-      console.log(playerUpgrades[upgradeIndex][1]);
     });
     
     container.add([
