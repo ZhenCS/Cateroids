@@ -174,7 +174,7 @@ export class Dog extends Entity {
     }
     if (key == constants.DOG4KEY) {
       this.setScale(0.6, 0.6);
-
+      this.body.setCircle(this.displayWidth * 0.65, 10, 20);
       AI.setAI(this, function() {
         AI.aimBot(self, 0xaa00ff, Bullet);
       });
@@ -417,7 +417,9 @@ export class DogWall extends Entity {
     this.currentPattern = [];
     this.weapon = new DogWallWeapon(scene, x, y + this.body.halfHeight, constants.DOGWALLWEAPONKEY, this);
     this.asteroidCircle = new Phaser.Geom.Circle(this.weapon.x, y + this.body.halfHeight + 100, 100);
+    this.body.setOffset(0, -25);
     this.doneExpelling = false;
+    this.spawnHardPoints();
   }
 
   damage(damage) {
@@ -548,6 +550,7 @@ export class DogWall extends Entity {
             asteroid = new Asteroid(this.scene, point.x, point.y, constants.ASTEROID1KEY, 0, 40, gameConfig.asteroid1Health, gameConfig.asteroid1Damage);
           else 
             asteroid = new Asteroid(this.scene, point.x, point.y, constants.ASTEROID0KEY, 0, 40, gameConfig.asteroid0Health, gameConfig.asteroid0Damage);
+          this.scene.asteroids.add(asteroid);
           this.doneExpelling = true;
         }
       }.bind(this));
@@ -571,8 +574,17 @@ export class DogWall extends Entity {
   }
 
   spawnHardPoints(){
-    if (this.hardPoints.length < 4){
-
+    // (x = 28 + 44, ymin = 375), (x = 190 + 41, ymin = 359), (x = 943 + 41, ymin = 359), (x = 1099 + 44, ymin = 375)
+    this.hardPoints.forEach(function(hardPoint){
+      hardPoint.destroy();
+    });
+    let spawnPoints = [{x: 72, y: 414}, {x: 231, y: 398}, {x: 984, y:398}, {x: 1143, y: 414}];
+    for (let i = 0; i < 4; i++){
+      let turret = new Dog(this.scene, this.x - (this.displayWidth / 2) + spawnPoints[i].x, this.y - (this.displayHeight / 2) + spawnPoints[i].y,
+                            4, 0, 0, gameConfig.dog4Health, gameConfig.dog4Damage, gameConfig.dog4FireRate);
+      this.hardPoints.push(turret);
+      turret.body.immovable = true;
+      this.scene.dogs.add(turret);
     }
   }
 

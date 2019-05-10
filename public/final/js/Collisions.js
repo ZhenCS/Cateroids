@@ -28,7 +28,10 @@ export const checkPlayerToEnemyCollision = scene => {
 
       if (player) {
         scene.onLifeDown(dog.getData('damage'));
-        dog.damage(gameConfig.playerDamage);
+        if (dog.getData('dogId') !== 4){
+          dog.damage(gameConfig.playerDamage);
+        }
+        
 
         scene.sound.play(constants.ASTRCOLLISION);
       }
@@ -45,7 +48,10 @@ export const checkPlayerToEnemyCollision = scene => {
 
       if (player) {
         scene.onLifeDown(dog.getData('damage'));
-        dog.damage(gameConfig.playerDamage);
+        if (dog.getData('dogId') !== 4){
+          dog.damage(gameConfig.playerDamage);
+        }
+        
       }
     },
     null,
