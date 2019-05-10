@@ -1,6 +1,5 @@
 import * as constants from '../utils/constants.js';
 import { centerX, setBackButton } from '../utils/utils.js';
-import { goals } from '../utils/goals.js';
 
 export class UpgradeScene extends Phaser.Scene {
   constructor() {
@@ -9,166 +8,129 @@ export class UpgradeScene extends Phaser.Scene {
   preload() {}
 
   init(data){
-    this.mode = data.scene.gameConfig.gameMode;
-    this.player = data.scene.player;
-    this.score = data.scene.score;
-    this.base = data.scene.baseAsteroid;
-    //console.log(data);
+
   }
 
   create() {
-    this.levelStars = [false, false, false];
-
-    this.goalContainer = this.initGoalMenu();
+    this. upgradeCounts = new Array();
+    this.upgradeContainer = this.initUpgradeMenu();
   }
 
-  initGoalMenu() {
-    let level = currentLevel.level;
-    let goalContainer = this.add.container();
+  initUpgradeMenu() {
+    let upgradeContainer = this.add.container();
 
-    let goalBG = this.add.sprite(
+    let upgradeBG = this.add.sprite(
       this.game.config.width / 2,
       this.game.config.height / 2,
-      constants.GOALBGKEY
+      constants.UPGRADEBGKEY
     );
-    goalBG.depth = gameDepths.menuDepth + 1;
+    upgradeBG.depth = gameDepths.menuDepth + 1;
     
-    let offsetY = this.game.config.height / 2 - goalBG.displayHeight/2 + 20;
-    let goalHeader = this.add.text(0, offsetY, `Level ${level} Complete!`, {
+    let offsetY = this.game.config.height / 2 - upgradeBG.displayHeight/2 + 20;
+    let upgradeHeader = this.add.text(0, offsetY, `Upgrades`, {
       font: `${100 * gameScale.scale}px impact`,
       fill: '#ffffff',
       stroke: 'black',
       strokeThickness: 5
     });
-    centerX(this, goalHeader);
+    centerX(this, upgradeHeader);
     
-    
-    let starY = offsetY + 150;
-    let goalY = starY + 110;
-    let buttonY = goalY + 190;
-
-    let restartButton = this.createButton(0,
-      buttonY,
-      'Restart'
-    ).on('pointerdown', function() {
-        this.scene.game.scene.switch(constants.GOALKEY, constants.GAMEKEY);
-        this.scene.game.scene.stop(constants.GOALKEY);
-    });
-    
-    let nextButton = this.createButton(0, buttonY, 'Next Level').on(
-      'pointerdown',
-      function() {
-        currentLevel.level++;
-        currentLevel.key = constants[`LEVEL${currentLevel.level}KEY`];
-
-        this.scene.game.scene.switch(constants.GOALKEY, constants.GAMEKEY);
-        this.scene.game.scene.stop(constants.GOALKEY);
-      }
-    );
-
-    let homeButton = this.createButton(0,
-      buttonY,
-      'Menu'
-    ).on('pointerdown', function() {
-      this.scene.game.scene.switch(constants.GOALKEY, constants.STARTMENUKEY);
-      this.scene.game.scene.stop(constants.GAMEKEY);
-    });
-
-    let buttonPadding = 50;
-    let buttonWidth = restartButton.displayWidth + nextButton.displayWidth + homeButton.displayWidth + 2 * buttonPadding;
-    let buttonOffsetX = this.game.config.width/2 - buttonWidth/2;
-    restartButton.x = buttonOffsetX;
-    homeButton.x = restartButton.x + restartButton.displayWidth + buttonPadding;
-    nextButton.x = restartButton.x + restartButton.displayWidth + homeButton.displayWidth + 2 * buttonPadding;
-
-
-    goalContainer.depth = gameDepths.menuDepth;
-    goalContainer.add([
-        goalBG,
-        goalHeader,
-        restartButton,
-        nextButton,
-        homeButton
+    upgradeContainer.depth = gameDepths.menuDepth;
+    upgradeContainer.add([
+        upgradeBG,
+        upgradeHeader
     ]);
-    goalContainer.gameButtons = [
-        restartButton,
-        nextButton,
-        homeButton
-    ];
- 
-    this.stars = new Array();
-    for (var i = 0; i < 3; i++) {
-      let star = this.add.sprite(0, starY - (i%2) * 20, constants.STARKEY);
-      star.setScale(3 * gameScale.scale);
-      goalContainer.add(star);
-      this.stars.push(star);
+
+    let x = upgradeBG.x - upgradeBG.displayWidth/2 + 50;
+    let y = 140;
+    for(var i = 0; i < playerUpgrades.length; i++){
+      this.setUpgradeBar(this, upgradeContainer, x, y, i);
+      y += 120;
+
+      if(i == playerUpgrades.length/2 - 1){
+        y = 140;
+        x = upgradeBG.x - upgradeBG.displayWidth/2 + 430;
+      }
     }
-    let padding = 180;
-    let width = this.stars[0].displayWidth + padding * 2;
-    let offsetX = this.game.config.width/2 - width/2;
-    for (var i = 0; i < 3; i++) {
-        this.stars[i].x = offsetX + padding * i + this.stars[i].displayWidth/2;
-    }
-    this.tintStars();
-    goalContainer.add(this.setGoals(goalY));
-    return goalContainer;
+
+    let doneButton = this.createButton(x + 430,
+      y - 60,
+      'Done'
+    ).on('pointerdown', function() {
+        this.scene.game.scene.switch(constants.UPGRADEKEY, constants.GOALKEY);
+        this.scene.game.scene.stop(constants.UPGRADEKEY);
+    });
+
+    upgradeContainer.add(doneButton);
+    return upgradeContainer;
   }
 
-  setGoals(y){
-    let offsetY = 45;
+  setUpgradeBar(scene, container, x, y, upgradeIndex){
+    let name = this.add.text(x - 22, y, playerUpgrades[upgradeIndex][0], {
+      font: `${70 * gameScale.scale}px impact`,
+      fill: '#ffffff',
+      stroke: 'black',
+      strokeThickness: 5
+    });
 
-    let goal1 = this.setText(this, y, "Level Completed", this.levelStars[0]);
-    let goal2 = this.setText(this, y + offsetY, 
-      `Complete Level with ${goals[currentLevel.level][0]}% Health`,
-      this.levelStars[1]);
-    let text;
-    if(this.mode == 'RUN'){
-      text = `Complete Level with more than ${goals[currentLevel.level][1]} points`;
-    }
-    else if(this.mode == 'DEFEND'){
-      text = `Complete Level with ${goals[currentLevel.level][1]}% Moon Health`;
-    }
-    let goal3 = this.setText(this, y + 2 * offsetY, text, this.levelStars[2]);
+    y += 64;
 
-    centerX(this, goal1);
-    centerX(this, goal2);
-    centerX(this, goal3);
+    let minus = this.add.sprite(x, y, constants.UPGRADEMINUSKEY)
+    .setInteractive({ cursor: 'pointer' })
+    .on('pointerdown', function() {
+      let count = playerUpgrades[upgradeIndex][1];
 
-    return [goal1, goal2, goal3];
-  }
-
-  tintStars(){
-    this.stars[0].tint = gameStyles.starTint;
-    if(stars[currentLevel.level][0] == false){
-      stars[currentLevel.level][0] = true;
-      playerStars++;
-    }
-    this.levelStars[0] = true;
-
-    if(this.player.getData('health') > gameConfig.maxPlayerHealth * goals[currentLevel.level][0]/100){
-      this.stars[1].tint = gameStyles.starTint;
-      if(stars[currentLevel.level][1] == false){
-        stars[currentLevel.level][1] = true;
-        playerStars++;
+      if(count > 0){
+        let circle = scene.upgradeCounts[upgradeIndex][count - 1];
+        let x = circle.getData('x');
+        let y = circle.getData('y');
+        circle.clear().fillStyle(gameStyles.upgradeBGColor).fillCircle(x, y, gameStyles.upgradeRadius);
+        playerUpgrades[upgradeIndex][1]--;
       }
-      this.levelStars[1] = true;
-    }
 
-    if(this.mode == 'RUN' && this.score >= goals[currentLevel.level][1]){
-      this.stars[2].tint = gameStyles.starTint;
-      if(stars[currentLevel.level][2] == false){
-        stars[currentLevel.level][2] = true;
-        playerStars++;
-      }
-      this.levelStars[2] = true;
-    }else if(this.mode == 'DEFEND' && this.base.getData('health') > gameConfig.maxBaseHealth * goals[currentLevel.level][1]/100){
-      this.stars[2].tint = 0xfbff42;
-      if(stars[currentLevel.level][2] == false){
-        stars[currentLevel.level][2] = true;
-        playerStars++;
-      }
-      this.levelStars[2] = true;
+      console.log(playerUpgrades[upgradeIndex][1]);
+    });
+
+    let upgradeCount = new Array();
+    let offsetX = 50;
+    for(var i = 0; i < gameConfig.maxUpgrades; i++){
+      let count = playerUpgrades[upgradeIndex][1];
+
+      let circle = scene.add
+      .graphics()
+      .fillStyle((i + 1 <= count) ? gameStyles.upgradeColor : gameStyles.upgradeBGColor);
+
+      circle.fillCircle(x + offsetX, y, gameStyles.upgradeRadius);
+      circle.setData('x', x + offsetX);
+      circle.setData('y', y);
+
+      upgradeCount.push(circle);
+      container.add(circle);
+      offsetX += 50;
     }
+    this.upgradeCounts.push(upgradeCount);
+    let plus = this.add.sprite(x + offsetX, y, constants.UPGRADEPLUSKEY)
+    .setInteractive({ cursor: 'pointer' })
+    .on('pointerdown', function() {
+      let count = playerUpgrades[upgradeIndex][1];
+
+      if(count < gameConfig.maxUpgrades){
+        let circle = scene.upgradeCounts[upgradeIndex][count];
+        let x = circle.getData('x');
+        let y = circle.getData('y');
+        circle.clear().fillStyle(gameStyles.upgradeColor).fillCircle(x, y, gameStyles.upgradeRadius);
+        playerUpgrades[upgradeIndex][1]++;
+      }
+
+      console.log(playerUpgrades[upgradeIndex][1]);
+    });
+    
+    container.add([
+      name,
+      minus,
+      plus
+  ]);
+
   }
 
   setText(scene, y, text, completed){

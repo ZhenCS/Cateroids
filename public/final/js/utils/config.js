@@ -20,7 +20,10 @@ const gameStyles = {
   basePadding: 50,
   starTint: 0xfbff42,
   bossColor: 0x7851a9 ,
-  bossPadding: 50
+  bossPadding: 50,
+  upgradeColor: 0x99ff99,
+  upgradeBGColor: 0x4d4d4d,
+  upgradeRadius: 12
 };
 
 const gameDepths = {
@@ -52,19 +55,20 @@ const cheats = {
   invulnerable: false
 };
 
-const playerUpgrades = {
-  health: 0,
-  damage: 0,
-  oxygenDepletion: 0,
-  oxygenReplenish: 0,
+const playerUpgrades = [
+  ['Health', 0],
+  ['Damage', 0],
+  ['OxygenDepletion', 0],
+  ['OxygenReplenish', 0],
 
-  bulletSize: 0,
-  extraAmmo: 0,
-  fireRate: 0,
-  speed: 0,
-}
+  ['BulletSize', 0],
+  ['ExtraAmmo', 0],
+  ['FireRate', 0],
+  ['Speed', 0],
+]
 
 const gameConfig = {
+  maxUpgrades: 5,
   gameMode: '',
   maxBaseHealth: 0,
   spawnBuffer: 0,
