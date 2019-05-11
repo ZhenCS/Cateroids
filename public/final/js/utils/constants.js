@@ -15,6 +15,9 @@ export const NAMEKEY = 'name';
 export const BGKEY = 'bg';
 export const CONTROLS1KEY = 'controls1';
 export const GOALBGKEY = "goalBg";
+export const UPGRADEBGKEY = "upgradeBg";
+export const UPGRADEMINUSKEY = "upgradeMinus";
+export const UPGRADEPLUSKEY = "upgradePlus";
 
 export const ASTEROID0KEY = 'asteroid0';
 export const ASTEROID1KEY = 'asteroid1';

@@ -65,6 +65,13 @@ export class GoalScene extends Phaser.Scene {
         this.scene.game.scene.stop(constants.GOALKEY);
       }
     );
+    
+    let upgradeButton = this.createButton(0, buttonY, 'Upgrade').on(
+      'pointerdown',
+      function() {
+        this.scene.game.scene.switch(constants.GOALKEY, constants.UPGRADEKEY);
+      }
+    );
 
     let homeButton = this.createButton(0,
       buttonY,
@@ -75,12 +82,12 @@ export class GoalScene extends Phaser.Scene {
     });
 
     let buttonPadding = 50;
-    let buttonWidth = restartButton.displayWidth + nextButton.displayWidth + homeButton.displayWidth + 2 * buttonPadding;
+    let buttonWidth = restartButton.displayWidth + nextButton.displayWidth + homeButton.displayWidth + upgradeButton.displayWidth + 3 * buttonPadding;
     let buttonOffsetX = this.game.config.width/2 - buttonWidth/2;
     restartButton.x = buttonOffsetX;
     homeButton.x = restartButton.x + restartButton.displayWidth + buttonPadding;
     nextButton.x = restartButton.x + restartButton.displayWidth + homeButton.displayWidth + 2 * buttonPadding;
-
+    upgradeButton.x = restartButton.x + restartButton.displayWidth + homeButton.displayWidth + nextButton.displayWidth + 3 * buttonPadding;
 
     goalContainer.depth = gameDepths.menuDepth;
     goalContainer.add([
@@ -88,7 +95,8 @@ export class GoalScene extends Phaser.Scene {
         goalHeader,
         restartButton,
         nextButton,
-        homeButton
+        homeButton,
+        upgradeButton
     ]);
     goalContainer.gameButtons = [
         restartButton,
