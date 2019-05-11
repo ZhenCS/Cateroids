@@ -376,18 +376,22 @@ export class Laser extends Entity {
 }
 
 class DogWallWeapon extends Entity {
-  constructor(scene, x, y, key, parentEntity) {
+  constructor(scene, x, y, key, parentEntity, moveVelocity) {
     super(scene, x, y, key);
-    this.y += this.body.halfWidth;
+    this.y += this.body.halfHeight;
     this.parentEntity = parentEntity;
     this.isMoving = false;
     this.performingAction = false;
+    this.movingLeft = true;
+    this.moveVelocity = moveVelocity;
   }
 
   beginGarbageExpulsion() {
     // TODO: play an animation rather than just wait 5 seconds
+    this.performingAction = true;
     setTimeout(
       function() {
+        this.performingAction = false;
         this.parentEntity.emit('garbageLaunched');
       }.bind(this),
       5000
@@ -396,10 +400,18 @@ class DogWallWeapon extends Entity {
 
   beginMovement() {
     // Strafe left to right
+    this.isMoving = true;
   }
 
   update() {
-    if (!this.performingAction) {
+    if (!this.performingAction && this.isMoving && this.parentEntity.body) {
+      if (this.x < this.parentEntity.x - this.parentEntity.body.halfWidth + this.body.halfWidth){
+        this.movingLeft = false;
+      } else if (this.x > this.parentEntity.x + this.parentEntity.body.halfWidth - this.body.halfWidth){
+        this.movingLeft = true;
+      }
+      let velocity = this.moveVelocity * (this.movingLeft ? -1 : 1);
+      this.x += velocity;
     }
   }
 }
@@ -421,9 +433,10 @@ export class DogWall extends Entity {
     this.weapon = new DogWallWeapon(
       scene,
       x,
-      y + this.body.halfHeight/2,
+      y + this.body.halfHeight,
       constants.DOGWALLWEAPONKEY,
-      this
+      this,
+      10
     );
     this.asteroidCircle = new Phaser.Geom.Circle(
       this.weapon.x,
@@ -462,6 +475,7 @@ export class DogWall extends Entity {
   update() {
     if (this.firstUpdate){
       this.spawnHardPoints();
+      this.activateLaserMover();
       this.firstUpdate = false;
     }
     if (this.plannedActions.length == 0) {
@@ -479,7 +493,7 @@ export class DogWall extends Entity {
    */
   think() {
     // think
-    this.bodySlam(false);
+
   }
 
   /**
@@ -675,7 +689,7 @@ export class DogWall extends Entity {
 
   activateLaserMover() {
     // Turn on laser mover
-
+    this.weapon.beginMovement();
     return true;
   }
 }
