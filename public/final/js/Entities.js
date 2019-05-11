@@ -421,7 +421,7 @@ export class DogWall extends Entity {
     this.weapon = new DogWallWeapon(
       scene,
       x,
-      y + this.body.halfHeight,
+      y + this.body.halfHeight/2,
       constants.DOGWALLWEAPONKEY,
       this
     );
