@@ -51,9 +51,9 @@ export const checkPlayerToEnemyCollision = scene => {
     null,
     scene
   );
-  if (scene.boss){
-     scene.physics.add.collider(
-      scene.player, 
+  if (scene.boss) {
+    scene.physics.add.collider(
+      scene.player,
       scene.boss,
       function(player, boss) {
         scene.createExplosion(player.x, player.y, player.displayWidth);
@@ -64,20 +64,15 @@ export const checkPlayerToEnemyCollision = scene => {
       },
       null,
       scene
-    ); 
+    );
 
-    scene.physics.add.overlap(
-      scene.player,
-      scene.boss,
-      function(player, boss) {
-        scene.createExplosion(player.x, player.y, player.displayWidth);
-        if (player) {
-          scene.onLifeDown(boss.getData('damage'));
-        }
+    scene.physics.add.overlap(scene.player, scene.boss, function(player, boss) {
+      scene.createExplosion(player.x, player.y, player.displayWidth);
+      if (player) {
+        scene.onLifeDown(boss.getData('damage'));
       }
-    )
+    });
   }
-  
 };
 
 export const checkPlayerToBulletCollision = scene => {
@@ -151,19 +146,19 @@ export const checkEnemyToBulletCollision = scene => {
     scene
   );
 
-  if (scene.boss){
+  if (scene.boss) {
     scene.physics.add.overlap(
       scene.bullets,
       scene.boss,
-      function (bullet, boss){
-        if (bullet.getData('isFriendly')){
-          if (boss){
+      function(bullet, boss) {
+        if (bullet.getData('isFriendly')) {
+          if (boss) {
             scene.createExplosion(bullet.x, bullet.y, boss.displayWidth);
             boss.damage(bullet.getData('damage'));
           }
         }
 
-        if (bullet && bullet.type !== 'strongLaser'){
+        if (bullet && bullet.type !== 'strongLaser') {
           bullet.destroy();
         }
       },
@@ -171,7 +166,7 @@ export const checkEnemyToBulletCollision = scene => {
       scene
     );
   }
-}
+};
 
 export const checkAsteroidToBulletCollision = scene => {
   scene.physics.add.overlap(

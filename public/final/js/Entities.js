@@ -8,7 +8,6 @@ class Entity extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.scene.add.existing(this);
     this.scene.physics.world.enableBody(this, 0);
-    
   }
 
   getInitVelocity(scene, x, y) {
@@ -71,7 +70,7 @@ export class Asteroid extends Entity {
       this.setData('health', health || sceneConfig[`asteroid${level}Health`]);
       this.setData('damage', damage || sceneConfig[`asteroid${level}Damage`]);
     }
-    if(level == 4){
+    if (level == 4) {
       this.body.setMass(100);
     }
 
@@ -80,10 +79,10 @@ export class Asteroid extends Entity {
       this.setTint(0xfff572);
       this.setScale(1.5);
       this.body.setCircle(this.displayWidth * 0.3, this.displayWidth * 0.03);
-    }else{
+    } else {
       this.body.setCircle(this.displayWidth * 0.5);
     }
-    
+
     this.scene.tweens.add({
       targets: this,
       duration: Phaser.Math.Between(80000, 100000),
@@ -124,7 +123,6 @@ export class Dog extends Entity {
     damage,
     fireRate
   ) {
-
     let key = constants[`DOG${level}KEY`];
     super(scene, x, y, key);
     let sceneConfig = scene.gameConfig;
@@ -180,7 +178,7 @@ export class Dog extends Entity {
       });
 
       AI.setMovement(this, function() {
-        AI.rotate(self, -Math.PI/2);
+        AI.rotate(self, -Math.PI / 2);
       });
     }
 
@@ -223,10 +221,12 @@ export class Dog extends Entity {
 
 export class Bullet extends Entity {
   constructor(scene, x, y, isFriendly, type) {
-    if (type === 'strongLaser') {
+    if (type === 'plasma') {
       super(scene, x, y, constants.BOSSBEAMKEY);
       this.capacity = 3;
       this.ammoCount = 3;
+    } else if (type === 'laser') {
+      super(scene, x, y, constants.BULLETKEY);
     } else {
       super(scene, x, y, constants.BULLETKEY);
     }
@@ -280,7 +280,8 @@ export class Laser extends Entity {
     this.visible = false;
     this.segments = new Array(laserSprites);
 
-    let pointx = this.scene.game.config.width * 2 * Math.cos(this.getData('angle'));
+    let pointx =
+      this.scene.game.config.width * 2 * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
     this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
@@ -375,7 +376,7 @@ export class Laser extends Entity {
 }
 
 class DogWallWeapon extends Entity {
-  constructor(scene, x, y, key, parentEntity){
+  constructor(scene, x, y, key, parentEntity) {
     super(scene, x, y, key);
     this.y += this.body.halfWidth;
     this.parentEntity = parentEntity;
@@ -383,26 +384,28 @@ class DogWallWeapon extends Entity {
     this.performingAction = false;
   }
 
-  beginGarbageExpulsion(){
+  beginGarbageExpulsion() {
     // TODO: play an animation rather than just wait 5 seconds
-    setTimeout(function(){
-      this.parentEntity.emit('garbageLaunched');
-    }.bind(this), 5000);
+    setTimeout(
+      function() {
+        this.parentEntity.emit('garbageLaunched');
+      }.bind(this),
+      5000
+    );
   }
 
-  beginMovement(){
+  beginMovement() {
     // Strafe left to right
   }
 
-  update(){
-    if (!this.performingAction){
-
+  update() {
+    if (!this.performingAction) {
     }
   }
 }
 
 export class DogWall extends Entity {
-  constructor(scene, x, y, key, health, damage, moveVelocity, slamVelocity){
+  constructor(scene, x, y, key, health, damage, moveVelocity, slamVelocity) {
     super(scene, x, y, key);
     this.setData('health', health);
     this.setData('damage', damage);
@@ -415,8 +418,18 @@ export class DogWall extends Entity {
     this.plannedActions = [];
     this.hardPoints = [];
     this.currentPattern = [];
-    this.weapon = new DogWallWeapon(scene, x, y + this.body.halfHeight, constants.DOGWALLWEAPONKEY, this);
-    this.asteroidCircle = new Phaser.Geom.Circle(this.weapon.x, y + this.body.halfHeight + 100, 100);
+    this.weapon = new DogWallWeapon(
+      scene,
+      x,
+      y + this.body.halfHeight,
+      constants.DOGWALLWEAPONKEY,
+      this
+    );
+    this.asteroidCircle = new Phaser.Geom.Circle(
+      this.weapon.x,
+      y + this.body.halfHeight + 100,
+      100
+    );
     this.doneExpelling = false;
   }
 
@@ -428,19 +441,18 @@ export class DogWall extends Entity {
       //this.onDestroy();
       this.destroy();
     }
-    
+
     // TODO: add damaged animation
   }
 
   /**
    * Method to be called every frame
    */
-  update(){
-    if (this.plannedActions.length == 0){
+  update() {
+    if (this.plannedActions.length == 0) {
       this.think();
-    }
-    else{
-      if (this.plannedActions[0]()){
+    } else {
+      if (this.plannedActions[0]()) {
         this.plannedActions.shift();
       }
     }
@@ -450,21 +462,21 @@ export class DogWall extends Entity {
   /**
    * AI to decide which action's to take/queue up
    */
-  think(){
+  think() {
     // think
     this.expelGarbage();
   }
 
   /**
    * A body slam attack where the dog wall flies straight down, if the player gets caught in it they die
-   * @param {boolean} goLeft If true, body slams on the left side of the screen, otherwise body slam the right 
+   * @param {boolean} goLeft If true, body slams on the left side of the screen, otherwise body slam the right
    */
-  bodySlam(goLeft){
+  bodySlam(goLeft) {
     let targetX;
-    if (goLeft){
+    if (goLeft) {
       targetX = this.getData('resetX') - this.body.width / 3;
     } else {
-      targetX = this.getData('resetX') + this.body.width / 3
+      targetX = this.getData('resetX') + this.body.width / 3;
     }
     plannedActions.push(
       this.dogWallMoveTo.bind(
@@ -476,9 +488,9 @@ export class DogWall extends Entity {
     );
     plannedActions.push(
       this.dogWallMoveTo.bind(
-        this, 
-        this.x, 
-        this.y - this.body.halfWidth, 
+        this,
+        this.x,
+        this.y - this.body.halfWidth,
         this.getData('slamVelocity')
       )
     );
@@ -501,64 +513,85 @@ export class DogWall extends Entity {
   }
 
   /**
-   * Moves the dog wall to the specified point with the specified velocity. Returns true if 
+   * Moves the dog wall to the specified point with the specified velocity. Returns true if
    * @param {number} x x-coordinate of target movement
    * @param {number} y y-coordinate of target movement
    * @param {number} velocity Velocity to move at, must be positive
    */
-  dogWallMoveTo(x, y, velocity){
-    console.assert(velocity > 0, "Error, dog wall given an invalid velocity");
-    let epsilon = 0.05
-    if (Math.abs(this.x - x) >= velocity){
+  dogWallMoveTo(x, y, velocity) {
+    console.assert(velocity > 0, 'Error, dog wall given an invalid velocity');
+    let epsilon = 0.05;
+    if (Math.abs(this.x - x) >= velocity) {
       let newX = this.x + velocity * Math.sign(this.x - x);
       this.x = newX;
     } else {
       this.x = x;
     }
 
-    if (Math.abs(this.y - y) >= velocity){
+    if (Math.abs(this.y - y) >= velocity) {
       let newY = this.y + velocity * Math.sign(this.y - y);
       this.y = newY;
     } else {
       this.y = y;
     }
-    
+
     return Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
   }
 
   /**
    * Expels a bunch of garbage (asteroids) in front of the dog wall
    */
-  expelGarbage(){
-    if (!this.garbageExpelled){
+  expelGarbage() {
+    if (!this.garbageExpelled) {
       // play an animation, then spawn a bunch of asteroids
       // Start animation on the dog wall weapon
       // weapon will emit the garbageLaunched event, handle it here
-      this.once('garbageLaunched', function(){
-        let {x, y} = this.getWeaponLocation();
-        // Spawn 10 med and 3 large asteroids in a circle
-        this.asteroidCircle.setPosition(x, this.asteroidCircle.y);
-        let point = new Phaser.Geom.Point();
-        for (let i = 0; i < 13; i++){
-          this.asteroidCircle.getRandomPoint(point);
-          // create asteroid here
-          //constructor(scene, x, y, key, velocityX, velocityY, health, damage)
-          let asteroid;
-          if (i < 10)
-            asteroid = new Asteroid(this.scene, point.x, point.y, constants.ASTEROID1KEY, 0, 40, gameConfig.asteroid1Health, gameConfig.asteroid1Damage);
-          else 
-            asteroid = new Asteroid(this.scene, point.x, point.y, constants.ASTEROID0KEY, 0, 40, gameConfig.asteroid0Health, gameConfig.asteroid0Damage);
-          this.doneExpelling = true;
-        }
-      }.bind(this));
+      this.once(
+        'garbageLaunched',
+        function() {
+          let { x, y } = this.getWeaponLocation();
+          // Spawn 10 med and 3 large asteroids in a circle
+          this.asteroidCircle.setPosition(x, this.asteroidCircle.y);
+          let point = new Phaser.Geom.Point();
+          for (let i = 0; i < 13; i++) {
+            this.asteroidCircle.getRandomPoint(point);
+            // create asteroid here
+            //constructor(scene, x, y, key, velocityX, velocityY, health, damage)
+            let asteroid;
+            if (i < 10)
+              asteroid = new Asteroid(
+                this.scene,
+                point.x,
+                point.y,
+                constants.ASTEROID1KEY,
+                0,
+                40,
+                gameConfig.asteroid1Health,
+                gameConfig.asteroid1Damage
+              );
+            else
+              asteroid = new Asteroid(
+                this.scene,
+                point.x,
+                point.y,
+                constants.ASTEROID0KEY,
+                0,
+                40,
+                gameConfig.asteroid0Health,
+                gameConfig.asteroid0Damage
+              );
+            this.doneExpelling = true;
+          }
+        }.bind(this)
+      );
       this.weapon.beginGarbageExpulsion();
-      
+
       this.garbageExpelled = true;
       this.doneExpelling = false;
       return false;
     }
 
-    if (this.doneExpelling){
+    if (this.doneExpelling) {
       this.garbageExpelled = false;
       return true;
     } else {
@@ -566,21 +599,19 @@ export class DogWall extends Entity {
     }
   }
 
-  getWeaponLocation(){
-    return {x: this.weapon.x, y: this.weapon.y};
+  getWeaponLocation() {
+    return { x: this.weapon.x, y: this.weapon.y };
   }
 
-  spawnHardPoints(){
-    if (this.hardPoints.length < 4){
-
+  spawnHardPoints() {
+    if (this.hardPoints.length < 4) {
     }
   }
 
-  bulletPattern(){
-    if (this.currentPattern.length > 0){
+  bulletPattern() {
+    if (this.currentPattern.length > 0) {
       nextPattern = this.currentPattern.shift();
-      switch(nextPattern){
-
+      switch (nextPattern) {
       }
       return false;
     } else {
@@ -588,9 +619,9 @@ export class DogWall extends Entity {
     }
   }
 
-  activateLaserMover(){
+  activateLaserMover() {
     // Turn on laser mover
-    
+
     return true;
   }
 }
@@ -618,12 +649,21 @@ export class Leo extends Entity {
     this.setDepth(gameDepths.uiDepth - 1);
     this.ammoCount = 3;
     this.capacity = 3;
+    this.heat = 0;
+    this.firingBeam = false;
+    this.heatCapacity = 1000;
     setInterval(() => {
       if (this.ammoCount < this.capacity) {
         this.ammoCount++;
-        console.log('Incrementing ammo');
+        // console.log('Incrementing ammo');
       }
     }, 3000);
+    setInterval(() => {
+      console.log('heat level decreasing:', this.heat);
+      if (this.heat <= this.heatCapacity && this.heat > 0) {
+        this.heat -= 100;
+      }
+    }, 250);
   }
 
   moveLeft(boost) {
@@ -690,14 +730,29 @@ export class Leo extends Entity {
       speed,
       this.scene.player.body.velocity
     );
-    
+  }
+
+  shoot2(pointerX, pointerY, type) {
+    if (type === 'primary') {
+      // shoot primary
+      this.primaryWeapon.shoot(pointerX, pointerY);
+    } else {
+      // shoot secondary
+      this.secondaryWeapon.shoot(pointerX, pointerY);
+    }
   }
 
   shoot(pointerX, pointerY, type) {
-    if (type === 'strongLaser' && this.ammoCount == 0){
+    if (type === 'plasma' && this.ammoCount == 0) {
+      return;
+    }
+
+    if (type === 'beam' && this.heat == this.heatCapacity) {
       return;
     }
     let playerDamage = this.scene.gameConfig.playerDamage;
+    // const testWeapon = new Weapon(this.scene, this.x, this.y, true, type);
+
     const bullet = new Bullet(this.scene, this.x, this.y, true, type);
     let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
     const speed = 2000;
@@ -706,20 +761,36 @@ export class Leo extends Entity {
 
     if (type === 'primary') {
       this.shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity);
-    } else if (type === 'strongLaser') {
-      const strongLaserMultiplier = playerDamage * 2.5;
-      this.shootLaser(
-        bullet,
-        angle,
-        strongLaserMultiplier,
-        xVelocity,
-        yVelocity
-      );
-    } else if (type === 'missle') {
+    } else if (type === 'plasma') {
+      const plasmaMultiplier = playerDamage * 2.5;
+      this.shootPlasma(bullet, angle, plasmaMultiplier, xVelocity, yVelocity);
+    } else if (type === 'beam' && this.heat < this.heatCapacity) {
+      const beamMultiplier = playerDamage * 1.5;
+      this.shootBeam(bullet, angle, beamMultiplier, xVelocity, yVelocity);
+      this.firingBeam = true;
     }
   }
 
-  shootLaser(bullet, angle, playerDamage, xVelocity, yVelocity) {
+  shootBeam(bullet, angle, playerDamage, xVelocity, yVelocity) {
+    if (this.heat < 1000) {
+      console.log('Firing beam:', this.heat);
+      bullet
+        .setTint(0xc43205)
+        .setOrigin(-0.1)
+        .setData('damage', playerDamage)
+        .setRotation(angle)
+        .setScale(7, 0.25);
+
+      setInterval(() => {
+        bullet.destroy();
+      }, 80);
+      this.heat += 100;
+      this.scene.bullets.add(bullet);
+      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
+    }
+  }
+
+  shootPlasma(bullet, angle, playerDamage, xVelocity, yVelocity) {
     bullet
       .setTint(0x7cfc00)
       .setOrigin(0.5)
@@ -727,7 +798,6 @@ export class Leo extends Entity {
       .setRotation(angle);
 
     this.ammoCount--;
-    console.log('Current Ammo Count', bullet.ammoCount);
     bullet.body.setVelocity(xVelocity * 0.25, yVelocity * 0.25);
     this.scene.bullets.add(bullet);
     this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
@@ -767,13 +837,12 @@ export class Leo extends Entity {
   oxygenDamage(damage) {
     let sceneConfig = this.scene.gameConfig;
     this.setData('oxygen', this.getData('oxygen') - damage);
-    
-    
-    if(this.getData('oxygen') < 30 && this.getData('oxygen') > 28) {
+
+    if (this.getData('oxygen') < 30 && this.getData('oxygen') > 28) {
       this.scene.sound.play(constants.OXYGENLOWAUDIO);
-    } else if(this.getData('oxygen') < 20 && this.getData('oxygen') > 18) {
+    } else if (this.getData('oxygen') < 20 && this.getData('oxygen') > 18) {
       this.scene.sound.play(constants.OXYGENLOWAUDIO);
-    } else if(this.getData('oxygen') < 10 && this.getData('oxygen') > 8) {
+    } else if (this.getData('oxygen') < 10 && this.getData('oxygen') > 8) {
       this.scene.sound.play(constants.OXYGENLOWAUDIO);
     }
 
@@ -823,29 +892,27 @@ export class Leo extends Entity {
         asteroid.y - asteroid.body.deltaY(),
         this.x,
         this.y
-      ) + rad / (radius/48);
+      ) +
+      rad / (radius / 48);
     this.setRotation(angle + Math.PI / 2);
     this.x = asteroid.x + radius * Math.cos(angle);
     this.y = asteroid.y + radius * Math.sin(angle);
-      
+
     let sceneConfig = this.scene.gameConfig;
-    
+
     if (this.y < 0 + this.displayHeight / 2) {
       this.y = this.displayHeight / 2;
       this.setData('oxygenAsteroid', null);
-    } else if (
-      this.y >
-      sceneConfig.worldHeight - this.displayHeight / 2
-    ) {
+    } else if (this.y > sceneConfig.worldHeight - this.displayHeight / 2) {
       this.y = sceneConfig.worldHeight - this.displayHeight / 2;
 
-      if(asteroid != this.scene.baseAsteroid)
+      if (asteroid != this.scene.baseAsteroid)
         this.setData('oxygenAsteroid', null);
     }
 
     let camera = this.scene.cameras.main;
-    let offset = (sceneConfig.worldOffsetX < 0) ? 0 : sceneConfig.worldOffsetX;
-    
+    let offset = sceneConfig.worldOffsetX < 0 ? 0 : sceneConfig.worldOffsetX;
+
     if (this.x < camera.scrollX + this.displayWidth / 2) {
       this.x = camera.scrollX + this.displayWidth / 2;
       this.setData('oxygenAsteroid', null);
@@ -853,7 +920,11 @@ export class Leo extends Entity {
       this.x >
       camera.scrollX + sceneConfig.worldWidth - this.displayWidth / 2 + offset
     ) {
-      this.x = camera.scrollX + sceneConfig.worldWidth - this.displayWidth / 2 + offset;
+      this.x =
+        camera.scrollX +
+        sceneConfig.worldWidth -
+        this.displayWidth / 2 +
+        offset;
       this.setData('oxygenAsteroid', null);
     }
   }
@@ -885,7 +956,10 @@ export class Leo extends Entity {
       this.setRotation(this.rotation * 0.8);
     } else {
       let oxygenAsteroid = this.getData('oxygenAsteroid');
-      if (oxygenAsteroid.getData('health') - gameConfig.oxygenAsteroidDamage <= 0){
+      if (
+        oxygenAsteroid.getData('health') - gameConfig.oxygenAsteroidDamage <=
+        0
+      ) {
         this.setData('oxygenAsteroid', null);
       }
       oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage);

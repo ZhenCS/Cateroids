@@ -39,7 +39,7 @@ export class SceneMain extends Phaser.Scene {
       mapLoading.loadMap(this, currentLevel);
       sceneUtils.initScene(this, this.gameConfig.gameMode);
 
-      if(this.baseAsteroid)
+      if (this.baseAsteroid)
         this.player.setData('oxygenAsteroid', this.baseAsteroid);
     } else {
       sceneUtils.initScene(this);
@@ -47,7 +47,6 @@ export class SceneMain extends Phaser.Scene {
       this.spawnTimer.paused = false;
     }
     this.debugg = this.add.graphics().lineStyle(2, 0xffffff, 1);
-
   }
 
   update() {
@@ -60,14 +59,13 @@ export class SceneMain extends Phaser.Scene {
       this.showText();
       this.levelCheck();
 
-      if (this.boss){
+      if (this.boss) {
         this.boss.update();
       }
 
       //this.debugg.clear();
       //this.baseAsteroid.body.drawDebug(this.debugg);
     }
-
   }
 
   createExplosion(x, y, amount) {
@@ -130,7 +128,8 @@ export class SceneMain extends Phaser.Scene {
       }
     });
   }
-  showGameOverMenu(){
+
+  showGameOverMenu() {
     this.player.play(constants.DYINGKEY);
 
     this.time.addEvent({
@@ -143,12 +142,10 @@ export class SceneMain extends Phaser.Scene {
       callbackScope: this,
       loop: false
     });
-    
   }
 
   levelCheck() {
-    if(this.gameOver)
-      this.showGameOverMenu();
+    if (this.gameOver) this.showGameOverMenu();
 
     if (this.player.x >= this.endPointX) {
       this.sound.stopAll();
@@ -156,13 +153,13 @@ export class SceneMain extends Phaser.Scene {
         //end of game
       } else {
         //this.scene.restart();
-        this.game.scene.start(constants.GOALKEY, {scene: this});
+        this.game.scene.start(constants.GOALKEY, { scene: this });
         this.game.scene.pause(constants.GAMEKEY);
       }
     }
 
-    if(this.gameConfig.gameMode == 'DEFEND'){
-      if(typeof this.baseAsteroid.getData('health') == 'undefined'){
+    if (this.gameConfig.gameMode == 'DEFEND') {
+      if (typeof this.baseAsteroid.getData('health') == 'undefined') {
         this.gameOver = true;
       }
     }

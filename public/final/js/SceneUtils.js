@@ -15,12 +15,12 @@ export function initScene(scene, mode) {
 export function updateUI(scene, mode) {
   updateCamera(scene, mode);
 
-  if(mode == 'DEFEND'){
+  if (mode == 'DEFEND') {
     scene.baseBar
       .clear()
       .fillStyle(gameStyles.baseColor)
       .setDepth(gameDepths.uiDepth);
-    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+    let offset = scene.game.config.width / 2 - gameStyles.healthWidth / 2;
 
     scene.baseBar.fillRect(
       offset,
@@ -31,16 +31,20 @@ export function updateUI(scene, mode) {
     );
 
     //centerX(scene, scene.baseBar);
-  } else if (mode == 'BOSS'){
+  } else if (mode == 'BOSS') {
     scene.bossBar
-         .clear()
-         .fillStyle(gameStyles.bossColor)
-         .setDepth(gameDepths.uiDepth);
-    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+      .clear()
+      .fillStyle(gameStyles.bossColor)
+      .setDepth(gameDepths.uiDepth);
+    let offset = scene.game.config.width / 2 - gameStyles.healthWidth / 2;
 
-    scene.bossBar.fillRect(offset, gameStyles.bossPadding, 
-                          gameStyles.healthWidth * (scene.boss.getData('health') / scene.gameConfig.maxBossHealth),
-                          gameStyles.barHeight)
+    scene.bossBar.fillRect(
+      offset,
+      gameStyles.bossPadding,
+      gameStyles.healthWidth *
+        (scene.boss.getData('health') / scene.gameConfig.maxBossHealth),
+      gameStyles.barHeight
+    );
   }
 
   scene.hpBar
@@ -78,16 +82,23 @@ function updateCamera(scene, mode) {
   //player cannot move left after moving right
   let scroll = scene.cameras.main.scrollX;
   if (scroll < scene.gameConfig.worldWidth - scene.game.config.width) {
-    scene.physics.world.setBounds(scroll, 0, scene.gameConfig.worldWidth - scroll, scene.gameConfig.worldHeight);
+    scene.physics.world.setBounds(
+      scroll,
+      0,
+      scene.gameConfig.worldWidth - scroll,
+      scene.gameConfig.worldHeight
+    );
 
-    if(mode == 'RUN'){
+    if (mode == 'RUN') {
       let sceneConfig = scene.gameConfig;
       let offsetY = sceneConfig.worldOffsetY;
-      if(offsetY < 0){ offsetY = 0;}
-      
+      if (offsetY < 0) {
+        offsetY = 0;
+      }
+
       scene.cameras.main.setBounds(
         scroll,
-        0 - offsetY, 
+        0 - offsetY,
         sceneConfig.worldWidth - scroll,
         sceneConfig.worldHeight + 2 * offsetY
       );
@@ -309,24 +320,24 @@ function initUI(scene, mode) {
   let uiContainer = scene.add.container().setDepth(gameDepths.uiDepth);
   let gameHeight = scene.sys.game.config.height;
   let gameWidth = scene.sys.game.config.width;
-  
-  if(mode == 'DEFEND'){
+
+  if (mode == 'DEFEND') {
     let baseBG = scene.add
-    .graphics()
-    .fillStyle(gameStyles.barColor)
-    .setDepth(gameDepths.uiDepth);
+      .graphics()
+      .fillStyle(gameStyles.barColor)
+      .setDepth(gameDepths.uiDepth);
     scene.baseBar = scene.add
       .graphics()
       .fillStyle(gameStyles.baseColor)
       .setDepth(gameDepths.uiDepth);
 
-    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+    let offset = scene.game.config.width / 2 - gameStyles.healthWidth / 2;
     baseBG.fillRect(
       offset,
       scene.game.config.height - gameStyles.basePadding,
       gameStyles.healthWidth,
       gameStyles.barHeight
-    ); 
+    );
 
     scene.baseBar.fillRect(
       offset,
@@ -335,32 +346,40 @@ function initUI(scene, mode) {
       gameStyles.barHeight
     );
     uiContainer.add([baseBG, scene.baseBar]);
-  } else if (mode == 'BOSS'){
+  } else if (mode == 'BOSS') {
     let bossBG = scene.add
-                      .graphics()
-                      .fillStyle(gameStyles.barColor)
-                      .setDepth(gameDepths.uiDepth);
+      .graphics()
+      .fillStyle(gameStyles.barColor)
+      .setDepth(gameDepths.uiDepth);
 
     scene.bossBar = scene.add
-                         .graphics()
-                         .fillStyle(gameStyles.bossColor)
-                         .setDepth(gameDepths.uiDepth);
+      .graphics()
+      .fillStyle(gameStyles.bossColor)
+      .setDepth(gameDepths.uiDepth);
 
-    let offset = scene.game.config.width/2 - gameStyles.healthWidth/2;
+    let offset = scene.game.config.width / 2 - gameStyles.healthWidth / 2;
 
-    bossBG.fillRect(offset, 
+    bossBG.fillRect(
+      offset,
       gameStyles.bossPadding,
       gameStyles.healthWidth,
-      gameStyles.barHeight);
+      gameStyles.barHeight
+    );
 
-    scene.bossBar.fillRect(offset, gameStyles.bossPadding, gameStyles.healthWidth, gameStyles.barHeight);
-    uiContainer.add([bossBG, scene.bossBar])
+    scene.bossBar.fillRect(
+      offset,
+      gameStyles.bossPadding,
+      gameStyles.healthWidth,
+      gameStyles.barHeight
+    );
+    uiContainer.add([bossBG, scene.bossBar]);
   }
   let hpText = scene.add
-    .text(gameStyles.padding + 2, gameStyles.padding - 2, "Health", {
+    .text(gameStyles.padding + 2, gameStyles.padding - 2, 'Health', {
       font: `${32 * gameScale.scale}px Georgia`,
-      fill: '#ffffff',
-  }).setDepth(gameDepths.uiDepth + 1);
+      fill: '#ffffff'
+    })
+    .setDepth(gameDepths.uiDepth + 1);
 
   let hpBG = scene.add
     .graphics()
@@ -385,12 +404,17 @@ function initUI(scene, mode) {
     gameStyles.barHeight
   );
 
-
   let oxygenText = scene.add
-    .text(gameStyles.padding + 2, gameStyles.padding * 2 + gameStyles.barHeight - 2, "Oxygen", {
-      font: `${32 * gameScale.scale}px Georgia`,
-      fill: '#ffffff',
-  }).setDepth(gameDepths.uiDepth + 1);
+    .text(
+      gameStyles.padding + 2,
+      gameStyles.padding * 2 + gameStyles.barHeight - 2,
+      'Oxygen',
+      {
+        font: `${32 * gameScale.scale}px Georgia`,
+        fill: '#ffffff'
+      }
+    )
+    .setDepth(gameDepths.uiDepth + 1);
 
   let oxygenBG = scene.add
     .graphics()
@@ -464,7 +488,9 @@ function initControls(scene) {
   scene.keyShift = scene.input.keyboard.addKey(
     Phaser.Input.Keyboard.KeyCodes.SHIFT
   );
-  scene.keyEsc = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+  scene.keyEsc = scene.input.keyboard.addKey(
+    Phaser.Input.Keyboard.KeyCodes.ESC
+  );
 
   scene.input.keyboard.on('keydown-SHIFT', function() {
     let mouseX = scene.input.mousePointer.worldX;
@@ -483,9 +509,9 @@ function initControls(scene) {
     });
   });
 
-  scene.input.keyboard.on('keyup-ESC', function(){
-      scene.game.scene.start(constants.PAUSEKEY);
-      scene.game.scene.pause(constants.GAMEKEY);
+  scene.input.keyboard.on('keyup-ESC', function() {
+    scene.game.scene.start(constants.PAUSEKEY);
+    scene.game.scene.pause(constants.GAMEKEY);
   });
 
   scene.input.keyboard.on('keyup-SHIFT', function() {
@@ -520,7 +546,7 @@ function initEvents(scene) {
         let pointer = scene.input.mousePointer;
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
-          scene.player.shoot(pointer.worldX, pointer.worldY, 'strongLaser');
+          scene.player.shoot(pointer.worldX, pointer.worldY, 'beam');
           scene.player.play(constants.ATTACKKEY);
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);
