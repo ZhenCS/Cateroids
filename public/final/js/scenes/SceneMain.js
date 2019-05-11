@@ -14,7 +14,7 @@ export class SceneMain extends Phaser.Scene {
   preload() {}
 
   create() {
-    this.gameConfig = gameConfig;
+    this.gameConfig = Object.assign({}, gameConfig);
     this.bullets = this.add.group();
     this.asteroids = this.add.group();
     this.oxygenAsteroids = this.add.group();

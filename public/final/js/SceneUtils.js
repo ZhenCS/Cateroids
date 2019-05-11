@@ -10,6 +10,7 @@ export function initScene(scene, mode) {
   initControls(scene);
   initCollisions(scene);
   initSound(scene);
+  initUpgrades(scene);
 }
 
 export function updateUI(scene, mode) {
@@ -104,6 +105,27 @@ function updateCamera(scene, mode) {
       );
     }
   }
+}
+
+function initUpgrades(scene){
+  scene.gameConfig.maxPlayerHealth = gameConfig.maxPlayerHealth + upgradeRates.Health * playerUpgrades[0][1];
+  scene.player.setData('health', scene.gameConfig.maxPlayerHealth);
+
+  scene.gameConfig.playerDamage = gameConfig.playerDamage + upgradeRates.Damage * playerUpgrades[1][1];
+  scene.gameConfig.oxygenDepletionRate = gameConfig.oxygenDepletionRate  + upgradeRates.OxygenDepletion * playerUpgrades[2][1]; 
+  scene.gameConfig.oxygenReplenishDelay = gameConfig.oxygenReplenishDelay - upgradeRates.OxygenReplenish * playerUpgrades[3][1];
+  scene.gameConfig.playerBulletSize = gameConfig.playerBulletSize + upgradeRates.BulletSize * playerUpgrades[4][1];
+
+  scene.gameConfig.maxPlayerAmmo = gameConfig.maxPlayerAmmo + upgradeRates.ExtraAmmo * playerUpgrades[5][1];
+  scene.player.ammoCount = scene.gameConfig.maxPlayerAmmo;
+  
+  scene.gameConfig.playerFireRate = gameConfig.playerFireRate - upgradeRates.FireRate * playerUpgrades[6][1];
+  resetShootTimer(scene);
+
+  scene.gameConfig.softMaxPlayerVelocityX = gameConfig.softMaxPlayerVelocityX + upgradeRates.Speed * playerUpgrades[7][1];
+  scene.gameConfig.softMaxPlayerVelocityY = gameConfig.softMaxPlayerVelocityY + upgradeRates.Speed * playerUpgrades[7][1];
+  scene.gameConfig.hardMaxPlayerVelocityX = gameConfig.hardMaxPlayerVelocityX + upgradeRates.Speed * playerUpgrades[7][1];
+  scene.gameConfig.hardMaxPlayerVelocityY = gameConfig.hardMaxPlayerVelocityY + upgradeRates.Speed * playerUpgrades[7][1];
 }
 
 function initSound(scene) {
@@ -535,6 +557,33 @@ function initControls(scene) {
     },
     scene
   );
+}
+
+function resetShootTimer(scene){
+  scene.playerShootTimer.reset({
+    delay: scene.gameConfig.playerFireRate,
+    callback: function() {
+      if (scene.player.active && !scene.gameOver) {
+        let pointer = scene.input.mousePointer;
+        if (pointer.rightButtonDown()) {
+          // Shoot secondary fire
+          scene.player.shoot(pointer.worldX, pointer.worldY, 'beam');
+          scene.player.play(constants.ATTACKKEY);
+          scene.player.once('animationcomplete', function() {
+            scene.player.play(constants.IDLEKEY);
+          });
+        } else {
+          scene.player.shoot(pointer.worldX, pointer.worldY, 'primary');
+          scene.player.play(constants.ATTACKKEY);
+          scene.player.once('animationcomplete', function() {
+            scene.player.play(constants.IDLEKEY);
+          });
+        }
+      }
+    },
+    callbackScope: scene,
+    loop: true
+  });
 }
 
 function initEvents(scene) {
