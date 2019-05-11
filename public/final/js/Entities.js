@@ -674,13 +674,12 @@ export class Leo extends Entity {
     });
     this.setScale(0.5, 0.5);
     this.setDepth(gameDepths.uiDepth - 1);
-    this.ammoCount = 3;
-    this.capacity = 3;
+    this.ammoCount = scene.gameConfig.maxPlayerAmmo;
     this.heat = 0;
     this.firingBeam = false;
     this.heatCapacity = 1000;
     setInterval(() => {
-      if (this.ammoCount < this.capacity) {
+      if (this.ammoCount < scene.gameConfig.maxPlayerAmmo) {
         this.ammoCount++;
         // console.log('Incrementing ammo');
       }
@@ -778,6 +777,7 @@ export class Leo extends Entity {
       return;
     }
     let playerDamage = this.scene.gameConfig.playerDamage;
+    let scale =  this.scene.gameConfig.playerBulletSize;
     // const testWeapon = new Weapon(this.scene, this.x, this.y, true, type);
 
     const bullet = new Bullet(this.scene, this.x, this.y, true, type);
@@ -787,7 +787,7 @@ export class Leo extends Entity {
     const yVelocity = speed * Math.sin(angle) + Phaser.Math.Between(-50, 50);
 
     if (type === 'primary') {
-      this.shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity);
+      this.shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity, scale);
     } else if (type === 'plasma') {
       const plasmaMultiplier = playerDamage * 2.5;
       this.shootPlasma(bullet, angle, plasmaMultiplier, xVelocity, yVelocity);
@@ -830,12 +830,13 @@ export class Leo extends Entity {
     this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
   }
 
-  shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity) {
+  shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity, scale) {
     bullet
       .setTint(0xf90018)
       .setOrigin(0.5)
       .setData('damage', playerDamage)
-      .setRotation(angle);
+      .setRotation(angle)
+      .setScale(scale);
 
     bullet.body.setVelocity(xVelocity, yVelocity);
     this.scene.bullets.add(bullet);

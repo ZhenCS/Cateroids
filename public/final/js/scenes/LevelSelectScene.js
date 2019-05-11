@@ -53,10 +53,7 @@ export class LevelSelectScene extends Phaser.Scene {
   }
 
   update(){
-    if(this.starCount < playerStars){
       this.updateStars();
-      this.starCount = playerStars;
-    }
   }
 
   createLevelIcon(id, x, y) {

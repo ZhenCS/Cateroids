@@ -67,6 +67,17 @@ const playerUpgrades = [
   ['Speed', 0],
 ]
 
+const upgradeRates = {
+  Health: 100,
+  Damage: 5,
+  OxygenDepletion: 1/50,
+  OxygenReplenish: 2/50,
+  BulletSize: 0.1,
+  ExtraAmmo: 1,
+  FireRate: 5,
+  Speed: 25
+}
+
 const gameConfig = {
   maxUpgrades: 5,
   gameMode: '',
@@ -106,7 +117,7 @@ const gameConfig = {
   maxPlayerOxygen: 100,
   playerDamage: 50, //changed by upgrades
   playerBulletSize: 1, //changed by upgrades
-  playerAmmo: 3, //changed by upgrades
+  maxPlayerAmmo: 3, //changed by upgrades
 
   asteroid0Health: 40,
   asteroid1Health: 20,
