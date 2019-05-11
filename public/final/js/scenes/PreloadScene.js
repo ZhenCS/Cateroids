@@ -72,6 +72,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.image(constants.DOG1KEY, 'assets/dog.png');
     this.load.image(constants.DOG2KEY, 'assets/dog2.png');
     this.load.image(constants.DOG3KEY, 'assets/dog3.png');
+    this.load.image(constants.DOG4KEY, 'assets/dog4.png');
     this.load.image(constants.DOGLASERKEY, 'assets/bossBeam.png');
     this.load.atlas(
       constants.CATATLASKEY,
