@@ -239,8 +239,8 @@ function setBossType(scene) {
             constants.DOGWALLKEY,
             bossHealth,
             bossDamage,
-            33,
-            100
+            15,
+            50
           );
           scene.gameConfig.maxBossHealth = boss.getData('health');
           break;

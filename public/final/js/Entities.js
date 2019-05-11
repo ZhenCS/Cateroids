@@ -432,7 +432,8 @@ export class DogWall extends Entity {
     );
     this.body.setOffset(0, -25);
     this.doneExpelling = false;
-    this.spawnHardPoints();
+    this.firstUpdate = true;
+    this.setDepth(this.depth + 1);
   }
 
   damage(damage) {
@@ -440,17 +441,29 @@ export class DogWall extends Entity {
 
     this.setData('health', health - damage);
     if (health - damage <= 0) {
-      //this.onDestroy();
+      this.onDestroy();
       this.destroy();
     }
 
     // TODO: add damaged animation
   }
 
+  onDestroy(){
+    this.weapon.destroy();
+    let hardPointLength = this.hardPoints.length;
+    for(let i = 0; i < hardPointLength; i++){
+      this.hardPoints.pop().destroy();
+    }
+  }
+
   /**
    * Method to be called every frame
    */
   update() {
+    if (this.firstUpdate){
+      this.spawnHardPoints();
+      this.firstUpdate = false;
+    }
     if (this.plannedActions.length == 0) {
       this.think();
     } else {
@@ -466,7 +479,7 @@ export class DogWall extends Entity {
    */
   think() {
     // think
-    this.expelGarbage();
+    this.bodySlam(false);
   }
 
   /**
@@ -474,13 +487,14 @@ export class DogWall extends Entity {
    * @param {boolean} goLeft If true, body slams on the left side of the screen, otherwise body slam the right
    */
   bodySlam(goLeft) {
+    if(!this.body) return;
     let targetX;
     if (goLeft) {
       targetX = this.getData('resetX') - this.body.width / 3;
     } else {
       targetX = this.getData('resetX') + this.body.width / 3;
     }
-    plannedActions.push(
+    this.plannedActions.push(
       this.dogWallMoveTo.bind(
         this,
         targetX,
@@ -488,23 +502,23 @@ export class DogWall extends Entity {
         this.getData('moveVelocity')
       )
     );
-    plannedActions.push(
+    this.plannedActions.push(
       this.dogWallMoveTo.bind(
         this,
-        this.x,
-        this.y - this.body.halfWidth,
+        targetX,
+        this.scene.gameConfig.worldHeight - this.body.halfHeight,
         this.getData('slamVelocity')
       )
     );
-    plannedActions.push(
+    this.plannedActions.push(
       this.dogWallMoveTo.bind(
         this,
-        this.x,
+        targetX,
         this.getData('resetY'),
-        this.getData('slamVelocity')
+        this.getData('moveVelocity')
       )
     );
-    plannedActions.push(
+    this.plannedActions.push(
       this.dogWallMoveTo.bind(
         this,
         this.getData('resetX'),
@@ -523,20 +537,32 @@ export class DogWall extends Entity {
   dogWallMoveTo(x, y, velocity) {
     console.assert(velocity > 0, 'Error, dog wall given an invalid velocity');
     let epsilon = 0.05;
+    let deltaX;
     if (Math.abs(this.x - x) >= velocity) {
-      let newX = this.x + velocity * Math.sign(this.x - x);
+      let newX = this.x + velocity * Math.sign(x - this.x);
+      deltaX = newX - this.x;
       this.x = newX;
     } else {
+      deltaX = x - this.x;
+      this.body.setVelocityX(0);
       this.x = x;
     }
-
+    let deltaY;
     if (Math.abs(this.y - y) >= velocity) {
-      let newY = this.y + velocity * Math.sign(this.y - y);
+      let newY = this.y + velocity * Math.sign(y - this.y);
+      deltaY = newY - this.y;
       this.y = newY;
     } else {
+      deltaY = y - this.y;
       this.y = y;
     }
+    this.hardPoints.forEach(function(hardPoint){
+      hardPoint.x += deltaX;
+      hardPoint.y += deltaY;
+    });
 
+    this.weapon.x += deltaX;
+    this.weapon.y += deltaY;
     return Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
   }
 
@@ -608,9 +634,10 @@ export class DogWall extends Entity {
 
   spawnHardPoints() {
     // (x = 28 + 44, ymin = 375), (x = 190 + 41, ymin = 359), (x = 943 + 41, ymin = 359), (x = 1099 + 44, ymin = 375)
-    this.hardPoints.forEach(function(hardPoint) {
-      hardPoint.destroy();
-    });
+    let hardPointLength = this.hardPoints.length;
+    for (let i = 0; i < hardPointLength; i++){
+      this.hardPoints.pop().destroy();
+    }
     let spawnPoints = [
       { x: 72, y: 414 },
       { x: 231, y: 398 },
