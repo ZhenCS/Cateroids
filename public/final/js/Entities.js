@@ -808,7 +808,7 @@ export class Leo extends Entity {
     // const testWeapon = new Weapon(this.scene, this.x, this.y, true, type);
 
     const bullet = new Bullet(this.scene, this.x, this.y, true, type);
-    let angle = Phaser.Math.Angle.Between(this.x, this.y, pointerX, pointerY);
+    let angle = Phaser.Math.Angle.Between(this.x - this.scene.cameras.main.scrollX, this.y - this.scene.cameras.main.scrollY, pointerX, pointerY);
     const speed = 2000;
     const xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-50, 50);
     const yVelocity = speed * Math.sin(angle) + Phaser.Math.Between(-50, 50);
