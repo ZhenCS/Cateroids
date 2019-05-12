@@ -403,8 +403,11 @@ export class Laser extends Entity {
     let scene = this.scene;
     this.segments.forEach(function(segment) {
       //segment.destroy();
+      
       scene.laserSegments.remove(segment, true, true);
     });
+
+    this.segments = [];
   }
 }
 
@@ -1125,7 +1128,7 @@ export class Leo extends Entity {
       ) {
         this.setData('oxygenAsteroid', null);
       }
-      if (oxygenAsteroid.level !== 4)
+      if (oxygenAsteroid.getData('level') !== 4)
         oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage);
     }
   }
