@@ -302,7 +302,19 @@ function initAnimations(scene) {
   var catIndices = [[1, 7], [8, 9], [10, 12], [13, 16], [16, 16]];
   var dogIndices = [[1, 7], [8, 8], [9, 11], [12, 15], [15, 15]];
   var animData = [[2, -1], [4, 0], [4, 0], [4, 0], [4, 0]];
+  var weaponKeys = [1, 5];
 
+  scene.anims.create({
+    key: constants.BOSSWEAPONCHARGINGKEY,
+    frames : scene.anims.generateFrameNames(constants.BOSSWEAPONATLASKEY, {
+      prefix: constants.SPRITEPREFIXKEY,
+      start: weaponKeys[0],
+      end: weaponKeys[1],
+      zeroPad: 0
+    }),
+    frameRate: 3,
+    repeat: 4
+  });
   constants.animationKeys.forEach(function(anim) {
     scene.anims.create({
       key: constants[`${anim.toUpperCase()}KEY`],

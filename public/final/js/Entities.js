@@ -424,15 +424,12 @@ class DogWallWeapon extends Entity {
   }
 
   beginGarbageExpulsion() {
-    // TODO: play an animation rather than just wait 5 seconds
     this.performingAction = true;
-    setTimeout(
-      function() {
-        this.performingAction = false;
-        this.parentEntity.emit('garbageLaunched');
-      }.bind(this),
-      5000
-    );
+    this.once('animationcomplete', function(){
+      this.performingAction = false;
+      this.parentEntity.emit('garbageLaunched');
+    });
+    this.play(constants.BOSSWEAPONCHARGINGKEY);
   }
 
   beginMovement() {
@@ -443,13 +440,18 @@ class DogWallWeapon extends Entity {
   fireLaser(){
     this.performingAction = true;
     this.laserFiring = true;
-    let laserToFire = new Laser(this.scene, this.x, this.y, true, 3, Math.PI / 2, null, null, null, null, null, null, this.y + 1);
+    let laserToFire = new Laser(this.scene, this.x, this.y, true, 3, Math.PI / 2, null, 0, null, null, null, null, this.y + 1);
     let self = this;
     laserToFire.once('laserFired', function(){
       self.laserFiring = false;
       self.performingAction = false;
     });
-    laserToFire.fire();
+    
+    this.once('animationcomplete', function(){
+      laserToFire.fire();
+    })
+
+    this.play(constants.BOSSWEAPONCHARGINGKEY);
 
   }
 
