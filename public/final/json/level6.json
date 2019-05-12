@@ -43,7 +43,7 @@
                         {
                          "name":"health",
                          "type":"float",
-                         "value":1000
+                         "value":50000
                         }, 
                         {
                          "name":"spawnNumber",
@@ -240,6 +240,11 @@
                          "name":"damage",
                          "type":"float",
                          "value":500
+                        }, 
+                        {
+                         "name":"hasDog",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"health",

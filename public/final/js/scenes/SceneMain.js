@@ -59,7 +59,7 @@ export class SceneMain extends Phaser.Scene {
       this.showText();
       this.levelCheck();
 
-      if (this.boss) {
+      if (this.boss && this.boss.active) {
         this.boss.update();
       }
 
@@ -163,6 +163,7 @@ export class SceneMain extends Phaser.Scene {
         this.gameOver = true;
       }
     }
+
   }
 
   movementCheck() {
