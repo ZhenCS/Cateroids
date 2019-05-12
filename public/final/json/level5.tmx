@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="600" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1942">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="600" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="2011">
  <properties>
   <property name="maxPlayerHealth" type="int" value="1000"/>
   <property name="maxPlayerOxygen" type="int" value="100"/>
@@ -186,678 +186,1970 @@
   <properties>
    <property name="spawnNumber" type="int" value="1"/>
   </properties>
-  <object id="1520" gid="35" x="38210" y="320" width="64" height="64"/>
+  <object id="1520" gid="35" x="38210" y="320" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
   <object id="1523" gid="34" x="192" y="318" width="64" height="64"/>
-  <object id="1524" gid="39" x="3906" y="320" width="64" height="64">
+  <object id="1525" gid="32" x="1188" y="172" width="64" height="64">
    <properties>
-    <property name="wallLocation" value="here"/>
+    <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1525" gid="32" x="1188" y="172" width="64" height="64"/>
-  <object id="1527" gid="32" x="1184" y="292" width="64" height="64"/>
-  <object id="1528" gid="32" x="1186" y="482" width="64" height="64"/>
-  <object id="1529" gid="33" x="1316" y="112" width="64" height="64"/>
-  <object id="1530" gid="33" x="1316" y="210" width="64" height="64"/>
-  <object id="1531" gid="33" x="1298" y="314" width="64" height="64"/>
-  <object id="1532" gid="33" x="1318" y="440" width="64" height="64"/>
-  <object id="1533" gid="33" x="1310" y="540" width="64" height="64"/>
-  <object id="1534" gid="31" x="1052" y="298" width="64" height="64"/>
-  <object id="1535" gid="28" x="2112" y="302" width="64" height="64"/>
-  <object id="1538" gid="28" x="3402" y="328" width="64" height="64"/>
-  <object id="1539" gid="32" x="2596" y="158" width="64" height="64"/>
-  <object id="1540" gid="32" x="2568" y="356" width="64" height="64"/>
-  <object id="1541" gid="26" x="2482" y="96" width="64" height="64"/>
-  <object id="1542" gid="26" x="2454" y="208" width="64" height="64"/>
-  <object id="1543" gid="26" x="2442" y="340" width="64" height="64"/>
-  <object id="1544" gid="26" x="2490" y="510" width="64" height="64"/>
-  <object id="1546" gid="26" x="2454" y="566" width="64" height="64"/>
-  <object id="1547" gid="26" x="2464" y="464" width="64" height="64"/>
-  <object id="1548" gid="26" x="2448" y="416" width="64" height="64"/>
-  <object id="1549" gid="26" x="2458" y="254" width="64" height="64"/>
-  <object id="1550" gid="26" x="2482" y="140" width="64" height="64"/>
-  <object id="1551" gid="25" x="2398" y="508" width="64" height="64"/>
-  <object id="1552" gid="25" x="2382" y="432" width="64" height="64"/>
-  <object id="1553" gid="25" x="2388" y="314" width="64" height="64"/>
-  <object id="1554" gid="25" x="2380" y="174" width="64" height="64"/>
-  <object id="1555" gid="25" x="2418" y="114" width="64" height="64"/>
-  <object id="1556" gid="25" x="2372" y="230" width="64" height="64"/>
-  <object id="1557" gid="25" x="2372" y="366" width="64" height="64"/>
-  <object id="1558" gid="31" x="2264" y="534" width="64" height="64"/>
-  <object id="1559" gid="31" x="2306" y="426" width="64" height="64"/>
-  <object id="1560" gid="31" x="2278" y="218" width="64" height="64"/>
-  <object id="1561" gid="33" x="2594" y="534" width="64" height="64"/>
-  <object id="1562" gid="33" x="2602" y="454" width="64" height="64"/>
-  <object id="1563" gid="33" x="2692" y="326" width="64" height="64"/>
-  <object id="1564" gid="33" x="2708" y="202" width="64" height="64"/>
-  <object id="1568" gid="33" x="3700" y="352" width="64" height="64"/>
-  <object id="1569" gid="33" x="3730" y="454" width="64" height="64"/>
-  <object id="1570" gid="33" x="3696" y="222" width="64" height="64"/>
-  <object id="1571" gid="33" x="3622" y="150" width="64" height="64"/>
-  <object id="1573" gid="39" x="37952" y="320" width="64" height="64">
+  <object id="1527" gid="32" x="1184" y="292" width="64" height="64">
    <properties>
-    <property name="wallLocation" value="here"/>
+    <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1574" gid="38" x="37824" y="576" width="64" height="64">
+  <object id="1528" gid="32" x="1186" y="482" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1575" gid="38" x="37824" y="64" width="64" height="64">
+  <object id="1529" gid="33" x="1316" y="112" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1576" gid="38" x="37568" y="576" width="64" height="64">
+  <object id="1530" gid="33" x="1316" y="210" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1577" gid="38" x="37568" y="64" width="64" height="64">
+  <object id="1531" gid="33" x="1298" y="314" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1579" gid="33" x="37712" y="470" width="64" height="64"/>
-  <object id="1580" gid="33" x="37826" y="360" width="64" height="64"/>
-  <object id="1581" gid="33" x="37694" y="162" width="64" height="64"/>
-  <object id="1582" gid="33" x="37592" y="330" width="64" height="64"/>
-  <object id="1583" gid="33" x="37794" y="208" width="64" height="64"/>
-  <object id="1584" gid="33" x="37576" y="230" width="64" height="64"/>
-  <object id="1585" gid="33" x="37632" y="448" width="64" height="64"/>
-  <object id="1586" gid="32" x="37390" y="158" width="64" height="64"/>
-  <object id="1587" gid="32" x="37386" y="282" width="64" height="64"/>
-  <object id="1588" gid="32" x="37402" y="428" width="64" height="64"/>
-  <object id="1589" gid="32" x="37498" y="330" width="64" height="64"/>
-  <object id="1590" gid="32" x="37478" y="200" width="64" height="64"/>
-  <object id="1591" gid="38" x="7104" y="576" width="64" height="64">
-   <properties>
-    <property name="dogTurret" value="here"/>
-   </properties>
-  </object>
-  <object id="1592" gid="38" x="7424" y="576" width="64" height="64">
-   <properties>
-    <property name="dogTurret" value="here"/>
-   </properties>
-  </object>
-  <object id="1593" gid="38" x="7616" y="64" width="64" height="64">
-   <properties>
-    <property name="dogTurret" value="here"/>
-   </properties>
-  </object>
-  <object id="1594" gid="38" x="6848" y="64" width="64" height="64">
-   <properties>
-    <property name="dogTurret" value="here"/>
-   </properties>
+  <object id="1532" gid="33" x="1318" y="440" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1533" gid="33" x="1310" y="540" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1534" gid="31" x="1052" y="298" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1535" gid="28" x="2112" y="302" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1538" gid="28" x="3402" y="328" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1539" gid="32" x="2596" y="158" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1540" gid="32" x="2568" y="356" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1541" gid="26" x="2482" y="96" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1542" gid="26" x="2454" y="208" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1543" gid="26" x="2442" y="340" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1544" gid="26" x="2490" y="510" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1546" gid="26" x="2454" y="566" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1547" gid="26" x="2464" y="464" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1548" gid="26" x="2448" y="416" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1549" gid="26" x="2458" y="254" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1550" gid="26" x="2482" y="140" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1551" gid="25" x="2398" y="508" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1552" gid="25" x="2382" y="432" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1553" gid="25" x="2388" y="314" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1554" gid="25" x="2380" y="174" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1555" gid="25" x="2418" y="114" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1556" gid="25" x="2372" y="230" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1557" gid="25" x="2372" y="366" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1558" gid="31" x="2264" y="534" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1559" gid="31" x="2306" y="426" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1560" gid="31" x="2278" y="218" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1561" gid="33" x="2594" y="534" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1562" gid="33" x="2602" y="454" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1563" gid="33" x="2692" y="326" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1564" gid="33" x="2708" y="202" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="1568" gid="33" x="3700" y="352" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1569" gid="33" x="3730" y="454" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1570" gid="33" x="3696" y="222" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1571" gid="33" x="3622" y="150" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1579" gid="33" x="37712" y="470" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1580" gid="33" x="37826" y="360" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1581" gid="33" x="37694" y="162" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1582" gid="33" x="37592" y="330" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1583" gid="33" x="37794" y="208" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1584" gid="33" x="37576" y="230" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1585" gid="33" x="37632" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1586" gid="32" x="37390" y="158" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1587" gid="32" x="37386" y="282" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1588" gid="32" x="37402" y="428" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1589" gid="32" x="37498" y="330" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1590" gid="32" x="37478" y="200" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1595" gid="28" x="6972" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1601" gid="26" x="5684" y="94" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1602" gid="26" x="5488" y="314" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1603" gid="26" x="5762" y="342" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1604" gid="26" x="5576" y="218" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1605" gid="26" x="5702" y="434" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1606" gid="26" x="5482" y="566" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1607" gid="26" x="5810" y="486" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1608" gid="26" x="5618" y="354" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1609" gid="26" x="5812" y="196" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1610" gid="26" x="5430" y="134" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1611" gid="26" x="5548" y="436" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1612" gid="26" x="5646" y="550" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1613" gid="25" x="5422" y="488" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1614" gid="25" x="5690" y="270" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1615" gid="25" x="5562" y="106" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1616" gid="27" x="5592" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1617" gid="27" x="5632" y="458" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1618" gid="27" x="5558" y="390" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1619" gid="27" x="5512" y="386" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1620" gid="27" x="5436" y="280" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1621" gid="27" x="5486" y="184" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1622" gid="27" x="5564" y="280" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1623" gid="27" x="5692" y="212" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1624" gid="27" x="5798" y="268" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1625" gid="27" x="5498" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1626" gid="27" x="5802" y="66" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1627" gid="26" x="5734" y="560" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1628" gid="26" x="5560" y="592" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1629" gid="26" x="5836" y="554" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1630" gid="26" x="5634" y="166" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1631" gid="26" x="5628" y="58" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1632" gid="32" x="5110" y="482" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1633" gid="32" x="5146" y="240" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1634" gid="32" x="4796" y="186" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1635" gid="32" x="5216" y="406" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1636" gid="32" x="5172" y="142" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1637" gid="32" x="4826" y="362" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1638" gid="32" x="4960" y="554" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1639" gid="33" x="5028" y="376" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1640" gid="33" x="5006" y="214" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="1650" gid="31" x="6146" y="142" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1651" gid="31" x="6200" y="378" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1652" gid="31" x="6414" y="174" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1653" gid="31" x="6362" y="542" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1654" gid="33" x="8256" y="296" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1655" gid="33" x="8172" y="426" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1656" gid="33" x="8076" y="260" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1657" gid="33" x="8476" y="328" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1658" gid="33" x="8506" y="146" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1659" gid="33" x="8316" y="456" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1662" gid="33" x="8330" y="126" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1663" gid="33" x="8508" y="450" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1664" gid="33" x="8382" y="288" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1665" gid="33" x="8220" y="60" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1666" gid="33" x="8238" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1667" gid="33" x="8480" y="598" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1668" gid="33" x="8224" y="164" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1669" gid="33" x="8634" y="362" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1670" gid="33" x="8648" y="502" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1671" gid="33" x="8416" y="488" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1672" gid="33" x="8396" y="378" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1673" gid="33" x="8696" y="190" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1674" gid="33" x="8568" y="72" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1675" gid="33" x="8418" y="54" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="1676" gid="28" x="9848" y="314" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="1682" gid="33" x="10776" y="492" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1683" gid="33" x="10882" y="204" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1684" gid="33" x="10706" y="146" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1685" gid="33" x="10938" y="526" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1686" gid="32" x="10992" y="94" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1687" gid="32" x="11040" y="486" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1688" gid="31" x="11506" y="502" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1689" gid="31" x="11530" y="150" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1690" gid="33" x="9616" y="390" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="1691" gid="33" x="9678" y="160" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="1692" gid="32" x="9706" y="270" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="1704" gid="31" x="37212" y="530.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1705" gid="31" x="37081.3" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1706" gid="31" x="37161.3" y="140" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1707" gid="31" x="37314.7" y="81.3333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1708" gid="31" x="37254.7" y="298.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1709" gid="31" x="37056" y="208" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1710" gid="33" x="12780.1" y="283.515" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1711" gid="33" x="12965" y="192.606" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1712" gid="33" x="13255.9" y="344.121" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1713" gid="33" x="13074.1" y="495.636" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1714" gid="33" x="12786.2" y="538.061" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1715" gid="33" x="13095.3" y="265.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1716" gid="33" x="12968" y="438.061" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1717" gid="26" x="12819.5" y="416.848" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1718" gid="26" x="12880.1" y="232" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1719" gid="26" x="13110.4" y="371.394" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1720" gid="26" x="12955.9" y="532" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1721" gid="25" x="12877.1" y="486.545" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1722" gid="25" x="12965" y="92.6061" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1723" gid="27" x="12852.8" y="332" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1724" gid="27" x="13013.5" y="271.394" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1725" gid="27" x="13119.5" y="180.485" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1726" gid="32" x="14916.5" y="141.091" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1727" gid="32" x="14940.7" y="341.091" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1728" gid="32" x="15349.8" y="171.394" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1729" gid="32" x="15137.7" y="325.939" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1730" gid="32" x="15083.2" y="171.394" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1731" gid="32" x="15204.4" y="171.394" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1732" gid="32" x="15522.5" y="189.576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1733" gid="32" x="15325.6" y="438.061" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1734" gid="32" x="15007.4" y="574.424" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1735" gid="32" x="15174.1" y="410.788" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1736" gid="32" x="15219.5" y="538.061" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1737" gid="32" x="15480.1" y="313.818" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="1738" gid="26" x="17034.7" y="86.5455" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1739" gid="26" x="17028.6" y="168.364" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1740" gid="26" x="17013.5" y="259.273" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1741" gid="26" x="17016.5" y="328.97" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1742" gid="26" x="17019.5" y="425.939" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1743" gid="26" x="17040.7" y="513.818" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1744" gid="26" x="17013.5" y="586.545" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1745" gid="27" x="16949.8" y="574.424" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1746" gid="27" x="16971" y="459.273" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1747" gid="27" x="16983.2" y="395.636" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1748" gid="27" x="16949.8" y="207.758" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1749" gid="27" x="16971" y="77.4545" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1750" gid="27" x="17155.9" y="107.758" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1751" gid="27" x="17083.2" y="277.455" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1752" gid="27" x="17125.6" y="456.242" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1753" gid="27" x="17083.2" y="619.879" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1754" gid="25" x="17116.5" y="538.061" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1756" gid="25" x="17101.3" y="165.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1757" gid="32" x="17492.2" y="225.939" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1758" gid="32" x="17486.2" y="462.303" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1759" gid="33" x="17501.3" y="325.939" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1760" gid="33" x="19836" y="160" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1761" gid="33" x="19804" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1762" gid="33" x="20176" y="72" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1763" gid="33" x="20116" y="348" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1764" gid="33" x="20480" y="480" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1765" gid="33" x="20540" y="184" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1766" gid="33" x="20236" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1767" gid="33" x="20060" y="216" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1768" gid="33" x="19416" y="428" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1769" gid="33" x="19040" y="172" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1770" gid="33" x="18812" y="400" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1771" gid="31" x="19560" y="168" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1772" gid="31" x="19636" y="460" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1773" gid="31" x="19180" y="388" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1774" gid="31" x="19268" y="96" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1775" gid="33" x="22732" y="220" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1776" gid="33" x="22700" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1777" gid="33" x="23060" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1778" gid="33" x="23504" y="336" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1779" gid="33" x="22980" y="268" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1780" gid="33" x="22972" y="452" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1781" gid="33" x="25128" y="392" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1782" gid="33" x="25160" y="264" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1783" gid="33" x="25616" y="240" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1784" gid="33" x="25632" y="472" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1785" gid="33" x="25264" y="568" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1786" gid="33" x="25400" y="120" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1787" gid="33" x="25404" y="456" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1788" gid="33" x="25300" y="336" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1789" gid="33" x="27612" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1790" gid="33" x="27768" y="204" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1791" gid="33" x="27972" y="252" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1792" gid="33" x="28008" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1793" gid="32" x="27796" y="496" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1794" gid="32" x="27492" y="252" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1795" gid="32" x="27856" y="180" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1796" gid="32" x="27704" y="300" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1797" gid="32" x="29860" y="288" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1798" gid="32" x="30168" y="172" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1799" gid="31" x="29996" y="468" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1800" gid="31" x="29996" y="252" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1801" gid="31" x="30296" y="468" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1802" gid="31" x="28256" y="284" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1803" gid="31" x="25856" y="280" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1804" gid="31" x="25892" y="476" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1805" gid="31" x="28092" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1806" gid="31" x="28184" y="352" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1807" gid="31" x="28356" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1808" gid="31" x="30376" y="184" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1809" gid="31" x="30496" y="464" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1810" gid="32" x="30188" y="516" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1811" gid="32" x="30120" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1812" gid="32" x="30432" y="368" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1813" gid="32" x="32592" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1814" gid="32" x="32932" y="196" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1815" gid="32" x="32360" y="404" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1816" gid="26" x="32468" y="316" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1817" gid="26" x="32216" y="164" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1818" gid="26" x="32556" y="404" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1819" gid="26" x="32120" y="496" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1820" gid="26" x="32376" y="236" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1821" gid="25" x="32056" y="312" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1822" gid="25" x="32416" y="112" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1823" gid="25" x="32428" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1824" gid="27" x="32684" y="460" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1825" gid="27" x="32940" y="296" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1826" gid="27" x="35044" y="296" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1827" gid="27" x="35160" y="180" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
   </object>
-  <object id="1595" gid="28" x="6972" y="324" width="64" height="64"/>
-  <object id="1596" gid="38" x="7296" y="64" width="64" height="64">
-   <properties>
-    <property name="dogTurret" value="here"/>
-   </properties>
-  </object>
-  <object id="1597" gid="38" x="7040" y="64" width="64" height="64">
-   <properties>
-    <property name="dogTurret" value="here"/>
-   </properties>
+  <object id="1828" gid="27" x="35408" y="284" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1829" gid="27" x="35268" y="436" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1830" gid="27" x="35120" y="452" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1831" gid="27" x="35372" y="172" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1832" gid="27" x="35472" y="408" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1833" gid="27" x="35172" y="300" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1834" gid="26" x="34956" y="496" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1835" gid="26" x="35076" y="128" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1836" gid="26" x="35564" y="152" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1837" gid="26" x="34984" y="180" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1838" gid="32" x="34868" y="284" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1839" gid="32" x="34852" y="388" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1840" gid="32" x="34776" y="228" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1841" gid="32" x="34348" y="384" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1842" gid="32" x="34040" y="188" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1843" gid="32" x="34732" y="452" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1844" gid="32" x="34416" y="188" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1845" gid="31" x="34476" y="500" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1846" gid="31" x="34588" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1847" gid="31" x="34104" y="268" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1848" gid="33" x="34616" y="520" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1849" gid="33" x="34664" y="436" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1850" gid="33" x="34756" y="316" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1851" gid="33" x="34640" y="196" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1852" gid="26" x="27296" y="156" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1853" gid="26" x="27684" y="160" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1854" gid="26" x="27416" y="448" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1855" gid="26" x="27968" y="512" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1856" gid="26" x="27872" y="304" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1857" gid="25" x="27360" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1858" gid="25" x="27968" y="124" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1859" gid="27" x="27568" y="328" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1860" gid="27" x="27496" y="416" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1861" gid="27" x="27848" y="480" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1862" gid="27" x="26272" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1863" gid="27" x="26072" y="188" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1864" gid="27" x="26728" y="232" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1865" gid="27" x="26576" y="552" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1869" gid="27" x="26612" y="264" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1870" gid="27" x="27012" y="428" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1871" gid="27" x="26420" y="420" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1872" gid="27" x="26552" y="124" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1873" gid="27" x="26864" y="148" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1874" gid="27" x="26792" y="336" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="1875" gid="32" x="24332" y="236" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="1876" gid="32" x="24228" y="520" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="1877" gid="32" x="24104" y="280" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="1878" gid="32" x="24560" y="364" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="1879" gid="32" x="21792" y="424" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="1880" gid="32" x="21596" y="228" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="1881" gid="32" x="22344" y="292" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="1882" gid="25" x="23128" y="472" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1883" gid="25" x="23148" y="300" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1884" gid="25" x="22848" y="364" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1885" gid="31" x="21936" y="424" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="1886" gid="31" x="21980" y="164" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="1929" gid="4" x="35289.3" y="324" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="1930" gid="4" x="32718.7" y="353.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="1931" gid="4" x="30314.7" y="349.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="1932" gid="4" x="27821.3" y="369.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="1933" gid="4" x="25460" y="361.333" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1934" gid="4" x="23070.7" y="372" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="1935" gid="4" x="20312" y="352" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="1936" gid="4" x="17229.3" y="310.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="1937" gid="4" x="12961.3" y="350.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1938" gid="4" x="10953.3" y="314.667" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1939" gid="4" x="37696" y="310" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="1940" gid="68" x="3776" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1941" gid="68" x="3776" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="1942" gid="68" x="6720" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1943" gid="68" x="6848" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1944" gid="68" x="7040" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1945" gid="68" x="7232" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1946" gid="68" x="7424" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1947" gid="68" x="6848" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1948" gid="68" x="7168" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1949" gid="68" x="7424" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1950" gid="68" x="7552" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1951" gid="68" x="6976" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1952" gid="68" x="9856" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="1953" gid="68" x="11200" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1954" gid="68" x="11200" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="1955" gid="68" x="12608" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1956" gid="68" x="12736" y="64" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1957" gid="68" x="13184" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="1958" gid="68" x="14272" y="576" width="64" height="64">
+   <properties>
+    <property name="spawnNumber" type="int" value="10"/>
+   </properties>
   </object>
-  <object id="1598" gid="38" x="6784" y="576" width="64" height="64">
+  <object id="1959" gid="68" x="14784" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="10"/>
    </properties>
   </object>
-  <object id="1599" gid="38" x="7296" y="576" width="64" height="64">
+  <object id="1960" gid="68" x="15552" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="10"/>
    </properties>
   </object>
-  <object id="1600" gid="38" x="6912" y="576" width="64" height="64">
+  <object id="1961" gid="68" x="15616" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="10"/>
    </properties>
   </object>
-  <object id="1601" gid="26" x="5684" y="94" width="64" height="64"/>
-  <object id="1602" gid="26" x="5488" y="314" width="64" height="64"/>
-  <object id="1603" gid="26" x="5762" y="342" width="64" height="64"/>
-  <object id="1604" gid="26" x="5576" y="218" width="64" height="64"/>
-  <object id="1605" gid="26" x="5702" y="434" width="64" height="64"/>
-  <object id="1606" gid="26" x="5482" y="566" width="64" height="64"/>
-  <object id="1607" gid="26" x="5810" y="486" width="64" height="64"/>
-  <object id="1608" gid="26" x="5618" y="354" width="64" height="64"/>
-  <object id="1609" gid="26" x="5812" y="196" width="64" height="64"/>
-  <object id="1610" gid="26" x="5430" y="134" width="64" height="64"/>
-  <object id="1611" gid="26" x="5548" y="436" width="64" height="64"/>
-  <object id="1612" gid="26" x="5646" y="550" width="64" height="64"/>
-  <object id="1613" gid="25" x="5422" y="488" width="64" height="64"/>
-  <object id="1614" gid="25" x="5690" y="270" width="64" height="64"/>
-  <object id="1615" gid="25" x="5562" y="106" width="64" height="64"/>
-  <object id="1616" gid="27" x="5592" y="512" width="64" height="64"/>
-  <object id="1617" gid="27" x="5632" y="458" width="64" height="64"/>
-  <object id="1618" gid="27" x="5558" y="390" width="64" height="64"/>
-  <object id="1619" gid="27" x="5512" y="386" width="64" height="64"/>
-  <object id="1620" gid="27" x="5436" y="280" width="64" height="64"/>
-  <object id="1621" gid="27" x="5486" y="184" width="64" height="64"/>
-  <object id="1622" gid="27" x="5564" y="280" width="64" height="64"/>
-  <object id="1623" gid="27" x="5692" y="212" width="64" height="64"/>
-  <object id="1624" gid="27" x="5798" y="268" width="64" height="64"/>
-  <object id="1625" gid="27" x="5498" y="64" width="64" height="64"/>
-  <object id="1626" gid="27" x="5802" y="66" width="64" height="64"/>
-  <object id="1627" gid="26" x="5734" y="560" width="64" height="64"/>
-  <object id="1628" gid="26" x="5560" y="592" width="64" height="64"/>
-  <object id="1629" gid="26" x="5836" y="554" width="64" height="64"/>
-  <object id="1630" gid="26" x="5634" y="166" width="64" height="64"/>
-  <object id="1631" gid="26" x="5628" y="58" width="64" height="64"/>
-  <object id="1632" gid="32" x="5110" y="482" width="64" height="64"/>
-  <object id="1633" gid="32" x="5146" y="240" width="64" height="64"/>
-  <object id="1634" gid="32" x="4796" y="186" width="64" height="64"/>
-  <object id="1635" gid="32" x="5216" y="406" width="64" height="64"/>
-  <object id="1636" gid="32" x="5172" y="142" width="64" height="64"/>
-  <object id="1637" gid="32" x="4826" y="362" width="64" height="64"/>
-  <object id="1638" gid="32" x="4960" y="554" width="64" height="64"/>
-  <object id="1639" gid="33" x="5028" y="376" width="64" height="64"/>
-  <object id="1640" gid="33" x="5006" y="214" width="64" height="64"/>
-  <object id="1650" gid="31" x="6146" y="142" width="64" height="64"/>
-  <object id="1651" gid="31" x="6200" y="378" width="64" height="64"/>
-  <object id="1652" gid="31" x="6414" y="174" width="64" height="64"/>
-  <object id="1653" gid="31" x="6362" y="542" width="64" height="64"/>
-  <object id="1654" gid="33" x="8256" y="296" width="64" height="64"/>
-  <object id="1655" gid="33" x="8172" y="426" width="64" height="64"/>
-  <object id="1656" gid="33" x="8076" y="260" width="64" height="64"/>
-  <object id="1657" gid="33" x="8476" y="328" width="64" height="64"/>
-  <object id="1658" gid="33" x="8506" y="146" width="64" height="64"/>
-  <object id="1659" gid="33" x="8316" y="456" width="64" height="64"/>
-  <object id="1662" gid="33" x="8330" y="126" width="64" height="64"/>
-  <object id="1663" gid="33" x="8508" y="450" width="64" height="64"/>
-  <object id="1664" gid="33" x="8382" y="288" width="64" height="64"/>
-  <object id="1665" gid="33" x="8220" y="60" width="64" height="64"/>
-  <object id="1666" gid="33" x="8238" y="576" width="64" height="64"/>
-  <object id="1667" gid="33" x="8480" y="598" width="64" height="64"/>
-  <object id="1668" gid="33" x="8224" y="164" width="64" height="64"/>
-  <object id="1669" gid="33" x="8634" y="362" width="64" height="64"/>
-  <object id="1670" gid="33" x="8648" y="502" width="64" height="64"/>
-  <object id="1671" gid="33" x="8416" y="488" width="64" height="64"/>
-  <object id="1672" gid="33" x="8396" y="378" width="64" height="64"/>
-  <object id="1673" gid="33" x="8696" y="190" width="64" height="64"/>
-  <object id="1674" gid="33" x="8568" y="72" width="64" height="64"/>
-  <object id="1675" gid="33" x="8418" y="54" width="64" height="64"/>
-  <object id="1676" gid="28" x="9848" y="314" width="64" height="64"/>
-  <object id="1677" gid="38" x="9856" y="576" width="64" height="64">
+  <object id="1962" gid="68" x="16768" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1678" gid="39" x="11264" y="320" width="64" height="64">
+  <object id="1963" gid="68" x="17344" y="576" width="64" height="64">
    <properties>
-    <property name="wallLocation" value="here"/>
+    <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1679" gid="38" x="11136" y="576" width="64" height="64">
+  <object id="1964" gid="68" x="16640" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1680" gid="38" x="11136" y="64" width="64" height="64">
+  <object id="1965" gid="68" x="17472" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1681" gid="40" x="10944" y="320" width="64" height="64">
+  <object id="1966" gid="68" x="19392" y="576" width="64" height="64">
    <properties>
-    <property name="asteroidDog" value="here"/>
+    <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1682" gid="33" x="10776" y="492" width="64" height="64"/>
-  <object id="1683" gid="33" x="10882" y="204" width="64" height="64"/>
-  <object id="1684" gid="33" x="10706" y="146" width="64" height="64"/>
-  <object id="1685" gid="33" x="10938" y="526" width="64" height="64"/>
-  <object id="1686" gid="32" x="10992" y="94" width="64" height="64"/>
-  <object id="1687" gid="32" x="11040" y="486" width="64" height="64"/>
-  <object id="1688" gid="31" x="11506" y="502" width="64" height="64"/>
-  <object id="1689" gid="31" x="11530" y="150" width="64" height="64"/>
-  <object id="1690" gid="33" x="9616" y="390" width="64" height="64"/>
-  <object id="1691" gid="33" x="9678" y="160" width="64" height="64"/>
-  <object id="1692" gid="32" x="9706" y="270" width="64" height="64"/>
-  <object id="1694" gid="40" x="12955.9" y="347.152" width="64" height="64">
+  <object id="1967" gid="68" x="19712" y="64" width="64" height="64">
    <properties>
-    <property name="asteroidDog" value="here"/>
+    <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1695" gid="40" x="17207.4" y="313.818" width="64" height="64">
+  <object id="1968" gid="68" x="21952" y="576" width="64" height="64">
    <properties>
-    <property name="asteroidDog" value="here"/>
+    <property name="spawnNumber" type="int" value="13"/>
    </properties>
   </object>
-  <object id="1696" gid="40" x="20304.4" y="356.242" width="64" height="64">
+  <object id="1969" gid="68" x="22080" y="64" width="64" height="64">
    <properties>
-    <property name="asteroidDog" value="here"/>
+    <property name="spawnNumber" type="int" value="13"/>
    </properties>
   </object>
-  <object id="1697" gid="40" x="23061.9" y="371.394" width="64" height="64">
+  <object id="1970" gid="68" x="22912" y="576" width="64" height="64">
    <properties>
-    <property name="asteroidDog" value="here"/>
+    <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1698" gid="40" x="25446.8" y="362.303" width="64" height="64">
-   <properties>
-    <property name="asteroidDog" value="here"/>
-   </properties>
-  </object>
-  <object id="1699" gid="40" x="27804.4" y="371.394" width="64" height="64">
-   <properties>
-    <property name="asteroidDog" value="here"/>
-   </properties>
-  </object>
-  <object id="1700" gid="40" x="30280.1" y="353.212" width="64" height="64">
-   <properties>
-    <property name="asteroidDog" value="here"/>
-   </properties>
-  </object>
-  <object id="1701" gid="40" x="32695.3" y="359.273" width="64" height="64">
-   <properties>
-    <property name="asteroidDog" value="here"/>
-   </properties>
-  </object>
-  <object id="1702" gid="40" x="35255.9" y="325.939" width="64" height="64">
-   <properties>
-    <property name="asteroidDog" value="here"/>
-   </properties>
-  </object>
-  <object id="1703" gid="40" x="37696" y="320" width="64" height="64">
-   <properties>
-    <property name="asteroidDog" value="here"/>
-   </properties>
-  </object>
-  <object id="1704" gid="31" x="37212" y="530.667" width="64" height="64"/>
-  <object id="1705" gid="31" x="37081.3" y="384" width="64" height="64"/>
-  <object id="1706" gid="31" x="37161.3" y="140" width="64" height="64"/>
-  <object id="1707" gid="31" x="37314.7" y="81.3333" width="64" height="64"/>
-  <object id="1708" gid="31" x="37254.7" y="298.667" width="64" height="64"/>
-  <object id="1709" gid="31" x="37056" y="208" width="64" height="64"/>
-  <object id="1710" gid="33" x="12780.1" y="283.515" width="64" height="64"/>
-  <object id="1711" gid="33" x="12965" y="192.606" width="64" height="64"/>
-  <object id="1712" gid="33" x="13255.9" y="344.121" width="64" height="64"/>
-  <object id="1713" gid="33" x="13074.1" y="495.636" width="64" height="64"/>
-  <object id="1714" gid="33" x="12786.2" y="538.061" width="64" height="64"/>
-  <object id="1715" gid="33" x="13095.3" y="265.333" width="64" height="64"/>
-  <object id="1716" gid="33" x="12968" y="438.061" width="64" height="64"/>
-  <object id="1717" gid="26" x="12819.5" y="416.848" width="64" height="64"/>
-  <object id="1718" gid="26" x="12880.1" y="232" width="64" height="64"/>
-  <object id="1719" gid="26" x="13110.4" y="371.394" width="64" height="64"/>
-  <object id="1720" gid="26" x="12955.9" y="532" width="64" height="64"/>
-  <object id="1721" gid="25" x="12877.1" y="486.545" width="64" height="64"/>
-  <object id="1722" gid="25" x="12965" y="92.6061" width="64" height="64"/>
-  <object id="1723" gid="27" x="12852.8" y="332" width="64" height="64"/>
-  <object id="1724" gid="27" x="13013.5" y="271.394" width="64" height="64"/>
-  <object id="1725" gid="27" x="13119.5" y="180.485" width="64" height="64"/>
-  <object id="1726" gid="32" x="14916.5" y="141.091" width="64" height="64"/>
-  <object id="1727" gid="32" x="14940.7" y="341.091" width="64" height="64"/>
-  <object id="1728" gid="32" x="15349.8" y="171.394" width="64" height="64"/>
-  <object id="1729" gid="32" x="15137.7" y="325.939" width="64" height="64"/>
-  <object id="1730" gid="32" x="15083.2" y="171.394" width="64" height="64"/>
-  <object id="1731" gid="32" x="15204.4" y="171.394" width="64" height="64"/>
-  <object id="1732" gid="32" x="15522.5" y="189.576" width="64" height="64"/>
-  <object id="1733" gid="32" x="15325.6" y="438.061" width="64" height="64"/>
-  <object id="1734" gid="32" x="15007.4" y="574.424" width="64" height="64"/>
-  <object id="1735" gid="32" x="15174.1" y="410.788" width="64" height="64"/>
-  <object id="1736" gid="32" x="15219.5" y="538.061" width="64" height="64"/>
-  <object id="1737" gid="32" x="15480.1" y="313.818" width="64" height="64"/>
-  <object id="1738" gid="26" x="17034.7" y="86.5455" width="64" height="64"/>
-  <object id="1739" gid="26" x="17028.6" y="168.364" width="64" height="64"/>
-  <object id="1740" gid="26" x="17013.5" y="259.273" width="64" height="64"/>
-  <object id="1741" gid="26" x="17016.5" y="328.97" width="64" height="64"/>
-  <object id="1742" gid="26" x="17019.5" y="425.939" width="64" height="64"/>
-  <object id="1743" gid="26" x="17040.7" y="513.818" width="64" height="64"/>
-  <object id="1744" gid="26" x="17013.5" y="586.545" width="64" height="64"/>
-  <object id="1745" gid="27" x="16949.8" y="574.424" width="64" height="64"/>
-  <object id="1746" gid="27" x="16971" y="459.273" width="64" height="64"/>
-  <object id="1747" gid="27" x="16983.2" y="395.636" width="64" height="64"/>
-  <object id="1748" gid="27" x="16949.8" y="207.758" width="64" height="64"/>
-  <object id="1749" gid="27" x="16971" y="77.4545" width="64" height="64"/>
-  <object id="1750" gid="27" x="17155.9" y="107.758" width="64" height="64"/>
-  <object id="1751" gid="27" x="17083.2" y="277.455" width="64" height="64"/>
-  <object id="1752" gid="27" x="17125.6" y="456.242" width="64" height="64"/>
-  <object id="1753" gid="27" x="17083.2" y="619.879" width="64" height="64"/>
-  <object id="1754" gid="25" x="17116.5" y="538.061" width="64" height="64"/>
-  <object id="1756" gid="25" x="17101.3" y="165.333" width="64" height="64"/>
-  <object id="1757" gid="32" x="17492.2" y="225.939" width="64" height="64"/>
-  <object id="1758" gid="32" x="17486.2" y="462.303" width="64" height="64"/>
-  <object id="1759" gid="33" x="17501.3" y="325.939" width="64" height="64"/>
-  <object id="1760" gid="33" x="19836" y="160" width="64" height="64"/>
-  <object id="1761" gid="33" x="19804" y="324" width="64" height="64"/>
-  <object id="1762" gid="33" x="20176" y="72" width="64" height="64"/>
-  <object id="1763" gid="33" x="20116" y="348" width="64" height="64"/>
-  <object id="1764" gid="33" x="20480" y="480" width="64" height="64"/>
-  <object id="1765" gid="33" x="20540" y="184" width="64" height="64"/>
-  <object id="1766" gid="33" x="20236" y="512" width="64" height="64"/>
-  <object id="1767" gid="33" x="20060" y="216" width="64" height="64"/>
-  <object id="1768" gid="33" x="19416" y="428" width="64" height="64"/>
-  <object id="1769" gid="33" x="19040" y="172" width="64" height="64"/>
-  <object id="1770" gid="33" x="18812" y="400" width="64" height="64"/>
-  <object id="1771" gid="31" x="19560" y="168" width="64" height="64"/>
-  <object id="1772" gid="31" x="19636" y="460" width="64" height="64"/>
-  <object id="1773" gid="31" x="19180" y="388" width="64" height="64"/>
-  <object id="1774" gid="31" x="19268" y="96" width="64" height="64"/>
-  <object id="1775" gid="33" x="22732" y="220" width="64" height="64"/>
-  <object id="1776" gid="33" x="22700" y="448" width="64" height="64"/>
-  <object id="1777" gid="33" x="23060" y="128" width="64" height="64"/>
-  <object id="1778" gid="33" x="23504" y="336" width="64" height="64"/>
-  <object id="1779" gid="33" x="22980" y="268" width="64" height="64"/>
-  <object id="1780" gid="33" x="22972" y="452" width="64" height="64"/>
-  <object id="1781" gid="33" x="25128" y="392" width="64" height="64"/>
-  <object id="1782" gid="33" x="25160" y="264" width="64" height="64"/>
-  <object id="1783" gid="33" x="25616" y="240" width="64" height="64"/>
-  <object id="1784" gid="33" x="25632" y="472" width="64" height="64"/>
-  <object id="1785" gid="33" x="25264" y="568" width="64" height="64"/>
-  <object id="1786" gid="33" x="25400" y="120" width="64" height="64"/>
-  <object id="1787" gid="33" x="25404" y="456" width="64" height="64"/>
-  <object id="1788" gid="33" x="25300" y="336" width="64" height="64"/>
-  <object id="1789" gid="33" x="27612" y="448" width="64" height="64"/>
-  <object id="1790" gid="33" x="27768" y="204" width="64" height="64"/>
-  <object id="1791" gid="33" x="27972" y="252" width="64" height="64"/>
-  <object id="1792" gid="33" x="28008" y="448" width="64" height="64"/>
-  <object id="1793" gid="32" x="27796" y="496" width="64" height="64"/>
-  <object id="1794" gid="32" x="27492" y="252" width="64" height="64"/>
-  <object id="1795" gid="32" x="27856" y="180" width="64" height="64"/>
-  <object id="1796" gid="32" x="27704" y="300" width="64" height="64"/>
-  <object id="1797" gid="32" x="29860" y="288" width="64" height="64"/>
-  <object id="1798" gid="32" x="30168" y="172" width="64" height="64"/>
-  <object id="1799" gid="31" x="29996" y="468" width="64" height="64"/>
-  <object id="1800" gid="31" x="29996" y="252" width="64" height="64"/>
-  <object id="1801" gid="31" x="30296" y="468" width="64" height="64"/>
-  <object id="1802" gid="31" x="28256" y="284" width="64" height="64"/>
-  <object id="1803" gid="31" x="25856" y="280" width="64" height="64"/>
-  <object id="1804" gid="31" x="25892" y="476" width="64" height="64"/>
-  <object id="1805" gid="31" x="28092" y="128" width="64" height="64"/>
-  <object id="1806" gid="31" x="28184" y="352" width="64" height="64"/>
-  <object id="1807" gid="31" x="28356" y="448" width="64" height="64"/>
-  <object id="1808" gid="31" x="30376" y="184" width="64" height="64"/>
-  <object id="1809" gid="31" x="30496" y="464" width="64" height="64"/>
-  <object id="1810" gid="32" x="30188" y="516" width="64" height="64"/>
-  <object id="1811" gid="32" x="30120" y="324" width="64" height="64"/>
-  <object id="1812" gid="32" x="30432" y="368" width="64" height="64"/>
-  <object id="1813" gid="32" x="32592" y="128" width="64" height="64"/>
-  <object id="1814" gid="32" x="32932" y="196" width="64" height="64"/>
-  <object id="1815" gid="32" x="32360" y="404" width="64" height="64"/>
-  <object id="1816" gid="26" x="32468" y="316" width="64" height="64"/>
-  <object id="1817" gid="26" x="32216" y="164" width="64" height="64"/>
-  <object id="1818" gid="26" x="32556" y="404" width="64" height="64"/>
-  <object id="1819" gid="26" x="32120" y="496" width="64" height="64"/>
-  <object id="1820" gid="26" x="32376" y="236" width="64" height="64"/>
-  <object id="1821" gid="25" x="32056" y="312" width="64" height="64"/>
-  <object id="1822" gid="25" x="32416" y="112" width="64" height="64"/>
-  <object id="1823" gid="25" x="32428" y="512" width="64" height="64"/>
-  <object id="1824" gid="27" x="32684" y="460" width="64" height="64"/>
-  <object id="1825" gid="27" x="32940" y="296" width="64" height="64"/>
-  <object id="1826" gid="27" x="35044" y="296" width="64" height="64"/>
-  <object id="1827" gid="27" x="35160" y="180" width="64" height="64"/>
-  <object id="1828" gid="27" x="35408" y="284" width="64" height="64"/>
-  <object id="1829" gid="27" x="35268" y="436" width="64" height="64"/>
-  <object id="1830" gid="27" x="35120" y="452" width="64" height="64"/>
-  <object id="1831" gid="27" x="35372" y="172" width="64" height="64"/>
-  <object id="1832" gid="27" x="35472" y="408" width="64" height="64"/>
-  <object id="1833" gid="27" x="35172" y="300" width="64" height="64"/>
-  <object id="1834" gid="26" x="34956" y="496" width="64" height="64"/>
-  <object id="1835" gid="26" x="35076" y="128" width="64" height="64"/>
-  <object id="1836" gid="26" x="35564" y="152" width="64" height="64"/>
-  <object id="1837" gid="26" x="34984" y="180" width="64" height="64"/>
-  <object id="1838" gid="32" x="34868" y="284" width="64" height="64"/>
-  <object id="1839" gid="32" x="34852" y="388" width="64" height="64"/>
-  <object id="1840" gid="32" x="34776" y="228" width="64" height="64"/>
-  <object id="1841" gid="32" x="34348" y="384" width="64" height="64"/>
-  <object id="1842" gid="32" x="34040" y="188" width="64" height="64"/>
-  <object id="1843" gid="32" x="34732" y="452" width="64" height="64"/>
-  <object id="1844" gid="32" x="34416" y="188" width="64" height="64"/>
-  <object id="1845" gid="31" x="34476" y="500" width="64" height="64"/>
-  <object id="1846" gid="31" x="34588" y="324" width="64" height="64"/>
-  <object id="1847" gid="31" x="34104" y="268" width="64" height="64"/>
-  <object id="1848" gid="33" x="34616" y="520" width="64" height="64"/>
-  <object id="1849" gid="33" x="34664" y="436" width="64" height="64"/>
-  <object id="1850" gid="33" x="34756" y="316" width="64" height="64"/>
-  <object id="1851" gid="33" x="34640" y="196" width="64" height="64"/>
-  <object id="1852" gid="26" x="27296" y="156" width="64" height="64"/>
-  <object id="1853" gid="26" x="27684" y="160" width="64" height="64"/>
-  <object id="1854" gid="26" x="27416" y="448" width="64" height="64"/>
-  <object id="1855" gid="26" x="27968" y="512" width="64" height="64"/>
-  <object id="1856" gid="26" x="27872" y="304" width="64" height="64"/>
-  <object id="1857" gid="25" x="27360" y="324" width="64" height="64"/>
-  <object id="1858" gid="25" x="27968" y="124" width="64" height="64"/>
-  <object id="1859" gid="27" x="27568" y="328" width="64" height="64"/>
-  <object id="1860" gid="27" x="27496" y="416" width="64" height="64"/>
-  <object id="1861" gid="27" x="27848" y="480" width="64" height="64"/>
-  <object id="1862" gid="27" x="26272" y="324" width="64" height="64"/>
-  <object id="1863" gid="27" x="26072" y="188" width="64" height="64"/>
-  <object id="1864" gid="27" x="26728" y="232" width="64" height="64"/>
-  <object id="1865" gid="27" x="26576" y="552" width="64" height="64"/>
-  <object id="1869" gid="27" x="26612" y="264" width="64" height="64"/>
-  <object id="1870" gid="27" x="27012" y="428" width="64" height="64"/>
-  <object id="1871" gid="27" x="26420" y="420" width="64" height="64"/>
-  <object id="1872" gid="27" x="26552" y="124" width="64" height="64"/>
-  <object id="1873" gid="27" x="26864" y="148" width="64" height="64"/>
-  <object id="1874" gid="27" x="26792" y="336" width="64" height="64"/>
-  <object id="1875" gid="32" x="24332" y="236" width="64" height="64"/>
-  <object id="1876" gid="32" x="24228" y="520" width="64" height="64"/>
-  <object id="1877" gid="32" x="24104" y="280" width="64" height="64"/>
-  <object id="1878" gid="32" x="24560" y="364" width="64" height="64"/>
-  <object id="1879" gid="32" x="21792" y="424" width="64" height="64"/>
-  <object id="1880" gid="32" x="21596" y="228" width="64" height="64"/>
-  <object id="1881" gid="32" x="22344" y="292" width="64" height="64"/>
-  <object id="1882" gid="25" x="23128" y="472" width="64" height="64"/>
-  <object id="1883" gid="25" x="23148" y="300" width="64" height="64"/>
-  <object id="1884" gid="25" x="22848" y="364" width="64" height="64"/>
-  <object id="1885" gid="31" x="21936" y="424" width="64" height="64"/>
-  <object id="1886" gid="31" x="21980" y="164" width="64" height="64"/>
-  <object id="1888" gid="38" x="13184" y="576" width="64" height="64">
+  <object id="1971" gid="68" x="23168" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1889" gid="38" x="12608" y="576" width="64" height="64">
+  <object id="1972" gid="68" x="25472" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1890" gid="38" x="12736" y="64" width="64" height="64">
+  <object id="1973" gid="68" x="25152" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1891" gid="38" x="14272" y="576" width="64" height="64">
+  <object id="1974" gid="68" x="25728" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1892" gid="38" x="15552" y="576" width="64" height="64">
+  <object id="1975" gid="68" x="27648" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="herre"/>
+    <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1893" gid="38" x="15616" y="64" width="64" height="64">
+  <object id="1976" gid="68" x="27840" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1894" gid="38" x="14784" y="64" width="64" height="64">
+  <object id="1977" gid="68" x="28096" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1895" gid="38" x="17280" y="576" width="64" height="64">
+  <object id="1978" gid="68" x="27520" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1896" gid="38" x="17344" y="64" width="64" height="64">
+  <object id="1979" gid="68" x="27904" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1897" gid="38" x="16768" y="576" width="64" height="64">
+  <object id="1980" gid="68" x="30016" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1898" gid="38" x="16704" y="64" width="64" height="64">
+  <object id="1981" gid="68" x="30208" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1899" gid="38" x="19392" y="576" width="64" height="64">
+  <object id="1982" gid="68" x="30464" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1900" gid="38" x="19712" y="64" width="64" height="64">
+  <object id="1983" gid="68" x="30592" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1901" gid="38" x="21888" y="576" width="64" height="64">
+  <object id="1984" gid="68" x="30592" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1902" gid="38" x="22144" y="64" width="64" height="64">
+  <object id="1985" gid="68" x="30336" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1903" gid="38" x="22912" y="576" width="64" height="64">
+  <object id="1986" gid="68" x="30144" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1904" gid="38" x="23168" y="64" width="64" height="64">
+  <object id="1987" gid="68" x="29888" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="19"/>
    </properties>
   </object>
-  <object id="1905" gid="38" x="25472" y="576" width="64" height="64">
+  <object id="1988" gid="68" x="35072" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="21"/>
    </properties>
   </object>
-  <object id="1906" gid="38" x="25152" y="64" width="64" height="64">
+  <object id="1989" gid="68" x="35328" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="21"/>
    </properties>
   </object>
-  <object id="1907" gid="38" x="25728" y="64" width="64" height="64">
+  <object id="1990" gid="68" x="37056" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1908" gid="38" x="27840" y="576" width="64" height="64">
+  <object id="1991" gid="68" x="37120" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1909" gid="38" x="27520" y="64" width="64" height="64">
+  <object id="1992" gid="68" x="37376" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1910" gid="38" x="27648" y="576" width="64" height="64">
+  <object id="1993" gid="68" x="37248" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1911" gid="38" x="28096" y="576" width="64" height="64">
+  <object id="1994" gid="68" x="37440" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1912" gid="38" x="27904" y="64" width="64" height="64">
+  <object id="1995" gid="68" x="37568" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1913" gid="38" x="30016" y="576" width="64" height="64">
+  <object id="1996" gid="68" x="37568" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1914" gid="38" x="30208" y="576" width="64" height="64">
+  <object id="1997" gid="68" x="37824" y="64" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1915" gid="38" x="30464" y="576" width="64" height="64">
+  <object id="1998" gid="68" x="37824" y="576" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1916" gid="38" x="30592" y="576" width="64" height="64">
+  <object id="1999" gid="53" x="6976" y="256" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="5"/>
    </properties>
   </object>
-  <object id="1917" gid="38" x="30592" y="64" width="64" height="64">
+  <object id="2000" gid="53" x="9856" y="256" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="7"/>
    </properties>
   </object>
-  <object id="1918" gid="38" x="30336" y="64" width="64" height="64">
+  <object id="2001" gid="53" x="11200" y="448" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="8"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1920" gid="38" x="30144" y="64" width="64" height="64">
+  <object id="2002" gid="53" x="11200" y="320" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="8"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1921" gid="38" x="29888" y="64" width="64" height="64">
+  <object id="2003" gid="53" x="11200" y="192" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="8"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1922" gid="38" x="35072" y="576" width="64" height="64">
+  <object id="2004" gid="53" x="13056" y="256" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="angleFactor" type="int" value="45"/>
    </properties>
   </object>
-  <object id="1923" gid="38" x="35328" y="64" width="64" height="64">
+  <object id="2005" gid="53" x="12864" y="256" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="angleFactor" type="int" value="-45"/>
+    <property name="spawnNumber" type="int" value="9"/>
+    <property name="type" value="ANGLE"/>
    </properties>
   </object>
-  <object id="1924" gid="38" x="37440" y="576" width="64" height="64">
+  <object id="2006" gid="53" x="17229.3" y="244" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1925" gid="38" x="37376" y="64" width="64" height="64">
+  <object id="2007" gid="53" x="37952" y="512" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1926" gid="38" x="37120" y="64" width="64" height="64">
+  <object id="2008" gid="53" x="37952" y="384" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1927" gid="38" x="37312" y="576" width="64" height="64">
+  <object id="2009" gid="53" x="37952" y="256" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1928" gid="38" x="37056" y="576" width="64" height="64">
+  <object id="2010" gid="53" x="37952" y="128" width="64" height="64">
    <properties>
-    <property name="dogTurret" value="here"/>
+    <property name="spawnNumber" type="int" value="22"/>
+    <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="1929" gid="4" x="35289.3" y="324" width="64" height="64"/>
-  <object id="1930" gid="4" x="32718.7" y="353.333" width="64" height="64"/>
-  <object id="1931" gid="4" x="30314.7" y="349.333" width="64" height="64"/>
-  <object id="1932" gid="4" x="27821.3" y="369.333" width="64" height="64"/>
-  <object id="1933" gid="4" x="25460" y="361.333" width="64" height="64"/>
-  <object id="1934" gid="4" x="23070.7" y="372" width="64" height="64"/>
-  <object id="1935" gid="4" x="20312" y="352" width="64" height="64"/>
-  <object id="1936" gid="4" x="17229.3" y="310.667" width="64" height="64"/>
-  <object id="1937" gid="4" x="12961.3" y="350.667" width="64" height="64"/>
-  <object id="1938" gid="4" x="10953.3" y="314.667" width="64" height="64"/>
-  <object id="1939" gid="4" x="37696" y="310" width="64" height="64"/>
-  <object id="1940" gid="68" x="3776" y="576" width="64" height="64"/>
-  <object id="1941" gid="68" x="3776" y="64" width="64" height="64"/>
  </objectgroup>
 </map>
