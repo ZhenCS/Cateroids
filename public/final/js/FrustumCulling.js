@@ -13,15 +13,18 @@ export function bulletCulling(scene) {
     const bullet = scene.bullets.getChildren()[i];
 
     if (
+      bullet.active &&
       Phaser.Math.Distance.Between(
         bullet.x,
         bullet.y,
         scene.player.x,
         scene.player.y
-      ) > getMaxLength(scene)
+      ) > getMaxLength(scene) 
     ) {
       if (bullet) {
-        bullet.destroy();
+        // return the bullet to the pool to be recycled
+        bullet.removeColliders();
+        scene.bullets.killAndHide(bullet);
       }
     }
   }

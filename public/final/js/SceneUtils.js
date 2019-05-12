@@ -687,16 +687,16 @@ function initCollisions(scene) {
   collisions.checkPlayerToEnemyCollision(scene);
 
   // Check for collisions between player and bullets
-  collisions.checkPlayerToBulletCollision(scene);
+  //collisions.checkPlayerToBulletCollision(scene);
 
   // Check for collision between bullets and enemies
-  collisions.checkEnemyToBulletCollision(scene);
+  //collisions.checkEnemyToBulletCollision(scene);
 
   // Check for collisions between bullets and astroids
-  collisions.checkAsteroidToBulletCollision(scene);
+  //collisions.checkAsteroidToBulletCollision(scene);
 
   // Check for collisions between bullets and oxygenAsteroids
-  collisions.checkOxygenAsteroidToBulletCollision(scene);
+  //collisions.checkOxygenAsteroidToBulletCollision(scene);
 
   // Check for collisions between asteroids and oxygenAsteroids
   collisions.checkAsteroidToOxygenAsteroidCollision(scene);
@@ -706,4 +706,6 @@ function initCollisions(scene) {
 
   // Check for collisions between player and oxygenAsteroids
   collisions.checkPlayerToOxygenAsteroidCollision(scene);
+
+  collisions.checkPlayerToLaserSegments(scene);
 }

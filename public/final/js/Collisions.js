@@ -81,25 +81,42 @@ export const checkPlayerToEnemyCollision = scene => {
   }
 };
 
-export const checkPlayerToBulletCollision = scene => {
-  scene.physics.add.overlap(
-    scene.player,
-    scene.bullets,
-    function(player, bullet) {
-      if (!bullet.getData('isFriendly')) {
-        scene.createExplosion(player.x, player.y, player.displayWidth);
+export function addBulletCollisions(scene, bullet){
+  let result = [];
+  result.push(checkPlayerToBulletCollision(scene, bullet));
+  result.push(checkEnemyToBulletCollision(scene, bullet));
+  result.push(checkAsteroidToBulletCollision(scene, bullet));
+  result.push(checkOxygenAsteroidToBulletCollision(scene, bullet));
+  return result.flat();
+}
 
-        if (player) {
-          scene.onLifeDown(bullet.getData('damage'));
-          bullet.destroy();
-          scene.sound.play(constants.LASERHIT);
-        }
-      }
-    },
+function playerToBulletCollision(player, bullet){
+  if (!bullet.getData('isFriendly')) {
+    this.createExplosion(player.x, player.y, player.displayWidth);
+
+    if (player) {
+      this.onLifeDown(bullet.getData('damage'));
+      bullet.removeColliders();
+      this.bullets.killAndHide(bullet);
+      this.sound.play(constants.LASERHIT);
+    }
+  }
+}
+
+export const checkPlayerToBulletCollision = (scene, bullet) => {
+
+  let result = scene.physics.add.overlap(
+    scene.player,
+    bullet,
+    playerToBulletCollision,
     null,
     scene
   );
 
+  return result;
+};
+
+export const checkPlayerToLaserSegments = (scene) => {
   scene.physics.add.overlap(
     scene.player,
     scene.laserSegments,
@@ -113,48 +130,53 @@ export const checkPlayerToBulletCollision = scene => {
     null,
     scene
   );
-};
+}
 
-export const checkEnemyToBulletCollision = scene => {
-  scene.physics.add.overlap(
-    scene.bullets,
-    scene.dogs,
-    function(bullet, dog) {
-      if (bullet.getData('isFriendly')) {
-        scene.createExplosion(bullet.x, bullet.y, dog.displayWidth);
-        let key = dog.texture.key;
-        if (dog) {
-          if (dog.getData('health') - bullet.getData('damage') <= 0) {
-            // Add to score for destroying enemy
-            if (key == constants.DOG3ATLASKEY) {
-              scene.addScore(1000);
-            }
-            if (key == constants.DOG2ATLASKEY) {
-              scene.addScore(500);
-            }
-            if (key == constants.DOG1ATLASKEY) {
-              scene.addScore(200);
-            }
-            scene.sound.play(constants.LASERHIT);
-          }
-
-          dog.damage(bullet.getData('damage'));
+function enemyBulletCollisionCallback(bullet, dog){
+  if (bullet.getData('isFriendly')) {
+    this.createExplosion(bullet.x, bullet.y, dog.displayWidth);
+    let key = dog.texture.key;
+    if (dog) {
+      if (dog.getData('health') - bullet.getData('damage') <= 0) {
+        // Add to score for destroying enemy
+        if (key == constants.DOG3ATLASKEY) {
+          this.addScore(1000);
         }
-
-        console.log(bullet.type);
-
-        if (bullet && bullet.type !== 'strongLaser') {
-          bullet.destroy();
+        if (key == constants.DOG2ATLASKEY) {
+          this.addScore(500);
         }
+        if (key == constants.DOG1ATLASKEY) {
+          this.addScore(200);
+        }
+        this.sound.play(constants.LASERHIT);
       }
-    },
+
+      dog.damage(bullet.getData('damage'));
+    }
+
+    console.log(bullet.type);
+
+    if (bullet && bullet.type !== 'strongLaser') {
+      bullet.removeColliders();
+      this.bullets.killAndHide(bullet);
+    }
+  }
+}
+
+export const checkEnemyToBulletCollision = (scene, bullet) => {
+  let result = [];
+
+  result.push(scene.physics.add.overlap(
+    bullet,
+    scene.dogs,
+    enemyBulletCollisionCallback,
     null,
     scene
-  );
+  ));
 
   if (scene.boss) {
-    scene.physics.add.overlap(
-      scene.bullets,
+    result.push(scene.physics.add.overlap(
+      bullet,
       scene.boss,
       function(bullet, boss) {
         if (bullet.getData('isFriendly')) {
@@ -165,116 +187,127 @@ export const checkEnemyToBulletCollision = scene => {
         }
 
         if (bullet && bullet.type !== 'strongLaser') {
-          bullet.destroy();
+          bullet.removeColliders();
+          this.bullets.killAndHide(bullet);
         }
       },
       null,
       scene
-    );
+    ));
   }
+
+  return result;
 };
 
-export const checkAsteroidToBulletCollision = scene => {
-  scene.physics.add.overlap(
-    scene.bullets,
+function asteroidToBulletCollision(bullet, asteroid){
+  if (bullet.getData('isFriendly')) {
+    this.createExplosion(bullet.x, bullet.y, asteroid.displayWidth);
+
+    const oldAsteroidPos = new Phaser.Math.Vector2(asteroid.x, asteroid.y);
+    const oldAsteroidKey = asteroid.texture.key;
+    const oldAsteroidLevel = asteroid.getData('level');
+    const oldAsteroidHealth = asteroid.getData('health');
+
+    if (asteroid) {
+      const laserHit = this.sound.add(constants.LASERHIT);
+      laserHit.play();
+      asteroid.damage(bullet.getData('damage'));
+    }
+
+    if (oldAsteroidHealth - gameConfig.playerDamage > 0) return;
+
+    // Give points for destroying asteroids
+    switch (oldAsteroidLevel) {
+      case 0: {
+        this.addScore(100);
+        break;
+      }
+      case 1: {
+        this.addScore(50);
+        break;
+      }
+      case 2: {
+        this.addScore(20);
+        break;
+      }
+    }
+
+    // Break apart large asteroid
+    if (oldAsteroidLevel < 2) {
+      for (let i = 0; i < 2; i++) {
+        let key = '';
+        let newLevel = Phaser.Math.Between(1, 2);
+        if (oldAsteroidKey == constants.ASTEROID0KEY) {
+          key = constants[`ASTEROID${newLevel}KEY`];
+        } else if (oldAsteroidKey == constants.ASTEROID1KEY) {
+          key = constants.ASTEROID2KEY;
+          newLevel = 2;
+        }
+
+        const newAsteroid = new Asteroid(
+          this,
+          oldAsteroidPos.x,
+          oldAsteroidPos.y,
+          key
+        );
+        newAsteroid.setData('level', newLevel);
+        newAsteroid.body.setVelocity(
+          Phaser.Math.Between(-200, 200),
+          Phaser.Math.Between(-200, 200)
+        );
+        this.asteroids.add(newAsteroid);
+      }
+    }
+  }
+
+  if (bullet) {
+    bullet.removeColliders();
+    this.bullets.killAndHide(bullet);
+  }
+}
+
+export const checkAsteroidToBulletCollision = (scene, bullet) => {
+  return scene.physics.add.overlap(
+    bullet,
     scene.asteroids,
-    function(bullet, asteroid) {
-      if (bullet.getData('isFriendly')) {
-        scene.createExplosion(bullet.x, bullet.y, asteroid.displayWidth);
-
-        const oldAsteroidPos = new Phaser.Math.Vector2(asteroid.x, asteroid.y);
-        const oldAsteroidKey = asteroid.texture.key;
-        const oldAsteroidLevel = asteroid.getData('level');
-        const oldAsteroidHealth = asteroid.getData('health');
-
-        if (asteroid) {
-          const laserHit = scene.sound.add(constants.LASERHIT);
-          laserHit.play();
-          asteroid.damage(bullet.getData('damage'));
-        }
-
-        if (oldAsteroidHealth - gameConfig.playerDamage > 0) return;
-
-        // Give points for destroying asteroids
-        switch (oldAsteroidLevel) {
-          case 0: {
-            scene.addScore(100);
-            break;
-          }
-          case 1: {
-            scene.addScore(50);
-            break;
-          }
-          case 2: {
-            scene.addScore(20);
-            break;
-          }
-        }
-
-        // Break apart large asteroid
-        if (oldAsteroidLevel < 2) {
-          for (let i = 0; i < 2; i++) {
-            let key = '';
-            let newLevel = Phaser.Math.Between(1, 2);
-            if (oldAsteroidKey == constants.ASTEROID0KEY) {
-              key = constants[`ASTEROID${newLevel}KEY`];
-            } else if (oldAsteroidKey == constants.ASTEROID1KEY) {
-              key = constants.ASTEROID2KEY;
-              newLevel = 2;
-            }
-
-            const newAsteroid = new Asteroid(
-              scene,
-              oldAsteroidPos.x,
-              oldAsteroidPos.y,
-              key
-            );
-            newAsteroid.setData('level', newLevel);
-            newAsteroid.body.setVelocity(
-              Phaser.Math.Between(-200, 200),
-              Phaser.Math.Between(-200, 200)
-            );
-            scene.asteroids.add(newAsteroid);
-          }
-        }
-      }
-
-      if (bullet) {
-        bullet.destroy();
-      }
-    },
+    asteroidToBulletCollision,
     null,
     scene
   );
 };
 
-export const checkOxygenAsteroidToBulletCollision = scene => {
-  scene.physics.add.overlap(
-    scene.bullets,
+function oxygenAsteroidToBulletCollision(bullet, oxygenAsteroid) {
+  if (!bullet.getData('isFriendly')) {
+    this.createExplosion(bullet.x, bullet.y, oxygenAsteroid.displayWidth);
+    if (oxygenAsteroid) {
+      if (oxygenAsteroid == this.player.getData('oxygenAsteroid')) {
+        if (
+          oxygenAsteroid.getData('health') - bullet.getData('damage') <=
+          0
+        )
+          this.player.setData('oxygenAsteroid', null);
+      }
+
+      oxygenAsteroid.damage(bullet.getData('damage'));
+    }
+    if (bullet) {
+      bullet.removeColliders();
+      this.bullets.killAndHide(bullet);
+    }
+  }
+}
+
+export const checkOxygenAsteroidToBulletCollision = (scene, bullet) => {
+  return scene.physics.add.overlap(
+    bullet,
     scene.oxygenAsteroids,
-    function(bullet, oxygenAsteroid) {
-      if (!bullet.getData('isFriendly')) {
-        scene.createExplosion(bullet.x, bullet.y, oxygenAsteroid.displayWidth);
-        if (oxygenAsteroid) {
-          if (oxygenAsteroid == scene.player.getData('oxygenAsteroid')) {
-            if (
-              oxygenAsteroid.getData('health') - bullet.getData('damage') <=
-              0
-            )
-              scene.player.setData('oxygenAsteroid', null);
-          }
-
-          oxygenAsteroid.damage(bullet.getData('damage'));
-        }
-        if (bullet) {
-          bullet.destroy();
-        }
-      }
-    },
+    oxygenAsteroidToBulletCollision,
     null,
     scene
   );
 };
+
+
 
 export const checkAsteroidToOxygenAsteroidCollision = scene => {
   scene.physics.add.overlap(

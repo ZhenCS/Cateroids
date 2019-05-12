@@ -1,4 +1,5 @@
 import * as constants from './utils/constants.js';
+import { checkPlayerToBulletCollision, addBulletCollisions } from './Collisions.js';
 
 export function setAI(self, functions){
     self.shootTimer = self.scene.time.addEvent({
@@ -90,8 +91,20 @@ export function circle(self){
 }
 
 export function random(self, tint, Bullet){
-    const bullet = new Bullet(self.scene, self.x, self.y, false);
+    let bullet = self.scene.bullets.getFirstDead(false, self.x, self.y);
+    if (bullet){
+        bullet.setType(null);
+        bullet.setData('isFriendly', false);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
+    }
+    else{
+        bullet = new Bullet(self.scene, self.x, self.y, false);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
+        self.scene.bullets.add(bullet);
+    }
     bullet.setData('isFriendly', false);
+    bullet.setActive(true);
+    bullet.setVisible(true);
 
     const angle = (Phaser.Math.Between(0, 360) * Math.PI) / 180;
     bullet.setTint(tint);
@@ -105,9 +118,20 @@ export function random(self, tint, Bullet){
 }
 
 export function aimBot(self, tint, Bullet){
-    const bullet = new Bullet(self.scene, self.x, self.y, false);
+    let bullet = self.scene.bullets.getFirstDead(false, self.x, self.y);
+    if (bullet){
+        bullet.setTexture(constants.BULLETKEY);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
+    } else {
+        // No free bullets, we'll add one bullet to the group
+        bullet = new Bullet(self.scene, self.x, self.y, false);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
+        self.scene.bullets.add(bullet);
+    }
     bullet.setData('isFriendly', false);
-
+    // turn the bullet on
+    bullet.setActive(true);
+    bullet.setVisible(true);
     const dx = self.scene.player.x - self.x;
     const dy = self.scene.player.y - self.y;
     const angle = Math.atan2(dy, dx);
@@ -115,10 +139,9 @@ export function aimBot(self, tint, Bullet){
     bullet.setRotation(angle);
     bullet.setData('damage', self.getData('damage'));
     bullet.body.setVelocity(
-    gameConfig.bulletSpeed * Math.cos(angle),
-    gameConfig.bulletSpeed * Math.sin(angle)
+        gameConfig.bulletSpeed * Math.cos(angle),
+        gameConfig.bulletSpeed * Math.sin(angle)
     );
-    self.scene.bullets.add(bullet);
 }
 
 export function kamikazi(self){
