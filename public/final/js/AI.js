@@ -1,4 +1,5 @@
 import * as constants from './utils/constants.js';
+import { checkPlayerToBulletCollision, addBulletCollisions } from './Collisions.js';
 
 export function setAI(self, functions){
     self.shootTimer = self.scene.time.addEvent({
@@ -94,9 +95,11 @@ export function random(self, tint, Bullet){
     if (bullet){
         bullet.setType(null);
         bullet.setData('isFriendly', false);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
     }
     else{
         bullet = new Bullet(self.scene, self.x, self.y, false);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
         self.scene.bullets.add(bullet);
     }
     bullet.setData('isFriendly', false);
@@ -118,9 +121,11 @@ export function aimBot(self, tint, Bullet){
     let bullet = self.scene.bullets.getFirstDead(false, self.x, self.y);
     if (bullet){
         bullet.setTexture(constants.BULLETKEY);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
     } else {
         // No free bullets, we'll add one bullet to the group
         bullet = new Bullet(self.scene, self.x, self.y, false);
+        bullet.colliders = addBulletCollisions(self.scene, bullet);
         self.scene.bullets.add(bullet);
     }
     bullet.setData('isFriendly', false);

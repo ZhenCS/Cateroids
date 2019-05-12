@@ -23,6 +23,7 @@ export function bulletCulling(scene) {
     ) {
       if (bullet) {
         // return the bullet to the pool to be recycled
+        bullet.removeColliders();
         scene.bullets.killAndHide(bullet);
       }
     }

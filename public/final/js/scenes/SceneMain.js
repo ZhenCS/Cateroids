@@ -16,7 +16,7 @@ export class SceneMain extends Phaser.Scene {
   create() {
     this.gameConfig = Object.assign({}, gameConfig);
     this.bullets = this.add.group();
-    for (let i = 0; i < 2000; i++){
+    for (let i = 0; i < 300; i++){
       // pre populate the bullet group with 2000 inactive bullets
       // Can be increased if we need more than 2000 on screen at once
       let bullet = new Bullet(this);
@@ -27,6 +27,7 @@ export class SceneMain extends Phaser.Scene {
     this.oxygenAsteroids = this.add.group();
     this.dogs = this.add.group();
     this.lasers = this.add.group();
+    // TODO: laser segment culling
     this.laserSegments = this.add.group();
     this.levelText = this.add.group();
 

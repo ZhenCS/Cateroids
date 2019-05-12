@@ -1,5 +1,6 @@
 import * as constants from './utils/constants.js';
 import * as AI from './AI.js';
+import { addBulletCollisions } from './Collisions.js';
 
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
@@ -235,6 +236,15 @@ export class Bullet extends Entity {
 
     this.setData('isFriendly', isFriendly);
     this.type = type;
+    this.colliders = [];
+  }
+
+  removeColliders(){
+    for (let i = 0; i < this.colliders.length; i++){
+      this.scene.physics.world.removeCollider(this.colliders[i]);
+    }
+
+    this.colliders = [];
   }
 
   setType(type){
@@ -898,7 +908,7 @@ export class Leo extends Entity {
     let bullet = this.scene.bullets.getFirstDead(false, this.x, this.y);
     if (bullet){
       bullet.setType(type);
-      
+      bullet.colliders = addBulletCollisions(this.scene, bullet);
       bullet.setData('isFriendly', true);
     } else {
       console.log('creating new bullet');
