@@ -38,13 +38,21 @@ export function setMovement(self, functions){
     });
 }
 
-export function stayInMap(self){
+export function stayInMap(self, scene){
     let offsetX = self.displayWidth/2
     let offsetY = self.displayHeight/2;
 
-    if(self.x <= 0 + offsetX|| self.y <= 0 + offsetY || 
-        self.x >= gameConfig.worldWidth - offsetX || self.y >= gameConfig.worldHeight - offsetY){
+    if(self.x <= offsetX|| self.y <= offsetY || 
+        self.x >= scene.gameConfig.worldWidth - offsetX || self.y >= scene.gameConfig.worldHeight - offsetY){
         let vel = self.body.velocity;
+        
+
+        if(self.x < 0 + offsetX) self.x = offsetX;
+        if(self.x > scene.gameConfig.worldWidth - offsetX) self.x = scene.gameConfig.worldWidth - offsetX;
+        if(self.y < 0 + offsetY) self.y = offsetY;
+        if(self.y > scene.gameConfig.worldHeight - offsetY) self.y = scene.gameConfig.worldHeight - offsetY;
+        
+
         self.body.setVelocity(
             -1 * vel.x,
             -1 * vel.y

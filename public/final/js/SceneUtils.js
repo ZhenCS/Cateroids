@@ -572,8 +572,9 @@ function resetShootTimer(scene){
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);
           });
-        } else {
-          scene.player.shoot(pointer.worldX, pointer.worldY, 'primary');
+        } else if(pointer.leftButtonDown()){
+          
+          scene.player.shoot(pointer.x, pointer.y, 'primary');
           scene.player.play(constants.ATTACKKEY);
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);
