@@ -1,5 +1,5 @@
 import * as constants from '../utils/constants.js';
-import { Leo } from '../Entities.js';
+import { Leo, Bullet } from '../Entities.js';
 import * as culling from '../FrustumCulling.js';
 import * as mapLoading from '../MapLoading.js';
 import * as sceneUtils from '../SceneUtils.js';
@@ -16,6 +16,13 @@ export class SceneMain extends Phaser.Scene {
   create() {
     this.gameConfig = Object.assign({}, gameConfig);
     this.bullets = this.add.group();
+    for (let i = 0; i < 2000; i++){
+      // pre populate the bullet group with 2000 inactive bullets
+      // Can be increased if we need more than 2000 on screen at once
+      let bullet = new Bullet(this);
+      bullet.setActive(false);
+      this.bullets.add(bullet);
+    }
     this.asteroids = this.add.group();
     this.oxygenAsteroids = this.add.group();
     this.dogs = this.add.group();

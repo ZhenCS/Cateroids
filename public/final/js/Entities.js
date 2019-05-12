@@ -236,6 +236,20 @@ export class Bullet extends Entity {
     this.setData('isFriendly', isFriendly);
     this.type = type;
   }
+
+  setType(type){
+    if (type === 'plasma'){
+      this.setTexture(constants.BOSSBEAMKEY)
+      this.capacity = 3;
+      this.ammoCount = 3;
+    } else if (type === 'laser'){
+      this.setTexture(constants.BULLETKEY);
+    } else{
+      this.setTexture(constants.BULLETKEY);
+    }
+
+    this.type = type;
+  }
 }
 
 export class Laser extends Entity {
@@ -881,8 +895,17 @@ export class Leo extends Entity {
     let playerDamage = this.scene.gameConfig.playerDamage;
     let scale =  this.scene.gameConfig.playerBulletSize;
     // const testWeapon = new Weapon(this.scene, this.x, this.y, true, type);
-
-    const bullet = new Bullet(this.scene, this.x, this.y, true, type);
+    let bullet = this.scene.bullets.getFirstDead(false, this.x, this.y);
+    if (bullet){
+      bullet.setType(type);
+      
+      bullet.setData('isFriendly', true);
+    } else {
+      console.log('creating new bullet');
+      bullet = new Bullet(this.scene, this.x, this.y, true, type);
+    }
+    bullet.setActive(true);
+    bullet.setVisible(true);
     let angle = Phaser.Math.Angle.Between(this.x - this.scene.cameras.main.scrollX, this.y - this.scene.cameras.main.scrollY, pointerX, pointerY);
     const speed = 2000;
     const xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-50, 50);
