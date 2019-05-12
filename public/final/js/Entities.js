@@ -216,6 +216,8 @@ export class Dog extends Entity {
         this.shootTimer.remove(false);
       }
     }
+
+    this.emit('destroyed');
   }
 }
 
@@ -249,7 +251,8 @@ export class Laser extends Entity {
     duration,
     sprites,
     deltaX,
-    fireDelay
+    fireDelay,
+    beginY
   ) {
     super(scene, x, y, constants.DOGLASERKEY);
     this.setData('isFriendly', isFriendly);
@@ -284,7 +287,12 @@ export class Laser extends Entity {
       this.scene.game.config.width * 2 * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
-    this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
+    
+    if (beginY){
+      this.path = new Phaser.Curves.Path(x - pointx, beginY);
+    } else{
+      this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
+    }
     this.path.lineTo(x + pointx, y + pointy);
 
     for (var i = 0; i < this.segments.length; i++) {
@@ -332,6 +340,7 @@ export class Laser extends Entity {
     this.destroyTimer = this.scene.time.addEvent({
       delay: laserDuration,
       callback: function() {
+        this.emit('laserFired');
         this.onDestroy();
         this.destroy();
       },
@@ -376,18 +385,23 @@ export class Laser extends Entity {
 }
 
 class DogWallWeapon extends Entity {
-  constructor(scene, x, y, key, parentEntity) {
+  constructor(scene, x, y, key, parentEntity, moveVelocity) {
     super(scene, x, y, key);
-    this.y += this.body.halfWidth;
+    this.y += this.body.halfHeight;
     this.parentEntity = parentEntity;
     this.isMoving = false;
     this.performingAction = false;
+    this.movingLeft = true;
+    this.moveVelocity = moveVelocity;
+    this.laserFiring = false;
   }
 
   beginGarbageExpulsion() {
     // TODO: play an animation rather than just wait 5 seconds
+    this.performingAction = true;
     setTimeout(
       function() {
+        this.performingAction = false;
         this.parentEntity.emit('garbageLaunched');
       }.bind(this),
       5000
@@ -396,10 +410,36 @@ class DogWallWeapon extends Entity {
 
   beginMovement() {
     // Strafe left to right
+    this.isMoving = true;
+  }
+
+  fireLaser(){
+    this.performingAction = true;
+    this.laserFiring = true;
+    let laserToFire = new Laser(this.scene, this.x, this.y, true, 3, Math.PI / 2, null, null, null, null, null, null, this.y + 1);
+    let self = this;
+    laserToFire.once('laserFired', function(){
+      self.laserFiring = false;
+      self.performingAction = false;
+    });
+    laserToFire.fire();
+
   }
 
   update() {
-    if (!this.performingAction) {
+    if (!this.scene) return;
+
+    if (!this.performingAction && this.isMoving) {
+      if (this.x < this.parentEntity.x - this.parentEntity.body.halfWidth + this.body.halfWidth){
+        this.movingLeft = false;
+      } else if (this.x > this.parentEntity.x + this.parentEntity.body.halfWidth - this.body.halfWidth){
+        this.movingLeft = true;
+      }
+      let velocity = this.moveVelocity * (this.movingLeft ? -1 : 1);
+      this.x += velocity;
+    }
+    if (Math.abs(this.x - this.scene.player.x) < 75 && Math.random() < 0.01 && !this.laserFiring && !this.parentEntity.bodySlamming){
+      this.fireLaser();
     }
   }
 }
@@ -408,6 +448,7 @@ export class DogWall extends Entity {
   constructor(scene, x, y, key, health, damage, moveVelocity, slamVelocity) {
     super(scene, x, y, key);
     this.setData('health', health);
+    this.maxHealth = health;
     this.setData('damage', damage);
     this.body.immovable = true;
     this.setData('resetX', x);
@@ -421,9 +462,10 @@ export class DogWall extends Entity {
     this.weapon = new DogWallWeapon(
       scene,
       x,
-      y + this.body.halfHeight/2,
+      y + this.body.halfHeight,
       constants.DOGWALLWEAPONKEY,
-      this
+      this,
+      5
     );
     this.asteroidCircle = new Phaser.Geom.Circle(
       this.weapon.x,
@@ -433,7 +475,12 @@ export class DogWall extends Entity {
     this.body.setOffset(0, -25);
     this.doneExpelling = false;
     this.firstUpdate = true;
-    this.setDepth(this.depth + 1);
+    this.activatedMover = false;
+    this.actionCooldown = 0;
+    this.firstQuarterHardPoints = false;
+    this.secondQuarterHardPoints = false;
+    this.thirdQuarterHardPoints = false;
+    this.bodySlamming = false;
   }
 
   damage(damage) {
@@ -454,22 +501,26 @@ export class DogWall extends Entity {
     for(let i = 0; i < hardPointLength; i++){
       this.hardPoints.pop().destroy();
     }
+    this.scene.endPointX = 0;
   }
 
   /**
    * Method to be called every frame
    */
   update() {
+
     if (this.firstUpdate){
       this.spawnHardPoints();
       this.firstUpdate = false;
     }
-    if (this.plannedActions.length == 0) {
+    if (this.plannedActions.length == 0  && this.actionCooldown == 0) {
       this.think();
-    } else {
+    } else if (this.plannedActions.length !== 0){
       if (this.plannedActions[0]()) {
         this.plannedActions.shift();
       }
+    } else {
+      this.actionCooldown--;
     }
     this.weapon.update();
   }
@@ -479,7 +530,34 @@ export class DogWall extends Entity {
    */
   think() {
     // think
-    this.bodySlam(false);
+    if (this.getData('health') < this.maxHealth / 2 && !this.activatedMover){
+      this.plannedActions.push(this.activateLaserMover.bind(this));
+      this.activatedMover = true;
+    }
+    this.actionCooldown = 120;
+    if (this.hardPoints.length === 0 && Math.random() < 0.16 && 
+          (!this.firstQuarterHardPoints && this.getData('health') < this.maxHealth * 3 / 4
+        || !this.secondQuarterHardPoints && this.getData('health') < this.maxHealth / 2 
+        || !this.thirdQuarterHardPoints && this.getData('health') < this.maxHealth / 4)) {
+
+      if (!this.firstQuarterHardPoints) this.firstQuarterHardPoints = true;
+      else if (!this.secondQuarterHardPoints) this.secondQuarterHardPoints = true;
+      else if (!this.thirdQuarterHardPoints) this.thirdQuarterHardPoints = true;
+
+      this.spawnHardPoints();
+    } else if (Math.abs(this.scene.player.x - this.weapon.x) < this.scene.gameConfig.worldWidth / 3 && Math.random() < 0.10 && !this.weapon.performingAction){
+      // If weapon and player are in the same third, 5% chance to expel garbage
+      this.plannedActions.push(this.expelGarbage.bind(this));
+    } else if (Math.random() < 0.10 && !this.weapon.laserFiring){
+      this.bodySlamming = true;
+      if (this.scene.player.x < this.scene.gameConfig.worldWidth / 2){
+        this.bodySlam(true);
+      } else {
+        this.bodySlam(false);
+      }
+    } else {
+      this.actionCooldown = 0;
+    }
   }
 
   /**
@@ -499,7 +577,8 @@ export class DogWall extends Entity {
         this,
         targetX,
         this.getData('resetY'),
-        this.getData('moveVelocity')
+        this.getData('moveVelocity'),
+        false
       )
     );
     this.plannedActions.push(
@@ -507,7 +586,8 @@ export class DogWall extends Entity {
         this,
         targetX,
         this.scene.gameConfig.worldHeight - this.body.halfHeight,
-        this.getData('slamVelocity')
+        this.getData('slamVelocity'),
+        false
       )
     );
     this.plannedActions.push(
@@ -515,7 +595,8 @@ export class DogWall extends Entity {
         this,
         targetX,
         this.getData('resetY'),
-        this.getData('moveVelocity')
+        this.getData('moveVelocity'),
+        false
       )
     );
     this.plannedActions.push(
@@ -523,7 +604,8 @@ export class DogWall extends Entity {
         this,
         this.getData('resetX'),
         this.getData('resetY'),
-        this.getData('moveVelocity')
+        this.getData('moveVelocity'),
+        true
       )
     );
   }
@@ -534,7 +616,7 @@ export class DogWall extends Entity {
    * @param {number} y y-coordinate of target movement
    * @param {number} velocity Velocity to move at, must be positive
    */
-  dogWallMoveTo(x, y, velocity) {
+  dogWallMoveTo(x, y, velocity, lastMove) {
     console.assert(velocity > 0, 'Error, dog wall given an invalid velocity');
     let epsilon = 0.05;
     let deltaX;
@@ -563,7 +645,11 @@ export class DogWall extends Entity {
 
     this.weapon.x += deltaX;
     this.weapon.y += deltaY;
-    return Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
+    let result = Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
+    if (result && lastMove){
+      this.bodySlamming = false;
+    }
+    return result
   }
 
   /**
@@ -634,10 +720,6 @@ export class DogWall extends Entity {
 
   spawnHardPoints() {
     // (x = 28 + 44, ymin = 375), (x = 190 + 41, ymin = 359), (x = 943 + 41, ymin = 359), (x = 1099 + 44, ymin = 375)
-    let hardPointLength = this.hardPoints.length;
-    for (let i = 0; i < hardPointLength; i++){
-      this.hardPoints.pop().destroy();
-    }
     let spawnPoints = [
       { x: 72, y: 414 },
       { x: 231, y: 398 },
@@ -656,26 +738,19 @@ export class DogWall extends Entity {
         gameConfig.dog4Damage,
         gameConfig.dog4FireRate
       );
+      let self = this;
+      turret.on('destroyed', function(){
+        self.hardPoints.splice(self.hardPoints.findIndex(function(elem){return elem === turret}), 1);
+      });
       this.hardPoints.push(turret);
       turret.body.immovable = true;
       this.scene.dogs.add(turret);
     }
   }
 
-  bulletPattern() {
-    if (this.currentPattern.length > 0) {
-      nextPattern = this.currentPattern.shift();
-      switch (nextPattern) {
-      }
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   activateLaserMover() {
     // Turn on laser mover
-
+    this.weapon.beginMovement();
     return true;
   }
 }

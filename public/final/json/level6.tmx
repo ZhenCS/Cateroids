@@ -145,6 +145,7 @@
   <object id="96" gid="19" x="608" y="160" width="64" height="64">
    <properties>
     <property name="bossType" value="dogWall"/>
+    <property name="health" type="float" value="25000"/>
    </properties>
   </object>
  </objectgroup>
