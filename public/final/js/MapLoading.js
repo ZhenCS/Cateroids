@@ -251,7 +251,8 @@ function setBossType(scene) {
       }
 
       scene.boss = boss;
-      break;
+    } else {
+      setObjects(scene, obj);
     }
   }
 }
