@@ -1092,7 +1092,8 @@ export class Leo extends Entity {
       ) {
         this.setData('oxygenAsteroid', null);
       }
-      oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage);
+      if (oxygenAsteroid.level !== 4)
+        oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage);
     }
   }
 }
