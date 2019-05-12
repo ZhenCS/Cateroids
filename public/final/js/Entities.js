@@ -160,7 +160,7 @@ export class Dog extends Entity {
         AI.aimBot(self, 0x3dff23, Bullet);
       });
       AI.setMovement(this, function() {
-        AI.stayInMap(self);
+        AI.stayInMap(self, scene);
       });
     }
     if (key == constants.DOG3KEY) {
