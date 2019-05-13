@@ -84,14 +84,16 @@ export class Asteroid extends Entity {
       this.body.setCircle(this.displayWidth * 0.5);
     }
 
-    this.scene.tweens.add({
-      targets: this,
-      duration: Phaser.Math.Between(80000, 100000),
-      angle: Math.random() < 0.5 ? -360 : 360,
-      loop: -1,
-      pause: false,
-      callbackScope: this
-    });
+    if(Math.random() < 0.5){
+      this.scene.tweens.add({
+        targets: this,
+        duration: Phaser.Math.Between(80000, 100000),
+        angle: Math.random() < 0.5 ? -360 : 360,
+        loop: -1,
+        pause: false,
+        callbackScope: this
+      });
+    }
 
     if (typeof velocityX != 'undefined' && typeof velocityY != 'undefined') {
       this.body.setVelocity(velocityX, velocityY);
