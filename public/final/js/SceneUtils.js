@@ -312,8 +312,8 @@ function initAnimations(scene) {
       end: weaponKeys[1],
       zeroPad: 0
     }),
-    frameRate: 3,
-    repeat: 4
+    frameRate: 15,
+    repeat: 2
   });
   constants.animationKeys.forEach(function(anim) {
     scene.anims.create({

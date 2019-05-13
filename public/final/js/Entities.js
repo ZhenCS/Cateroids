@@ -428,6 +428,7 @@ class DogWallWeapon extends Entity {
     this.once('animationcomplete', function(){
       this.performingAction = false;
       this.parentEntity.emit('garbageLaunched');
+      this.setTexture(constants.DOGWALLWEAPONKEY);
     });
     this.play(constants.BOSSWEAPONCHARGINGKEY);
   }
@@ -440,16 +441,13 @@ class DogWallWeapon extends Entity {
   fireLaser(){
     this.performingAction = true;
     this.laserFiring = true;
-    let laserToFire = new Laser(this.scene, this.x, this.y, true, 3, Math.PI / 2, null, 0, null, null, null, null, this.y + 1);
+    let laserToFire = new Laser(this.scene, this.x, this.y, true, 3, Math.PI / 2, null, 0, null, null, null, 0, this.y + 1);
     let self = this;
     laserToFire.once('laserFired', function(){
       self.laserFiring = false;
       self.performingAction = false;
     });
-    
-    this.once('animationcomplete', function(){
-      laserToFire.fire();
-    })
+    laserToFire.fire();
 
     this.play(constants.BOSSWEAPONCHARGINGKEY);
 
