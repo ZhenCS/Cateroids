@@ -172,5 +172,5 @@ const gameConfig = {
 
   // Weapon Selection
   primaryWeapon: 'primary',
-  secondaryWeapon: 'plasma'
+  secondaryWeapon: 'beam'
 };

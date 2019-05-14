@@ -263,6 +263,7 @@ function asteroidToBulletCollision(bullet, asteroid) {
   if (bullet) {
     bullet.removeColliders();
     this.bullets.killAndHide(bullet);
+    console.log('hit');
   }
 }
 
