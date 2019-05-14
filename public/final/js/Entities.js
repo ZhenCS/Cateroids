@@ -993,16 +993,6 @@ export class Leo extends Entity {
     );
   }
 
-  shoot2(pointerX, pointerY, type) {
-    if (type === 'primary') {
-      // shoot primary
-      this.primaryWeapon.shoot(pointerX, pointerY);
-    } else {
-      // shoot secondary
-      this.secondaryWeapon.shoot(pointerX, pointerY);
-    }
-  }
-
   shoot(pointerX, pointerY, type) {
     if (type === 'plasma' && this.ammoCount == 0) {
       return;
@@ -1013,16 +1003,16 @@ export class Leo extends Entity {
     }
     let playerDamage = this.scene.gameConfig.playerDamage;
     let scale = this.scene.gameConfig.playerBulletSize;
-    // const testWeapon = new Weapon(this.scene, this.x, this.y, true, type);
+
     let bullet = this.scene.bullets.getFirstDead(false, this.x, this.y);
     if (bullet) {
       bullet.setType(type);
       bullet.colliders = addBulletCollisions(this.scene, bullet);
       bullet.setData('isFriendly', true);
     } else {
-      console.log('creating new bullet');
       bullet = new Bullet(this.scene, this.x, this.y, true, type);
     }
+
     bullet.setActive(true);
     bullet.setVisible(true);
     let angle = Phaser.Math.Angle.Between(
@@ -1057,19 +1047,27 @@ export class Leo extends Entity {
   shootBeam(bullet, angle, playerDamage, xVelocity, yVelocity) {
     if (this.heat < 1000) {
       console.log('Firing beam:', this.heat);
+      const initX = 0.2;
+      const initY = 1.5;
+      let scaleMultiplier = 2.0;
       bullet
         .setTint(0xc43205)
-        .setOrigin(-0.1)
+        .setOrigin(0.5)
         .setData('damage', playerDamage)
-        .setRotation(angle)
-        .setScale(7, 0.25);
+        .setScale(initX, initY);
+
+      setInterval(() => {
+        bullet.setScale(initX * scaleMultiplier, initY * scaleMultiplier);
+        scaleMultiplier += 1;
+      }, 75);
 
       setInterval(() => {
         bullet.destroy();
-      }, 80);
+      }, 500);
       this.heat += 100;
+      bullet.body.setVelocity(xVelocity * 0.5, 0);
       this.scene.bullets.add(bullet);
-      //this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.1 });
+      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.1 });
     }
   }
 
