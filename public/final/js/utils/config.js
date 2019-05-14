@@ -131,7 +131,7 @@ const gameConfig = {
 
   dog1Health: 30,
   dog2Health: 60,
-  dog3Health: 80,
+  dog3Health: 160, // Changed from 80 -> 160
   dog4Health: 120,
 
   dog1Damage: 5,
