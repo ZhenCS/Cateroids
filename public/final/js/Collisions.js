@@ -11,7 +11,7 @@ export const checkPlayerToAsteroidCollision = scene => {
       if (scene.player) {
         scene.onLifeDown(asteroids.getData('damage'));
         asteroids.damage(gameConfig.playerDamage);
-        scene.sound.play(constants.ASTRCOLLISION);
+        scene.sound.play(constants.ASTRCOLLISION, { volume: 0.2 });
       }
     },
     null,
@@ -28,12 +28,11 @@ export const checkPlayerToEnemyCollision = scene => {
 
       if (player) {
         scene.onLifeDown(dog.getData('damage'));
-        if (dog.getData('dogId') !== 4){
+        if (dog.getData('dogId') !== 4) {
           dog.damage(gameConfig.playerDamage);
         }
-        
 
-        scene.sound.play(constants.ASTRCOLLISION);
+        scene.sound.play(constants.ASTRCOLLISION, { volume: 0.2 });
       }
     },
     null,
@@ -48,10 +47,9 @@ export const checkPlayerToEnemyCollision = scene => {
 
       if (player) {
         scene.onLifeDown(dog.getData('damage'));
-        if (dog.getData('dogId') !== 4){
+        if (dog.getData('dogId') !== 4) {
           dog.damage(gameConfig.playerDamage);
         }
-        
       }
     },
     null,
@@ -65,7 +63,7 @@ export const checkPlayerToEnemyCollision = scene => {
         scene.createExplosion(player.x, player.y, player.displayWidth);
         if (player) {
           scene.onLifeDown(boss.getData('damage'));
-          scene.sound.play(constants.ASTRCOLLISION);
+          scene.sound.play(constants.ASTRCOLLISION, { volume: 0.2 });
         }
       },
       null,
@@ -81,7 +79,7 @@ export const checkPlayerToEnemyCollision = scene => {
   }
 };
 
-export function addBulletCollisions(scene, bullet){
+export function addBulletCollisions(scene, bullet) {
   let result = [];
   result.push(checkPlayerToBulletCollision(scene, bullet));
   result.push(checkEnemyToBulletCollision(scene, bullet));
@@ -90,7 +88,7 @@ export function addBulletCollisions(scene, bullet){
   return result.flat();
 }
 
-function playerToBulletCollision(player, bullet){
+function playerToBulletCollision(player, bullet) {
   if (!bullet.getData('isFriendly')) {
     this.createExplosion(player.x, player.y, player.displayWidth);
 
@@ -98,13 +96,12 @@ function playerToBulletCollision(player, bullet){
       this.onLifeDown(bullet.getData('damage'));
       bullet.removeColliders();
       this.bullets.killAndHide(bullet);
-      this.sound.play(constants.LASERHIT);
+      this.sound.play(constants.LASERHIT, { volume: 0.3 });
     }
   }
 }
 
 export const checkPlayerToBulletCollision = (scene, bullet) => {
-
   let result = scene.physics.add.overlap(
     scene.player,
     bullet,
@@ -116,7 +113,7 @@ export const checkPlayerToBulletCollision = (scene, bullet) => {
   return result;
 };
 
-export const checkPlayerToLaserSegments = (scene) => {
+export const checkPlayerToLaserSegments = scene => {
   scene.physics.add.overlap(
     scene.player,
     scene.laserSegments,
@@ -130,9 +127,9 @@ export const checkPlayerToLaserSegments = (scene) => {
     null,
     scene
   );
-}
+};
 
-function enemyBulletCollisionCallback(bullet, dog){
+function enemyBulletCollisionCallback(bullet, dog) {
   if (bullet.getData('isFriendly')) {
     this.createExplosion(bullet.x, bullet.y, dog.displayWidth);
     let key = dog.texture.key;
@@ -148,7 +145,7 @@ function enemyBulletCollisionCallback(bullet, dog){
         if (key == constants.DOG1ATLASKEY) {
           this.addScore(200);
         }
-        this.sound.play(constants.LASERHIT);
+        this.sound.play(constants.LASERHIT, { volume: 0.5 });
       }
 
       dog.damage(bullet.getData('damage'));
@@ -166,40 +163,44 @@ function enemyBulletCollisionCallback(bullet, dog){
 export const checkEnemyToBulletCollision = (scene, bullet) => {
   let result = [];
 
-  result.push(scene.physics.add.overlap(
-    bullet,
-    scene.dogs,
-    enemyBulletCollisionCallback,
-    null,
-    scene
-  ));
-
-  if (scene.boss) {
-    result.push(scene.physics.add.overlap(
+  result.push(
+    scene.physics.add.overlap(
       bullet,
-      scene.boss,
-      function(bullet, boss) {
-        if (bullet.getData('isFriendly')) {
-          if (boss) {
-            scene.createExplosion(bullet.x, bullet.y, boss.displayWidth);
-            boss.damage(bullet.getData('damage'));
-          }
-        }
-
-        if (bullet && bullet.type !== 'strongLaser') {
-          bullet.removeColliders();
-          this.bullets.killAndHide(bullet);
-        }
-      },
+      scene.dogs,
+      enemyBulletCollisionCallback,
       null,
       scene
-    ));
+    )
+  );
+
+  if (scene.boss) {
+    result.push(
+      scene.physics.add.overlap(
+        bullet,
+        scene.boss,
+        function(bullet, boss) {
+          if (bullet.getData('isFriendly')) {
+            if (boss) {
+              scene.createExplosion(bullet.x, bullet.y, boss.displayWidth);
+              boss.damage(bullet.getData('damage'));
+            }
+          }
+
+          if (bullet && bullet.type !== 'strongLaser') {
+            bullet.removeColliders();
+            this.bullets.killAndHide(bullet);
+          }
+        },
+        null,
+        scene
+      )
+    );
   }
 
   return result;
 };
 
-function asteroidToBulletCollision(bullet, asteroid){
+function asteroidToBulletCollision(bullet, asteroid) {
   if (bullet.getData('isFriendly')) {
     this.createExplosion(bullet.x, bullet.y, asteroid.displayWidth);
 
@@ -209,8 +210,7 @@ function asteroidToBulletCollision(bullet, asteroid){
     const oldAsteroidHealth = asteroid.getData('health');
 
     if (asteroid) {
-      const laserHit = this.sound.add(constants.LASERHIT);
-      laserHit.play();
+      this.sound.play(constants.LASERHIT, { volume: 0.2 });
       asteroid.damage(bullet.getData('damage'));
     }
 
@@ -281,10 +281,7 @@ function oxygenAsteroidToBulletCollision(bullet, oxygenAsteroid) {
     this.createExplosion(bullet.x, bullet.y, oxygenAsteroid.displayWidth);
     if (oxygenAsteroid) {
       if (oxygenAsteroid == this.player.getData('oxygenAsteroid')) {
-        if (
-          oxygenAsteroid.getData('health') - bullet.getData('damage') <=
-          0
-        )
+        if (oxygenAsteroid.getData('health') - bullet.getData('damage') <= 0)
           this.player.setData('oxygenAsteroid', null);
       }
 
@@ -306,8 +303,6 @@ export const checkOxygenAsteroidToBulletCollision = (scene, bullet) => {
     scene
   );
 };
-
-
 
 export const checkAsteroidToOxygenAsteroidCollision = scene => {
   scene.physics.add.overlap(

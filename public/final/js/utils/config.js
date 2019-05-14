@@ -19,7 +19,7 @@ const gameStyles = {
   baseColor: 0x4ef442,
   basePadding: 50,
   starTint: 0xfbff42,
-  bossColor: 0x7851a9 ,
+  bossColor: 0x7851a9,
   bossPadding: 50,
   upgradeColor: 0x99ff99,
   upgradeBGColor: 0x4d4d4d,
@@ -34,7 +34,7 @@ const gameDepths = {
 
 let fromCheatMenu = false;
 
-let currentLevel = { 
+let currentLevel = {
   key: 'level1',
   level: 1
 };
@@ -42,13 +42,13 @@ let currentLevel = {
 let playerStars = 0;
 let stars = initStars();
 
-function initStars(){
-    let stars = new Array();
-    for(var i = 1; i <= 12; i++){
-        stars[i] = [false, false, false];
-    }
+function initStars() {
+  let stars = new Array();
+  for (var i = 1; i <= 12; i++) {
+    stars[i] = [false, false, false];
+  }
 
-    return stars;
+  return stars;
 }
 
 const cheats = {
@@ -64,19 +64,19 @@ const playerUpgrades = [
   ['BulletSize', 0],
   ['ExtraAmmo', 0],
   ['FireRate', 0],
-  ['Speed', 0],
-]
+  ['Speed', 0]
+];
 
 const upgradeRates = {
   Health: 100,
   Damage: 5,
-  OxygenDepletion: 1/50,
-  OxygenReplenish: 2/50,
+  OxygenDepletion: 1 / 50,
+  OxygenReplenish: 2 / 50,
   BulletSize: 0.1,
   ExtraAmmo: 1,
   FireRate: 5,
   Speed: 25
-}
+};
 
 const gameConfig = {
   maxUpgrades: 5,
@@ -92,8 +92,8 @@ const gameConfig = {
   waveRate: 5000,
 
   //radians
-  playerWalkVelocityX: Math.PI * 2/ 45,
-  playerWalkVelocityY: Math.PI * 2/ 45,
+  playerWalkVelocityX: (Math.PI * 2) / 45,
+  playerWalkVelocityY: (Math.PI * 2) / 45,
   //soft cap for just arrow keys. can be exceeded with boost
   softMaxPlayerVelocityX: 500, //changed by upgrades
   softMaxPlayerVelocityY: 500, //changed by upgrades
@@ -168,5 +168,9 @@ const gameConfig = {
   laserSprites: 50,
   laserDelay: 50,
   laserSpawnRate: 8000,
-  laserFireDelay: 1500
+  laserFireDelay: 1500,
+
+  // Weapon Selection
+  primaryWeapon: 'primary',
+  secondaryWeapon: 'plasma'
 };

@@ -84,7 +84,7 @@ export class Asteroid extends Entity {
       this.body.setCircle(this.displayWidth * 0.5);
     }
 
-    if(Math.random() < 0.5){
+    if (Math.random() < 0.5) {
       this.scene.tweens.add({
         targets: this,
         duration: Phaser.Math.Between(80000, 100000),
@@ -252,22 +252,22 @@ export class Bullet extends Entity {
     this.colliders = [];
   }
 
-  removeColliders(){
-    for (let i = 0; i < this.colliders.length; i++){
+  removeColliders() {
+    for (let i = 0; i < this.colliders.length; i++) {
       this.scene.physics.world.removeCollider(this.colliders[i]);
     }
 
     this.colliders = [];
   }
 
-  setType(type){
-    if (type === 'plasma'){
-      this.setTexture(constants.BOSSBEAMKEY)
+  setType(type) {
+    if (type === 'plasma') {
+      this.setTexture(constants.BOSSBEAMKEY);
       this.capacity = 3;
       this.ammoCount = 3;
-    } else if (type === 'laser'){
+    } else if (type === 'laser') {
       this.setTexture(constants.BULLETKEY);
-    } else{
+    } else {
       this.setTexture(constants.BULLETKEY);
     }
 
@@ -301,6 +301,7 @@ export class Laser extends Entity {
     let laserDamage = sceneConfig.laserDamage;
     let laserDeltaX = 0;
     let laserFireDelay = sceneConfig.laserFireDelay;
+    this.firing = false;
 
     if (damage && typeof damage != 'undefined') laserDamage = damage;
     if (delay && typeof delay != 'undefined') laserDelay = delay;
@@ -324,10 +325,9 @@ export class Laser extends Entity {
       this.scene.game.config.width * 2 * Math.cos(this.getData('angle'));
     let pointy = this.scene.game.config.width * Math.sin(this.getData('angle'));
 
-    
-    if (beginY){
+    if (beginY) {
       this.path = new Phaser.Curves.Path(x - pointx, beginY);
-    } else{
+    } else {
       this.path = new Phaser.Curves.Path(x - pointx, y - pointy);
     }
     this.path.lineTo(x + pointx, y + pointy);
@@ -395,7 +395,7 @@ export class Laser extends Entity {
     this.setData('fired', true);
     this.path.draw(this.alertLine, 8);
 
-    this.scene.sound.play(constants.RAYSTARTUP, { volume: 0.4 });
+    this.scene.sound.play(constants.RAYSTARTUP, { volume: 0.1 });
 
     this.scene.time.addEvent({
       delay: this.getData('fireDelay'),
@@ -416,7 +416,7 @@ export class Laser extends Entity {
     let scene = this.scene;
     this.segments.forEach(function(segment) {
       //segment.destroy();
-      
+
       scene.laserSegments.remove(segment, true, true);
     });
 
@@ -438,7 +438,7 @@ class DogWallWeapon extends Entity {
 
   beginGarbageExpulsion() {
     this.performingAction = true;
-    this.once('animationcomplete', function(){
+    this.once('animationcomplete', function() {
       this.performingAction = false;
       this.parentEntity.emit('garbageLaunched');
       this.setTexture(constants.DOGWALLWEAPONKEY);
@@ -451,34 +451,62 @@ class DogWallWeapon extends Entity {
     this.isMoving = true;
   }
 
-  fireLaser(){
+  fireLaser() {
     this.performingAction = true;
     this.laserFiring = true;
-    let laserToFire = new Laser(this.scene, this.x, this.y, true, 3, Math.PI / 2, null, 0, null, null, null, 0, this.y + 1);
+    let laserToFire = new Laser(
+      this.scene,
+      this.x,
+      this.y,
+      true,
+      3,
+      Math.PI / 2,
+      null,
+      0,
+      null,
+      null,
+      null,
+      0,
+      this.y + 1
+    );
     let self = this;
-    laserToFire.once('laserFired', function(){
+    laserToFire.once('laserFired', function() {
       self.laserFiring = false;
       self.performingAction = false;
     });
     laserToFire.fire();
 
     this.play(constants.BOSSWEAPONCHARGINGKEY);
-
   }
 
   update() {
     if (!this.scene) return;
 
     if (!this.performingAction && this.isMoving) {
-      if (this.x < this.parentEntity.x - this.parentEntity.body.halfWidth + this.body.halfWidth){
+      if (
+        this.x <
+        this.parentEntity.x -
+          this.parentEntity.body.halfWidth +
+          this.body.halfWidth
+      ) {
         this.movingLeft = false;
-      } else if (this.x > this.parentEntity.x + this.parentEntity.body.halfWidth - this.body.halfWidth){
+      } else if (
+        this.x >
+        this.parentEntity.x +
+          this.parentEntity.body.halfWidth -
+          this.body.halfWidth
+      ) {
         this.movingLeft = true;
       }
       let velocity = this.moveVelocity * (this.movingLeft ? -1 : 1);
       this.x += velocity;
     }
-    if (Math.abs(this.x - this.scene.player.x) < 75 && Math.random() < 0.01 && !this.laserFiring && !this.parentEntity.bodySlamming){
+    if (
+      Math.abs(this.x - this.scene.player.x) < 75 &&
+      Math.random() < 0.01 &&
+      !this.laserFiring &&
+      !this.parentEntity.bodySlamming
+    ) {
       this.fireLaser();
     }
   }
@@ -535,10 +563,10 @@ export class DogWall extends Entity {
     // TODO: add damaged animation
   }
 
-  onDestroy(){
+  onDestroy() {
     this.weapon.destroy();
     let hardPointLength = this.hardPoints.length;
-    for(let i = 0; i < hardPointLength; i++){
+    for (let i = 0; i < hardPointLength; i++) {
       this.hardPoints.pop().destroy();
     }
     this.scene.endPointX = 0;
@@ -548,14 +576,13 @@ export class DogWall extends Entity {
    * Method to be called every frame
    */
   update() {
-
-    if (this.firstUpdate){
+    if (this.firstUpdate) {
       this.spawnHardPoints();
       this.firstUpdate = false;
     }
-    if (this.plannedActions.length == 0  && this.actionCooldown == 0) {
+    if (this.plannedActions.length == 0 && this.actionCooldown == 0) {
       this.think();
-    } else if (this.plannedActions.length !== 0){
+    } else if (this.plannedActions.length !== 0) {
       if (this.plannedActions[0]()) {
         this.plannedActions.shift();
       }
@@ -570,27 +597,38 @@ export class DogWall extends Entity {
    */
   think() {
     // think
-    if (this.getData('health') < this.maxHealth / 2 && !this.activatedMover){
+    if (this.getData('health') < this.maxHealth / 2 && !this.activatedMover) {
       this.plannedActions.push(this.activateLaserMover.bind(this));
       this.activatedMover = true;
     }
     this.actionCooldown = 120;
-    if (this.hardPoints.length === 0 && Math.random() < 0.16 && 
-          (!this.firstQuarterHardPoints && this.getData('health') < this.maxHealth * 3 / 4
-        || !this.secondQuarterHardPoints && this.getData('health') < this.maxHealth / 2 
-        || !this.thirdQuarterHardPoints && this.getData('health') < this.maxHealth / 4)) {
-
+    if (
+      this.hardPoints.length === 0 &&
+      Math.random() < 0.16 &&
+      ((!this.firstQuarterHardPoints &&
+        this.getData('health') < (this.maxHealth * 3) / 4) ||
+        (!this.secondQuarterHardPoints &&
+          this.getData('health') < this.maxHealth / 2) ||
+        (!this.thirdQuarterHardPoints &&
+          this.getData('health') < this.maxHealth / 4))
+    ) {
       if (!this.firstQuarterHardPoints) this.firstQuarterHardPoints = true;
-      else if (!this.secondQuarterHardPoints) this.secondQuarterHardPoints = true;
+      else if (!this.secondQuarterHardPoints)
+        this.secondQuarterHardPoints = true;
       else if (!this.thirdQuarterHardPoints) this.thirdQuarterHardPoints = true;
 
       this.spawnHardPoints();
-    } else if (Math.abs(this.scene.player.x - this.weapon.x) < this.scene.gameConfig.worldWidth / 3 && Math.random() < 0.10 && !this.weapon.performingAction){
+    } else if (
+      Math.abs(this.scene.player.x - this.weapon.x) <
+        this.scene.gameConfig.worldWidth / 3 &&
+      Math.random() < 0.1 &&
+      !this.weapon.performingAction
+    ) {
       // If weapon and player are in the same third, 5% chance to expel garbage
       this.plannedActions.push(this.expelGarbage.bind(this));
-    } else if (Math.random() < 0.10 && !this.weapon.laserFiring){
+    } else if (Math.random() < 0.1 && !this.weapon.laserFiring) {
       this.bodySlamming = true;
-      if (this.scene.player.x < this.scene.gameConfig.worldWidth / 2){
+      if (this.scene.player.x < this.scene.gameConfig.worldWidth / 2) {
         this.bodySlam(true);
       } else {
         this.bodySlam(false);
@@ -605,7 +643,7 @@ export class DogWall extends Entity {
    * @param {boolean} goLeft If true, body slams on the left side of the screen, otherwise body slam the right
    */
   bodySlam(goLeft) {
-    if(!this.body) return;
+    if (!this.body) return;
     let targetX;
     if (goLeft) {
       targetX = this.getData('resetX') - this.body.width / 3;
@@ -678,18 +716,19 @@ export class DogWall extends Entity {
       deltaY = y - this.y;
       this.y = y;
     }
-    this.hardPoints.forEach(function(hardPoint){
+    this.hardPoints.forEach(function(hardPoint) {
       hardPoint.x += deltaX;
       hardPoint.y += deltaY;
     });
 
     this.weapon.x += deltaX;
     this.weapon.y += deltaY;
-    let result = Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
-    if (result && lastMove){
+    let result =
+      Math.abs(this.x - x) < epsilon && Math.abs(this.y - y) < epsilon;
+    if (result && lastMove) {
       this.bodySlamming = false;
     }
-    return result
+    return result;
   }
 
   /**
@@ -779,8 +818,13 @@ export class DogWall extends Entity {
         gameConfig.dog4FireRate
       );
       let self = this;
-      turret.on('destroyed', function(){
-        self.hardPoints.splice(self.hardPoints.findIndex(function(elem){return elem === turret}), 1);
+      turret.on('destroyed', function() {
+        self.hardPoints.splice(
+          self.hardPoints.findIndex(function(elem) {
+            return elem === turret;
+          }),
+          1
+        );
       });
       this.hardPoints.push(turret);
       turret.body.immovable = true;
@@ -820,18 +864,67 @@ export class Leo extends Entity {
     this.heat = 0;
     this.firingBeam = false;
     this.heatCapacity = 1000;
+    this.grappleSoundPlaying = false;
+    this.oxygenLowSoundPlaying = false;
+    this.deadSoundPlaying = false;
+    this.boostSoundPlaying = false;
+
+    this.ammoRefil(scene);
+  }
+
+  ammoRefil(scene) {
+    // Plasma Replenish
     setInterval(() => {
       if (this.ammoCount < scene.gameConfig.maxPlayerAmmo) {
         this.ammoCount++;
-        // console.log('Incrementing ammo');
       }
-    }, 3000);
+    }, 2500);
+
+    // Heat dissipate
     setInterval(() => {
-      console.log('heat level decreasing:', this.heat);
       if (this.heat <= this.heatCapacity && this.heat > 0) {
         this.heat -= 100;
       }
     }, 250);
+  }
+
+  playDyingSound() {
+    if (!this.deadSoundPlaying) {
+      this.scene.sound.play(constants.DYINGAUDIO, { volume: 0.3 });
+      this.deadSoundPlaying = true;
+
+      setInterval(() => {
+        this.deadSoundPlaying = false;
+      }, 2500);
+    }
+  }
+
+  playBoostSound() {
+    if (!this.boostSoundPlaying) {
+      this.scene.sound.play(constants.BOOSTAUDIO, { volume: 0.1 });
+    }
+  }
+
+  playGrappleSound() {
+    if (!this.grappleSoundPlaying) {
+      this.scene.sound.play(constants.GRAPPLING, { volume: 0.3 });
+      this.grappleSoundPlaying = true;
+
+      setInterval(() => {
+        this.grappleSoundPlaying = false;
+      }, 1250);
+    }
+  }
+
+  playOxygenLowSound() {
+    if (!this.oxygenLowSoundPlaying) {
+      this.scene.sound.play(constants.OXYGENLOWAUDIO, { volume: 0.5 });
+      this.oxygenLowSoundPlaying = true;
+
+      setInterval(() => {
+        this.oxygenLowSoundPlaying = false;
+      }, 1000);
+    }
   }
 
   moveLeft(boost) {
@@ -919,10 +1012,10 @@ export class Leo extends Entity {
       return;
     }
     let playerDamage = this.scene.gameConfig.playerDamage;
-    let scale =  this.scene.gameConfig.playerBulletSize;
+    let scale = this.scene.gameConfig.playerBulletSize;
     // const testWeapon = new Weapon(this.scene, this.x, this.y, true, type);
     let bullet = this.scene.bullets.getFirstDead(false, this.x, this.y);
-    if (bullet){
+    if (bullet) {
       bullet.setType(type);
       bullet.colliders = addBulletCollisions(this.scene, bullet);
       bullet.setData('isFriendly', true);
@@ -932,13 +1025,25 @@ export class Leo extends Entity {
     }
     bullet.setActive(true);
     bullet.setVisible(true);
-    let angle = Phaser.Math.Angle.Between(this.x - this.scene.cameras.main.scrollX, this.y - this.scene.cameras.main.scrollY, pointerX, pointerY);
+    let angle = Phaser.Math.Angle.Between(
+      this.x - this.scene.cameras.main.scrollX,
+      this.y - this.scene.cameras.main.scrollY,
+      pointerX,
+      pointerY
+    );
     const speed = 2000;
     const xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-50, 50);
     const yVelocity = speed * Math.sin(angle) + Phaser.Math.Between(-50, 50);
 
     if (type === 'primary') {
-      this.shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity, scale);
+      this.shootPrimary(
+        bullet,
+        angle,
+        playerDamage,
+        xVelocity,
+        yVelocity,
+        scale
+      );
     } else if (type === 'plasma') {
       const plasmaMultiplier = playerDamage * 2.5;
       this.shootPlasma(bullet, angle, plasmaMultiplier, xVelocity, yVelocity);
@@ -964,7 +1069,7 @@ export class Leo extends Entity {
       }, 80);
       this.heat += 100;
       this.scene.bullets.add(bullet);
-      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
+      //this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.1 });
     }
   }
 
@@ -978,7 +1083,7 @@ export class Leo extends Entity {
     this.ammoCount--;
     bullet.body.setVelocity(xVelocity * 0.25, yVelocity * 0.25);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
+    this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.1 });
   }
 
   shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity, scale) {
@@ -991,7 +1096,7 @@ export class Leo extends Entity {
 
     bullet.body.setVelocity(xVelocity, yVelocity);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.CATWEAPONAUDIO);
+    this.scene.sound.play(constants.CATWEAPONAUDIO, { volume: 0.1 });
   }
 
   damage(damage) {
@@ -1017,12 +1122,13 @@ export class Leo extends Entity {
     let sceneConfig = this.scene.gameConfig;
     this.setData('oxygen', this.getData('oxygen') - damage);
 
-    if (this.getData('oxygen') < 30 && this.getData('oxygen') > 28) {
-      this.scene.sound.play(constants.OXYGENLOWAUDIO);
-    } else if (this.getData('oxygen') < 20 && this.getData('oxygen') > 18) {
-      this.scene.sound.play(constants.OXYGENLOWAUDIO);
-    } else if (this.getData('oxygen') < 10 && this.getData('oxygen') > 8) {
-      this.scene.sound.play(constants.OXYGENLOWAUDIO);
+    const oxygenWarningConditions =
+      (this.getData('oxygen') < 20 && this.getData('oxygen') > 19) ||
+      (this.getData('oxygen') < 10 && this.getData('oxygen') > 9) ||
+      (this.getData('oxygen') < 5 && this.getData('oxygen') > 4);
+
+    if (oxygenWarningConditions) {
+      this.playOxygenLowSound();
     }
 
     if (this.getData('oxygen') < 0) {
@@ -1030,7 +1136,6 @@ export class Leo extends Entity {
       this.damage(sceneConfig.oxygenDamage);
     } else if (this.getData('oxygen') > sceneConfig.maxPlayerOxygen) {
       this.setData('oxygen', sceneConfig.maxPlayerOxygen);
-      //play oxygen replenished sound
     }
   }
 
@@ -1044,6 +1149,7 @@ export class Leo extends Entity {
       );
       let speed = (sceneConfig.grappleSpeed * distance) / 200;
       this.moveTo(point.x, point.y, speed);
+      this.playGrappleSound();
     } else {
       this.setData('grapplePoint', null);
     }

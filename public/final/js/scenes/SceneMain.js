@@ -16,7 +16,7 @@ export class SceneMain extends Phaser.Scene {
   create() {
     this.gameConfig = Object.assign({}, gameConfig);
     this.bullets = this.add.group();
-    for (let i = 0; i < 300; i++){
+    for (let i = 0; i < 300; i++) {
       // pre populate the bullet group with 2000 inactive bullets
       // Can be increased if we need more than 2000 on screen at once
       let bullet = new Bullet(this);
@@ -138,7 +138,7 @@ export class SceneMain extends Phaser.Scene {
   }
 
   showGameOverMenu() {
-    this.player.play(constants.DYINGKEY);
+    this.player.playDyingSound(constants.DYINGKEY);
 
     this.time.addEvent({
       delay: 2000,
@@ -171,7 +171,6 @@ export class SceneMain extends Phaser.Scene {
         this.gameOver = true;
       }
     }
-
   }
 
   movementCheck() {
@@ -180,9 +179,14 @@ export class SceneMain extends Phaser.Scene {
     let boost = 0;
     // Check for boost
     if (this.keySpace.isDown) {
-      // this.sound.play(constants.BOOSTAUDIO);
+      this.player.playBoostSound();
+      this.player.boostSoundPlaying = true;
       boost = this.gameConfig.boost;
       this.player.setData('oxygenAsteroid', null);
+    }
+
+    if (this.keySpace.isUp) {
+      this.player.boostSoundPlaying = false;
     }
 
     if (this.player.getData('oxygenAsteroid') != null) {
@@ -195,7 +199,6 @@ export class SceneMain extends Phaser.Scene {
 
     if (this.keyShift.isDown && this.player.getData('grapplePoint')) {
       this.player.grapple();
-      this.sound.play(constants.GRAPPLING, { volume: 0.1 });
       if (this.mapLoaded) mapLoading.loadMapObjects(this);
     } else {
       // Check for vertical movement
