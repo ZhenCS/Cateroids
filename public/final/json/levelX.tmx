@@ -412,7 +412,7 @@
     <property name="velocityX" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="3725" gid="34" x="5380.12" y="516.485" width="64" height="64"/>
+  <object id="3725" gid="34" x="386.182" y="313.455" width="64" height="64"/>
   <object id="3736" gid="31" x="7388.61" y="121.212" width="64" height="64"/>
   <object id="3737" gid="31" x="7688.61" y="136.364" width="64" height="64"/>
   <object id="3738" gid="29" x="5776.48" y="506.061" width="64" height="64">
