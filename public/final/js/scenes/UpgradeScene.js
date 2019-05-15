@@ -115,8 +115,10 @@ export class UpgradeScene extends Phaser.Scene {
       .on('pointerdown', function() {
         if (this.active) {
           this.setStyle(defaultStyling);
+          gameConfig.secondaryWeapon = '';
         } else {
           this.setStyle(activeStyling);
+          gameConfig.secondaryWeapon = 'plasma';
           beam.setStyle(defaultStyling);
           beam.active = false;
         }
@@ -134,8 +136,10 @@ export class UpgradeScene extends Phaser.Scene {
       .on('pointerdown', function() {
         if (this.active) {
           this.setStyle(defaultStyling);
+          gameConfig.secondaryWeapon = '';
         } else {
           this.setStyle(activeStyling);
+          gameConfig.secondaryWeapon = 'beam';
           plasma.setStyle(defaultStyling);
           plasma.active = false;
         }
