@@ -891,7 +891,7 @@ export class Leo extends Entity {
 
   playDyingSound() {
     if (!this.deadSoundPlaying) {
-      this.scene.sound.play(constants.DYINGAUDIO, { volume: 0.3 });
+      this.scene.sound.play(constants.DYINGAUDIO, { volume: 0.5 });
       this.deadSoundPlaying = true;
 
       setInterval(() => {
@@ -902,7 +902,7 @@ export class Leo extends Entity {
 
   playBoostSound() {
     if (!this.boostSoundPlaying) {
-      this.scene.sound.play(constants.BOOSTAUDIO, { volume: 0.1 });
+      this.scene.sound.play(constants.BOOSTAUDIO, { volume: 0.2 });
     }
   }
 
@@ -919,7 +919,7 @@ export class Leo extends Entity {
 
   playOxygenLowSound() {
     if (!this.oxygenLowSoundPlaying) {
-      this.scene.sound.play(constants.OXYGENLOWAUDIO, { volume: 0.5 });
+      this.scene.sound.play(constants.OXYGENLOWAUDIO, { volume: 0.2 });
       this.oxygenLowSoundPlaying = true;
 
       setInterval(() => {
@@ -1071,7 +1071,7 @@ export class Leo extends Entity {
       this.scene.updateAmmo(this.heat);
       bullet.body.setVelocity(xVelocity, yVelocity);
       this.scene.bullets.add(bullet);
-      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.3 });
+      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.5 });
     }
   }
 
@@ -1099,7 +1099,7 @@ export class Leo extends Entity {
 
     bullet.body.setVelocity(xVelocity, yVelocity);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.CATWEAPONAUDIO, { volume: 0.3 });
+    this.scene.sound.play(constants.CATWEAPONAUDIO, { volume: 0.5 });
   }
 
   damage(damage) {
@@ -1110,7 +1110,7 @@ export class Leo extends Entity {
       if (this.getData('health') < 100) {
         this.setData('health', 0);
         // dead
-        this.scene.sound.play(constants.EXPLOSION2AUDIO, { volume: 0.1 });
+        this.scene.sound.play(constants.EXPLOSION2AUDIO, { volume: 0.2 });
       } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
         this.setData('health', sceneConfig.maxPlayerHealth);
       }

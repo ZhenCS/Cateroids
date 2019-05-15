@@ -156,6 +156,7 @@ export class UpgradeScene extends Phaser.Scene {
           this.setStyle(activeStyling);
           gameConfig.secondaryWeapon = 'beam';
           gameConfig.secondaryWeaponText = 'Beam Heat: ';
+          //updateAmmo(ammo);
           plasma.setStyle(defaultStyling);
           plasma.active = false;
         }
