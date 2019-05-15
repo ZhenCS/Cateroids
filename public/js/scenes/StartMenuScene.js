@@ -57,6 +57,7 @@ export class StartMenuScene extends Phaser.Scene {
       menuSelectSound.play();
     });
     this.levelSelect.on('pointerdown', function() {
+      fromCheatMenu = false;
       this.scene.game.scene.switch(constants.STARTMENUKEY, constants.LEVELSKEY);
       menuSelectSound.play();
     });

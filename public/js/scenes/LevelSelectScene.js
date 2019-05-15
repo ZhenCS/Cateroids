@@ -12,11 +12,9 @@ export class LevelSelectScene extends Phaser.Scene {
 
     setBG(this);
     setGameName(this);
-    this.fromCheatMenu = false;
+
     if(fromCheatMenu){
       setBackButton(this, constants.LEVELSKEY, constants.CHEATKEY);
-      fromCheatMenu = false;
-      this.fromCheatMenu = true;
     }
     else setBackButton(this, constants.LEVELSKEY, constants.STARTMENUKEY);
 
@@ -82,7 +80,7 @@ export class LevelSelectScene extends Phaser.Scene {
     let scene = this;
     iconBG.on('pointerdown', function() {
 
-      if(id == 1 || scene.fromCheatMenu || stars[id - 1][0]){
+      if(id == 1 || fromCheatMenu || stars[id - 1][0]){
         currentLevel.key = constants[`LEVEL${id}KEY`];
         currentLevel.level = id;
 
