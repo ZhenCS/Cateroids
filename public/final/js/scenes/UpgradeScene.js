@@ -52,8 +52,16 @@ export class UpgradeScene extends Phaser.Scene {
     let doneButton = this.createButton(x, y - 60, 'Done').on(
       'pointerdown',
       function() {
-        this.scene.game.scene.switch(constants.UPGRADEKEY, constants.GOALKEY);
-        this.scene.game.scene.stop(constants.UPGRADEKEY);
+        if(fromPauseMenu){
+          fromPauseMenu = false;
+          this.scene.game.scene.switch(constants.UPGRADEKEY, constants.PAUSEKEY);
+          this.scene.game.scene.stop(constants.UPGRADEKEY);
+        }else{
+          this.scene.game.scene.switch(constants.UPGRADEKEY, constants.GOALKEY);
+          this.scene.game.scene.stop(constants.UPGRADEKEY);
+        }
+
+        
       }
     );
 
@@ -88,7 +96,7 @@ export class UpgradeScene extends Phaser.Scene {
       offsetY + 160,
       'Select Secondary Fire',
       {
-        font: `${35 * gameScale.scale}px impact`,
+        font: `${60 * gameScale.scale}px impact`,
         fill: '#fdfdfd',
         stroke: 'black',
         strokeThickness: 2
@@ -96,21 +104,21 @@ export class UpgradeScene extends Phaser.Scene {
     );
 
     const defaultStyling = {
-      font: `${30 * gameScale.scale}px impact`,
+      font: `${70 * gameScale.scale}px impact`,
       fill: '#fdfdfd',
       stroke: 'black',
       strokeThickness: 2
     };
 
     const activeStyling = {
-      font: `${35 * gameScale.scale}px impact`,
+      font: `${70 * gameScale.scale}px impact`,
       color: '#f9e722',
       stroke: 'black',
       strokeThickness: 5
     };
 
     const plasma = this.add
-      .text(x - 80, offsetY + 220, 'Plasma Cannon', defaultStyling)
+      .text(x - 80, offsetY + 220, 'Plasma Cannon', gameConfig.secondaryWeapon == 'plasma' ? activeStyling : defaultStyling)
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
         if (this.active) {
@@ -126,12 +134,7 @@ export class UpgradeScene extends Phaser.Scene {
       });
 
     const beam = this.add
-      .text(x - 80, offsetY + 260, 'Laser Beam', {
-        font: `${30 * gameScale.scale}px impact`,
-        fill: '#fdfdfd',
-        stroke: 'black',
-        strokeThickness: 2
-      })
+      .text(x - 80, offsetY + 260, 'Laser Beam', gameConfig.secondaryWeapon == 'beam' ? activeStyling : defaultStyling)
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
         if (this.active) {

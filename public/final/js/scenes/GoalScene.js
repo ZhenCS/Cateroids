@@ -68,7 +68,7 @@ export class GoalScene extends Phaser.Scene {
       }
     );
     
-    let upgradeButton = this.createButton(0, buttonY, 'Upgrade').on(
+    let upgradeButton = this.createButton(0, buttonY, 'Workshop').on(
       'pointerdown',
       function() {
         this.scene.game.scene.switch(constants.GOALKEY, constants.UPGRADEKEY);
