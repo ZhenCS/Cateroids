@@ -324,13 +324,13 @@ function initAnimations(scene) {
 
   scene.anims.create({
     key: constants.OXYGENBREAKINGKEY,
-    frames : scene.anims.generateFrameNames(constants.OXYGENATLASKEY, {
+    frames: scene.anims.generateFrameNames(constants.OXYGENATLASKEY, {
       prefix: constants.SPRITEPREFIXKEY,
       start: 1,
       end: 3,
       zeroPad: 0
     }),
-    frameRate: 1,
+    frameRate: 1
   });
   scene.anims.create({
     key: constants.BOSSWEAPONCHARGINGKEY,
@@ -478,6 +478,14 @@ function initUI(scene, mode) {
     )
     .setDepth(gameDepths.uiDepth + 1);
 
+  scene.ammo = 2;
+  scene.ammoCounter = scene.add
+    .text(gameStyles.padding + 2, gameStyles.padding - 2, scene.ammo, {
+      font: `${32 * gameScale.scale}px Georgia`,
+      fill: '#ffffff'
+    })
+    .setDepth(gameDepths.uiDepth + 1);
+
   let oxygenBG = scene.add
     .graphics()
     .fillStyle(gameStyles.barColor)
@@ -532,7 +540,8 @@ function initUI(scene, mode) {
     scene.oxygenBar,
     oxygenText,
     scene.pauseButton,
-    scene.textScore
+    scene.textScore,
+    scene.ammoCounter
   ]);
 
   scene.uiContainer = uiContainer;
