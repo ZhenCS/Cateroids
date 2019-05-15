@@ -48,6 +48,7 @@ export const DOG2ATLASKEY = 'dog2Atlas';
 export const DOG3ATLASKEY = 'dog3Atlas';
 export const DOG4ATLASKEY = 'dog4Atlas';
 export const BOSSWEAPONATLASKEY = 'bossWeaponAtlas';
+export const OXYGENATLASKEY = 'oxygenAtlas';
 
 export const SPRITEPREFIXKEY = 'sprite';
 export const IDLEKEY = 'idle';
@@ -56,6 +57,7 @@ export const DAMAGEKEY = 'damage';
 export const DYINGKEY = 'dying';
 export const DEADKEY = 'dead';
 export const BOSSWEAPONCHARGINGKEY = 'bossCharging';
+export const OXYGENBREAKINGKEY = 'oxygenBreak';
 
 export const dogKeys = ['DOG1', 'DOG2', 'DOG3', 'DOG4'];
 export const animationKeys = ['idle', 'attack', 'damage', 'dying', 'dead'];

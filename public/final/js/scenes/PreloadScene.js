@@ -105,6 +105,11 @@ export class LoadScene extends Phaser.Scene {
       'assets/bossWeapon_spritesheet.png',
       'json/bossWeapon.json'
     );
+    this.load.atlas(
+      constants.OXYGENATLASKEY,
+      'assets/oxygen_spritesheet.png',
+      'json/oxygen.json'
+    );
 
     // Load asteroids
     for (let i = 0; i < 4; i++) {

@@ -109,7 +109,18 @@ export class Asteroid extends Entity {
 
     this.setData('health', health - damage);
     if (health - damage <= 0) {
-      this.destroy();
+      if(this.getData('level') == 3){
+        if(!this.anims.isPlaying){
+          this.play(constants.OXYGENBREAKINGKEY);
+          let asteroid = this;
+          this.once('animationcomplete', function() {
+            if(asteroid == asteroid.scene.player.getData('oxygenAsteroid'))
+              asteroid.scene.player.setData('oxygenAsteroid', null);
+            asteroid.destroy();
+          });
+        }
+      }else
+        this.destroy();
     }
   }
 }
@@ -1226,16 +1237,17 @@ export class Leo extends Entity {
 
     if (!this.getData('oxygenAsteroid')) {
       this.setRotation(this.rotation * 0.8);
+      this.setData('oxygenAsteroid', null);
     } else {
       let oxygenAsteroid = this.getData('oxygenAsteroid');
-      if (
-        oxygenAsteroid.getData('health') - gameConfig.oxygenAsteroidDamage <=
-        0
-      ) {
-        this.setData('oxygenAsteroid', null);
-      }
-      if (oxygenAsteroid.getData('level') !== 4)
-        oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage);
+      // if (
+      //   oxygenAsteroid.getData('health') - gameConfig.oxygenAsteroidDamage <=
+      //   0
+      // ) {
+      //   this.setData('oxygenAsteroid', null);
+      // }
+      if (oxygenAsteroid && oxygenAsteroid.getData('level') !== 4)
+        oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage/4);
     }
   }
 }

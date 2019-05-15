@@ -323,6 +323,16 @@ function initAnimations(scene) {
   var weaponKeys = [1, 5];
 
   scene.anims.create({
+    key: constants.OXYGENBREAKINGKEY,
+    frames : scene.anims.generateFrameNames(constants.OXYGENATLASKEY, {
+      prefix: constants.SPRITEPREFIXKEY,
+      start: 1,
+      end: 3,
+      zeroPad: 0
+    }),
+    frameRate: 1,
+  });
+  scene.anims.create({
     key: constants.BOSSWEAPONCHARGINGKEY,
     frames: scene.anims.generateFrameNames(constants.BOSSWEAPONATLASKEY, {
       prefix: constants.SPRITEPREFIXKEY,
