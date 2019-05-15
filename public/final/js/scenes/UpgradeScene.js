@@ -52,16 +52,17 @@ export class UpgradeScene extends Phaser.Scene {
     let doneButton = this.createButton(x, y - 60, 'Done').on(
       'pointerdown',
       function() {
-        if(fromPauseMenu){
+        if (fromPauseMenu) {
           fromPauseMenu = false;
-          this.scene.game.scene.switch(constants.UPGRADEKEY, constants.PAUSEKEY);
+          this.scene.game.scene.switch(
+            constants.UPGRADEKEY,
+            constants.PAUSEKEY
+          );
           this.scene.game.scene.stop(constants.UPGRADEKEY);
-        }else{
+        } else {
           this.scene.game.scene.switch(constants.UPGRADEKEY, constants.GOALKEY);
           this.scene.game.scene.stop(constants.UPGRADEKEY);
         }
-
-        
       }
     );
 
@@ -96,7 +97,7 @@ export class UpgradeScene extends Phaser.Scene {
       offsetY + 160,
       'Select Secondary Fire',
       {
-        font: `${60 * gameScale.scale}px impact`,
+        font: `${(upgradeBG.displayWidth / 25) * gameScale.scale}px impact`,
         fill: '#fdfdfd',
         stroke: 'black',
         strokeThickness: 2
@@ -104,21 +105,26 @@ export class UpgradeScene extends Phaser.Scene {
     );
 
     const defaultStyling = {
-      font: `${70 * gameScale.scale}px impact`,
+      font: `${(upgradeBG.displayWidth / 25) * gameScale.scale}px impact`,
       fill: '#fdfdfd',
       stroke: 'black',
       strokeThickness: 2
     };
 
     const activeStyling = {
-      font: `${70 * gameScale.scale}px impact`,
+      font: `${(upgradeBG.displayWidth / 23) * gameScale.scale}px impact`,
       color: '#f9e722',
       stroke: 'black',
       strokeThickness: 5
     };
 
     const plasma = this.add
-      .text(x - 80, offsetY + 220, 'Plasma Cannon', gameConfig.secondaryWeapon == 'plasma' ? activeStyling : defaultStyling)
+      .text(
+        x - 80,
+        offsetY + 220,
+        'Plasma Cannon',
+        gameConfig.secondaryWeapon == 'plasma' ? activeStyling : defaultStyling
+      )
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
         if (this.active) {
@@ -127,6 +133,7 @@ export class UpgradeScene extends Phaser.Scene {
         } else {
           this.setStyle(activeStyling);
           gameConfig.secondaryWeapon = 'plasma';
+          gameConfig.secondaryWeaponText = 'Plasma Shots: ';
           beam.setStyle(defaultStyling);
           beam.active = false;
         }
@@ -134,7 +141,12 @@ export class UpgradeScene extends Phaser.Scene {
       });
 
     const beam = this.add
-      .text(x - 80, offsetY + 260, 'Laser Beam', gameConfig.secondaryWeapon == 'beam' ? activeStyling : defaultStyling)
+      .text(
+        x - 80,
+        offsetY + 270,
+        'Ray Gun',
+        gameConfig.secondaryWeapon == 'beam' ? activeStyling : defaultStyling
+      )
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
         if (this.active) {
@@ -143,6 +155,7 @@ export class UpgradeScene extends Phaser.Scene {
         } else {
           this.setStyle(activeStyling);
           gameConfig.secondaryWeapon = 'beam';
+          gameConfig.secondaryWeaponText = 'Beam Heat: ';
           plasma.setStyle(defaultStyling);
           plasma.active = false;
         }

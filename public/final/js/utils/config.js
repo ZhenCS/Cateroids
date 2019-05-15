@@ -173,5 +173,6 @@ const gameConfig = {
 
   // Weapon Selection
   primaryWeapon: 'primary',
-  secondaryWeapon: 'beam'
+  secondaryWeapon: 'beam',
+  secondaryWeaponText: 'Ray Gun Heat: '
 };

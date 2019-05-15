@@ -876,6 +876,7 @@ export class Leo extends Entity {
     setInterval(() => {
       if (this.ammoCount < scene.gameConfig.maxPlayerAmmo) {
         this.ammoCount++;
+        this.scene.updateAmmo(this.ammoCount);
       }
     }, 2500);
 
@@ -883,8 +884,9 @@ export class Leo extends Entity {
     setInterval(() => {
       if (this.heat <= this.heatCapacity && this.heat > 0) {
         this.heat -= 100;
+        this.scene.updateAmmo(this.heat);
       }
-    }, 250);
+    }, 500);
   }
 
   playDyingSound() {
@@ -1021,10 +1023,8 @@ export class Leo extends Entity {
       pointerY
     );
     let speed = 2000;
-    if(type === 'plasma')
-      speed = 250;
-    if(type === 'beam')
-      speed = 1000;
+    if (type === 'plasma') speed = 250;
+    if (type === 'beam') speed = 1000;
 
     let xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-20, 20);
     let yVelocity = speed * Math.sin(angle) + Phaser.Math.Between(-20, 20);
@@ -1068,6 +1068,7 @@ export class Leo extends Entity {
         bullet.destroy();
       }, 500);
       this.heat += 100;
+      this.scene.updateAmmo(this.heat);
       bullet.body.setVelocity(xVelocity, yVelocity);
       this.scene.bullets.add(bullet);
       this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.3 });
@@ -1082,6 +1083,7 @@ export class Leo extends Entity {
       .setRotation(angle);
 
     this.ammoCount--;
+    this.scene.updateAmmo(this.ammoCount);
     bullet.body.setVelocity(xVelocity, yVelocity);
     this.scene.bullets.add(bullet);
     this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.3 });
