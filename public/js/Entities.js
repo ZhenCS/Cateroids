@@ -472,6 +472,7 @@ class DogWallWeapon extends Entity {
     laserToFire.once('laserFired', function() {
       self.laserFiring = false;
       self.performingAction = false;
+      self.setTexture(constants.DOGWALLWEAPONKEY);
     });
     laserToFire.fire();
 
