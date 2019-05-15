@@ -480,10 +480,15 @@ function initUI(scene, mode) {
 
   scene.ammo = 2;
   scene.ammoCounter = scene.add
-    .text(gameStyles.padding + 2, gameStyles.padding - 2, scene.ammo, {
-      font: `${32 * gameScale.scale}px Georgia`,
-      fill: '#ffffff'
-    })
+    .text(
+      gameStyles.padding + 2,
+      gameStyles.padding * 4 + gameStyles.barHeight,
+      `${gameConfig.secondaryWeapon.toUpperCase()} AMMO: ${scene.ammo} `,
+      {
+        font: `${38 * gameScale.scale}px Georgia`,
+        fill: '#ffffff'
+      }
+    )
     .setDepth(gameDepths.uiDepth + 1);
 
   let oxygenBG = scene.add
