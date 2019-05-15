@@ -114,7 +114,7 @@ const gameConfig = {
   minVelocityX: 100,
   minVelocityY: 100,
 
-  maxPlayerHealth: 1000, //changed by upgrades
+  maxPlayerHealth: 700, //changed by upgrades
   maxPlayerOxygen: 100,
   playerDamage: 50, //changed by upgrades
   playerBulletSize: 1, //changed by upgrades
@@ -159,10 +159,10 @@ const gameConfig = {
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
   oxygenDepletionDelay: 50,
-  oxygenDepletionRate: 10 / 100, //changed by upgrades
+  oxygenDepletionRate: 30 / 100, //changed by upgrades
 
   oxygenReplenishDelay: 50,
-  oxygenReplenishRate: 15 / 100, //changed by upgrades
+  oxygenReplenishRate: 90 / 100, //changed by upgrades
 
   laserDamage: 1,
   laserDuration: 2500,
