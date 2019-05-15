@@ -23,25 +23,32 @@ export class PauseScene extends Phaser.Scene {
     centerX(this, pauseHeader);
     
     let resumeButton = this.createButton(
-      500 * gameScale.scale,
+      400 * gameScale.scale,
       'Resume Game'
     ).on('pointerdown', function() {
       this.scene.hidePauseMenu();
     });
-    let controlButton = this.createButton(700 * gameScale.scale, 'Controls').on(
+    let controlButton = this.createButton(600 * gameScale.scale, 'Controls').on(
       'pointerdown',
       function() {
         this.scene.showControls();
       }
     );
-    let cheatButton = this.createButton(900 * gameScale.scale, 'Cheats').on(
+    let cheatButton = this.createButton(800 * gameScale.scale, 'Cheats').on(
       'pointerdown',
       function() {
         this.scene.game.scene.switch(constants.PAUSEKEY, constants.CHEATKEY);
       }
     );
+    let upgradeButton = this.createButton(1000 * gameScale.scale, 'Workshop').on(
+      'pointerdown',
+      function() {
+        fromPauseMenu = true;
+        this.scene.game.scene.switch(constants.PAUSEKEY, constants.UPGRADEKEY);
+      }
+    );
     let exitGameButton = this.createButton(
-      1100 * gameScale.scale,
+      1200 * gameScale.scale,
       'Exit Game'
     ).on('pointerdown', function() {
       this.scene.game.scene.switch(constants.PAUSEKEY, constants.STARTMENUKEY);
@@ -54,12 +61,14 @@ export class PauseScene extends Phaser.Scene {
       resumeButton,
       controlButton,
       cheatButton,
+      upgradeButton,
       exitGameButton
     ]);
     pauseContainer.gameButtons = [
       resumeButton,
       controlButton,
       cheatButton,
+      upgradeButton,
       exitGameButton
     ];
     return pauseContainer;

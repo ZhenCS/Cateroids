@@ -157,7 +157,7 @@ export class SceneMain extends Phaser.Scene {
 
     if (this.player.x >= this.endPointX) {
       this.sound.stopAll();
-      if (currentLevel.level > 8) {
+      if (currentLevel.level >= constants.LEVELS) {
         //end of game
       } else {
         //this.scene.restart();

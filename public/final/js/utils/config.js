@@ -33,6 +33,7 @@ const gameDepths = {
 };
 
 let fromCheatMenu = false;
+let fromPauseMenu = false;
 
 let currentLevel = {
   key: 'level1',

@@ -12,10 +12,11 @@ export class LevelSelectScene extends Phaser.Scene {
 
     setBG(this);
     setGameName(this);
-
+    this.fromCheatMenu = false;
     if(fromCheatMenu){
       setBackButton(this, constants.LEVELSKEY, constants.CHEATKEY);
       fromCheatMenu = false;
+      this.fromCheatMenu = true;
     }
     else setBackButton(this, constants.LEVELSKEY, constants.STARTMENUKEY);
 
@@ -77,15 +78,20 @@ export class LevelSelectScene extends Phaser.Scene {
     let iconBG = this.add
       .sprite(x, y, constants.LEVELICON)
       .setInteractive({ cursor: 'pointer' });
+
+    let scene = this;
     iconBG.on('pointerdown', function() {
-      currentLevel.key = constants[`LEVEL${id}KEY`];
-      currentLevel.level = id;
 
-      this.scene.game.scene.stop(constants.GAMEKEY);
-      this.scene.game.scene.switch(constants.LEVELSKEY, constants.GAMEKEY);
-      this.scene.game.scene.stop(constants.LEVELSKEY);
+      if(id == 1 || scene.fromCheatMenu || stars[id - 1][0]){
+        currentLevel.key = constants[`LEVEL${id}KEY`];
+        currentLevel.level = id;
 
-      menuSelectSound.play();
+        this.scene.game.scene.stop(constants.GAMEKEY);
+        this.scene.game.scene.switch(constants.LEVELSKEY, constants.GAMEKEY);
+        this.scene.game.scene.stop(constants.LEVELSKEY);
+
+        menuSelectSound.play();
+      }
     });
 
     iconBG.on('pointerover', function() {

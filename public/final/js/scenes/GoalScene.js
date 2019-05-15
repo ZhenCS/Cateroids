@@ -59,12 +59,14 @@ export class GoalScene extends Phaser.Scene {
         currentLevel.level++;
         currentLevel.key = constants[`LEVEL${currentLevel.level}KEY`];
 
-        this.scene.game.scene.switch(constants.GOALKEY, constants.GAMEKEY);
-        this.scene.game.scene.stop(constants.GOALKEY);
+        if (currentLevel.level <= constants.LEVELS) {
+          this.scene.game.scene.switch(constants.GOALKEY, constants.GAMEKEY);
+          this.scene.game.scene.stop(constants.GOALKEY);
+        }
       }
     );
 
-    let upgradeButton = this.createButton(0, buttonY, 'Upgrade').on(
+    let upgradeButton = this.createButton(0, buttonY, 'Workshop').on(
       'pointerdown',
       function() {
         this.scene.game.scene.switch(constants.GOALKEY, constants.UPGRADEKEY);

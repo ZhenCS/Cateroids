@@ -622,8 +622,8 @@ function resetShootTimer(scene) {
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
           scene.player.shoot(
-            pointer.worldX,
-            pointer.worldY,
+            pointer.x,
+            pointer.y,
             gameConfig.secondaryWeapon
           );
           scene.player.play(constants.ATTACKKEY);
@@ -653,13 +653,13 @@ function initEvents(scene) {
         let pointer = scene.input.mousePointer;
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
-          scene.player.shoot(pointer.worldX, pointer.worldY, 'beam');
+          scene.player.shoot(pointer.x, pointer.y, 'beam');
           scene.player.play(constants.ATTACKKEY);
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);
           });
         } else {
-          scene.player.shoot(pointer.worldX, pointer.worldY, 'primary');
+          scene.player.shoot(pointer.x, pointer.y, 'primary');
           scene.player.play(constants.ATTACKKEY);
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);
