@@ -1056,7 +1056,7 @@ export class Leo extends Entity {
       this.heat += 100;
       bullet.body.setVelocity(xVelocity * 0.5, 0);
       this.scene.bullets.add(bullet);
-      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.1 });
+      this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.3 });
     }
   }
 
@@ -1070,7 +1070,7 @@ export class Leo extends Entity {
     this.ammoCount--;
     bullet.body.setVelocity(xVelocity * 0.25, yVelocity * 0.25);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.1 });
+    this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.3 });
   }
 
   shootPrimary(bullet, angle, playerDamage, xVelocity, yVelocity, scale) {
@@ -1083,7 +1083,7 @@ export class Leo extends Entity {
 
     bullet.body.setVelocity(xVelocity, yVelocity);
     this.scene.bullets.add(bullet);
-    this.scene.sound.play(constants.CATWEAPONAUDIO, { volume: 0.1 });
+    this.scene.sound.play(constants.CATWEAPONAUDIO, { volume: 0.3 });
   }
 
   damage(damage) {

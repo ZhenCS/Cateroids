@@ -83,18 +83,48 @@ export class UpgradeScene extends Phaser.Scene {
     );
     this.playerStarCount = playerStarCount;
 
-    const plasma = this.add.text(x - 80, offsetY + 220, 'Plasma Cannon', {
-      font: `${30 * gameScale.scale}px impact`,
-      fill: '#fdfdfd',
-      stroke: 'black',
-      strokeThickness: 2
-    });
-    const beam = this.add.text(x - 80, offsetY + 260, 'Laser Beam', {
-      font: `${30 * gameScale.scale}px impact`,
-      fill: '#fdfdfd',
-      stroke: 'black',
-      strokeThickness: 2
-    });
+    const weaponSelectText = this.add.text(
+      x - 80,
+      offsetY + 160,
+      'Select Secondary Fire',
+      {
+        font: `${30 * gameScale.scale}px impact`,
+        fill: '#fdfdfd',
+        stroke: 'black',
+        strokeThickness: 2
+      }
+    );
+
+    const plasma = this.add
+      .text(x - 80, offsetY + 220, 'Plasma Cannon', {
+        font: `${30 * gameScale.scale}px impact`,
+        fill: '#fdfdfd',
+        stroke: 'black',
+        strokeThickness: 2
+      })
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', function() {
+        console.log('Activate Plasma Cannon');
+        // Change text style
+
+        // Function setSecondaryFire('plasma')
+        // Change secondary weapon config
+        // change secondary weapon label
+      });
+    const beam = this.add
+      .text(x - 80, offsetY + 260, 'Laser Beam', {
+        font: `${30 * gameScale.scale}px impact`,
+        fill: '#fdfdfd',
+        stroke: 'black',
+        strokeThickness: 2
+      })
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', function() {
+        console.log('Activate Beam');
+        // Function setSecondaryFire('beam')
+        // Change secondary weapon config
+        // change secondary weapon label
+      });
 
     upgradeContainer.add([
       doneButton,
