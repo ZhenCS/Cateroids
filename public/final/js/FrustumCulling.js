@@ -1,6 +1,6 @@
 function getMaxLength(scene) {
   return (
-    1.5 *
+    1.7 *
     Math.sqrt(
       Math.pow(scene.game.config.width * 0.5, 2) +
         Math.pow(scene.game.config.height * 0.5, 2)

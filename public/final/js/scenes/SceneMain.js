@@ -128,10 +128,21 @@ export class SceneMain extends Phaser.Scene {
         text.getData('displayX') - self.player.x <=
         text.getData('showOnDeltaX')
       ) {
+        if(text.getData('type') == 'TIME'){
+          self.time.addEvent({
+            delay: text.getData('duration'),
+            callback: function() {
+              text.destroy();
+            },
+            callbackScope: self,
+            loop: true
+          });
+        }
+
         text.setVisible(true);
       }
 
-      if (
+      if (text.getData('type') == 'LOCATION' &&
         text.getData('displayX') - self.player.x <=
         text.getData('hideOnDeltaX')
       ) {
