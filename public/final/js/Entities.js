@@ -109,18 +109,17 @@ export class Asteroid extends Entity {
 
     this.setData('health', health - damage);
     if (health - damage <= 0) {
-      if(this.getData('level') == 3){
-        if(!this.anims.isPlaying){
+      if (this.getData('level') == 3) {
+        if (!this.anims.isPlaying) {
           this.play(constants.OXYGENBREAKINGKEY);
           let asteroid = this;
           this.once('animationcomplete', function() {
-            if(asteroid == asteroid.scene.player.getData('oxygenAsteroid'))
+            if (asteroid == asteroid.scene.player.getData('oxygenAsteroid'))
               asteroid.scene.player.setData('oxygenAsteroid', null);
             asteroid.destroy();
           });
         }
-      }else
-        this.destroy();
+      } else this.destroy();
     }
   }
 }
@@ -1046,7 +1045,6 @@ export class Leo extends Entity {
 
   shootBeam(bullet, angle, playerDamage, xVelocity, yVelocity) {
     if (this.heat < 1000) {
-      console.log('Firing beam:', this.heat);
       const initX = 0.2;
       const initY = 1.5;
       let scaleMultiplier = 2.0;
@@ -1177,7 +1175,7 @@ export class Leo extends Entity {
         asteroid.x - asteroid.body.deltaX(),
         asteroid.y - asteroid.body.deltaY(),
         this.x,
-        this.y 
+        this.y
       ) +
       rad / (radius / 48);
     this.setRotation(angle + Math.PI / 2);
@@ -1245,7 +1243,7 @@ export class Leo extends Entity {
       let oxygenAsteroid = this.getData('oxygenAsteroid');
 
       if (oxygenAsteroid && oxygenAsteroid.getData('level') !== 4)
-        oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage/4);
+        oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage / 4);
     }
   }
 }
