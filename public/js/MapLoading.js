@@ -120,8 +120,8 @@ function setBackground(scene, mode) {
                                 .setScrollFactor(0, 0)
                                 .setDepth(-1);
   } else if (mode == 'DEFEND') {
-    let bgWidth = scene.game.config.width;
-    let bgHeight = scene.game.config.height;
+    let bgWidth = scene.gameConfig.worldWidth;
+    let bgHeight = scene.gameConfig.worldHeight;
     scene.spaceBackground = scene.add
       .tileSprite(
         0,
@@ -133,8 +133,8 @@ function setBackground(scene, mode) {
       .setDisplayOrigin(0, 0)
       .setDepth(-1);
   } else if (mode == 'BOSS') {
-    let bgWidth = scene.game.config.width;
-    let bgHeight = scene.game.config.height;
+    let bgWidth = scene.gameConfig.worldWidth;
+    let bgHeight = scene.gameConfig.worldHeight;
     // temporary until boss battle background is ready
     scene.spaceBackground = scene.add
       .tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND1)
