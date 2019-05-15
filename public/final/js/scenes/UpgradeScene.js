@@ -83,18 +83,67 @@ export class UpgradeScene extends Phaser.Scene {
     );
     this.playerStarCount = playerStarCount;
 
-    const plasma = this.add.text(x - 80, offsetY + 220, 'Plasma Cannon', {
+    const weaponSelectText = this.add.text(
+      x - 80,
+      offsetY + 160,
+      'Select Secondary Fire',
+      {
+        font: `${35 * gameScale.scale}px impact`,
+        fill: '#fdfdfd',
+        stroke: 'black',
+        strokeThickness: 2
+      }
+    );
+
+    const defaultStyling = {
       font: `${30 * gameScale.scale}px impact`,
       fill: '#fdfdfd',
       stroke: 'black',
       strokeThickness: 2
-    });
-    const beam = this.add.text(x - 80, offsetY + 260, 'Laser Beam', {
-      font: `${30 * gameScale.scale}px impact`,
-      fill: '#fdfdfd',
+    };
+
+    const activeStyling = {
+      font: `${35 * gameScale.scale}px impact`,
+      color: '#f9e722',
       stroke: 'black',
-      strokeThickness: 2
-    });
+      strokeThickness: 5
+    };
+
+    const plasma = this.add
+      .text(x - 80, offsetY + 220, 'Plasma Cannon', defaultStyling)
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', function() {
+        if (this.active) {
+          this.setStyle(defaultStyling);
+        } else {
+          this.setStyle(activeStyling);
+          beam.setStyle(defaultStyling);
+          beam.active = false;
+        }
+        this.active = !this.active;
+      });
+
+    const beam = this.add
+      .text(x - 80, offsetY + 260, 'Laser Beam', {
+        font: `${30 * gameScale.scale}px impact`,
+        fill: '#fdfdfd',
+        stroke: 'black',
+        strokeThickness: 2
+      })
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', function() {
+        if (this.active) {
+          this.setStyle(defaultStyling);
+        } else {
+          this.setStyle(activeStyling);
+          plasma.setStyle(defaultStyling);
+          plasma.active = false;
+        }
+        this.active = !this.active;
+      });
+
+    plasma.active = false;
+    beam.active = false;
 
     upgradeContainer.add([
       doneButton,

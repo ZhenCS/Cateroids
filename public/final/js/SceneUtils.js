@@ -152,7 +152,7 @@ function initSound(scene) {
   scene.levelMusic = scene.sound.play(
     constants[`LEVELMUSIC${currentLevel.level}`],
     {
-      volume: 0.01,
+      volume: 0.1,
       loop: true,
       delay: 1
     }
