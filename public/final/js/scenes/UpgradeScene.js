@@ -88,29 +88,41 @@ export class UpgradeScene extends Phaser.Scene {
       offsetY + 160,
       'Select Secondary Fire',
       {
-        font: `${30 * gameScale.scale}px impact`,
+        font: `${35 * gameScale.scale}px impact`,
         fill: '#fdfdfd',
         stroke: 'black',
         strokeThickness: 2
       }
     );
 
+    const defaultStyling = {
+      font: `${30 * gameScale.scale}px impact`,
+      fill: '#fdfdfd',
+      stroke: 'black',
+      strokeThickness: 2
+    };
+
+    const activeStyling = {
+      font: `${35 * gameScale.scale}px impact`,
+      color: '#f9e722',
+      stroke: 'black',
+      strokeThickness: 5
+    };
+
     const plasma = this.add
-      .text(x - 80, offsetY + 220, 'Plasma Cannon', {
-        font: `${30 * gameScale.scale}px impact`,
-        fill: '#fdfdfd',
-        stroke: 'black',
-        strokeThickness: 2
-      })
+      .text(x - 80, offsetY + 220, 'Plasma Cannon', defaultStyling)
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
-        console.log('Activate Plasma Cannon');
-        // Change text style
-
-        // Function setSecondaryFire('plasma')
-        // Change secondary weapon config
-        // change secondary weapon label
+        if (this.active) {
+          this.setStyle(defaultStyling);
+        } else {
+          this.setStyle(activeStyling);
+          beam.setStyle(defaultStyling);
+          beam.active = false;
+        }
+        this.active = !this.active;
       });
+
     const beam = this.add
       .text(x - 80, offsetY + 260, 'Laser Beam', {
         font: `${30 * gameScale.scale}px impact`,
@@ -120,11 +132,18 @@ export class UpgradeScene extends Phaser.Scene {
       })
       .setInteractive({ cursor: 'pointer' })
       .on('pointerdown', function() {
-        console.log('Activate Beam');
-        // Function setSecondaryFire('beam')
-        // Change secondary weapon config
-        // change secondary weapon label
+        if (this.active) {
+          this.setStyle(defaultStyling);
+        } else {
+          this.setStyle(activeStyling);
+          plasma.setStyle(defaultStyling);
+          plasma.active = false;
+        }
+        this.active = !this.active;
       });
+
+    plasma.active = false;
+    beam.active = false;
 
     upgradeContainer.add([
       doneButton,
