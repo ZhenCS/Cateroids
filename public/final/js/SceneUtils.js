@@ -481,12 +481,12 @@ function initUI(scene, mode) {
     )
     .setDepth(gameDepths.uiDepth + 1);
 
-  scene.ammo = 2;
+  scene.ammo = '';
   scene.ammoCounter = scene.add
     .text(
       gameStyles.padding + 2,
       gameStyles.padding * 4 + gameStyles.barHeight,
-      `${gameConfig.secondaryWeapon.toUpperCase()} AMMO: ${scene.ammo} `,
+      `${gameConfig.secondaryWeaponText}${scene.ammo}`,
       {
         font: `${38 * gameScale.scale}px Georgia`,
         fill: '#ffffff'
@@ -624,11 +624,7 @@ function resetShootTimer(scene) {
         let pointer = scene.input.mousePointer;
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
-          scene.player.shoot(
-            pointer.x,
-            pointer.y,
-            gameConfig.secondaryWeapon
-          );
+          scene.player.shoot(pointer.x, pointer.y, gameConfig.secondaryWeapon);
           scene.player.play(constants.ATTACKKEY);
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);
