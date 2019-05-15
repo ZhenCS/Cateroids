@@ -636,8 +636,7 @@
     <property name="hideOnDeltaX" type="float" value="-200"/>
     <property name="showOnDeltaX" type="float" value="200"/>
     <property name="text" value="Use WASD to Move"/>
-    <property name="type">LOCATION
-</property>
+    <property name="type" value="LOCATION"/>
    </properties>
   </object>
   <object id="426" gid="37" x="192" y="576" width="64" height="64">

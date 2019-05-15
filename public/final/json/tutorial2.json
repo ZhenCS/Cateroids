@@ -3930,7 +3930,7 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"TIME"
+                         "value":"LOCATION"
                         }],
                  "rotation":0,
                  "type":"text",

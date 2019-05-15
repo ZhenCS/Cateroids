@@ -151,8 +151,6 @@ function enemyBulletCollisionCallback(bullet, dog) {
       dog.damage(bullet.getData('damage'));
     }
 
-    console.log(bullet.type);
-
     if (bullet && bullet.type !== 'strongLaser') {
       bullet.removeColliders();
       this.bullets.killAndHide(bullet);
@@ -263,7 +261,6 @@ function asteroidToBulletCollision(bullet, asteroid) {
   if (bullet) {
     bullet.removeColliders();
     this.bullets.killAndHide(bullet);
-    console.log('hit');
   }
 }
 

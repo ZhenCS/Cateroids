@@ -324,13 +324,13 @@ function initAnimations(scene) {
 
   scene.anims.create({
     key: constants.OXYGENBREAKINGKEY,
-    frames : scene.anims.generateFrameNames(constants.OXYGENATLASKEY, {
+    frames: scene.anims.generateFrameNames(constants.OXYGENATLASKEY, {
       prefix: constants.SPRITEPREFIXKEY,
       start: 1,
       end: 3,
       zeroPad: 0
     }),
-    frameRate: 1,
+    frameRate: 1
   });
   scene.anims.create({
     key: constants.BOSSWEAPONCHARGINGKEY,
@@ -478,6 +478,19 @@ function initUI(scene, mode) {
     )
     .setDepth(gameDepths.uiDepth + 1);
 
+  scene.ammo = '';
+  scene.ammoCounter = scene.add
+    .text(
+      gameStyles.padding + 2,
+      gameStyles.padding * 4 + gameStyles.barHeight,
+      `${gameConfig.secondaryWeaponText}${scene.ammo}`,
+      {
+        font: `${38 * gameScale.scale}px Georgia`,
+        fill: '#ffffff'
+      }
+    )
+    .setDepth(gameDepths.uiDepth + 1);
+
   let oxygenBG = scene.add
     .graphics()
     .fillStyle(gameStyles.barColor)
@@ -532,7 +545,8 @@ function initUI(scene, mode) {
     scene.oxygenBar,
     oxygenText,
     scene.pauseButton,
-    scene.textScore
+    scene.textScore,
+    scene.ammoCounter
   ]);
 
   scene.uiContainer = uiContainer;
@@ -607,11 +621,7 @@ function resetShootTimer(scene) {
         let pointer = scene.input.mousePointer;
         if (pointer.rightButtonDown()) {
           // Shoot secondary fire
-          scene.player.shoot(
-            pointer.x,
-            pointer.y,
-            gameConfig.secondaryWeapon
-          );
+          scene.player.shoot(pointer.x, pointer.y, gameConfig.secondaryWeapon);
           scene.player.play(constants.ATTACKKEY);
           scene.player.once('animationcomplete', function() {
             scene.player.play(constants.IDLEKEY);

@@ -86,7 +86,7 @@ export class SceneMain extends Phaser.Scene {
       lifespan: 600
     });
 
-    for (let i = 0; i < amount/2; i++) {
+    for (let i = 0; i < amount / 2; i++) {
       explosion.explode();
     }
   }
@@ -104,6 +104,9 @@ export class SceneMain extends Phaser.Scene {
   addScore(amount) {
     this.score += amount;
     this.textScore.setText(this.score);
+  }
+  updateAmmo(ammo) {
+    this.ammoCounter.setText(`${gameConfig.secondaryWeaponText}${ammo}`);
   }
 
   fireLasers() {
