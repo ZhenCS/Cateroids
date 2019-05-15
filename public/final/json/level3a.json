@@ -61,6 +61,42 @@
                  "width":64,
                  "x":576,
                  "y":1024
+                }, 
+                {
+                 "gid":27,
+                 "height":64,
+                 "id":469,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":668,
+                 "y":668
+                }, 
+                {
+                 "gid":27,
+                 "height":64,
+                 "id":470,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":768,
+                 "y":754
+                }, 
+                {
+                 "gid":27,
+                 "height":64,
+                 "id":471,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":834,
+                 "y":602
                 }],
          "offsetx":32,
          "offsety":0,
@@ -218,12 +254,55 @@
                  "width":64,
                  "x":960,
                  "y":256
+                }, 
+                {
+                 "gid":11,
+                 "height":64,
+                 "id":474,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"duration",
+                         "type":"int",
+                         "value":10000
+                        }, 
+                        {
+                         "name":"hideOnDeltaX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"showOnDeltaX",
+                         "type":"float",
+                         "value":100000
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"text",
+                         "type":"string",
+                         "value":"Defend The Base"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"TIME"
+                        }],
+                 "rotation":0,
+                 "type":"text",
+                 "visible":true,
+                 "width":64,
+                 "x":576,
+                 "y":448
                 }],
          "offsetx":32,
          "offsety":0,
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -466,7 +545,7 @@
                         {
                          "name":"velocityX",
                          "type":"int",
-                         "value":50
+                         "value":30
                         }, 
                         {
                          "name":"velocityY",
@@ -4108,7 +4187,7 @@
                         {
                          "name":"playerDeltaX",
                          "type":"float",
-                         "value":200
+                         "value":1000
                         }, 
                         {
                          "name":"scale",
@@ -4117,8 +4196,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"1"
                         }, 
                         {
                          "name":"type",
@@ -4129,7 +4208,7 @@
                  "type":"laser",
                  "visible":true,
                  "width":64,
-                 "x":832,
+                 "x":512,
                  "y":512
                 }, 
                 {
@@ -4171,7 +4250,7 @@
                         {
                          "name":"playerDeltaX",
                          "type":"float",
-                         "value":200
+                         "value":1000
                         }, 
                         {
                          "name":"scale",
@@ -4180,8 +4259,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"1"
                         }, 
                         {
                          "name":"type",
@@ -4192,7 +4271,7 @@
                  "type":"laser",
                  "visible":true,
                  "width":64,
-                 "x":832,
+                 "x":512,
                  "y":704
                 }, 
                 {
@@ -4280,7 +4359,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4328,7 +4407,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4376,7 +4455,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4424,7 +4503,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4472,7 +4551,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"velocityX",
@@ -4520,7 +4599,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4568,7 +4647,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4616,7 +4695,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4664,7 +4743,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4712,7 +4791,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":4
                         }, 
                         {
                          "name":"velocityX",
@@ -4969,8 +5048,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5012,8 +5091,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5055,8 +5134,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5098,8 +5177,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5141,8 +5220,8 @@
                         }, 
                         {
                          "name":"spawnNumber",
-                         "type":"int",
-                         "value":1
+                         "type":"string",
+                         "value":"0"
                         }, 
                         {
                          "name":"velocityX",
@@ -5425,7 +5504,7 @@
                         {
                          "name":"playerDeltaX",
                          "type":"float",
-                         "value":200
+                         "value":1000
                         }, 
                         {
                          "name":"scale",
@@ -5453,7 +5532,7 @@
          "offsety":0,
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -5511,7 +5590,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":3
+                         "value":2
                         }, 
                         {
                          "name":"type",
@@ -5574,7 +5653,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":3
+                         "value":2
                         }, 
                         {
                          "name":"type",
@@ -5586,13 +5665,13 @@
                  "visible":true,
                  "width":64,
                  "x":576,
-                 "y":562.333333333333
+                 "y":562.333
                 }],
          "offsetx":32,
          "offsety":0,
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -5625,7 +5704,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5668,7 +5747,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5711,7 +5790,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5754,7 +5833,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5797,7 +5876,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5840,7 +5919,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5883,7 +5962,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5926,7 +6005,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -5969,7 +6048,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6012,7 +6091,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6055,7 +6134,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6098,7 +6177,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6141,7 +6220,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6184,7 +6263,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6227,7 +6306,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6270,7 +6349,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6313,7 +6392,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6356,7 +6435,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6399,7 +6478,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6442,7 +6521,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6485,7 +6564,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }, 
                         {
                          "name":"velocityX",
@@ -6601,7 +6680,7 @@
                  "visible":true,
                  "width":64,
                  "x":126,
-                 "y":-47.3333333333333
+                 "y":-47.3333
                 }, 
                 {
                  "gid":1,
@@ -6643,8 +6722,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":126.666666666667,
-                 "y":47.3333333333333
+                 "x":126.667,
+                 "y":47.3333
                 }, 
                 {
                  "gid":1,
@@ -6686,8 +6765,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":83.3333333333333,
-                 "y":0.666666666666671
+                 "x":83.3333,
+                 "y":0.666667
                 }, 
                 {
                  "gid":1,
@@ -6730,7 +6809,7 @@
                  "visible":true,
                  "width":64,
                  "x":180,
-                 "y":6.66666666666667
+                 "y":6.66667
                 }, 
                 {
                  "gid":1,
@@ -6772,8 +6851,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":184.666666666667,
-                 "y":-56.6666666666667
+                 "x":184.667,
+                 "y":-56.6667
                 }, 
                 {
                  "gid":1,
@@ -6815,8 +6894,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":89.3333333333333,
-                 "y":-22.6666666666667
+                 "x":89.3333,
+                 "y":-22.6667
                 }, 
                 {
                  "gid":1,
@@ -6858,8 +6937,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":80.6666666666667,
-                 "y":38.6666666666667
+                 "x":80.6667,
+                 "y":38.6667
                 }, 
                 {
                  "gid":1,
@@ -6944,7 +7023,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":88.9999999999999,
+                 "x":89,
                  "y":-1
                 }, 
                 {
@@ -7159,8 +7238,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":1031.33333333333,
-                 "y":-38.6666666666667
+                 "x":1031.33,
+                 "y":-38.6667
                 }, 
                 {
                  "gid":1,
@@ -7203,7 +7282,7 @@
                  "visible":true,
                  "width":64,
                  "x":1018,
-                 "y":22.6666666666667
+                 "y":22.6667
                 }, 
                 {
                  "gid":1,
@@ -7245,8 +7324,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":974.666666666667,
-                 "y":-8.66666666666666
+                 "x":974.667,
+                 "y":-8.66667
                 }, 
                 {
                  "gid":1,
@@ -7331,7 +7410,7 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":1073.33333333333,
+                 "x":1073.33,
                  "y":-30
                 }, 
                 {
@@ -7374,8 +7453,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":984.666666666667,
-                 "y":-29.3333333333333
+                 "x":984.667,
+                 "y":-29.3333
                 }, 
                 {
                  "gid":1,
@@ -7418,7 +7497,7 @@
                  "visible":true,
                  "width":64,
                  "x":984,
-                 "y":33.3333333333333
+                 "y":33.3333
                 }, 
                 {
                  "gid":1,
@@ -7460,8 +7539,8 @@
                  "type":"asteroid",
                  "visible":true,
                  "width":64,
-                 "x":1058.66666666667,
-                 "y":35.3333333333333
+                 "x":1058.67,
+                 "y":35.3333
                 }, 
                 {
                  "gid":1,
@@ -9483,7 +9562,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9579,7 +9658,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9675,7 +9754,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9771,7 +9850,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -9867,7 +9946,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -10011,7 +10090,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -10059,7 +10138,7 @@
                         {
                          "name":"spawnNumber",
                          "type":"int",
-                         "value":1
+                         "value":3
                         }, 
                         {
                          "name":"velocityX",
@@ -10433,7 +10512,7 @@
                  "visible":true,
                  "width":64,
                  "x":632,
-                 "y":-92.3330000000001
+                 "y":-92.333
                 }, 
                 {
                  "gid":1,
@@ -10476,7 +10555,7 @@
                  "visible":true,
                  "width":64,
                  "x":537,
-                 "y":-91.3330000000001
+                 "y":-91.333
                 }, 
                 {
                  "gid":1,
@@ -10519,7 +10598,7 @@
                  "visible":true,
                  "width":64,
                  "x":583,
-                 "y":-63.3330000000001
+                 "y":-63.333
                 }, 
                 {
                  "gid":1,
@@ -14099,7 +14178,7 @@
          "y":0
         }],
  "nextlayerid":28,
- "nextobjectid":466,
+ "nextobjectid":475,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -14159,7 +14238,7 @@
         {
          "columns":5,
          "firstgid":1,
-         "image":"..\/assets\/CateroidsTileset2.png",
+         "image":"..\/..\/benchmark3\/assets\/CateroidsTileset2.png",
          "imageheight":192,
          "imagewidth":320,
          "margin":0,
@@ -14507,6 +14586,11 @@
                  "id":10,
                  "properties":[
                         {
+                         "name":"duration",
+                         "type":"int",
+                         "value":10000
+                        }, 
+                        {
                          "name":"hideOnDeltaX",
                          "type":"float",
                          "value":0
@@ -14525,8 +14609,471 @@
                          "name":"text",
                          "type":"string",
                          "value":"placeholder text"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"LOCATION"
                         }],
                  "type":"text"
+                }],
+         "tilewidth":64
+        }, 
+        {
+         "columns":6,
+         "firstgid":16,
+         "image":"..\/assets\/CateroidsTileset2.png",
+         "imageheight":256,
+         "imagewidth":384,
+         "margin":0,
+         "name":"CateroidsTileset2",
+         "spacing":0,
+         "tilecount":24,
+         "tileheight":64,
+         "tiles":[
+                {
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":20
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":40
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"asteroid"
+                }, 
+                {
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":20
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"asteroid"
+                }, 
+                {
+                 "id":2,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"asteroid"
+                }, 
+                {
+                 "id":3,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":500
+                        }, 
+                        {
+                         "name":"hasDog",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":300
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "type":"asteroid"
+                }, 
+                {
+                 "id":4,
+                 "properties":[
+                        {
+                         "name":"angleFactor",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"laserDamage",
+                         "type":"float",
+                         "value":1
+                        }, 
+                        {
+                         "name":"laserDelay",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"laserDuration",
+                         "type":"int",
+                         "value":2500
+                        }, 
+                        {
+                         "name":"laserFireDelay",
+                         "type":"int",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"laserSprites",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"playerDeltaX",
+                         "type":"float",
+                         "value":200
+                        }, 
+                        {
+                         "name":"scale",
+                         "type":"float",
+                         "value":4
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"VERTICAL"
+                        }],
+                 "type":"laser"
+                }, 
+                {
+                 "id":5,
+                 "type":"dog"
+                }, 
+                {
+                 "id":6,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":15
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"dog"
+                }, 
+                {
+                 "id":7,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":60
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"dog"
+                }, 
+                {
+                 "id":8,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":800
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"dog"
+                }, 
+                {
+                 "id":9,
+                 "properties":[
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "type":"spawnPoint"
+                }, 
+                {
+                 "id":10,
+                 "properties":[
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "type":"endPoint"
+                }, 
+                {
+                 "id":12,
+                 "properties":[
+                        {
+                         "name":"duration",
+                         "type":"int",
+                         "value":10000
+                        }, 
+                        {
+                         "name":"hideOnDeltaX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"showOnDeltaX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"text",
+                         "type":"string",
+                         "value":"placeholder text"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"TIME"
+                        }],
+                 "type":"text"
+                }, 
+                {
+                 "id":18,
+                 "properties":[
+                        {
+                         "name":"bossType",
+                         "type":"string",
+                         "value":"placeholder"
+                        }, 
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":20
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "type":"boss"
+                }, 
+                {
+                 "id":19,
+                 "properties":[
+                        {
+                         "name":"damage",
+                         "type":"float",
+                         "value":10
+                        }, 
+                        {
+                         "name":"fireRate",
+                         "type":"float",
+                         "value":1500
+                        }, 
+                        {
+                         "name":"health",
+                         "type":"float",
+                         "value":80
+                        }, 
+                        {
+                         "name":"level",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"spawnNumber",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "type":"dog"
                 }],
          "tilewidth":64
         }],

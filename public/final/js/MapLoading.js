@@ -432,7 +432,9 @@ function setBase(scene, wave) {
 function setText(scene, obj) {
   let showX = getPropertyValue(obj, 'showOnDeltaX');
   let hideX = getPropertyValue(obj, 'hideOnDeltaX');
+  let duration = getPropertyValue(obj, 'duration');
   let text = getPropertyValue(obj, 'text');
+  let type = getPropertyValue(obj, 'type');
 
   let displayText = scene.add.text(0, obj.y, text, {
     font: `${50 * gameScale.scale}px Georgia`,
@@ -440,6 +442,11 @@ function setText(scene, obj) {
     stroke: 'black',
     strokeThickness: 5
   });
+
+  if(type) displayText.setData('type', type);
+  else displayText.setData('type', 'LOCATION');
+
+  if(duration) displayText.setData('duration', duration);
 
   displayText.setData('displayX', obj.x);
   displayText.setData('showOnDeltaX', showX);

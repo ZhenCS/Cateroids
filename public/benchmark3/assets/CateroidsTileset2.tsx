@@ -100,10 +100,12 @@
  </tile>
  <tile id="10" type="text">
   <properties>
+   <property name="duration" type="int" value="10000"/>
    <property name="hideOnDeltaX" type="float" value="0"/>
    <property name="showOnDeltaX" type="float" value="0"/>
    <property name="spawnNumber" type="int" value="0"/>
    <property name="text" value="placeholder text"/>
+   <property name="type" value="LOCATION"/>
   </properties>
  </tile>
 </tileset>
