@@ -186,12 +186,12 @@
   <properties>
    <property name="spawnNumber" type="int" value="1"/>
   </properties>
-  <object id="1520" gid="35" x="38210" y="320" width="64" height="64">
+  <object id="1520" type="endPoint" gid="35" x="38210" y="320" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1523" gid="34" x="192" y="318" width="64" height="64"/>
+  <object id="1523" type="spawnPoint" gid="34" x="192" y="318" width="64" height="64"/>
   <object id="1525" gid="32" x="1188" y="172" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
@@ -207,27 +207,27 @@
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1529" gid="33" x="1316" y="112" width="64" height="64">
+  <object id="1529" type="dog" gid="33" x="1316" y="112" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1530" gid="33" x="1316" y="210" width="64" height="64">
+  <object id="1530" type="dog" gid="33" x="1316" y="210" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1531" gid="33" x="1298" y="314" width="64" height="64">
+  <object id="1531" type="dog" gid="33" x="1298" y="314" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1532" gid="33" x="1318" y="440" width="64" height="64">
+  <object id="1532" type="dog" gid="33" x="1318" y="440" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1533" gid="33" x="1310" y="540" width="64" height="64">
+  <object id="1533" type="dog" gid="33" x="1310" y="540" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="1"/>
    </properties>
@@ -352,77 +352,77 @@
     <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
-  <object id="1561" gid="33" x="2594" y="534" width="64" height="64">
+  <object id="1561" type="dog" gid="33" x="2594" y="534" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
-  <object id="1562" gid="33" x="2602" y="454" width="64" height="64">
+  <object id="1562" type="dog" gid="33" x="2602" y="454" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
-  <object id="1563" gid="33" x="2692" y="326" width="64" height="64">
+  <object id="1563" type="dog" gid="33" x="2692" y="326" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
-  <object id="1564" gid="33" x="2708" y="202" width="64" height="64">
+  <object id="1564" type="dog" gid="33" x="2708" y="202" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="2"/>
    </properties>
   </object>
-  <object id="1568" gid="33" x="3700" y="352" width="64" height="64">
+  <object id="1568" type="dog" gid="33" x="3700" y="352" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
    </properties>
   </object>
-  <object id="1569" gid="33" x="3730" y="454" width="64" height="64">
+  <object id="1569" type="dog" gid="33" x="3730" y="454" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
    </properties>
   </object>
-  <object id="1570" gid="33" x="3696" y="222" width="64" height="64">
+  <object id="1570" type="dog" gid="33" x="3696" y="222" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
    </properties>
   </object>
-  <object id="1571" gid="33" x="3622" y="150" width="64" height="64">
+  <object id="1571" type="dog" gid="33" x="3622" y="150" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="3"/>
    </properties>
   </object>
-  <object id="1579" gid="33" x="37712" y="470" width="64" height="64">
+  <object id="1579" type="dog" gid="33" x="37712" y="470" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1580" gid="33" x="37826" y="360" width="64" height="64">
+  <object id="1580" type="dog" gid="33" x="37826" y="358.667" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1581" gid="33" x="37694" y="162" width="64" height="64">
+  <object id="1581" type="dog" gid="33" x="37694" y="162" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1582" gid="33" x="37592" y="330" width="64" height="64">
+  <object id="1582" type="dog" gid="33" x="37592" y="330" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1583" gid="33" x="37794" y="208" width="64" height="64">
+  <object id="1583" type="dog" gid="33" x="37794" y="208" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1584" gid="33" x="37576" y="230" width="64" height="64">
+  <object id="1584" type="dog" gid="33" x="37576" y="230" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1585" gid="33" x="37632" y="448" width="64" height="64">
+  <object id="1585" type="dog" gid="33" x="37632" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
@@ -647,12 +647,12 @@
     <property name="spawnNumber" type="int" value="4"/>
    </properties>
   </object>
-  <object id="1639" gid="33" x="5028" y="376" width="64" height="64">
+  <object id="1639" type="dog" gid="33" x="5028" y="376" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="4"/>
    </properties>
   </object>
-  <object id="1640" gid="33" x="5006" y="214" width="64" height="64">
+  <object id="1640" type="dog" gid="33" x="5006" y="214" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="4"/>
    </properties>
@@ -677,102 +677,102 @@
     <property name="spawnNumber" type="int" value="5"/>
    </properties>
   </object>
-  <object id="1654" gid="33" x="8256" y="296" width="64" height="64">
+  <object id="1654" type="dog" gid="33" x="8256" y="296" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1655" gid="33" x="8172" y="426" width="64" height="64">
+  <object id="1655" type="dog" gid="33" x="8172" y="426" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1656" gid="33" x="8076" y="260" width="64" height="64">
+  <object id="1656" type="dog" gid="33" x="8076" y="260" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1657" gid="33" x="8476" y="328" width="64" height="64">
+  <object id="1657" type="dog" gid="33" x="8476" y="328" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1658" gid="33" x="8506" y="146" width="64" height="64">
+  <object id="1658" type="dog" gid="33" x="8506" y="146" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1659" gid="33" x="8316" y="456" width="64" height="64">
+  <object id="1659" type="dog" gid="33" x="8316" y="456" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1662" gid="33" x="8330" y="126" width="64" height="64">
+  <object id="1662" type="dog" gid="33" x="8330" y="126" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1663" gid="33" x="8508" y="450" width="64" height="64">
+  <object id="1663" type="dog" gid="33" x="8508" y="450" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1664" gid="33" x="8382" y="288" width="64" height="64">
+  <object id="1664" type="dog" gid="33" x="8382" y="288" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1665" gid="33" x="8220" y="60" width="64" height="64">
+  <object id="1665" type="dog" gid="33" x="8220" y="60" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1666" gid="33" x="8238" y="576" width="64" height="64">
+  <object id="1666" type="dog" gid="33" x="8238" y="576" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1667" gid="33" x="8480" y="598" width="64" height="64">
+  <object id="1667" type="dog" gid="33" x="8480" y="598" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1668" gid="33" x="8224" y="164" width="64" height="64">
+  <object id="1668" type="dog" gid="33" x="8224" y="164" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1669" gid="33" x="8634" y="362" width="64" height="64">
+  <object id="1669" type="dog" gid="33" x="8634" y="362" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1670" gid="33" x="8648" y="502" width="64" height="64">
+  <object id="1670" type="dog" gid="33" x="8648" y="502" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1671" gid="33" x="8416" y="488" width="64" height="64">
+  <object id="1671" type="dog" gid="33" x="8416" y="488" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1672" gid="33" x="8396" y="378" width="64" height="64">
+  <object id="1672" type="dog" gid="33" x="8396" y="378" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1673" gid="33" x="8696" y="190" width="64" height="64">
+  <object id="1673" type="dog" gid="33" x="8696" y="190" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1674" gid="33" x="8568" y="72" width="64" height="64">
+  <object id="1674" type="dog" gid="33" x="8568" y="72" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
   </object>
-  <object id="1675" gid="33" x="8418" y="54" width="64" height="64">
+  <object id="1675" type="dog" gid="33" x="8418" y="54" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="6"/>
    </properties>
@@ -782,22 +782,22 @@
     <property name="spawnNumber" type="int" value="7"/>
    </properties>
   </object>
-  <object id="1682" gid="33" x="10776" y="492" width="64" height="64">
+  <object id="1682" type="dog" gid="33" x="10776" y="492" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="8"/>
    </properties>
   </object>
-  <object id="1683" gid="33" x="10882" y="204" width="64" height="64">
+  <object id="1683" type="dog" gid="33" x="10882" y="204" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="8"/>
    </properties>
   </object>
-  <object id="1684" gid="33" x="10706" y="146" width="64" height="64">
+  <object id="1684" type="dog" gid="33" x="10706" y="146" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="8"/>
    </properties>
   </object>
-  <object id="1685" gid="33" x="10938" y="526" width="64" height="64">
+  <object id="1685" type="dog" gid="33" x="10938" y="526" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="8"/>
    </properties>
@@ -822,12 +822,12 @@
     <property name="spawnNumber" type="int" value="8"/>
    </properties>
   </object>
-  <object id="1690" gid="33" x="9616" y="390" width="64" height="64">
+  <object id="1690" type="dog" gid="33" x="9616" y="390" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="7"/>
    </properties>
   </object>
-  <object id="1691" gid="33" x="9678" y="160" width="64" height="64">
+  <object id="1691" type="dog" gid="33" x="9678" y="160" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="7"/>
    </properties>
@@ -867,37 +867,37 @@
     <property name="spawnNumber" type="int" value="22"/>
    </properties>
   </object>
-  <object id="1710" gid="33" x="12780.1" y="283.515" width="64" height="64">
+  <object id="1710" type="dog" gid="33" x="12780.1" y="283.515" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
   </object>
-  <object id="1711" gid="33" x="12965" y="192.606" width="64" height="64">
+  <object id="1711" type="dog" gid="33" x="12965" y="192.606" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
   </object>
-  <object id="1712" gid="33" x="13255.9" y="344.121" width="64" height="64">
+  <object id="1712" type="dog" gid="33" x="13255.9" y="344.121" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
   </object>
-  <object id="1713" gid="33" x="13074.1" y="495.636" width="64" height="64">
+  <object id="1713" type="dog" gid="33" x="13074.1" y="495.636" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
   </object>
-  <object id="1714" gid="33" x="12786.2" y="538.061" width="64" height="64">
+  <object id="1714" type="dog" gid="33" x="12786.2" y="538.061" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
   </object>
-  <object id="1715" gid="33" x="13095.3" y="265.333" width="64" height="64">
+  <object id="1715" type="dog" gid="33" x="13095.3" y="265.333" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
   </object>
-  <object id="1716" gid="33" x="12968" y="438.061" width="64" height="64">
+  <object id="1716" type="dog" gid="33" x="12968" y="438.061" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="9"/>
    </properties>
@@ -1107,62 +1107,62 @@
     <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1759" gid="33" x="17501.3" y="325.939" width="64" height="64">
+  <object id="1759" type="dog" gid="33" x="17501.3" y="325.939" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1760" gid="33" x="19836" y="160" width="64" height="64">
+  <object id="1760" type="dog" gid="33" x="19836" y="160" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1761" gid="33" x="19804" y="324" width="64" height="64">
+  <object id="1761" type="dog" gid="33" x="19804" y="324" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1762" gid="33" x="20176" y="72" width="64" height="64">
+  <object id="1762" type="dog" gid="33" x="20176" y="72" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1763" gid="33" x="20116" y="348" width="64" height="64">
+  <object id="1763" type="dog" gid="33" x="20116" y="348" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1764" gid="33" x="20480" y="480" width="64" height="64">
+  <object id="1764" type="dog" gid="33" x="20480" y="480" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1765" gid="33" x="20540" y="184" width="64" height="64">
+  <object id="1765" type="dog" gid="33" x="20540" y="184" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1766" gid="33" x="20236" y="512" width="64" height="64">
+  <object id="1766" type="dog" gid="33" x="20236" y="512" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1767" gid="33" x="20060" y="216" width="64" height="64">
+  <object id="1767" type="dog" gid="33" x="20060" y="216" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1768" gid="33" x="19416" y="428" width="64" height="64">
+  <object id="1768" type="dog" gid="33" x="19416" y="428" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1769" gid="33" x="19040" y="172" width="64" height="64">
+  <object id="1769" type="dog" gid="33" x="19040" y="172" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1770" gid="33" x="18812" y="400" width="64" height="64">
+  <object id="1770" type="dog" gid="33" x="18812" y="400" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
@@ -1187,92 +1187,92 @@
     <property name="spawnNumber" type="int" value="12"/>
    </properties>
   </object>
-  <object id="1775" gid="33" x="22732" y="220" width="64" height="64">
+  <object id="1775" name="dog" gid="33" x="22732" y="220" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1776" gid="33" x="22700" y="448" width="64" height="64">
+  <object id="1776" name="dog" gid="33" x="22700" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1777" gid="33" x="23060" y="128" width="64" height="64">
+  <object id="1777" name="dog" gid="33" x="23060" y="128" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1778" gid="33" x="23504" y="336" width="64" height="64">
+  <object id="1778" name="dog" gid="33" x="23504" y="336" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1779" gid="33" x="22980" y="268" width="64" height="64">
+  <object id="1779" name="dog" gid="33" x="22980" y="268" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1780" gid="33" x="22972" y="452" width="64" height="64">
+  <object id="1780" name="dog" gid="33" x="22972" y="452" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="14"/>
    </properties>
   </object>
-  <object id="1781" gid="33" x="25128" y="392" width="64" height="64">
+  <object id="1781" type="dog" gid="33" x="25128" y="392" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1782" gid="33" x="25160" y="264" width="64" height="64">
+  <object id="1782" type="dog" gid="33" x="25160" y="264" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1783" gid="33" x="25616" y="240" width="64" height="64">
+  <object id="1783" type="dog" gid="33" x="25616" y="240" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1784" gid="33" x="25632" y="472" width="64" height="64">
+  <object id="1784" type="dog" gid="33" x="25632" y="472" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1785" gid="33" x="25264" y="568" width="64" height="64">
+  <object id="1785" type="dog" gid="33" x="25264" y="568" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1786" gid="33" x="25400" y="120" width="64" height="64">
+  <object id="1786" type="dog" gid="33" x="25400" y="120" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1787" gid="33" x="25404" y="456" width="64" height="64">
+  <object id="1787" type="dog" gid="33" x="25404" y="456" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1788" gid="33" x="25300" y="336" width="64" height="64">
+  <object id="1788" type="dog" gid="33" x="25300" y="336" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="16"/>
    </properties>
   </object>
-  <object id="1789" gid="33" x="27612" y="448" width="64" height="64">
+  <object id="1789" type="dog" gid="33" x="27612" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1790" gid="33" x="27768" y="204" width="64" height="64">
+  <object id="1790" type="dog" gid="33" x="27768" y="204" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1791" gid="33" x="27972" y="252" width="64" height="64">
+  <object id="1791" type="dog" gid="33" x="27972" y="252" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="18"/>
    </properties>
   </object>
-  <object id="1792" gid="33" x="28008" y="448" width="64" height="64">
+  <object id="1792" type="dog" gid="33" x="28008" y="448" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="18"/>
    </properties>
@@ -1552,22 +1552,22 @@
     <property name="spawnNumber" type="int" value="21"/>
    </properties>
   </object>
-  <object id="1848" gid="33" x="34616" y="520" width="64" height="64">
+  <object id="1848" type="dog" gid="33" x="34616" y="520" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="21"/>
    </properties>
   </object>
-  <object id="1849" gid="33" x="34664" y="436" width="64" height="64">
+  <object id="1849" type="dog" gid="33" x="34664" y="436" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="21"/>
    </properties>
   </object>
-  <object id="1850" gid="33" x="34756" y="316" width="64" height="64">
+  <object id="1850" type="dog" gid="33" x="34756" y="316" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="21"/>
    </properties>
   </object>
-  <object id="1851" gid="33" x="34640" y="196" width="64" height="64">
+  <object id="1851" type="dog" gid="33" x="34640" y="196" width="64" height="64">
    <properties>
     <property name="spawnNumber" type="int" value="21"/>
    </properties>
