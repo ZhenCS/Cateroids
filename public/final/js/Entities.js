@@ -1168,13 +1168,16 @@ export class Leo extends Entity {
 
   followAsteroid(rad) {
     let asteroid = this.getData('oxygenAsteroid');
+    this.body.velocity.x = 0;
+    this.body.velocity.y = 0;
+
     let radius = asteroid.displayWidth / 2;
     let angle =
       Phaser.Math.Angle.Between(
         asteroid.x - asteroid.body.deltaX(),
         asteroid.y - asteroid.body.deltaY(),
         this.x,
-        this.y
+        this.y 
       ) +
       rad / (radius / 48);
     this.setRotation(angle + Math.PI / 2);
@@ -1240,12 +1243,7 @@ export class Leo extends Entity {
       this.setData('oxygenAsteroid', null);
     } else {
       let oxygenAsteroid = this.getData('oxygenAsteroid');
-      // if (
-      //   oxygenAsteroid.getData('health') - gameConfig.oxygenAsteroidDamage <=
-      //   0
-      // ) {
-      //   this.setData('oxygenAsteroid', null);
-      // }
+
       if (oxygenAsteroid && oxygenAsteroid.getData('level') !== 4)
         oxygenAsteroid.damage(gameConfig.oxygenAsteroidDamage/4);
     }

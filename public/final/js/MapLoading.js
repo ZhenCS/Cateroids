@@ -137,7 +137,7 @@ function setBackground(scene, mode) {
     let bgHeight = scene.gameConfig.worldHeight;
     // temporary until boss battle background is ready
     scene.add
-      .tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND)
+      .tileSprite(0, 0, bgWidth, bgHeight, constants.SPACE_BACKGROUND1)
       .setDisplayOrigin(0, 0)
       .setDepth(-1);
   }
@@ -258,7 +258,7 @@ function setBossType(scene) {
 }
 
 function setEndPoint(scene) {
-  for (var i = scene.mapObjects.length - 1; i >= 0; i--) {
+  for (var i = 0; i < scene.mapObjects.length; i++) {
     let obj = scene.mapObjects[i];
     if (obj.type == 'endPoint') {
       scene.endPointX = obj.x;

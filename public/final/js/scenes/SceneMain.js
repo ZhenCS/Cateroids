@@ -86,7 +86,7 @@ export class SceneMain extends Phaser.Scene {
       lifespan: 600
     });
 
-    for (let i = 0; i < amount; i++) {
+    for (let i = 0; i < amount/2; i++) {
       explosion.explode();
     }
   }
@@ -157,7 +157,7 @@ export class SceneMain extends Phaser.Scene {
 
     if (this.player.x >= this.endPointX) {
       this.sound.stopAll();
-      if (currentLevel.level > 6) {
+      if (currentLevel.level > 8) {
         //end of game
       } else {
         //this.scene.restart();

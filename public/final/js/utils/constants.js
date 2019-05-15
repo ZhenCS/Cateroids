@@ -102,7 +102,7 @@ export const DYINGAUDIO = 'dying';
 export const BOOSTAUDIO = 'boost';
 export const OXYGENLOWAUDIO = 'lowOxygen'
 
-export const SPACE_BACKGROUND1 = 'spaceBackground';
+export const SPACE_BACKGROUND1 = 'spaceBackground1';
 export const SPACE_BACKGROUND2 = 'spaceBackground2';
 export const SPACE_BACKGROUND3 = 'spaceBackground3';
 
