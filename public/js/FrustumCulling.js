@@ -1,6 +1,6 @@
 function getMaxLength(scene) {
   return (
-    1.7 *
+    1.2 *
     Math.sqrt(
       Math.pow(scene.game.config.width * 0.5, 2) +
         Math.pow(scene.game.config.height * 0.5, 2)
@@ -79,7 +79,7 @@ export function oxygenAsteroidCulling(scene) {
       ) > getMaxLength(scene) &&
       asteroid.x < scene.player.x
     ) {
-      if (asteroid) {
+      if (asteroid && asteroid != scene.baseAsteroid) {
         asteroid.destroy();
       }
     }

@@ -151,7 +151,7 @@ function enemyBulletCollisionCallback(bullet, dog) {
       dog.damage(bullet.getData('damage'));
     }
 
-    if (bullet && bullet.type !== 'strongLaser') {
+    if (bullet && bullet.type !== 'plasma') {
       bullet.removeColliders();
       this.bullets.killAndHide(bullet);
     }
@@ -184,7 +184,7 @@ export const checkEnemyToBulletCollision = (scene, bullet) => {
             }
           }
 
-          if (bullet && bullet.type !== 'strongLaser') {
+          if (bullet && bullet.type !== 'plasma') {
             bullet.removeColliders();
             this.bullets.killAndHide(bullet);
           }

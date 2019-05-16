@@ -159,12 +159,12 @@ const gameConfig = {
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
   oxygenDepletionDelay: 50,
-  oxygenDepletionRate: 30 / 100, //changed by upgrades
+  oxygenDepletionRate: 25 / 100, //changed by upgrades
 
   oxygenReplenishDelay: 50,
   oxygenReplenishRate: 90 / 100, //changed by upgrades
 
-  laserDamage: 1,
+  laserDamage: 3,
   laserDuration: 2500,
   laserSprites: 50,
   laserDelay: 50,

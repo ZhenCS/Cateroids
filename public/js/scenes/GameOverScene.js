@@ -24,7 +24,7 @@ export class GameOverScene extends Phaser.Scene {
     centerX(this, gameOverHeader);
     let restartButton = this.createButton(
       500 * gameScale.scale,
-      'Restart Game'
+      'Restart Level'
     ).on('pointerdown', function() {
       this.scene.game.scene.switch(constants.GAMEOVERKEY, constants.GAMEKEY);
       this.scene.game.scene.stop(constants.GAMEOVERKEY);

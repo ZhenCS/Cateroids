@@ -36,7 +36,7 @@ export function loadMap(scene, level) {
     setBossType(scene);
   }
 
-  scene.gameConfig.spawnBuffer = scene.game.config.width / 2 + 50;
+  scene.gameConfig.spawnBuffer = scene.game.config.width;
   scene.mapLoaded = true;
 }
 

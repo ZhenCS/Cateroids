@@ -238,8 +238,8 @@ export class Bullet extends Entity {
   constructor(scene, x, y, isFriendly, type) {
     if (type === 'plasma') {
       super(scene, x, y, constants.BOSSBEAMKEY);
-      this.capacity = 3;
-      this.ammoCount = 3;
+      this.capacity = this.scene.gameConfig.ammoCount;
+      this.ammoCount = this.scene.gameConfig.ammoCount;
     } else if (type === 'laser') {
       super(scene, x, y, constants.BULLETKEY);
     } else {
@@ -262,8 +262,8 @@ export class Bullet extends Entity {
   setType(type) {
     if (type === 'plasma') {
       this.setTexture(constants.BOSSBEAMKEY);
-      this.capacity = 3;
-      this.ammoCount = 3;
+      this.capacity = this.scene.gameConfig.ammoCount;
+      this.ammoCount = this.scene.gameConfig.ammoCount;
     } else if (type === 'laser') {
       this.setTexture(constants.BULLETKEY);
     } else {
@@ -302,7 +302,7 @@ export class Laser extends Entity {
     let laserFireDelay = sceneConfig.laserFireDelay;
     this.firing = false;
 
-    if (damage && typeof damage != 'undefined') laserDamage = damage;
+    //if (damage && typeof damage != 'undefined') laserDamage = damage;
     if (delay && typeof delay != 'undefined') laserDelay = delay;
     if (duration && typeof duration != 'undefined') laserDuration = duration;
     if (sprites && typeof sprites != 'undefined') laserSprites = sprites;
