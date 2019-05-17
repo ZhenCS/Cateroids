@@ -110,6 +110,7 @@ export const OXYGENLOWAUDIO = 'lowOxygen';
 
 export const MEOWAUDIO = 'meow-noise';
 export const BARKAUDIO = 'bark-noise';
+export const BARK2AUDIO = 'bark2-noise';
 export const GROWLAUDIO = 'growl-noise';
 
 export const SPACE_BACKGROUND1 = 'spaceBackground1';

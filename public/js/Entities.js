@@ -201,6 +201,8 @@ export class Dog extends Entity {
       let velocity = this.getInitVelocity(scene, x, y);
       this.body.setVelocity(velocity[0], velocity[1]);
     }
+    if(Math.random() > 0.8)
+      scene.sound.play(constants.BARK2AUDIO, { volume: 0.05 * level });
   }
 
   damage(damage) {
@@ -927,6 +929,7 @@ export class Leo extends Entity {
     this.oxygenLowSoundPlaying = false;
     this.deadSoundPlaying = false;
     this.boostSoundPlaying = false;
+    this.damagedSoundPlaying = false;
 
     let bgWidth = scene.game.config.width;
     let bgHeight = scene.game.config.height;
@@ -993,6 +996,17 @@ export class Leo extends Entity {
   playBoostSound() {
     if (!this.boostSoundPlaying) {
       this.scene.sound.play(constants.BOOSTAUDIO, { volume: 0.2 });
+    }
+  }
+
+  playDamagedSound() {
+    if (!this.damagedSoundPlaying) {
+      this.scene.sound.play(constants.MEOWAUDIO, { volume: 0.2 });
+      this.damagedSoundPlaying = true;
+
+      setInterval(() => {
+        this.damagedSoundPlaying = false;
+      }, 1000);
     }
   }
 
@@ -1210,7 +1224,7 @@ export class Leo extends Entity {
       }
 
       if(Math.random() > 0.9){
-        this.scene.sound.play(constants.MEOWAUDIO, { volume: 0.2 });
+        this.playDamagedSound();
       }
     }
 

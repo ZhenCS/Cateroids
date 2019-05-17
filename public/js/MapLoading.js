@@ -363,7 +363,7 @@ function loadMapObjectsRUN(scene) {
 
     let spawnNumber = getPropertyValue(obj, 'spawnNumber');
     if (spawnNumber) {
-      while (getPropertyValue(obj, 'spawnNumber') == spawnNumber) {
+      while (obj != undefined && getPropertyValue(obj, 'spawnNumber') == spawnNumber) {
         setObjects(scene, obj);
         obj = scene.mapObjects.pop();
       }

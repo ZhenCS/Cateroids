@@ -181,6 +181,7 @@ function initSound(scene) {
 
   scene.sound.add(constants.MEOWAUDIO);
   scene.sound.add(constants.BARKAUDIO);
+  scene.sound.add(constants.BARK2AUDIO);
   scene.sound.add(constants.GROWLAUDIO);
 }
 

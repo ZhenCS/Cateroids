@@ -145,6 +145,7 @@ export class LoadScene extends Phaser.Scene {
 
     this.loadAudio(constants.MEOWAUDIO, 'meow.mp3');
     this.loadAudio(constants.BARKAUDIO, 'bossBark.mp3');
+    this.loadAudio(constants.BARK2AUDIO, 'bark2.mp3');
     this.loadAudio(constants.GROWLAUDIO, 'growl.mp3');
 
     this.loadMusic(constants.LEVELMUSIC1, 'levelMusic1.mp3');
