@@ -33,6 +33,7 @@ export const BACKKEY = 'back';
 export const STARKEY = 'star';
 
 export const BULLETKEY = 'bullet';
+export const BULLET2KEY = 'plasma';
 export const BOSSBEAMKEY = 'bossBeam';
 export const PIXELKEY = 'pixels';
 export const DOGLASERKEY = 'dogLaser';
@@ -79,8 +80,8 @@ export const LEVEL8KEY = 'level8';
 export const LEVELS = 8;
 
 export const LEVELMUSIC1 = 'music1';
-export const LEVELMUSIC2 = 'music2';
-export const LEVELMUSIC3 = 'music2';
+export const LEVELMUSIC2 = 'music1';
+export const LEVELMUSIC3 = 'music1';
 export const LEVELMUSIC4 = 'music2';
 export const LEVELMUSIC5 = 'music2';
 export const LEVELMUSIC6 = 'music2';

@@ -266,7 +266,7 @@ export class Explosion extends Entity{
 export class Bullet extends Entity {
   constructor(scene, x, y, isFriendly, type) {
     if (type === 'plasma') {
-      super(scene, x, y, constants.BOSSBEAMKEY);
+      super(scene, x, y, constants.BULLET2KEY);
       this.capacity = this.scene.gameConfig.ammoCount;
       this.ammoCount = this.scene.gameConfig.ammoCount;
     } else if (type === 'laser') {
@@ -290,7 +290,7 @@ export class Bullet extends Entity {
 
   setType(type) {
     if (type === 'plasma') {
-      this.setTexture(constants.BOSSBEAMKEY);
+      this.setTexture(constants.BULLET2KEY);
       this.capacity = this.scene.gameConfig.ammoCount;
       this.ammoCount = this.scene.gameConfig.ammoCount;
     } else if (type === 'laser') {
