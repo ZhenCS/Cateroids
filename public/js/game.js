@@ -1,6 +1,6 @@
 import * as constants from './utils/constants.js';
 import { LoadScene } from './scenes/PreloadScene.js';
-import { SplashScene } from './scenes/SplashScene.js';
+import { SplashScene } from './scenes/splashScene.js';
 import { StartMenuScene } from './scenes/StartMenuScene.js';
 import { LevelSelectScene } from './scenes/LevelSelectScene.js';
 import { HelpScene } from './scenes/HelpScene.js';
