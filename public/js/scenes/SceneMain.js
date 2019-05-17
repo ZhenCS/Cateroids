@@ -171,7 +171,7 @@ export class SceneMain extends Phaser.Scene {
       if (currentLevel.level >= constants.LEVELS) {
         //end of game
         if(!endOfGame){
-          this.cameras.main.shake(3000, 0.005);      
+          this.cameras.main.shake(7000, 0.005);      
           this.cameras.main.fadeOut(7000, 255, 255, 255, function(camera, progress){
             if(progress == 1){
               let scene = this;
@@ -185,9 +185,9 @@ export class SceneMain extends Phaser.Scene {
               });
             }
           },this);
-          stars[constants.LEVELS - 1][0] = true;
-          stars[constants.LEVELS - 1][1] = true;
-          stars[constants.LEVELS - 1][2] = true;
+          stars[constants.LEVELS][0] = true;
+          stars[constants.LEVELS][1] = true;
+          stars[constants.LEVELS][2] = true;
           endOfGame = true;
         }
       } else {

@@ -187,7 +187,7 @@ export const checkEnemyToBulletCollision = (scene, bullet) => {
             }
           }
 
-          if (bullet && bullet.type !== 'plasma') {
+          if (bullet) {
             bullet.removeColliders();
             this.bullets.killAndHide(bullet);
           }
