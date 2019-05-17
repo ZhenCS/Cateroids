@@ -55,7 +55,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.image(constants.BULLET2KEY, 'assets/plasma.png');
     this.load.image(constants.BOSSBEAMKEY, 'assets/bossBeam.png');
     this.load.image(constants.MOONKEY, 'assets/moon.png');
-    this.load.image(constants.DOGWALLKEY, 'assets/dogWall3.png');
+    this.load.image(constants.DOGWALLKEY, 'assets/dogWall2.png');
     this.load.image(constants.DOGWALLWEAPONKEY, 'assets/bossWeapon.png');
     this.load.image(constants.ENDPOINT, 'assets/endPoint.png');
     this.load.image(constants.EXPLOSION, 'assets/explosion.png');
@@ -113,7 +113,7 @@ export class LoadScene extends Phaser.Scene {
     );
     this.load.atlas(
       constants.DOGWALLATLASKEY,
-      'assets/dogWall_spritesheet.png',
+      'assets/dogwall_spritesheet.png',
       'json/dogWall.json'
     );
 

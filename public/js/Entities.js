@@ -586,7 +586,7 @@ export class DogWall extends Entity {
     this.barkSoundPlaying = false;
 
     this.play(constants.DOGWALLIDLEKEY);
-    this.setScale(2);
+    //this.setScale(2);
   }
 
   damage(damage) {
