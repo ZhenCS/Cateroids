@@ -48,12 +48,4 @@ function resize(width, height) {
   }
 }
 
-window.addEventListener(
-  'resize',
-  function(event) {
-    //this.resize(window.innerWidth, window.innerHeight);
-  },
-  false
-);
-
 const game = new Phaser.Game(config);

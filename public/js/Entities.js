@@ -229,8 +229,37 @@ export class Dog extends Entity {
         this.shootTimer.remove(false);
       }
     }
+    if (this.movement !== undefined) {
+      if (this.movement) {
+        this.movement.remove(false);
+      }
+    }
+    let explosion = this.scene.add.sprite(this.x, this.y, constants.EXPLOSION);
+    explosion.setScale(0.4);
+    this.scene.tweens.add({
+      targets: explosion,
+      duration: 300,
+      alpha: 0,
+      callbackScope: this
+    });
 
     this.emit('destroyed');
+  }
+}
+
+export class Explosion extends Entity{
+  constructor(scene, x, y, scale) {
+    super(scene, x, y, constants.EXPLOSION);
+    if (scale && typeof scale != 'undefined') this.setScale(scale);
+    else this.setScale(Math.random());
+
+    this.explode = this.scene.tweens.add({
+      targets: this,
+      duration: 100,
+      alpha: 0,
+      callbackScope: this
+    });
+
   }
 }
 
@@ -877,7 +906,9 @@ export class Leo extends Entity {
     setInterval(() => {
       if (this.ammoCount < scene.gameConfig.maxPlayerAmmo) {
         this.ammoCount++;
-        this.scene.updateAmmo(this.ammoCount);
+
+        if(this.scene != undefined)
+          this.scene.updateAmmo(this.ammoCount);
       }
     }, 2500);
 
@@ -885,7 +916,8 @@ export class Leo extends Entity {
     setInterval(() => {
       if (this.heat <= this.heatCapacity && this.heat > 0) {
         this.heat -= 100;
-        this.scene.updateAmmo(this.heat);
+        if(this.scene != undefined)
+          this.scene.updateAmmo(this.heat);
       }
     }, 500);
   }
@@ -1024,7 +1056,7 @@ export class Leo extends Entity {
       pointerY
     );
     let speed = 2000;
-    if (type === 'plasma') speed = 250;
+    if (type === 'plasma') speed = 350;
     if (type === 'beam') speed = 1000;
 
     let xVelocity = speed * Math.cos(angle) + Phaser.Math.Between(-20, 20);
@@ -1086,6 +1118,7 @@ export class Leo extends Entity {
     this.ammoCount--;
     this.scene.updateAmmo(this.ammoCount);
     bullet.body.setVelocity(xVelocity, yVelocity);
+    bullet.body.setCircle(bullet.displayWidth * 0.5);
     this.scene.bullets.add(bullet);
     this.scene.sound.play(constants.SECONDARYWEAPONAUDIO, { volume: 0.3 });
   }
@@ -1099,6 +1132,7 @@ export class Leo extends Entity {
       .setScale(scale);
 
     bullet.body.setVelocity(xVelocity, yVelocity);
+    bullet.body.setCircle(bullet.displayWidth * 0.5);
     this.scene.bullets.add(bullet);
     this.scene.sound.play(constants.CATWEAPONAUDIO, { volume: 0.5 });
   }

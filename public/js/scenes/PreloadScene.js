@@ -59,6 +59,7 @@ export class LoadScene extends Phaser.Scene {
     this.load.image(constants.DOGWALLKEY, 'assets/dogWall2.png');
     this.load.image(constants.DOGWALLWEAPONKEY, 'assets/bossWeapon.png');
     this.load.image(constants.ENDPOINT, 'assets/endPoint.png');
+    this.load.image(constants.EXPLOSION, 'assets/explosion.png');
 
     this.load.image(constants.CONTROLS1KEY, 'assets/controls1.png');
     this.load.image(constants.GOALBGKEY, 'assets/goals.png');

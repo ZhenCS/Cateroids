@@ -481,7 +481,7 @@ function initUI(scene, mode) {
     )
     .setDepth(gameDepths.uiDepth + 1);
 
-  scene.ammo = '';
+  scene.ammo = (scene.gameConfig.secondaryWeapon == 'plasma') ? scene.gameConfig.maxPlayerAmmo : '0';
   scene.ammoCounter = scene.add
     .text(
       gameStyles.padding + 2,
