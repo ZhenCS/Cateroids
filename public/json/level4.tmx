@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="200" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="3346">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="200" height="9" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="3423">
  <properties>
   <property name="maxPlayerHealth" type="int" value="1000"/>
   <property name="maxPlayerOxygen" type="int" value="100"/>
@@ -93,9 +93,8 @@
   <tile id="9" type="endPoint"/>
  </tileset>
  <tileset firstgid="25" source="CateroidsTileset2.tsx"/>
- <tileset firstgid="49" source="../../../../../cateroids/benchmark3/client/assets/CateroidsTileset2.tsx"/>
  <tileset firstgid="49" source="../assets/CateroidsTileset2.tsx"/>
- <layer id="3" name="Tile Layer 1" width="200" height="9">
+ <layer id="3" name="Tile Layer 1" width="200" height="9" offsetx="1" offsety="5">
   <data encoding="base64">
    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   </data>
@@ -110,29 +109,17 @@
   <object id="2844" gid="49" x="757.333" y="68.0002" width="64" height="64"/>
   <object id="2845" gid="49" x="821.333" y="130.667" width="64" height="64"/>
   <object id="2846" gid="49" x="885.333" y="196" width="64" height="64"/>
-  <object id="2847" gid="49" x="881.333" y="68.0001" width="64" height="64"/>
-  <object id="2848" gid="49" x="945.333" y="130.667" width="64" height="64"/>
   <object id="2849" gid="49" x="1009.33" y="196" width="64" height="64"/>
   <object id="2850" gid="49" x="1008" y="69.3335" width="64" height="64"/>
-  <object id="2851" gid="49" x="1072" y="132" width="64" height="64"/>
-  <object id="2852" gid="49" x="1136" y="197.333" width="64" height="64"/>
   <object id="2877" gid="49" x="1133.33" y="70.0002" width="64" height="64"/>
   <object id="2878" gid="49" x="1197.33" y="132.667" width="64" height="64"/>
-  <object id="2879" gid="49" x="1261.33" y="198" width="64" height="64"/>
-  <object id="2880" gid="49" x="1250.67" y="72.6671" width="64" height="64"/>
   <object id="2881" gid="49" x="1314.67" y="135.334" width="64" height="64"/>
   <object id="2882" gid="49" x="1378.67" y="200.667" width="64" height="64"/>
   <object id="2883" gid="49" x="1374.67" y="72.667" width="64" height="64"/>
-  <object id="2884" gid="49" x="1438.67" y="135.334" width="64" height="64"/>
   <object id="2885" gid="49" x="1502.66" y="200.667" width="64" height="64"/>
-  <object id="2886" gid="49" x="1501.33" y="74.0004" width="64" height="64"/>
-  <object id="2887" gid="49" x="1565.33" y="136.667" width="64" height="64"/>
-  <object id="2888" gid="49" x="1629.33" y="202" width="64" height="64"/>
+  <object id="2886" gid="49" x="1378.66" y="510" width="64" height="64"/>
   <object id="2889" gid="49" x="1609.34" y="69" width="64" height="64"/>
-  <object id="2891" gid="49" x="1737.34" y="197" width="64" height="64"/>
-  <object id="2894" gid="49" x="1854.67" y="199.667" width="64" height="64"/>
   <object id="2897" gid="49" x="1978.67" y="199.667" width="64" height="64"/>
-  <object id="2900" gid="49" x="2105.34" y="201" width="64" height="64"/>
   <object id="2903" gid="49" x="2230.66" y="201.667" width="64" height="64"/>
   <object id="2906" gid="49" x="2348.01" y="204.334" width="64" height="64"/>
   <object id="2907" gid="49" x="2344.01" y="76.3337" width="64" height="64"/>
@@ -140,52 +127,24 @@
   <object id="2909" gid="49" x="2471.99" y="204.334" width="64" height="64"/>
   <object id="2910" gid="49" x="2470.66" y="77.6671" width="64" height="64"/>
   <object id="2911" gid="49" x="2534.66" y="140.334" width="64" height="64"/>
-  <object id="2913" gid="49" x="896.667" y="454" width="64" height="64"/>
   <object id="2914" gid="49" x="834" y="515.333" width="64" height="64"/>
   <object id="2915" gid="49" x="772.667" y="578" width="64" height="64"/>
   <object id="2916" gid="49" x="1028.33" y="448.333" width="64" height="64"/>
   <object id="2919" gid="49" x="1157" y="451.666" width="64" height="64"/>
   <object id="2922" gid="49" x="1280.83" y="450.834" width="64" height="64"/>
-  <object id="2925" gid="49" x="1409.5" y="454.167" width="64" height="64"/>
+  <object id="2925" gid="49" x="1492.17" y="558.167" width="64" height="64"/>
   <object id="2928" gid="49" x="1541.16" y="448.5" width="64" height="64"/>
-  <object id="2931" gid="49" x="1669.83" y="451.833" width="64" height="64"/>
   <object id="2934" gid="49" x="1785.75" y="448.084" width="64" height="64"/>
-  <object id="2937" gid="49" x="1914.42" y="451.417" width="64" height="64"/>
-  <object id="2938" gid="49" x="1851.75" y="512.75" width="64" height="64"/>
-  <object id="2940" gid="49" x="2046.08" y="445.75" width="64" height="64"/>
-  <object id="2941" gid="49" x="1983.42" y="507.083" width="64" height="64"/>
   <object id="2942" gid="49" x="1922.08" y="569.75" width="64" height="64"/>
-  <object id="2943" gid="49" x="2174.75" y="449.083" width="64" height="64"/>
-  <object id="2944" gid="49" x="2112.08" y="510.416" width="64" height="64"/>
   <object id="2945" gid="49" x="2050.75" y="573.084" width="64" height="64"/>
   <object id="2946" gid="49" x="2298.58" y="448.251" width="64" height="64"/>
   <object id="2947" gid="49" x="2235.92" y="509.584" width="64" height="64"/>
   <object id="2948" gid="49" x="2174.58" y="572.251" width="64" height="64"/>
-  <object id="2949" gid="49" x="2427.25" y="451.584" width="64" height="64"/>
   <object id="2950" gid="49" x="2364.58" y="512.917" width="64" height="64"/>
   <object id="2951" gid="49" x="2303.25" y="575.584" width="64" height="64"/>
-  <object id="2952" gid="49" x="2558.91" y="445.917" width="64" height="64"/>
-  <object id="2953" gid="49" x="2496.25" y="507.25" width="64" height="64"/>
   <object id="2954" gid="49" x="2434.92" y="569.917" width="64" height="64"/>
-  <object id="2956" gid="49" x="2624.91" y="510.583" width="64" height="64"/>
   <object id="2957" gid="49" x="2563.58" y="573.251" width="64" height="64"/>
-  <object id="3000" gid="68" x="6955.15" y="94.5455" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="800"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3001" gid="68" x="7141.15" y="124.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="1000"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3003" gid="68" x="7263.15" y="98.5455" width="64" height="64">
+  <object id="3015" gid="68" x="7382.15" y="570.545" width="64" height="64">
    <properties>
     <property name="damage" type="float" value="50"/>
     <property name="fireRate" type="float" value="1750"/>
@@ -193,31 +152,7 @@
     <property name="velocityX" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="3004" gid="68" x="6967.82" y="185.212" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="800"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3005" gid="68" x="7065.82" y="244.212" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="1000"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3006" gid="68" x="7197.82" y="263.212" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="25"/>
-    <property name="fireRate" type="float" value="1500"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3007" gid="68" x="7275.82" y="189.212" width="64" height="64">
+  <object id="3027" gid="68" x="8489.48" y="575.878" width="64" height="64">
    <properties>
     <property name="damage" type="float" value="50"/>
     <property name="fireRate" type="float" value="1750"/>
@@ -225,189 +160,63 @@
     <property name="velocityX" type="float" value="-150"/>
    </properties>
   </object>
-  <object id="3008" gid="68" x="6977.48" y="291.879" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="800"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3011" gid="68" x="7285.48" y="297.878" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="50"/>
-    <property name="fireRate" type="float" value="1750"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3012" gid="68" x="6990.15" y="382.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="800"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3013" gid="68" x="7067.15" y="431.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="25"/>
-    <property name="fireRate" type="float" value="1000"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3014" gid="68" x="7204.15" y="421.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="25"/>
-    <property name="fireRate" type="float" value="1500"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3015" gid="68" x="7298.15" y="386.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="50"/>
-    <property name="fireRate" type="float" value="1750"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3024" gid="68" x="6981.48" y="467.879" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="800"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3027" gid="68" x="7289.48" y="471.878" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="50"/>
-    <property name="fireRate" type="float" value="1750"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3028" gid="68" x="6994.15" y="558.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="35"/>
-    <property name="fireRate" type="float" value="800"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3030" gid="68" x="7135.15" y="530.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="25"/>
-    <property name="fireRate" type="float" value="1500"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3031" gid="68" x="7302.15" y="562.545" width="64" height="64">
-   <properties>
-    <property name="damage" type="float" value="50"/>
-    <property name="fireRate" type="float" value="1750"/>
-    <property name="health" value="200"/>
-    <property name="velocityX" type="float" value="-150"/>
-   </properties>
-  </object>
-  <object id="3034" gid="52" x="9193.33" y="237.333" width="64" height="64"/>
   <object id="3039" gid="59" x="12650.3" y="336.333" width="64" height="64"/>
   <object id="3041" gid="49" x="2600.18" y="72.1892" width="64" height="64"/>
-  <object id="3042" gid="49" x="2664.18" y="134.856" width="64" height="64"/>
   <object id="3043" gid="49" x="2728.18" y="200.189" width="64" height="64"/>
   <object id="3044" gid="49" x="2728.18" y="457.523" width="64" height="64"/>
-  <object id="3045" gid="49" x="2665.52" y="518.856" width="64" height="64"/>
   <object id="3046" gid="49" x="2604.18" y="581.523" width="64" height="64"/>
   <object id="3047" gid="49" x="2717.52" y="74.8561" width="64" height="64"/>
-  <object id="3048" gid="49" x="2781.52" y="137.523" width="64" height="64"/>
   <object id="3049" gid="49" x="2845.52" y="202.856" width="64" height="64"/>
   <object id="3050" gid="49" x="2841.52" y="74.856" width="64" height="64"/>
-  <object id="3051" gid="49" x="2905.52" y="137.523" width="64" height="64"/>
-  <object id="3052" gid="49" x="2969.51" y="202.856" width="64" height="64"/>
   <object id="3053" gid="49" x="2968.18" y="76.1894" width="64" height="64"/>
-  <object id="3054" gid="49" x="3032.18" y="138.856" width="64" height="64"/>
   <object id="3055" gid="49" x="3096.18" y="204.189" width="64" height="64"/>
   <object id="3056" gid="49" x="3093.51" y="76.8561" width="64" height="64"/>
-  <object id="3057" gid="49" x="3157.51" y="139.523" width="64" height="64"/>
-  <object id="3058" gid="49" x="3221.51" y="204.856" width="64" height="64"/>
   <object id="3059" gid="49" x="3210.85" y="79.523" width="64" height="64"/>
-  <object id="3060" gid="49" x="3274.85" y="142.19" width="64" height="64"/>
-  <object id="3061" gid="49" x="3338.85" y="207.523" width="64" height="64"/>
+  <object id="3061" gid="49" x="3246.85" y="306.19" width="64" height="64"/>
   <object id="3062" gid="49" x="3334.85" y="79.5229" width="64" height="64"/>
-  <object id="3063" gid="49" x="3398.85" y="142.19" width="64" height="64"/>
-  <object id="3064" gid="49" x="3462.84" y="207.523" width="64" height="64"/>
   <object id="3065" gid="49" x="3461.51" y="80.8563" width="64" height="64"/>
-  <object id="3066" gid="49" x="3525.51" y="143.523" width="64" height="64"/>
-  <object id="3067" gid="49" x="3589.51" y="208.856" width="64" height="64"/>
   <object id="3068" gid="49" x="3569.52" y="75.8559" width="64" height="64"/>
-  <object id="3069" gid="49" x="3633.52" y="138.523" width="64" height="64"/>
-  <object id="3070" gid="49" x="3697.52" y="203.856" width="64" height="64"/>
   <object id="3071" gid="49" x="3686.85" y="78.5228" width="64" height="64"/>
-  <object id="3072" gid="49" x="3750.85" y="141.19" width="64" height="64"/>
+  <object id="3072" gid="49" x="3508.18" y="205.19" width="64" height="64"/>
   <object id="3073" gid="49" x="3814.85" y="206.523" width="64" height="64"/>
   <object id="3074" gid="49" x="3810.85" y="78.5227" width="64" height="64"/>
-  <object id="3075" gid="49" x="3874.85" y="141.19" width="64" height="64"/>
+  <object id="3075" gid="49" x="3373.52" y="209.19" width="64" height="64"/>
   <object id="3076" gid="49" x="3938.85" y="206.523" width="64" height="64"/>
   <object id="3077" gid="49" x="3937.52" y="79.8561" width="64" height="64"/>
-  <object id="3078" gid="49" x="4001.52" y="142.523" width="64" height="64"/>
-  <object id="3079" gid="49" x="4065.52" y="207.856" width="64" height="64"/>
+  <object id="3079" gid="49" x="4306.85" y="294.523" width="64" height="64"/>
   <object id="3080" gid="49" x="4062.84" y="80.5228" width="64" height="64"/>
-  <object id="3081" gid="49" x="4126.84" y="143.19" width="64" height="64"/>
-  <object id="3082" gid="49" x="4190.84" y="208.523" width="64" height="64"/>
   <object id="3083" gid="49" x="4180.19" y="83.1897" width="64" height="64"/>
   <object id="3084" gid="49" x="4244.19" y="145.857" width="64" height="64"/>
-  <object id="3085" gid="49" x="4308.19" y="211.19" width="64" height="64"/>
   <object id="3086" gid="49" x="4304.19" y="83.1896" width="64" height="64"/>
-  <object id="3087" gid="49" x="4368.19" y="145.857" width="64" height="64"/>
-  <object id="3088" gid="49" x="4432.17" y="211.19" width="64" height="64"/>
   <object id="3089" gid="49" x="4430.84" y="84.523" width="64" height="64"/>
-  <object id="3090" gid="49" x="4494.84" y="147.19" width="64" height="64"/>
-  <object id="3091" gid="49" x="4558.84" y="212.523" width="64" height="64"/>
-  <object id="3092" gid="49" x="2856.85" y="460.856" width="64" height="64"/>
+  <object id="3092" gid="49" x="2899.52" y="486.189" width="64" height="64"/>
   <object id="3093" gid="49" x="2794.18" y="522.189" width="64" height="64"/>
   <object id="3094" gid="49" x="2732.85" y="584.856" width="64" height="64"/>
   <object id="3095" gid="49" x="2988.51" y="455.189" width="64" height="64"/>
-  <object id="3096" gid="49" x="2925.85" y="516.522" width="64" height="64"/>
+  <object id="3096" gid="49" x="2943.18" y="359.189" width="64" height="64"/>
   <object id="3097" gid="49" x="2864.52" y="579.189" width="64" height="64"/>
-  <object id="3098" gid="49" x="3117.18" y="458.522" width="64" height="64"/>
+  <object id="3098" gid="49" x="3438.51" y="482.522" width="64" height="64"/>
   <object id="3099" gid="49" x="3054.51" y="519.855" width="64" height="64"/>
   <object id="3100" gid="49" x="2993.18" y="582.523" width="64" height="64"/>
   <object id="3101" gid="49" x="3241.01" y="457.69" width="64" height="64"/>
-  <object id="3102" gid="49" x="3178.35" y="519.023" width="64" height="64"/>
+  <object id="3102" gid="49" x="3447.68" y="349.69" width="64" height="64"/>
   <object id="3103" gid="49" x="3117.01" y="581.69" width="64" height="64"/>
-  <object id="3104" gid="49" x="3369.68" y="461.023" width="64" height="64"/>
   <object id="3105" gid="49" x="3307.01" y="522.356" width="64" height="64"/>
-  <object id="3107" gid="49" x="3501.34" y="455.356" width="64" height="64"/>
-  <object id="3108" gid="49" x="3438.68" y="516.689" width="64" height="64"/>
-  <object id="3109" gid="49" x="3377.35" y="579.356" width="64" height="64"/>
-  <object id="3110" gid="49" x="3630.01" y="458.689" width="64" height="64"/>
-  <object id="3111" gid="49" x="3567.34" y="520.022" width="64" height="64"/>
-  <object id="3112" gid="49" x="3506.01" y="582.69" width="64" height="64"/>
-  <object id="3113" gid="49" x="3745.93" y="454.94" width="64" height="64"/>
-  <object id="3114" gid="49" x="3683.26" y="516.273" width="64" height="64"/>
-  <object id="3115" gid="49" x="3621.93" y="578.94" width="64" height="64"/>
-  <object id="3116" gid="49" x="3874.6" y="458.273" width="64" height="64"/>
-  <object id="3117" gid="49" x="3811.93" y="519.606" width="64" height="64"/>
+  <object id="3113" gid="49" x="3921.93" y="492.273" width="64" height="64"/>
+  <object id="3114" gid="49" x="3633.93" y="468.273" width="64" height="64"/>
+  <object id="3116" gid="49" x="4046.6" y="503.606" width="64" height="64"/>
+  <object id="3117" gid="49" x="3641.26" y="347.606" width="64" height="64"/>
   <object id="3118" gid="49" x="3750.6" y="582.273" width="64" height="64"/>
-  <object id="3119" gid="49" x="4006.26" y="452.606" width="64" height="64"/>
-  <object id="3120" gid="49" x="3943.6" y="513.939" width="64" height="64"/>
+  <object id="3119" gid="49" x="4175.59" y="377.939" width="64" height="64"/>
+  <object id="3120" gid="49" x="3760.93" y="321.939" width="64" height="64"/>
   <object id="3121" gid="49" x="3882.26" y="576.606" width="64" height="64"/>
-  <object id="3122" gid="49" x="4134.93" y="455.939" width="64" height="64"/>
+  <object id="3122" gid="49" x="4402.93" y="338.606" width="64" height="64"/>
   <object id="3123" gid="49" x="4072.26" y="517.272" width="64" height="64"/>
   <object id="3124" gid="49" x="4010.93" y="579.94" width="64" height="64"/>
-  <object id="3125" gid="49" x="4258.76" y="455.107" width="64" height="64"/>
-  <object id="3126" gid="49" x="4196.1" y="516.44" width="64" height="64"/>
-  <object id="3127" gid="49" x="4134.76" y="579.107" width="64" height="64"/>
-  <object id="3128" gid="49" x="4387.43" y="458.44" width="64" height="64"/>
-  <object id="3129" gid="49" x="4324.76" y="519.773" width="64" height="64"/>
+  <object id="3126" gid="49" x="4393.43" y="473.773" width="64" height="64"/>
+  <object id="3127" gid="49" x="4032.09" y="341.774" width="64" height="64"/>
   <object id="3130" gid="49" x="4263.43" y="582.44" width="64" height="64"/>
-  <object id="3131" gid="49" x="4519.09" y="452.773" width="64" height="64"/>
-  <object id="3132" gid="49" x="4456.43" y="514.106" width="64" height="64"/>
   <object id="3133" gid="49" x="4395.1" y="576.773" width="64" height="64"/>
-  <object id="3134" gid="49" x="4585.09" y="517.439" width="64" height="64"/>
   <object id="3135" gid="49" x="4523.76" y="580.107" width="64" height="64"/>
   <object id="3151" gid="57" x="2755.33" y="287.333" width="64" height="64"/>
   <object id="3152" gid="57" x="2553.33" y="355.333" width="64" height="64"/>
@@ -416,11 +225,10 @@
   <object id="3155" gid="57" x="3067.33" y="499.333" width="64" height="64"/>
   <object id="3156" gid="57" x="2635.33" y="615.333" width="64" height="64"/>
   <object id="3157" gid="57" x="3007.33" y="333.333" width="64" height="64"/>
-  <object id="3158" gid="57" x="3253.33" y="169.333" width="64" height="64"/>
   <object id="3159" gid="57" x="3205.33" y="67.3333" width="64" height="64"/>
-  <object id="3161" gid="55" x="7129.33" y="326.333" width="64" height="64">
+  <object id="3161" gid="55" x="6157.33" y="354.333" width="64" height="64">
    <properties>
-    <property name="health" type="float" value="200"/>
+    <property name="health" type="float" value="360"/>
    </properties>
   </object>
   <object id="3163" gid="49" x="641.333" y="133.333" width="64" height="64"/>
@@ -449,7 +257,6 @@
   <object id="3197" gid="50" x="1062.33" y="436.333" width="64" height="64"/>
   <object id="3199" gid="50" x="1435.33" y="317.333" width="64" height="64"/>
   <object id="3200" gid="50" x="1461.33" y="263.333" width="64" height="64"/>
-  <object id="3201" gid="50" x="1675.33" y="184.333" width="64" height="64"/>
   <object id="3202" gid="50" x="2151.33" y="369.333" width="64" height="64"/>
   <object id="3203" gid="50" x="2345.33" y="351.333" width="64" height="64"/>
   <object id="3204" gid="50" x="2374.33" y="193.333" width="64" height="64"/>
@@ -459,102 +266,182 @@
   <object id="3210" gid="49" x="978.333" y="560.333" width="64" height="64"/>
   <object id="3211" gid="49" x="1096.33" y="537.333" width="64" height="64"/>
   <object id="3212" gid="49" x="1185.33" y="585.333" width="64" height="64"/>
-  <object id="3213" gid="49" x="1445.33" y="557.333" width="64" height="64"/>
   <object id="3214" gid="49" x="1665.33" y="555.333" width="64" height="64"/>
-  <object id="3215" gid="49" x="1420.33" y="582.333" width="64" height="64"/>
-  <object id="3216" gid="49" x="1331.33" y="553.333" width="64" height="64"/>
   <object id="3217" gid="49" x="1402.33" y="384.333" width="64" height="64"/>
   <object id="3218" gid="49" x="1682.33" y="332.333" width="64" height="64"/>
   <object id="3219" gid="49" x="1795.33" y="94.3333" width="64" height="64"/>
-  <object id="3220" gid="49" x="2051.33" y="91.3333" width="64" height="64"/>
   <object id="3221" gid="49" x="2167.33" y="82.3333" width="64" height="64"/>
   <object id="3222" gid="49" x="2189.33" y="121.333" width="64" height="64"/>
   <object id="3223" gid="49" x="1962.33" y="96.3333" width="64" height="64"/>
   <object id="3224" gid="49" x="1900.33" y="338.333" width="64" height="64"/>
   <object id="3225" gid="49" x="1775.33" y="588.333" width="64" height="64"/>
-  <object id="3226" gid="49" x="1535.33" y="549.333" width="64" height="64"/>
-  <object id="3228" gid="53" x="3933.33" y="323.333" width="64" height="64">
+  <object id="3228" gid="53" x="3558.66" y="543.333" width="64" height="64">
    <properties>
     <property name="type" value="HORIZONTAL"/>
    </properties>
   </object>
-  <object id="3268" gid="68" x="9848" y="574.667" width="64" height="64"/>
-  <object id="3269" gid="68" x="9937.33" y="574.667" width="64" height="64"/>
-  <object id="3270" gid="68" x="10058.7" y="574.667" width="64" height="64"/>
-  <object id="3271" gid="68" x="10141.3" y="572" width="64" height="64"/>
-  <object id="3272" gid="68" x="10318.7" y="572" width="64" height="64"/>
-  <object id="3273" gid="68" x="10476" y="570.667" width="64" height="64"/>
-  <object id="3274" gid="68" x="10585.3" y="566.667" width="64" height="64"/>
-  <object id="3275" gid="68" x="10216" y="574.667" width="64" height="64"/>
-  <object id="3276" gid="68" x="9841.33" y="494.667" width="64" height="64"/>
-  <object id="3277" gid="68" x="9941.33" y="493.333" width="64" height="64"/>
-  <object id="3278" gid="68" x="10029.3" y="500" width="64" height="64"/>
-  <object id="3279" gid="68" x="10129.3" y="500" width="64" height="64"/>
-  <object id="3280" gid="68" x="10256" y="498.667" width="64" height="64"/>
-  <object id="3281" gid="68" x="10384" y="500" width="64" height="64"/>
-  <object id="3282" gid="68" x="10554.7" y="498.667" width="64" height="64"/>
-  <object id="3283" gid="68" x="10448" y="502.667" width="64" height="64"/>
-  <object id="3284" gid="68" x="9850.69" y="160.667" width="64" height="64"/>
-  <object id="3285" gid="68" x="9940.02" y="160.667" width="64" height="64"/>
-  <object id="3286" gid="68" x="10061.4" y="160.667" width="64" height="64"/>
-  <object id="3287" gid="68" x="10144" y="158" width="64" height="64"/>
-  <object id="3288" gid="68" x="10321.4" y="158" width="64" height="64"/>
-  <object id="3289" gid="68" x="10478.7" y="156.667" width="64" height="64"/>
-  <object id="3290" gid="68" x="10588" y="152.667" width="64" height="64"/>
-  <object id="3291" gid="68" x="10218.7" y="160.667" width="64" height="64"/>
-  <object id="3292" gid="68" x="9844.02" y="80.667" width="64" height="64"/>
-  <object id="3293" gid="68" x="9944.02" y="79.333" width="64" height="64"/>
-  <object id="3294" gid="68" x="10032" y="86" width="64" height="64"/>
-  <object id="3295" gid="68" x="10132" y="86" width="64" height="64"/>
-  <object id="3296" gid="68" x="10258.7" y="84.667" width="64" height="64"/>
-  <object id="3297" gid="68" x="10386.7" y="86" width="64" height="64"/>
-  <object id="3298" gid="68" x="10557.4" y="84.667" width="64" height="64"/>
-  <object id="3299" gid="68" x="10450.7" y="88.667" width="64" height="64"/>
-  <object id="3300" gid="58" x="118.788" y="296" width="64" height="64"/>
-  <object id="3301" gid="51" x="10746.3" y="82.3333" width="64" height="64"/>
-  <object id="3302" gid="51" x="10797.3" y="82.3333" width="64" height="64"/>
-  <object id="3303" gid="51" x="10856.3" y="80.3333" width="64" height="64"/>
-  <object id="3304" gid="51" x="10909.3" y="85.3333" width="64" height="64"/>
-  <object id="3305" gid="51" x="10970.3" y="86.3333" width="64" height="64"/>
-  <object id="3306" gid="51" x="10750" y="151" width="64" height="64"/>
-  <object id="3307" gid="51" x="10801" y="151" width="64" height="64"/>
-  <object id="3308" gid="51" x="10860" y="149" width="64" height="64"/>
-  <object id="3309" gid="51" x="10913" y="154" width="64" height="64"/>
-  <object id="3310" gid="51" x="10974" y="155" width="64" height="64"/>
-  <object id="3311" gid="51" x="10752" y="223" width="64" height="64"/>
-  <object id="3312" gid="51" x="10803" y="223" width="64" height="64"/>
-  <object id="3313" gid="51" x="10862" y="221" width="64" height="64"/>
-  <object id="3314" gid="51" x="10915" y="226" width="64" height="64"/>
-  <object id="3315" gid="51" x="10976" y="227" width="64" height="64"/>
-  <object id="3316" gid="51" x="10749.1" y="258.667" width="64" height="64"/>
-  <object id="3317" gid="51" x="10800.1" y="258.667" width="64" height="64"/>
-  <object id="3318" gid="51" x="10859.1" y="256.667" width="64" height="64"/>
-  <object id="3319" gid="51" x="10912.1" y="261.667" width="64" height="64"/>
-  <object id="3320" gid="51" x="10973.1" y="262.667" width="64" height="64"/>
-  <object id="3321" gid="51" x="10752.9" y="327.333" width="64" height="64"/>
-  <object id="3322" gid="51" x="10803.9" y="327.333" width="64" height="64"/>
-  <object id="3323" gid="51" x="10862.9" y="325.333" width="64" height="64"/>
-  <object id="3324" gid="51" x="10915.9" y="330.333" width="64" height="64"/>
-  <object id="3325" gid="51" x="10976.9" y="331.333" width="64" height="64"/>
-  <object id="3326" gid="51" x="10754.9" y="399.333" width="64" height="64"/>
-  <object id="3327" gid="51" x="10805.9" y="399.333" width="64" height="64"/>
-  <object id="3328" gid="51" x="10864.9" y="397.333" width="64" height="64"/>
-  <object id="3329" gid="51" x="10917.9" y="402.333" width="64" height="64"/>
-  <object id="3330" gid="51" x="10978.9" y="403.333" width="64" height="64"/>
-  <object id="3331" gid="51" x="10757.1" y="427.667" width="64" height="64"/>
-  <object id="3332" gid="51" x="10808.1" y="427.667" width="64" height="64"/>
-  <object id="3333" gid="51" x="10867.1" y="425.667" width="64" height="64"/>
-  <object id="3334" gid="51" x="10920.1" y="430.667" width="64" height="64"/>
-  <object id="3335" gid="51" x="10981.1" y="431.667" width="64" height="64"/>
-  <object id="3336" gid="51" x="10760.9" y="496.333" width="64" height="64"/>
-  <object id="3337" gid="51" x="10811.9" y="496.333" width="64" height="64"/>
-  <object id="3338" gid="51" x="10870.9" y="494.333" width="64" height="64"/>
-  <object id="3339" gid="51" x="10923.9" y="499.333" width="64" height="64"/>
-  <object id="3340" gid="51" x="10984.9" y="500.333" width="64" height="64"/>
-  <object id="3341" gid="51" x="10762.9" y="568.333" width="64" height="64"/>
-  <object id="3342" gid="51" x="10813.9" y="568.333" width="64" height="64"/>
-  <object id="3343" gid="51" x="10872.9" y="566.333" width="64" height="64"/>
-  <object id="3344" gid="51" x="10925.9" y="571.333" width="64" height="64"/>
-  <object id="3345" gid="51" x="10986.9" y="572.333" width="64" height="64"/>
+  <object id="3355" gid="31" x="5509.33" y="109.333" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="360"/>
+   </properties>
+  </object>
+  <object id="3357" gid="31" x="7802.67" y="402.667" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="360"/>
+   </properties>
+  </object>
+  <object id="3358" gid="32" x="9352" y="310.667" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3359" gid="32" x="9352" y="410.667" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3360" gid="32" x="9348" y="482.667" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3361" gid="32" x="9346.91" y="559.394" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3363" gid="29" x="1702.67" y="165.333" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="3364" gid="28" x="1821.33" y="166.667" width="64" height="64"/>
+  <object id="3365" gid="28" x="2549.33" y="469.333" width="64" height="64"/>
+  <object id="3366" gid="28" x="3537.33" y="537.333" width="64" height="64"/>
+  <object id="3367" gid="29" x="2549.33" y="509.333" width="64" height="64"/>
+  <object id="3369" gid="44" x="561.333" y="329.333" width="64" height="64"/>
+  <object id="3372" gid="28" x="7400" y="77.3333" width="64" height="64"/>
+  <object id="3373" gid="44" x="7237.33" y="74.6667" width="64" height="64">
+   <properties>
+    <property name="fireRate" type="float" value="1250"/>
+    <property name="health" type="float" value="280"/>
+   </properties>
+  </object>
+  <object id="3374" gid="44" x="7253.33" y="144" width="64" height="64">
+   <properties>
+    <property name="fireRate" type="float" value="1250"/>
+    <property name="health" type="float" value="280"/>
+   </properties>
+  </object>
+  <object id="3375" gid="44" x="7333.33" y="205.333" width="64" height="64">
+   <properties>
+    <property name="fireRate" type="float" value="1250"/>
+    <property name="health" type="float" value="280"/>
+   </properties>
+  </object>
+  <object id="3376" gid="44" x="7434.67" y="206.667" width="64" height="64">
+   <properties>
+    <property name="fireRate" type="float" value="1250"/>
+    <property name="health" type="float" value="280"/>
+   </properties>
+  </object>
+  <object id="3377" gid="44" x="7513.33" y="174.667" width="64" height="64">
+   <properties>
+    <property name="fireRate" type="float" value="1250"/>
+    <property name="health" type="float" value="280"/>
+   </properties>
+  </object>
+  <object id="3378" gid="44" x="7528" y="69.3333" width="64" height="64">
+   <properties>
+    <property name="fireRate" type="float" value="1250"/>
+    <property name="health" type="float" value="280"/>
+   </properties>
+  </object>
+  <object id="3379" gid="33" x="5213.33" y="536" width="64" height="64"/>
+  <object id="3380" gid="33" x="5380" y="460" width="64" height="64"/>
+  <object id="3381" gid="33" x="5133.33" y="373.333" width="64" height="64"/>
+  <object id="3382" gid="32" x="9856.12" y="97.8788" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3383" gid="32" x="9856.12" y="197.879" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3384" gid="32" x="9852.12" y="269.879" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3385" gid="32" x="9860.12" y="373.879" width="64" height="64">
+   <properties>
+    <property name="health" type="float" value="180"/>
+    <property name="velocityX" type="float" value="-150"/>
+   </properties>
+  </object>
+  <object id="3386" gid="27" x="9015.88" y="81.8182" width="64" height="64"/>
+  <object id="3387" gid="27" x="9015.88" y="166.667" width="64" height="64"/>
+  <object id="3388" gid="27" x="9009.82" y="209.091" width="64" height="64"/>
+  <object id="3389" gid="27" x="9006.79" y="242.424" width="64" height="64"/>
+  <object id="3390" gid="27" x="9112.85" y="236.364" width="64" height="64"/>
+  <object id="3391" gid="27" x="9246.18" y="242.424" width="64" height="64"/>
+  <object id="3392" gid="27" x="9246.18" y="245.455" width="64" height="64"/>
+  <object id="3393" gid="27" x="9143.15" y="218.182" width="64" height="64"/>
+  <object id="3394" gid="27" x="9185.58" y="109.091" width="64" height="64"/>
+  <object id="3395" gid="27" x="9288.61" y="181.818" width="64" height="64"/>
+  <object id="3396" gid="27" x="9097.7" y="175.758" width="64" height="64"/>
+  <object id="3397" gid="27" x="9276.48" y="175.758" width="64" height="64"/>
+  <object id="3398" gid="27" x="9652.24" y="239.394" width="64" height="64"/>
+  <object id="3399" gid="27" x="9546.18" y="251.515" width="64" height="64"/>
+  <object id="3400" gid="27" x="9173.45" y="224.242" width="64" height="64"/>
+  <object id="3401" gid="27" x="9161.33" y="166.667" width="64" height="64"/>
+  <object id="3402" gid="27" x="9546.18" y="115.152" width="64" height="64"/>
+  <object id="3403" gid="27" x="9534.06" y="193.939" width="64" height="64"/>
+  <object id="3404" gid="27" x="9440.12" y="227.273" width="64" height="64"/>
+  <object id="3405" gid="27" x="9358.3" y="227.273" width="64" height="64"/>
+  <object id="3406" gid="27" x="9364.36" y="181.818" width="64" height="64"/>
+  <object id="3407" gid="27" x="9406.79" y="121.212" width="64" height="64"/>
+  <object id="3408" gid="27" x="9370.42" y="118.182" width="64" height="64"/>
+  <object id="3409" gid="27" x="9121.94" y="112.121" width="64" height="64"/>
+  <object id="3410" gid="27" x="9103.76" y="112.121" width="64" height="64"/>
+  <object id="3411" gid="27" x="9573.45" y="127.273" width="64" height="64"/>
+  <object id="3412" gid="27" x="9882.55" y="187.879" width="64" height="64"/>
+  <object id="3413" gid="27" x="9873.45" y="215.152" width="64" height="64"/>
+  <object id="3415" gid="53" x="8722.55" y="522.545" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="3416" gid="53" x="9731.64" y="489.212" width="64" height="64">
+   <properties>
+    <property name="type" value="HORIZONTAL"/>
+   </properties>
+  </object>
+  <object id="3417" gid="53" x="10174.1" y="431.636" width="64" height="64">
+   <properties>
+    <property name="type" value="VERTICAL"/>
+   </properties>
+  </object>
+  <object id="3418" gid="53" x="10801.3" y="252.848" width="64" height="64">
+   <properties>
+    <property name="type" value="VERTICAL"/>
+   </properties>
+  </object>
+  <object id="3419" gid="53" x="11280.1" y="146.788" width="64" height="64">
+   <properties>
+    <property name="type" value="VERTICAL"/>
+   </properties>
+  </object>
+  <object id="3421" gid="58" x="98.303" y="325.576" width="64" height="64"/>
+  <object id="3422" gid="29" x="91.3333" y="235.333" width="64" height="64"/>
  </objectgroup>
 </map>
