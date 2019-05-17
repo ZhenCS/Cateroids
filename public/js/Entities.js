@@ -1131,7 +1131,8 @@ export class Leo extends Entity {
         .setTint(0xc43205)
         .setOrigin(0.5)
         .setData('damage', playerDamage)
-        .setScale(initX, initY);
+        .setScale(initX, initY)
+        .setRotation(angle);
 
       setInterval(() => {
         bullet.setScale(initX * scaleMultiplier, initY * scaleMultiplier);
@@ -1140,7 +1141,7 @@ export class Leo extends Entity {
 
       setInterval(() => {
         bullet.destroy();
-      }, 500);
+      }, 350);
       this.heat += 100;
       this.scene.updateAmmo(this.heat);
       bullet.body.setVelocity(xVelocity, yVelocity);

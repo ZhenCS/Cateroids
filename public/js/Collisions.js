@@ -261,7 +261,7 @@ function asteroidToBulletCollision(bullet, asteroid) {
     }
   }
 
-  if (bullet) {
+  if (bullet && bullet.type !== 'beam') {
     bullet.removeColliders();
     this.bullets.killAndHide(bullet);
   }
