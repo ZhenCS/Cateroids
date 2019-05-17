@@ -581,6 +581,7 @@ export class DogWall extends Entity {
     this.secondQuarterHardPoints = false;
     this.thirdQuarterHardPoints = false;
     this.bodySlamming = false;
+    this.barkSoundPlaying = false;
 
     this.play(constants.DOGWALLIDLEKEY);
     this.setScale(2);
@@ -676,6 +677,19 @@ export class DogWall extends Entity {
     }
   }
 
+  playBarkSound() {
+    if (!this.barkSoundPlaying && this.scene != undefined) {
+      this.scene.sound.play(constants.BARKAUDIO, { volume: 0.2 });
+      this.barkSoundPlaying = true;
+
+      setInterval(() => {
+        this.barkSoundPlaying = false;
+      }, 1000);
+    }
+
+    return true;
+  }
+
   /**
    * A body slam attack where the dog wall flies straight down, if the player gets caught in it they die
    * @param {boolean} goLeft If true, body slams on the left side of the screen, otherwise body slam the right
@@ -683,6 +697,7 @@ export class DogWall extends Entity {
   bodySlam(goLeft) {
     if (!this.body) return;
     let targetX;
+    this.scene.sound.play(constants.GROWLAUDIO, { volume: 0.2 });
     if (goLeft) {
       targetX = this.getData('resetX') - this.body.width / 3;
     } else {
@@ -697,6 +712,7 @@ export class DogWall extends Entity {
         false
       )
     );
+    this.plannedActions.push(this.playBarkSound.bind(this));
     this.plannedActions.push(
       this.dogWallMoveTo.bind(
         this,
@@ -1191,6 +1207,10 @@ export class Leo extends Entity {
         this.scene.sound.play(constants.EXPLOSION2AUDIO, { volume: 0.2 });
       } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
         this.setData('health', sceneConfig.maxPlayerHealth);
+      }
+
+      if(Math.random() > 0.9){
+        this.scene.sound.play(constants.MEOWAUDIO, { volume: 0.2 });
       }
     }
 

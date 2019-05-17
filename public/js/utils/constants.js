@@ -106,7 +106,11 @@ export const GRAPPLEAWAYAUDIO = 'sendGrapple';
 export const GRAPPLING = 'grappling';
 export const DYINGAUDIO = 'dying';
 export const BOOSTAUDIO = 'boost';
-export const OXYGENLOWAUDIO = 'lowOxygen'
+export const OXYGENLOWAUDIO = 'lowOxygen';
+
+export const MEOWAUDIO = 'meow-noise';
+export const BARKAUDIO = 'bark-noise';
+export const GROWLAUDIO = 'growl-noise';
 
 export const SPACE_BACKGROUND1 = 'spaceBackground1';
 export const SPACE_BACKGROUND2 = 'spaceBackground2';
