@@ -109,16 +109,16 @@ function setBackground(scene, mode) {
     let bgWidth = scene.game.config.width;
     let bgHeight = scene.game.config.height;
     scene.spaceBackground = scene.add
-                                .tileSprite(
-                                  0,
-                                  0,
-                                  bgWidth,
-                                  bgHeight,
-                                  constants[`SPACE_BACKGROUND${Phaser.Math.Between(1, 3)}`]
-                                )
-                                .setDisplayOrigin(0, 0)
-                                .setScrollFactor(0, 0)
-                                .setDepth(-1);
+      .tileSprite(
+        0,
+        0,
+        bgWidth,
+        bgHeight,
+        constants[`SPACE_BACKGROUND${Phaser.Math.Between(1, 3)}`]
+      )
+      .setDisplayOrigin(0, 0)
+      .setScrollFactor(0, 0)
+      .setDepth(-1);
   } else if (mode == 'DEFEND') {
     let bgWidth = scene.gameConfig.worldWidth;
     let bgHeight = scene.gameConfig.worldHeight;

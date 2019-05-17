@@ -90,7 +90,7 @@ export class Asteroid extends Entity {
         duration: Phaser.Math.Between(80000, 100000),
         angle: Math.random() < 0.5 ? -360 : 360,
         loop: -1,
-        pause: false,
+        paused: false,
         callbackScope: this
       });
     }
@@ -898,6 +898,33 @@ export class Leo extends Entity {
     this.deadSoundPlaying = false;
     this.boostSoundPlaying = false;
 
+    let bgWidth = scene.game.config.width;
+    let bgHeight = scene.game.config.height;
+    this.damagedOverlay = scene.add
+      .tileSprite(
+        0,
+        0,
+        bgWidth,
+        bgHeight,
+        constants.DAMAGED
+      )
+      .setDisplayOrigin(0, 0)
+      .setScale(bgWidth/800, bgHeight/600)
+      .setScrollFactor(0, 0)
+      .setDepth(gameDepths.uiDepth)
+      .setTint(0xe00000)
+      .setVisible(false);
+    
+      this.overlayFlash = this.scene.tweens.add({
+        targets: this.damagedOverlay,
+        duration: 1000,
+        alpha: 0,
+        loop: -1,
+        paused: true,
+        callbackScope: this
+      });
+      
+
     this.ammoRefil(scene);
   }
 
@@ -1142,9 +1169,10 @@ export class Leo extends Entity {
     const isInvulnerable = cheats.invulnerable;
     if (!isInvulnerable) {
       this.setData('health', this.getData('health') - damage);
-      if (this.getData('health') < 100) {
+      if (this.getData('health') < 0) {
         this.setData('health', 0);
         // dead
+        this.play(constants.DYINGKEY);
         this.scene.sound.play(constants.EXPLOSION2AUDIO, { volume: 0.2 });
       } else if (this.getData('health') > sceneConfig.maxPlayerHealth) {
         this.setData('health', sceneConfig.maxPlayerHealth);
@@ -1172,6 +1200,8 @@ export class Leo extends Entity {
     if (this.getData('oxygen') < 0) {
       this.setData('oxygen', 0);
       this.damage(sceneConfig.oxygenDamage);
+      this.damagedOverlay.setVisible(true);
+      this.overlayFlash.resume();
     } else if (this.getData('oxygen') > sceneConfig.maxPlayerOxygen) {
       this.setData('oxygen', sceneConfig.maxPlayerOxygen);
     }
@@ -1282,6 +1312,8 @@ export class Leo extends Entity {
       this.setRotation(this.rotation * 0.8);
       this.setData('oxygenAsteroid', null);
     } else {
+      this.damagedOverlay.setVisible(false);
+      this.overlayFlash.pause();
       let oxygenAsteroid = this.getData('oxygenAsteroid');
 
       if (oxygenAsteroid && oxygenAsteroid.getData('level') !== 4)
