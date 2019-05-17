@@ -202,7 +202,7 @@ export class Dog extends Entity {
       this.body.setVelocity(velocity[0], velocity[1]);
     }
     if(Math.random() > 0.8)
-      scene.sound.play(constants.BARK2AUDIO, { volume: 0.05 * level });
+      scene.sound.play(constants.BARK2AUDIO, { volume: 0.03 * level });
   }
 
   damage(damage) {
@@ -1001,12 +1001,12 @@ export class Leo extends Entity {
 
   playDamagedSound() {
     if (!this.damagedSoundPlaying) {
-      this.scene.sound.play(constants.MEOWAUDIO, { volume: 0.2 });
+      this.scene.sound.play(constants.MEOWAUDIO, { volume: 0.1 });
       this.damagedSoundPlaying = true;
 
       setInterval(() => {
         this.damagedSoundPlaying = false;
-      }, 1000);
+      }, 2500);
     }
   }
 
