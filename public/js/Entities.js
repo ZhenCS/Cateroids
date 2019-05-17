@@ -465,8 +465,10 @@ class DogWallWeapon extends Entity {
   }
 
   beginGarbageExpulsion() {
+    if (!this.body) return;
     this.performingAction = true;
     this.once('animationcomplete', function() {
+      if (!this.body) return;
       this.performingAction = false;
       this.parentEntity.emit('garbageLaunched');
       this.setTexture(constants.DOGWALLWEAPONKEY);
@@ -480,6 +482,7 @@ class DogWallWeapon extends Entity {
   }
 
   fireLaser() {
+    if (!this.body) return;
     this.performingAction = true;
     this.laserFiring = true;
     let laserToFire = new Laser(
@@ -509,7 +512,7 @@ class DogWallWeapon extends Entity {
   }
 
   update() {
-    if (!this.scene) return;
+    if (!this.scene || !this.body) return;
 
     if (!this.performingAction && this.isMoving) {
       if (
@@ -581,6 +584,7 @@ export class DogWall extends Entity {
   }
 
   damage(damage) {
+    if (!this.body) return;
     let health = this.getData('health');
 
     this.setData('health', health - damage);
@@ -593,6 +597,7 @@ export class DogWall extends Entity {
   }
 
   onDestroy() {
+    
     this.weapon.destroy();
     let hardPointLength = this.hardPoints.length;
     for (let i = 0; i < hardPointLength; i++) {
@@ -605,6 +610,7 @@ export class DogWall extends Entity {
    * Method to be called every frame
    */
   update() {
+    if (!this.body) return;
     if (this.firstUpdate) {
       this.spawnHardPoints();
       this.firstUpdate = false;
@@ -724,6 +730,7 @@ export class DogWall extends Entity {
    * @param {number} velocity Velocity to move at, must be positive
    */
   dogWallMoveTo(x, y, velocity, lastMove) {
+    if (!this.body) return;
     console.assert(velocity > 0, 'Error, dog wall given an invalid velocity');
     let epsilon = 0.05;
     let deltaX;
@@ -764,6 +771,7 @@ export class DogWall extends Entity {
    * Expels a bunch of garbage (asteroids) in front of the dog wall
    */
   expelGarbage() {
+    if (!this.body) return;
     if (!this.garbageExpelled) {
       // play an animation, then spawn a bunch of asteroids
       // Start animation on the dog wall weapon
@@ -823,10 +831,12 @@ export class DogWall extends Entity {
   }
 
   getWeaponLocation() {
+    if (!this.weapon) return;
     return { x: this.weapon.x, y: this.weapon.y };
   }
 
   spawnHardPoints() {
+    if (!this.body) return;
     // (x = 28 + 44, ymin = 375), (x = 190 + 41, ymin = 359), (x = 943 + 41, ymin = 359), (x = 1099 + 44, ymin = 375)
     let spawnPoints = [
       { x: 72, y: 414 },
@@ -862,6 +872,7 @@ export class DogWall extends Entity {
   }
 
   activateLaserMover() {
+    if (!this.weapon) return;
     // Turn on laser mover
     this.weapon.beginMovement();
     return true;
