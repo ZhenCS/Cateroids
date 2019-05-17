@@ -578,6 +578,9 @@ export class DogWall extends Entity {
     this.secondQuarterHardPoints = false;
     this.thirdQuarterHardPoints = false;
     this.bodySlamming = false;
+
+    this.play(constants.DOGWALLIDLEKEY);
+    this.setScale(2);
   }
 
   damage(damage) {

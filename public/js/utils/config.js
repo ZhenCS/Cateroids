@@ -42,6 +42,7 @@ let currentLevel = {
 
 let playerStars = 0;
 let stars = initStars();
+let endOfGame = false;
 
 function initStars() {
   let stars = new Array();
@@ -71,8 +72,8 @@ const playerUpgrades = [
 const upgradeRates = {
   Health: 100,
   Damage: 5,
-  OxygenDepletion: 1 / 50,
-  OxygenReplenish: 2 / 50,
+  OxygenDepletion: 5 / 100,
+  OxygenReplenish: 10 / 100,
   BulletSize: 0.1,
   ExtraAmmo: 1,
   FireRate: 5,
@@ -158,11 +159,11 @@ const gameConfig = {
   oxygenAsteroidDamage: 4,
   //when oxygen is 0, damage to health
   oxygenDamage: 2,
-  oxygenDepletionDelay: 50,
-  oxygenDepletionRate: 25 / 100, //changed by upgrades
+  oxygenDepletionDelay: 100,
+  oxygenDepletionRate: 50 / 100, //changed by upgrades
 
-  oxygenReplenishDelay: 50,
-  oxygenReplenishRate: 90 / 100, //changed by upgrades
+  oxygenReplenishDelay: 10,
+  oxygenReplenishRate: 40 / 100, //changed by upgrades
 
   laserDamage: 3,
   laserDuration: 2500,

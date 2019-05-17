@@ -21,6 +21,7 @@ export class SceneMain extends Phaser.Scene {
       // Can be increased if we need more than 2000 on screen at once
       let bullet = new Bullet(this);
       bullet.setActive(false);
+      bullet.setVisible(false);
       this.bullets.add(bullet);
     }
     this.asteroids = this.add.group();
@@ -169,6 +170,12 @@ export class SceneMain extends Phaser.Scene {
       this.sound.stopAll();
       if (currentLevel.level >= constants.LEVELS) {
         //end of game
+        if(!endOfGame){        
+          this.cameras.main.fadeOut(5000, 255, 255, 255, function(){
+            
+          },this);
+          endOfGame = true;
+        }
       } else {
         //this.scene.restart();
         this.game.scene.start(constants.GOALKEY, { scene: this });

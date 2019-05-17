@@ -117,7 +117,7 @@ function initUpgrades(scene) {
   scene.gameConfig.playerDamage =
     gameConfig.playerDamage + upgradeRates.Damage * playerUpgrades[1][1];
   scene.gameConfig.oxygenDepletionRate =
-    gameConfig.oxygenDepletionRate +
+    gameConfig.oxygenDepletionRate -
     upgradeRates.OxygenDepletion * playerUpgrades[2][1];
   scene.gameConfig.oxygenReplenishDelay =
     gameConfig.oxygenReplenishDelay -
@@ -323,7 +323,18 @@ function initAnimations(scene) {
   var dogIndices = [[1, 7], [8, 8], [9, 11], [12, 15], [15, 15]];
   var animData = [[2, -1], [4, 0], [4, 0], [4, 0], [4, 0]];
   var weaponKeys = [1, 5];
-
+  
+  scene.anims.create({
+    key: constants.DOGWALLIDLEKEY,
+    frames: scene.anims.generateFrameNames(constants.DOGWALLATLASKEY, {
+      prefix: constants.SPRITEPREFIXKEY,
+      start: 1,
+      end: 8,
+      zeroPad: 0
+    }),
+    repeat: -1,
+    frameRate: 8
+  });
   scene.anims.create({
     key: constants.OXYGENBREAKINGKEY,
     frames: scene.anims.generateFrameNames(constants.OXYGENATLASKEY, {

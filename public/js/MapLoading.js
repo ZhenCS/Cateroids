@@ -57,25 +57,8 @@ function setLevelProperties(scene, map) {
     scene.spawningWaves = false;
   }
 
-  //scene.gameConfig.maxPlayerHealth = getPropertyValue(map, 'maxPlayerHealth');
-  scene.gameConfig.maxPlayerOxygen = getPropertyValue(map, 'maxPlayerOxygen');
   scene.player.setData('health', scene.gameConfig.maxPlayerHealth);
   scene.player.setData('oxygen', scene.gameConfig.maxPlayerOxygen);
-
-  /*scene.gameConfig.oxygenDepletionDelay = getPropertyValue(
-    map,
-    'oxygenDepletionDelay'
-  );*/
-  /*scene.gameConfig.oxygenDepletionRate = getPropertyValue(
-    map,
-    'oxygenDepletionRate'
-  );*/
-  /*scene.gameConfig.oxygenReplenishDelay =
-    getPropertyValue(map, 'oxygenReplenishDelay') ||
-    gameConfig.oxygenReplenishDelay;
-  scene.gameConfig.oxygenReplenishRate =
-    getPropertyValue(map, 'oxygenReplenishRate') ||
-    gameConfig.oxygenDepletionRate;*/
 }
 
 function setCamera(scene, mode) {
