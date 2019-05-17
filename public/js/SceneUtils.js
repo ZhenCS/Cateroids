@@ -104,8 +104,7 @@ function updateCamera(scene, mode) {
         sceneConfig.worldHeight + 2 * offsetY
       );
 
-      scene.spaceBackground.tilePositionX = scroll;
-      scene.spaceBackground.tilePositionY = scene.cameras.main.scrollY;
+      scene.spaceBackground.tilePositionX = scroll/5;
     }
   }
 }

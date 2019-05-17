@@ -136,6 +136,9 @@ function enemyBulletCollisionCallback(bullet, dog) {
     if (dog) {
       if (dog.getData('health') - bullet.getData('damage') <= 0) {
         // Add to score for destroying enemy
+        if (key == constants.DOG4ATLASKEY) {
+          this.addScore(1200);
+        }
         if (key == constants.DOG3ATLASKEY) {
           this.addScore(1000);
         }
@@ -184,7 +187,7 @@ export const checkEnemyToBulletCollision = (scene, bullet) => {
             }
           }
 
-          if (bullet && bullet.type !== 'plasma') {
+          if (bullet) {
             bullet.removeColliders();
             this.bullets.killAndHide(bullet);
           }

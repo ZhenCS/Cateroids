@@ -106,12 +106,12 @@ function setCamera(scene, mode) {
 
 function setBackground(scene, mode) {
   if (mode == 'RUN') {
-    let bgWidth = scene.game.config.width;
-    let bgHeight = scene.game.config.height;
+    let bgWidth = (scene.gameMap.width * 32);
+    let bgHeight = scene.gameConfig.worldHeight;
     scene.spaceBackground = scene.add
       .tileSprite(
         0,
-        0,
+        scene.gameConfig.worldOffsetY,
         bgWidth,
         bgHeight,
         constants[`SPACE_BACKGROUND${Phaser.Math.Between(1, 3)}`]

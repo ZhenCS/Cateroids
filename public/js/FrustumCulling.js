@@ -1,9 +1,9 @@
 function getMaxLength(scene) {
   return (
-    1.2 *
+    1 *
     Math.sqrt(
-      Math.pow(scene.game.config.width * 0.5, 2) +
-        Math.pow(scene.game.config.height * 0.5, 2)
+      Math.pow(scene.game.config.width, 2) +
+        Math.pow(scene.game.config.height, 2)
     )
   );
 }
@@ -73,9 +73,9 @@ export function oxygenAsteroidCulling(scene) {
     if (
       Phaser.Math.Distance.Between(
         asteroid.x,
-        asteroid.y,
+        0,
         scene.player.x,
-        scene.player.y
+        0
       ) > getMaxLength(scene) &&
       asteroid.x < scene.player.x
     ) {
