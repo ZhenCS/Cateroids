@@ -10,6 +10,7 @@ import { GameOverScene } from './scenes/GameOverScene.js';
 import { CheatMenuScene } from './scenes/CheatMenuScene.js';
 import { GoalScene } from './scenes/GoalScene.js';
 import { UpgradeScene } from './scenes/UpgradeScene.js';
+import { EndScene } from './scenes/EndScene.js';
 
 const config = {
   type: Phaser.WEBGL,
@@ -33,7 +34,8 @@ const config = {
     CheatMenuScene,
     GameOverScene,
     GoalScene,
-    UpgradeScene
+    UpgradeScene,
+    EndScene
   ],
   disableContextMenu: true,
   pixelArt: false,

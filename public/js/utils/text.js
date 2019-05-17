@@ -34,3 +34,20 @@ const helpText4 = [
   'of troops to defeat Leonardo.'
 ];
 const helpText5 = ['Developers:', 'Alex Espinal', 'Kyle Simon', 'Zheng Lu'];
+
+const endText1 = [
+  'Leonardo DaCatmeow has finally defeated',
+  'the evil Galactic Pawpire.',
+  'He returned to his home planet and',
+  'has saved his people!',
+  'Leo is crown a hero for the entire feline race'
+];
+
+const endText2 = [
+  'Leo lives a peaceful life on a farm',
+  'with his wife and his 23 children',
+];
+
+const endText3 = [
+  'Thank you for playing'
+];

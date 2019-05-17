@@ -19,6 +19,7 @@ const gameStyles = {
   baseColor: 0x4ef442,
   basePadding: 50,
   starTint: 0xfbff42,
+  starTintLocked: 0x505151,
   bossColor: 0x7851a9,
   bossPadding: 50,
   upgradeColor: 0x99ff99,

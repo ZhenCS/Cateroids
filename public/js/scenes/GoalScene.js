@@ -203,8 +203,8 @@ export class GoalScene extends Phaser.Scene {
   setText(scene, y, text, completed) {
     let displayText = scene.add.text(0, y, text, {
       font: `${50 * gameScale.scale}px Georgia`,
-      fill: completed ? '#45f442' : '#000000',
-      stroke: completed ? '#45f442' : '#000000',
+      fill: completed ? '#096001' : '#000000',
+      stroke: completed ? '#096001' : '#000000',
       strokeThickness: 1
     });
 

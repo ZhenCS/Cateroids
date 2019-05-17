@@ -9,6 +9,7 @@ export class LevelSelectScene extends Phaser.Scene {
   create() {
     this.starCount = 0;
     this.stars = new Array();
+    this.levelTexts = new Array();
 
     setBG(this);
     setGameName(this);
@@ -53,6 +54,7 @@ export class LevelSelectScene extends Phaser.Scene {
 
   update(){
       this.updateStars();
+      this.unlockLevels();
   }
 
   createLevelIcon(id, x, y) {
@@ -63,9 +65,11 @@ export class LevelSelectScene extends Phaser.Scene {
       `${id}`,
       {
         font: `${90 * gameScale.scale}px impact`,
-        fill: '#000000'
+        fill: (id == 1 || stars[id - 1][0]) ? '#000000' : '#8e0000'
       }
     );
+
+    this.levelTexts[id] = iconText;
 
     const menuSelectSound = this.sound.add(constants.MENUSELECT);
     const menuHoverSound = this.sound.add(constants.MENUMOVE);
@@ -121,11 +125,22 @@ export class LevelSelectScene extends Phaser.Scene {
     return iconContainer;
   }
 
+  unlockLevels(){
+    for(var id = 1; id < constants.LEVELS; id++){
+      this.levelTexts[id].setFill((id == 1 || stars[id - 1][0]) ? '#000000' : '#8e0000');
+    }
+  }
+
   updateStars(){
     for(var i = 1; i <= constants.LEVELS; i++){
       for(var k = 0; k < 3; k++){
-        if(stars[i][k])
+        if(stars[i][k]){
           this.stars[i][k].tint = gameStyles.starTint;
+        }else if(i > 1 && !stars[i - 1][0]){
+          this.stars[i][k].tint = gameStyles.starTintLocked;
+        }else{
+          this.stars[i][k].clearTint();
+        }
       }
     }
   }
